@@ -1,3 +1,4 @@
+import os
 import json
 import torch
 import numpy as np
@@ -39,6 +40,7 @@ def pre_sim(args):
     model = AutoModelForMaskedLM.from_pretrained(model_path,
                                                 return_dict=True,
                                                 output_hidden_states=True)
+    model = model.to(args.device)
     # create output folder
     if not os.path.exists("./embed"): os.makedirs("./embed")
     output_path = os.path.join("./embed", args.simulate_model)
@@ -46,15 +48,17 @@ def pre_sim(args):
 
     # create empty tensor
     test_output =  model(**tokenizer("test", return_tensors='pt'))
-    feat_dim = test_output.hiddenstates[0].shape[2]  # 768 or 1024
+    feat_dim = test_output.hidden_states[0].shape[2]  # 768 or 1024
     embeddings = []
     for l in langs:
         embeddings.append(np.zeros((len(entities), feat_dim)))
     # calculate embedding
     for e_idx in tqdm(range(len(entities))):
         for l_idx in range(len(langs)):
-            tmp_text = entities[eidx]["labels"][langs[l_idx]]["value"]
-            tmp_embed = model(**tokenizer(tmp_text, return_tensors='pt')).hidden_states[-1]
+            tmp_text = entities[e_idx]["labels"][langs[l_idx]]["value"]
+            input_embed = tokenizer(tmp_text, return_tensors='pt')
+            input_embed = input_embed.to(args.device)
+            tmp_embed = model(**input_embed).hidden_states[-1]
             tmp_embed = tmp_embed.cpu().detach().numpy()
             tmp_embed = aggregate_tokens(tmp_embed)
             embeddings[l_idx][e_idx] = tmp_embed
