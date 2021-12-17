@@ -25,7 +25,7 @@ def sim_metric(feat_1, feat_2, metric="cos"):
     return tmp_dist/feat_1.shape[0]
 
 
-def preexp_label(args):
+def preexp(args):
     # set languages
     langs = ["en", "de", "fr", "ar", "zh"]
     # load data
@@ -40,6 +40,7 @@ def preexp_label(args):
                                                 return_dict=True,
                                                 output_hidden_states=True)
     # create output folder
+    if not os.path.exists("./embed"): os.makedirs("./embed")
     output_path = os.path.join("./embed", args.simulate_model)
     if not os.path.exists(output_path): os.makedirs(output_path)
 
@@ -62,6 +63,9 @@ def preexp_label(args):
         embed = np.sum(embeddings[l_idx], axis=1)
         if 0 in embed:
             print("Warning, check embedding for language: ", langs[l_idx])
+    # save embedding
+    for l_idx in range(len(langs)):
+        np.save(os.path.join(output_path, langs[l_idx]+".npy"), embeddings)
     # calculate similarity
     dist_matrix = np.zeros((len(langs), len(langs)))
     print(langs)
