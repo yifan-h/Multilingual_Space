@@ -1,13 +1,13 @@
 import argparse
 
 from preprocessing import preprocess_clean, preprocess_pre
-from preexp import preexp
+from preexp import pre_sim
 
 
 def main_func(args):
     # preprocess_clean(args)  ## clean wikidata entities
     # preprocess_pre(args)  # clean a subset of wikidata entities for pre-experiment
-    preexp(args)  # calculate entity label embedding (store in ./embed)
+    pre_sim(args)  # calculate entity label embedding (store in ./embed)
 
 
 if __name__ == "__main__":

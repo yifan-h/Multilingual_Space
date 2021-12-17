@@ -25,7 +25,7 @@ def sim_metric(feat_1, feat_2, metric="cos"):
     return tmp_dist/feat_1.shape[0]
 
 
-def preexp(args):
+def pre_sim(args):
     # set languages
     langs = ["en", "de", "fr", "ar", "zh"]
     # load data
