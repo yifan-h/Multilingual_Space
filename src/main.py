@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     # data
     parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata",
-                        help="The input data directory.")
+                        help="the input data directory.")
     parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/",
                         help="The stored model directory.")
     parser.add_argument("--simulate_model", type=str, default="xlm-roberta-base",
