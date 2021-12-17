@@ -47,7 +47,7 @@ def pre_sim(args):
     if not os.path.exists(output_path): os.makedirs(output_path)
 
     # create empty tensor
-    test_output =  model(**tokenizer("test", return_tensors='pt'))
+    test_output =  model(**tokenizer("test", return_tensors='pt').to(args.device))
     feat_dim = test_output.hidden_states[0].shape[2]  # 768 or 1024
     embeddings = []
     for l in langs:
