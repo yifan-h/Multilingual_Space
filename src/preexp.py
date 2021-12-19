@@ -19,18 +19,18 @@ def aggregate_tokens(embed, metric="mean"):
     return np.squeeze(np.mean(embed, axis=1))
 
 
-def sim_metric(feat_1, feat_2, metric="cos"):
+def sim_metric(feat_1, feat_2, metric="euc"):
     tmp_dist = 0
-    for i in range(feat_1.shape[0]):
-        tmp_dist += cosine(feat_1[i], feat_2[i])
+    if metric == "euc"
+        for i in range(feat_1.shape[0]):
+            tmp_dist += euclidean(feat_1[i], feat_2[i])
+    else:
+        for i in range(feat_1.shape[0]):
+            tmp_dist += cosine(feat_1[i], feat_2[i])
     return tmp_dist/feat_1.shape[0]
 
 
-def pre_sim(args):
-    # set languages
-    langs = ["en", "de", "fr", "ar", "zh"]
-    # load data
-    entities = open_data(os.path.join(args.data_dir, "latest_pre.json"))
+def get_embedding(args, langs, entities):
     # load model
     if len(args.model_dir): 
         model_path = os.path.join(args.model_dir, args.simulate_model)
@@ -41,11 +41,6 @@ def pre_sim(args):
                                                 return_dict=True,
                                                 output_hidden_states=True)
     model = model.to(args.device)
-    # create output folder
-    if not os.path.exists("./embed"): os.makedirs("./embed")
-    output_path = os.path.join("./embed", args.simulate_model)
-    if not os.path.exists(output_path): os.makedirs(output_path)
-
     # create empty tensor
     test_output =  model(**tokenizer("test", return_tensors='pt').to(args.device))
     feat_dim = test_output.hidden_states[0].shape[2]  # 768 or 1024
@@ -62,15 +57,37 @@ def pre_sim(args):
             tmp_embed = tmp_embed.cpu().detach().numpy()
             tmp_embed = aggregate_tokens(tmp_embed)
             embeddings[l_idx][e_idx] = tmp_embed
-    # check missing features
-    for l_idx in range(len(langs)):
-        embed = np.sum(embeddings[l_idx], axis=1)
-        if 0 in embed:
-            print("Warning, check embedding for language: ", langs[l_idx])
-    # save embedding
-    for l_idx in range(len(langs)):
-        np.save(os.path.join(output_path, langs[l_idx]+".npy"), embeddings)
+    return embeddings
+
+def pre_sim(args):
+    # set languages
+    langs = ["en", "de", "fr", "ar", "zh"]
+    # load data
+    entities = open_data(os.path.join(args.data_dir, "latest_pre.json"))
+
+    # create output folder
+    if not os.path.exists("./embed"): os.makedirs("./embed")
+    output_path = os.path.join("./embed", args.simulate_model)
+    # get embedding
+    print("start to calculate embedding...")
+    if not os.path.exists(output_path): 
+        os.makedirs(output_path)
+        embeddings = get_embedding(args, langs, entities)
+        # check missing features
+        for l_idx in range(len(langs)):
+            embed = np.sum(embeddings[l_idx], axis=1)
+            if 0 in embed:
+                print("Warning, check embedding for language: ", langs[l_idx])
+        # save embedding
+        for l_idx in range(len(langs)):
+            np.save(os.path.join(output_path, langs[l_idx]+".npy"), embeddings)
+    else:
+        embeddings = []
+        for l in langs:
+            embeddings.append(np.load(os.path.join(output_path, l+".npy")))
+
     # calculate similarity
+    print("start to calculate distance...")
     dist_matrix = np.zeros((len(langs), len(langs)))
     print(langs)
     for i in range(len(langs)):
