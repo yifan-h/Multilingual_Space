@@ -19,9 +19,9 @@ def aggregate_tokens(embed, metric="mean"):
     return np.squeeze(np.mean(embed, axis=1))
 
 
-def sim_metric(feat_1, feat_2, metric="euc"):
+def sim_metric(feat_1, feat_2, metric="cos"):
     tmp_dist = 0
-    if metric == "euc"
+    if metric == "euc":
         for i in range(feat_1.shape[0]):
             tmp_dist += euclidean(feat_1[i], feat_2[i])
     else:
@@ -65,13 +65,11 @@ def pre_sim(args):
     # load data
     entities = open_data(os.path.join(args.data_dir, "latest_pre.json"))
 
-    # create output folder
-    if not os.path.exists("./embed"): os.makedirs("./embed")
-    output_path = os.path.join("./embed", args.simulate_model)
     # get embedding
     print("start to calculate embedding...")
-    if not os.path.exists(output_path): 
-        os.makedirs(output_path)
+    output_path = os.path.join("./embed", args.simulate_model+".npy")
+    if not os.path.exists("./embed"): 
+        os.makedirs("./embed")
         embeddings = get_embedding(args, langs, entities)
         # check missing features
         for l_idx in range(len(langs)):
@@ -80,17 +78,26 @@ def pre_sim(args):
                 print("Warning, check embedding for language: ", langs[l_idx])
         # save embedding
         for l_idx in range(len(langs)):
-            np.save(os.path.join(output_path, langs[l_idx]+".npy"), embeddings)
+            np.save(output_path, embeddings)
     else:
         embeddings = []
-        for l in langs:
-            embeddings.append(np.load(os.path.join(output_path, l+".npy")))
+        tmp_embed = np.load(output_path)
+        for l_idx in range(len(langs)):
+            embeddings.append(tmp_embed[l_idx])
 
     # calculate similarity
     print("start to calculate distance...")
     dist_matrix = np.zeros((len(langs), len(langs)))
+    random_baselines = np.zeros((len(langs), len(langs)))
     print(langs)
     for i in range(len(langs)):
         for j in range(len(langs)):
             dist_matrix[i,j] = sim_metric(embeddings[i], embeddings[j])
     print(dist_matrix)
+    # calculate random shuffle distance
+    for i in range(len(langs)):
+        for j in range(len(langs)):
+            shuffle_embedding = 0 + embeddings[j]  # hard copy
+            np.random.shuffle(shuffle_embedding)
+            random_baselines[i,j] = sim_metric(embeddings[i], shuffle_embedding)
+    print(random_baselines)
