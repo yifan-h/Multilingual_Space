@@ -48,7 +48,10 @@ def sim_metric(args, feat_1, feat_2, metric="cos", train_shuffle=False):
         # negative sampling
         neg_sample_num = 20
         # define model
-        model = preexp_retrieval(feat_1.shape[1]).to(args.device)
+        if args.mapping_model == "1_layer":
+            model = preexp_retrieval(feat_1.shape[1]).to(args.device)
+        else:
+            model = preexp_retrieval(feat_1.shape[1]).to(args.device)
         optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
         loss_fcn = torch.nn.BCELoss()
         # training
@@ -127,8 +130,8 @@ def pre_static_dist(args):
 
     # get embedding
     print("start to calculate embedding...")
-    output_path = os.path.join("./embed_entity", args.simulate_model+".npy")
-    if not os.path.exists("./embed_entity"): os.makedirs("./embed_entity")
+    output_path = os.path.join("./embed_labels", args.simulate_model+".npy")
+    if not os.path.exists("./embed_labels"): os.makedirs("./embed_labels")
     if not os.path.exists(output_path):
         embeddings = get_embedding(args, langs, entities)
         # check missing features
@@ -171,10 +174,14 @@ def pre_mapping_dist(args):
 
     # get embedding
     print("start to calculate embedding...")
-    output_path = os.path.join("./embed_description", args.simulate_model+".npy")
-    if not os.path.exists("./embed_description"): os.makedirs("./embed_description")
+    if args.data_type == "labels":
+        output_path = os.path.join("./embed_labels", args.simulate_model+".npy")
+        if not os.path.exists("./embed_labels"): os.makedirs("./embed_labels")
+    else:
+        output_path = os.path.join("./embed_descriptions", args.simulate_model+".npy")
+        if not os.path.exists("./embed_descriptions"): os.makedirs("./embed_descriptions")
     if not os.path.exists(output_path):
-        embeddings = get_embedding(args, langs, entities, "descriptions")
+        embeddings = get_embedding(args, langs, entities, args.data_type)
         # check missing features
         for l_idx in range(len(langs)):
             embed = np.sum(embeddings[l_idx], axis=1)

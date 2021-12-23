@@ -21,6 +21,10 @@ if __name__ == "__main__":
                         help="The stored model directory.")
     parser.add_argument("--simulate_model", type=str, default="xlm-roberta-base",
                         help="multilingual LMs to analyze")
+    parser.add_argument("--mapping_model", type=str, default="1_layer",
+                        help="multilingual LMs to analyze")
+    parser.add_argument("--data_type", type=str, default="labels",
+                        help="multilingual LMs to analyze")
 
     # model
     parser.add_argument("--device", type=int, default=-1,
