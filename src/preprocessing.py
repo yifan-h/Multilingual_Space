@@ -2,8 +2,12 @@ import os
 import sys
 import bz2
 import json
+import numpy as np
 from tqdm import tqdm
 from multiprocessing import Pool
+from gensim.models import Word2Vec
+from sklearn.manifold import TSNE
+import matplotlib.pyplot as plt
 
 
 def multithread_write(idx, n, file_list, input_folder, output_folder):
@@ -85,3 +89,83 @@ def preprocess_pre(args):
                     # write data
                     w_file.write(json.dumps(new_entity))
                     w_file.write("\n")
+
+
+def pre_cooccurrence(args):
+    input_path = os.path.join(args.data_dir, "latest_all_clean.json")
+    output_stats_path = os.path.join(args.data_dir, "statistics", "count.json")
+    output_idx_path = os.path.join(args.data_dir, "statistics", "idx.json")
+    output_fig_path = os.path.join(args.data_dir, "statistics", "tsne.pdf")
+    output_emb_path = os.path.join(args.data_dir, "statistics", "emb.npy")
+    count_dict = {}
+    cooccur_dict = {}
+    with open(input_path, "r") as f:
+        for line in tqdm(f):
+            tmp_data = json.loads(line)
+            tmp_langs = []
+            for k in tmp_data["labels"]:
+                # count_dict
+                if k not in count_dict:
+                    count_dict[k] = 1
+                else:
+                    count_dict[k] += 1
+                tmp_langs.append(k)
+            # cooccur_dict
+            for i in range(len(tmp_langs)):
+                for j in range(i+1, len(tmp_langs)):
+                    l1 = tmp_langs[i]
+                    l2 = tmp_langs[j]
+                    if l1+"_"+l2 not in cooccur_dict:
+                        cooccur_dict[l1+"_"+l2] = 1
+                    else:
+                        cooccur_dict[l1+"_"+l2] += 1
+    print(cooccur_dict, count_dict)
+    sents = []
+    for k, v in tqdm(cooccur_dict.items()):
+        for i in range(v):
+            sents.append(k.split("_"))
+    word_model = local_model = Word2Vec(sents, 
+                                        vector_size=128, 
+                                        window=2, 
+                                        min_count=10, 
+                                        sg=1, 
+                                        hs=1, 
+                                        workers=20)
+    # save numpy array
+    save_dict = {}
+    idx_dict = {}
+    tmp_count = 0
+    for k, v in count_dict.items():
+        if v >= 10:
+            save_dict[k] = v
+            idx_dict[k] = tmp_count
+            tmp_count += 1
+    with open(output_stats_path, "w") as f:
+        f.write(json.dumps(save_dict))
+    with open(output_idx_path, "w") as f:
+        f.write(json.dumps(save_dict))
+    save_feat = np.zeros((tmp_count, 128))
+    for k, v in count_dict.items():
+        if v >= 10:
+            save_feat[idx_dict[k]] = word_model.wv[k]
+    # check embed
+    check_embed = np.sum(save_feat, axis=1)
+    if 0 in check_embed:
+        print("Warning, check embedding for language")
+    # save embed
+    np.save(output_emb_path, save_feat)
+    # plot
+    data = TSNE(n_components=2, learning_rate='auto', init='random').fit_transform(save_feat)
+    label = ["UNK" for i in range(tmp_count)]
+    for k, v in idx_dict.items():
+        label[v] = k
+    x_min, x_max = np.min(data, 0), np.max(data, 0)
+    data = (data - x_min) / (x_max - x_min)
+    fig = plt.figure()
+    for i in range(data.shape[0]):
+        plt.text(data[i, 0], data[i, 1], str(label[i]),
+                 # color=plt.cm.Set1(label[i]),
+                 fontdict={'size': 2})
+    plt.xticks([])
+    plt.yticks([])
+    plt.savefig(output_fig_path, format='pdf', bbox_inches="tight")
