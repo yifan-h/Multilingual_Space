@@ -92,6 +92,31 @@ def preprocess_pre(args):
 
 
 def pre_cooccurrence(args):
+    '''
+    langs_sim = ["af", "da", "nl", "de", "en", "is", "lb", "no", "sv", "fy", "yi",  # group 1
+            "ast", "ca", "fr", "gl", "it", "oc", "pt", "ro", "es",  # group 2
+            "be", "bs", "bg", "hr", "cs", "mk", "pl", "ru", "sr", "sk", "sl", "uk"  # group 3
+            "et", "fi", "hu", "lv", "lt",  # group 4
+            "sq", "hy", "ka", "el",  # group 5
+            "br", "ga", "gd", "cy",  # group 6
+            "az", "ba", "kk", "tr", "uz",  # group 7
+            "ja", "ko", "vi", "zh",  # group 8
+            "bn", "gu", "hi", "kn", "mr", "ne", "or", "pa", "sd", "si", "ur", "ta",  # group 9
+            "ceb", "ilo", "id", "jv", "mg", "ms", "ml", "su", "tl",  # group 10
+            "my", "km", "lo", "th", "mn",  # group 11
+            "ar", "he", "ps", "fa",  # group 12
+            "am", "ff", "ha", "ig", "ln", "lg", "nso", "so", "sw", "ss", "tn", "wo", "xh", "yo", "zu",  # group 13
+            "ht"  # group 14
+            ]
+    langs_xlm = ["af", "am", "ar", "as", "az", "be", "bg", "bn", "br", "bs", "ca", "cs", "cy", "da", "de", 
+                 "el", "en", "eo", "es", "et", "eu", "fa", "fi", "fr", "fy", "ga", "gd", "gl", "gu", "ha",
+                 "he", "hi", "hr", "hu", "hy", "id", "is", "it", "ja", "jv", "ka", "kk", "km", "kn", "ko",
+                 "ku", "ky", "la", "lo", "lt", "lv", "mg", "mk", "ml", "mn", "mr", "ms", "my", "ne", "nl",
+                 "no", "om", "or", "pa", "pl", "ps", "pt", "ro", "ru", "sa", "sd", "si", "sk", "sl", "so",
+                 "sq", "sr", "su", "sv", "sw", "ta", "te", "th", "tl", "tr", "ug", "uk", "ur", "uz", "vi",
+                 "xh", "yi", "zh"]
+    langs_mbert = []
+    '''
     input_path = os.path.join(args.data_dir, "latest_all_clean.json")
     output_stats_path = os.path.join(args.data_dir, "statistics", "count.json")
     output_idx_path = os.path.join(args.data_dir, "statistics", "idx.json")
@@ -99,6 +124,9 @@ def pre_cooccurrence(args):
     output_emb_path = os.path.join(args.data_dir, "statistics", "emb.npy")
     count_dict = {}
     cooccur_dict = {}
+    sents = []
+    max_length = 0
+    min_count_num = 1000
     with open(input_path, "r") as f:
         for line in tqdm(f):
             tmp_data = json.loads(line)
@@ -119,24 +147,23 @@ def pre_cooccurrence(args):
                         cooccur_dict[l1+"_"+l2] = 1
                     else:
                         cooccur_dict[l1+"_"+l2] += 1
-    print(cooccur_dict, count_dict)
-    sents = []
-    for k, v in tqdm(cooccur_dict.items()):
-        for i in range(v):
-            sents.append(k.split("_"))
-    word_model = local_model = Word2Vec(sents, 
-                                        vector_size=128, 
-                                        window=2, 
-                                        min_count=10, 
-                                        sg=1, 
-                                        hs=1, 
-                                        workers=20)
+            # sentence
+            sents.append(tmp_langs)
+            max_length = max(max_length, len(tmp_langs))
+    print(len(cooccur_dict), len(count_dict), len(sents))
+    word_model = Word2Vec(sents, 
+                        vector_size=128, 
+                        window=max_length, 
+                        min_count=min_count_num, 
+                        sg=1, 
+                        hs=1, 
+                        workers=20)
     # save numpy array
     save_dict = {}
     idx_dict = {}
     tmp_count = 0
     for k, v in count_dict.items():
-        if v >= 10:
+        if v >= min_count_num:
             save_dict[k] = v
             idx_dict[k] = tmp_count
             tmp_count += 1
@@ -146,7 +173,7 @@ def pre_cooccurrence(args):
         f.write(json.dumps(save_dict))
     save_feat = np.zeros((tmp_count, 128))
     for k, v in count_dict.items():
-        if v >= 10:
+        if v >= min_count_num:
             save_feat[idx_dict[k]] = word_model.wv[k]
     # check embed
     check_embed = np.sum(save_feat, axis=1)
