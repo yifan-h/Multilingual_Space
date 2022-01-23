@@ -5,18 +5,18 @@ from preexp import pre_static_dist, pre_mapping_dist
 
 
 def main_func(args):
-    # preprocess_clean(args)  ## clean wikidata entities
+    preprocess_clean(args)  ## clean wikidata entities
     # preprocess_pre(args)  # clean a subset of wikidata entities for pre-experiment
     # pre_static_dist(args)  # calculate entity label embedding (store in ./embed)
     # pre_mapping_dist(args)
-    pre_cooccurrence(args)
+    # pre_cooccurrence(args)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multilingual Space")
 
     # data
-    parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata",
+    parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/all_clean",
                         help="the input data directory.")
     parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/",
                         help="The stored model directory.")
