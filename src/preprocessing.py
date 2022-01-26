@@ -10,10 +10,11 @@ from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 
 
-def preprocess_clean(args):
+def preprocess_clean(args, dataset="all"):
     # get file list
     input_path = os.path.join(args.data_dir, "latest-all.json.bz2")
     entity_path = os.path.join(args.data_dir, "entity.json")
+    subentity_path = os.path.join(args.data_dir, "latest_all_clean.json")
     triple_path = os.path.join(args.data_dir, "triple.txt")
     clean_key = set(["id", "type", "datatype", "labels", "aliases"])
     # languages for mBERT and XLM-R
@@ -23,70 +24,118 @@ def preprocess_clean(args):
                             "ka", "kk", "kn", "ko", "la", "lb", "lt", "lv", "mk", "ml", "mn", "mr", "ms",
                             "my", "nds", "ne", "nl", "nn", "no", "oc", "pl", "pt", "ro", "ru", "scn", "sco",
                             "sh", "sk", "sl", "sq", "sr", "sv", "sw", "ta", "te", "th", "tl", "tr", "tt", 
-                            "uk", "ur", "uz", "vi", "war", "zh", "zh-classical"])  
-    # start to write
-    entity_set = set()
-    with bz2.BZ2File(input_path) as r_file:  # read file
-        with open(entity_path, "w") as we_file:  # write entity
-            with open(triple_path, "w") as wt_file:
-                for line in tqdm(r_file):
-                    # read data
-                    line = line.decode().strip()
-                    if line in {"[", "]"}: continue
-                    if line.endswith(","): line = line[:-1]
-                    tmp_entity = json.loads(line)
-                    # clean entity data
-                    if tmp_entity["id"][0] != "Q": continue  # only for Q entity
-                    if len(tmp_entity["labels"]) < 1: continue  # no label: skip
-                    new_entity = {}
-                    for k in clean_key:
-                        if k not in tmp_entity: continue
-                        if len(tmp_entity[k]) == 0: continue
-                        if k=="labels" or k=="aliases":
-                            tmp_k = {}
-                            for kk, kv in tmp_entity[k].items():
-                                if kk in pretrain_langs:
-                                    tmp_k[kk] = kv
-                            new_entity[k] = tmp_k
-                        else:
-                            new_entity[k] = tmp_entity[k]
-                    # no label: skip
-                    if len(new_entity["labels"]) < 1: continue
-                    # check repeat entity QID
-                    if new_entity["id"] in entity_set:
-                        print("Repeat entity QID: ", new_entity["id"])
-                    else:
-                        entity_set.add(new_entity["id"])
-                    # write entity data
-                    we_file.write(json.dumps(new_entity))
-                    we_file.write("\n")
-                    # clean triples
-                    if "claims" not in tmp_entity: continue
-                    subj = tmp_entity["id"]
-                    for k, v in tmp_entity["claims"].items():
-                        pred = k
-                        for o in v:
-                            if "mainsnak" not in o: continue
-                            if "datavalue" not in o["mainsnak"]: continue
-                            if "value" not in o["mainsnak"]["datavalue"]: continue
-                            if "id" not in o["mainsnak"]["datavalue"]["value"]: continue
-                            if isinstance(o["mainsnak"]["datavalue"]["value"], str): continue
-                            obj = o["mainsnak"]["datavalue"]["value"]["id"]
-                            # check format
-                            if subj[0]!="Q" or pred[0]!="P" or obj[0]!="Q":
-                                print("Error triple: ", subj, pred, obj)
+                            "uk", "ur", "uz", "vi", "war", "zh", "zh-classical"])
+    subset_langs = set(["af", "ar", "bg", "bn", "de", "el", "en", "es", "et", "eu", "fa", "fi", "fr", "he", 
+                        "hi", "hu", "id", "it", "ja", "jv", "ka", "kk", "ko", "ml", "mr", "ms", "my", "nl", 
+                        "pt", "ru", "sw", "ta", "te", "th", "tl", "tr", "ur", "vi", "yo", "zh",
+                        "ceb", "war"])
+    if dataset == "all":
+        # start to write
+        entity_set = set()
+        with bz2.BZ2File(input_path) as r_file:  # read file
+            with open(entity_path, "w") as we_file:  # write entity
+                with open(triple_path, "w") as wt_file:
+                    for line in tqdm(r_file):
+                        # read data
+                        line = line.decode().strip()
+                        if line in {"[", "]"}: continue
+                        if line.endswith(","): line = line[:-1]
+                        tmp_entity = json.loads(line)
+                        # clean entity data
+                        if tmp_entity["id"][0] != "Q": continue  # only for Q entity
+                        if len(tmp_entity["labels"]) < 1: continue  # no label: skip
+                        new_entity = {}
+                        for k in clean_key:
+                            if k not in tmp_entity: continue
+                            if len(tmp_entity[k]) == 0: continue
+                            if k=="labels" or k=="aliases":
+                                tmp_k = {}
+                                for kk, kv in tmp_entity[k].items():
+                                    if kk in pretrain_langs:
+                                        tmp_k[kk] = kv
+                                new_entity[k] = tmp_k
                             else:
-                                wt_file.write(subj+"\t"+pred+"\t"+obj+"\n")
-        # remove triples with empty entities & isolated entities
+                                new_entity[k] = tmp_entity[k]
+                        # no label: skip
+                        if len(new_entity["labels"]) < 1: continue
+                        # check repeat entity QID
+                        if new_entity["id"] in entity_set:
+                            print("Repeat entity QID: ", new_entity["id"])
+                        else:
+                            entity_set.add(new_entity["id"])
+                        # write entity data
+                        we_file.write(json.dumps(new_entity))
+                        we_file.write("\n")
+                        # clean triples
+                        if "claims" not in tmp_entity: continue
+                        subj = tmp_entity["id"]
+                        for k, v in tmp_entity["claims"].items():
+                            pred = k
+                            for o in v:
+                                if "mainsnak" not in o: continue
+                                if "datavalue" not in o["mainsnak"]: continue
+                                if "value" not in o["mainsnak"]["datavalue"]: continue
+                                if "id" not in o["mainsnak"]["datavalue"]["value"]: continue
+                                if isinstance(o["mainsnak"]["datavalue"]["value"], str): continue
+                                obj = o["mainsnak"]["datavalue"]["value"]["id"]
+                                # check format
+                                if subj[0]!="Q" or pred[0]!="P" or obj[0]!="Q":
+                                    print("Error triple: ", subj, pred, obj)
+                                else:
+                                    wt_file.write(subj+"\t"+pred+"\t"+obj+"\n")
+            # remove triples with empty entities & isolated entities
+            # clean triple
+            clean_triple_path = os.path.join(args.data_dir, "triple_clean.txt")
+            relation_set = set()
+            connect_entity_set = set()
+            with open(triple_path, "r") as r_file:
+                with open(clean_triple_path, "w") as w_file:
+                    for line in tqdm(r_file):
+                        subj, pred, obj = line[:-1].split("\t")
+                        if subj in entity_set and obj in entity_set:
+                            w_file.write(line)
+                            relation_set.add(pred)
+                            connect_entity_set.add(subj)
+                            connect_entity_set.add(obj)
+            print("Relation number: ", len(relation_set))
+            lang_set = set()
+            entity_count_wa = 0
+            aliases_count = 0
+            # clean entity
+            clean_entity_path = os.path.join(args.data_dir, "entity_clean.json")
+            with open(entity_path, "r") as r_file:
+                with open(clean_entity_path, "w") as w_file:
+                    for line in tqdm(r_file):
+                        tmp_entity = json.loads(line)
+                        if tmp_entity["id"] not in connect_entity_set: continue
+                        w_file.write(line)
+                        for k, _ in tmp_entity["labels"].items():
+                            lang_set.add(k)
+                        if "aliases" in tmp_entity:
+                            entity_count_wa += 1
+                            aliases_count += len(tmp_entity["aliases"])
+            print(lang_set)
+            print("Entity number : ", len(entity_set), entity_count_wa)
+            print("Aliases number: ", aliases_count)
+            print("Language number: ", len(lang_set))
+    else: # get a subset  (40 languages)
+        subentity_set = set()
+        with open(subentity_path, "r") as r_file:
+            for line in tqdm(r_file):
+                tmp_entity = json.loads(line)
+                no_label = 1
+                for l, _ in tmp_entity["labels"].items():
+                    if l in subset_langs: no_label = 0
+                if no_label == 0: subentity_set.add(tmp_entity["id"])
         # clean triple
-        clean_triple_path = os.path.join(args.data_dir, "triple_clean.txt")
+        sub_triple_path = os.path.join(args.data_dir, "triple_subset.txt")
         relation_set = set()
         connect_entity_set = set()
         with open(triple_path, "r") as r_file:
-            with open(clean_triple_path, "w") as w_file:
+            with open(sub_triple_path, "w") as w_file:
                 for line in tqdm(r_file):
                     subj, pred, obj = line[:-1].split("\t")
-                    if subj in entity_set and obj in entity_set:
+                    if subj in subentity_set and obj in subentity_set:
                         w_file.write(line)
                         relation_set.add(pred)
                         connect_entity_set.add(subj)
@@ -96,24 +145,37 @@ def preprocess_clean(args):
         entity_count_wa = 0
         aliases_count = 0
         # clean entity
-        clean_entity_path = os.path.join(args.data_dir, "entity_clean.json")
+        sub_entity_path = os.path.join(args.data_dir, "entity_subset.json")
         with open(entity_path, "r") as r_file:
-            with open(clean_entity_path, "w") as w_file:
+            with open(sub_entity_path, "w") as w_file:
                 for line in tqdm(r_file):
                     tmp_entity = json.loads(line)
                     if tmp_entity["id"] not in connect_entity_set: continue
-                    w_file.write(line)
+                    # only keep 42 languages
+                    new_entity = {}
+                    for k in clean_key:
+                        if k not in tmp_entity: continue
+                        if len(tmp_entity[k]) == 0: continue
+                        if k ==  "aliases": continue
+                        if k =="labels":
+                            tmp_k = {}
+                            for kk, kv in tmp_entity[k].items():
+                                if kk in subset_langs:
+                                    tmp_k[kk] = kv
+                            if len(tmp_k) == 0: print("Error entity: ", tmp_entity["id"])
+                            new_entity[k] = tmp_k
+                        else:
+                            new_entity[k] = tmp_entity[k]
+                    w_file.write(json.dumps(new_entity))
                     for k, _ in tmp_entity["labels"].items():
                         lang_set.add(k)
                     if "aliases" in tmp_entity:
                         entity_count_wa += 1
                         aliases_count += len(tmp_entity["aliases"])
         print(lang_set)
-        print("Entity number : ", len(entity_set), entity_count_wa)
+        print("Entity number : ", len(subentity_set), entity_count_wa)
         print("Aliases number: ", aliases_count)
         print("Language number: ", len(lang_set))
-
-
     return
 
 
