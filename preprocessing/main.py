@@ -1,11 +1,12 @@
 import argparse
 
-from preprocessing import preprocess_clean, preprocess_pre, pre_cooccurrence
+from preprocessing import preprocess_clean, preprocess_pre, pre_cooccurrence, preprocess_rlabel
 from preexp import pre_static_dist, pre_mapping_dist
 
 
 def main_func(args):
-    preprocess_clean(args, "small")  # clean wikidata entities
+    preprocess_rlabel(args)
+    # preprocess_clean(args, "small")  # clean wikidata entities
     # preprocess_pre(args)  # clean a subset of wikidata entities for pre-experiment
     # pre_static_dist(args)  # calculate entity label embedding (store in ./embed)
     # pre_mapping_dist(args)

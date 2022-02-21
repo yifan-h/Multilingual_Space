@@ -180,6 +180,49 @@ def preprocess_clean(args, dataset="all"):
     return
 
 
+def preprocess_rlabel(args):
+    from qwikidata.entity import WikidataItem, WikidataLexeme, WikidataProperty
+    from qwikidata.linked_data_interface import get_entity_dict_from_api
+    pretrain_langs = set(["af", "an", "ar", "ast", "az", "bar", "be", "bg", "bn", "br", "bs", "ca", "ceb",
+                            "cs", "cy", "da", "de", "el", "en", "es", "et", "eu", "fa", "fi", "fr", "fy",
+                            "ga", "gl", "gu", "he", "hi", "hr", "hu", "hy", "id", "is", "it", "ja", "jv",
+                            "ka", "kk", "kn", "ko", "la", "lb", "lt", "lv", "mk", "ml", "mn", "mr", "ms",
+                            "my", "nds", "ne", "nl", "nn", "no", "oc", "pl", "pt", "ro", "ru", "scn", "sco",
+                            "sh", "sk", "sl", "sq", "sr", "sv", "sw", "ta", "te", "th", "tl", "tr", "tt", 
+                            "uk", "ur", "uz", "vi", "war", "zh", "zh-classical"])
+    bad_relations = ["P5326", "P5105", "P5330", "P107"]
+    # get relation set
+    relation_set = {}
+    triple_path = os.path.join(args.data_dir, "relation_statistics.txt")
+    relation_path = os.path.join(args.data_dir, "relation.json")
+    '''
+    with open(triple_path, "r") as r_file:
+        for line in tqdm(r_file):
+            subj, pred, obj = line[:-1].split("\t")
+            if pred not in relation_set:
+                relation_set[pred] = 1
+            else:
+                relation_set[pred] += 1
+    print(relation_set)
+    '''
+    with open(triple_path, "r") as r_file:
+        relation_set = json.loads(r_file.read())
+    with open(relation_path, "w") as w_file:
+        for rlabel in relation_set:
+            tmp_r = {}
+            tmp_r["id"] = rlabel
+            if rlabel in bad_relations: 
+                tmp_r["labels"] = {}
+            else:
+                rdata_dict = get_entity_dict_from_api(rlabel)
+                tmp_label = {}
+                for k, v in rdata_dict["labels"].items():
+                    if k in pretrain_langs:
+                        tmp_label[k] = v
+                tmp_r["labels"] = tmp_label
+            w_file.write(json.dumps(tmp_r))
+            w_file.write("\n")
+
 
 def preprocess_pre(args):
     langs = ["en", "de", "fr", "ar", "zh"]

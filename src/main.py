@@ -23,10 +23,13 @@ if __name__ == "__main__":
                         help="which GPU to use. set -1 to use CPU.")
     parser.add_argument("--lr", type=float, default=1e-5,
                         help="learning rate of GCS.")
-    parser.add_argument("--epoch", type=int, default=1000,
+    parser.add_argument("--epoch", type=int, default=2,
                         help="number of training epochs.")
     parser.add_argument("--patience", type=int, default=10,
                         help="used for early stop")
+    parser.add_argument("--negative_num", type=int, default=2,
+                        help="number of negative samples")
+
 
     args = parser.parse_args()
     print(args)
