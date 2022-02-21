@@ -57,7 +57,6 @@ class EntityLoader(Data.Dataset):
                 triple_dict[line.split("\t")[0]].append(line[:-1])
         with open(os.path.join(filepath, "entity.json"), "r") as f_e:
             with open(os.path.join(filepath, "data.json"), "w") as f_w:
-                buffer_entity, buffer_triple = [], []
                 for line in tqdm(f_e, desc="merging: load entity data..."):
                     tmp_e = json.loads(line)
                     if tmp_e["id"] not in triple_dict: continue

@@ -29,6 +29,8 @@ if __name__ == "__main__":
                         help="used for early stop")
     parser.add_argument("--negative_num", type=int, default=2,
                         help="number of negative samples")
+    parser.add_argument("--adapter_num", type=int, default=10,
+                        help="number of different adapters")
 
 
     args = parser.parse_args()
