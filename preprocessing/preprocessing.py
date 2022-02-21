@@ -167,6 +167,7 @@ def preprocess_clean(args, dataset="all"):
                         else:
                             new_entity[k] = tmp_entity[k]
                     w_file.write(json.dumps(new_entity))
+                    w_file.write("\n")
                     for k, _ in tmp_entity["labels"].items():
                         lang_set.add(k)
                     if "aliases" in tmp_entity:
