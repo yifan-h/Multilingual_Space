@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from transformers import AutoModelForMaskedLM
 import transformers.adapters.composition as ac
+from info_nce import InfoNCE
 
 
 class MLKGLM(AutoModelForMaskedLM):
