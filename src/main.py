@@ -13,10 +13,8 @@ if __name__ == "__main__":
     # data
     parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/sub_clean",
                         help="the input data directory.")
-    parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/",
+    parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased",
                         help="The stored model directory.")
-    parser.add_argument("--simulate_model", type=str, default="bert-base-multilingual-cased",
-                        help="multilingual LMs to analyze")
 
     # model
     parser.add_argument("--device", type=int, default=-1,
