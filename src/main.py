@@ -19,8 +19,12 @@ if __name__ == "__main__":
     # model
     parser.add_argument("--device", type=int, default=-1,
                         help="which GPU to use. set -1 to use CPU.")
-    parser.add_argument("--lr", type=float, default=1e-5,
+    parser.add_argument("--lr", type=float, default=1e-6,
                         help="learning rate of GCS.")
+    parser.add_argument("--adam_epsilon", type=float, default=1e-8,
+                        help="Adam epsilon")
+    parser.add_argument("--warmup_steps", type=int, default=1e4,
+                        help="number of training epochs.")
     parser.add_argument("--epoch", type=int, default=2,
                         help="number of training epochs.")
     parser.add_argument("--patience", type=int, default=10,

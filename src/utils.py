@@ -11,7 +11,6 @@ class EntityLoader(Data.Dataset):
         num_e = 0
         entity_dict = {}
         # load entity dict
-        avg_count = 0
         with open(os.path.join(filepath, "entity.json"), "r") as f:
             for line in tqdm(f, desc="load entity data"): 
                 num_e += 1
@@ -19,10 +18,7 @@ class EntityLoader(Data.Dataset):
                 entity_dict[tmp_data["id"]] = []
                 for k, v in tmp_data["labels"].items():
                     entity_dict[tmp_data["id"]].append(v["value"])
-                avg_count += len(tmp_data["labels"])
-        print(avg_count / num_e)
         self.num_e = num_e
-        self.avg_count = avg_count / num_e
         self.entity_dict = entity_dict
         self.entity_pool = set(entity_dict.keys())
         self.fopen = open(os.path.join(filepath, "entity.json"), "r")
