@@ -41,7 +41,7 @@ class EntityLoader(Data.Dataset):
     def cleaning(self, tmp_data):
         tmp_data = json.loads(tmp_data)
         inputs_pos = [v["value"] for k, v in tmp_data["labels"].items()]
-        inputs_neg = self.negative_sampler(2)
+        inputs_neg = self.negative_sampler(4)
         return self.tokenizer(inputs_pos+inputs_neg, padding=True, return_tensors="pt")
 
 

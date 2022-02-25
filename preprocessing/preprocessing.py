@@ -123,11 +123,13 @@ def preprocess_clean(args, dataset="all"):
         with open(subentity_path, "r") as r_file:
             for line in tqdm(r_file):
                 tmp_entity = json.loads(line)
-                no_label = 1
+                label_count = 0
                 for l, _ in tmp_entity["labels"].items():
-                    if l in subset_langs: no_label = 0
-                if no_label == 0: subentity_set.add(tmp_entity["id"])
+                    if l in subset_langs: 
+                        label_count += 1
+                if label_count >= 20: subentity_set.add(tmp_entity["id"])
         # clean triple
+        print(len(subentity_set))
         sub_triple_path = os.path.join(args.data_dir, "triple_subset.txt")
         relation_set = set()
         connect_entity_set = set()

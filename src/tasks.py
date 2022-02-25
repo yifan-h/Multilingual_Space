@@ -52,7 +52,7 @@ def train_adapter(args, model_mlkg):
         count_save += 1
         if count_save % 1e5 == 0:
             save_model(os.path.join(args.tmp_dir, "adapters_"+str(int(count_save/1e5))+".pt"))
-        if count_save % 1e4 == 0:
+        if count_save % 1e2 == 0:
             # time
             time_length = time.time() - time_start
             time_start = time.time()
@@ -106,7 +106,7 @@ def train_triple_encoder(args, model_mlkg):
         count_save += 1
         if count_save % 1e5 == 0:
             save_model(os.path.join(args.tmp_dir, "triple_encoder_"+str(int(count_save/1e5))+".pt"))
-        if count_save % 1e4 == 0:
+        if count_save % 1e2 == 0:
             # time
             time_length = time.time() - time_start
             time_start = time.time()
@@ -162,7 +162,7 @@ def train_both_noise(args, model_mlkg):
         count_save += 1
         if count_save % 1e5 == 0:
             save_model(os.path.join(args.tmp_dir, "both_"+str(int(count_save/1e5))+".pt"))
-        if count_save % 1e4 == 0:
+        if count_save % 1e2 == 0:
             # time
             time_length = time.time() - time_start
             time_start = time.time()
@@ -194,7 +194,7 @@ def train_both_noise(args, model_mlkg):
         count_save += 1
         if count_save % 1e5 == 0:
             save_model(os.path.join(args.tmp_dir, "both_"+str(int(count_save/1e5))+".pt"))
-        if count_save % 1e4 == 0:
+        if count_save % 1e2 == 0:
             # time
             time_length = time.time() - time_start
             time_start = time.time()
@@ -212,8 +212,10 @@ def ki_mlkg(args):
     model_mlkg = MLKGLM(args)
     # train adapter
     model_mlkg = train_adapter(args, model_mlkg)
+    save_model(model_mlkg, os.path.join(args.tmp_dir, "final_v1.pt"))
     # train triple_encoder
     model_mlkg = train_triple_encoder(args, model_mlkg)
+    save_model(model_mlkg, os.path.join(args.tmp_dir, "final_v2.pt"))
     # train both with noise
     model_mlkg = train_both_noise(args, model_mlkg)
-    save_model(model_mlkg, os.path.join(args.tmp_dir, "final.pt"))
+    save_model(model_mlkg, os.path.join(args.tmp_dir, "final_v3.pt"))
