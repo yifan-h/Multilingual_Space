@@ -15,6 +15,8 @@ if __name__ == "__main__":
                         help="the input data directory.")
     parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased",
                         help="The stored model directory.")
+    parser.add_argument("--tmp_dir", type=str, default="./tmp/checkpoints",
+                        help="The stored model directory.")
 
     # model
     parser.add_argument("--device", type=int, default=-1,
@@ -23,7 +25,7 @@ if __name__ == "__main__":
                         help="learning rate of GCS.")
     parser.add_argument("--adam_epsilon", type=float, default=1e-8,
                         help="Adam epsilon")
-    parser.add_argument("--warmup_steps", type=int, default=1e4,
+    parser.add_argument("--warmup_steps", type=int, default=1e5,
                         help="number of training epochs.")
     parser.add_argument("--epoch", type=int, default=2,
                         help="number of training epochs.")
