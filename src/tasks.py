@@ -73,8 +73,6 @@ def train_triple_encoder(args, model_mlkg):
     entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
     triple_dataset = TripleLoader(args, entity_dataset.entity_dict)
     triple_data = Data.DataLoader(dataset=triple_dataset, batch_size=1, num_workers=1)
-    # model_mlkg = model_mlkg.to(args.device)
-    model_mlkg, optimizer, triple_data = accelerator.prepare(model_mlkg, optimizer, triple_data)
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_adapters(model_mlkg, False)
@@ -85,6 +83,8 @@ def train_triple_encoder(args, model_mlkg):
     scheduler = get_linear_schedule_with_warmup(optimizer, 
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.epoch*len(triple_data))
+    # model_mlkg = model_mlkg.to(args.device)
+    model_mlkg, optimizer, triple_data = accelerator.prepare(model_mlkg, optimizer, triple_data)
     # set loss function
     lossfcn_triple = InfoNCE()
     # enable connection with triple encoder

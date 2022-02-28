@@ -32,8 +32,8 @@ class MLKGLM(nn.Module):
     def forward(self, **inputs):
         # get MLLM output
         outputs_MLLM = self.MLLM(**inputs).hidden_states
-        # take average of each layer: (batch_size, sequence_length, hidden_size)
-        outputs_MLLM = sum(outputs_MLLM) / len(outputs_MLLM)
+        # take last layer hidden state: (batch_size, sequence_length, hidden_size)
+        outputs_MLLM = outputs_MLLM[-1]
         # objective 1: universal space
         outputs_universal = torch.tanh(self.universal_mapping(outputs_MLLM))
         # objective 2: transformer layers

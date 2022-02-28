@@ -14,7 +14,53 @@ from sklearn.metrics import f1_score, classification_report
 from collections import Counter
 from datetime import datetime
 
-pre_trained = '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base'
+import copy
+from transformers import AutoModel, Conv1D
+import transformers.adapters.composition as ac
+
+
+'''
+adapter model:...
+'''
+class MLKGLM(nn.Module):
+    """docstring for ClassName"""
+    def __init__(self, path):
+        super(MLKGLM, self).__init__()
+        # load pretrained MLLM
+        self.MLLM = AutoModel.from_pretrained(path, 
+                                                return_dict=True,
+                                                output_hidden_states=True)
+        # set and activate adapters
+        adapters = []
+        for i in range(8):
+            adapters.append("adapter"+str(i+1))
+            self.MLLM.add_adapter(adapters[i])
+        self.MLLM.add_adapter_fusion(adapters)
+        self.MLLM.active_adapters = ac.Fuse(*adapters)
+        self.obj = 2
+        hidden_num = self.MLLM.get_input_embeddings().embedding_dim
+        # set two extra modules
+        self.universal_mapping = Conv1D(hidden_num, hidden_num)
+        self.triple_encoder = copy.deepcopy(self.MLLM.encoder.layer[-1])
+
+    def forward(self, **inputs):
+        # get MLLM output
+        outputs_MLLM = self.MLLM(**inputs).hidden_states
+        # take last layer hidden state: (batch_size, sequence_length, hidden_size)
+        outputs_MLLM = outputs_MLLM[-1]
+        # objective 1: universal space
+        outputs_universal = torch.tanh(self.universal_mapping(outputs_MLLM))
+        # objective 2: transformer layers
+        if self.obj == 2:
+            outputs_MLKGLM = self.triple_encoder(outputs_universal)[0]
+        else: 
+            outputs_MLKGLM = outputs_MLLM
+        return (outputs_MLLM+outputs_universal)/2, (outputs_MLLM+outputs_universal+outputs_MLKGLM)/3
+
+
+pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
+adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/test_tmp/final_v1.pt"
+# pre_trained = '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base'
 dataset_training = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/kbp37"
 dataset_relxt = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/RELX"
 max_seq_length = 256
@@ -25,7 +71,7 @@ elif base_model == "mtmb":
     tokenizer = AutoTokenizer.from_pretrained("akoksal/MTMB")
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device("cuda:0")
+device = torch.device("cuda:7")
 print(device)
 print(torch.cuda.device_count())
 print(torch.cuda.is_available())
@@ -34,7 +80,9 @@ class Model(nn.Module):
     def __init__(self, is_embedding_layer_free = True, last_free_layer=0, no_classes=37, has_layer_norm=False, has_dropout=True):
         super(Model, self).__init__()
         if base_model == "mbert":
-            self.net_bert = BertModel.from_pretrained(pre_trained)
+            # self.net_bert = BertModel.from_pretrained(pre_trained)  # mbert
+            self.net_bert = MLKGLM(pre_trained)
+            self.net_bert.load_state_dict(torch.load(adapter_path, map_location='cpu'), strict=False)
         elif base_model == "mtmb":
             self.net_bert = AutoModel.from_pretrained("akoksal/MTMB")
         self.has_layer_norm = has_layer_norm
@@ -49,9 +97,17 @@ class Model(nn.Module):
         
         for idx in range(last_free_layer, last_layer):
             unfrozen_layers.append('encoder.layer.'+str(idx))
-            
+        '''
         for name, param in self.net_bert.named_parameters():
             if not any([layer in name for layer in unfrozen_layers]):
+                print("[FROZE]: %s" % name)
+                param.requires_grad = False
+            else:
+                print("[FREE]: %s" % name)
+                param.requires_grad = True
+        '''
+        for name, param in self.net_bert.named_parameters():
+            if "triple" in name:
                 print("[FROZE]: %s" % name)
                 param.requires_grad = False
             else:
@@ -66,8 +122,11 @@ class Model(nn.Module):
     def forward(self, x, attention):
         #print("ori.========: {}".format(x))
         #x, _ = self.net_bert(x, attention_mask=attention)
+        '''
         x = self.net_bert(x, attention_mask=attention)
         x = x['last_hidden_state']
+        '''
+        x, _ = self.net_bert(input_ids=x, attention_mask=attention)
         #Getting head
         #print("typeof xxxx========: {}".format(type(x)))
         #print("xxxx========: {}".format(x))
