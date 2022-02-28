@@ -16,7 +16,7 @@ def preprocess_clean(args, dataset="all"):
     entity_path = os.path.join(args.data_dir, "entity.json")
     subentity_path = os.path.join(args.data_dir, "latest_all_clean.json")
     triple_path = os.path.join(args.data_dir, "triple.txt")
-    clean_key = set(["id", "type", "datatype", "labels", "aliases"])
+    clean_key = set(["id", "type", "datatype", "labels", "aliases", "descriptions"])
     # languages for mBERT and XLM-R
     pretrain_langs = set(["af", "an", "ar", "ast", "az", "bar", "be", "bg", "bn", "br", "bs", "ca", "ceb",
                             "cs", "cy", "da", "de", "el", "en", "es", "et", "eu", "fa", "fi", "fr", "fy",
@@ -27,12 +27,11 @@ def preprocess_clean(args, dataset="all"):
                             "uk", "ur", "uz", "vi", "war", "zh", "zh-classical"])
     subset_langs = set(["af", "ar", "bg", "bn", "de", "el", "en", "es", "et", "eu", "fa", "fi", "fr", "he", 
                         "hi", "hu", "id", "it", "ja", "jv", "ka", "kk", "ko", "ml", "mr", "ms", "my", "nl", 
-                        "pt", "ru", "sw", "ta", "te", "th", "tl", "tr", "ur", "vi", "yo", "zh",
-                        "ceb", "war"])
+                        "pt", "ru", "sw", "ta", "te", "th", "tl", "tr", "ur", "vi", "yo", "zh", "ceb", "war"])
     if dataset == "all":
         # start to write
         entity_set = set()
-        with bz2.BZ2File(input_path) as r_file:  # read file
+        with bz2.BZ2File(input_path, "rb") as r_file:  # read file
             with open(entity_path, "w") as we_file:  # write entity
                 with open(triple_path, "w") as wt_file:
                     for line in tqdm(r_file):
@@ -48,7 +47,7 @@ def preprocess_clean(args, dataset="all"):
                         for k in clean_key:
                             if k not in tmp_entity: continue
                             if len(tmp_entity[k]) == 0: continue
-                            if k=="labels" or k=="aliases":
+                            if k=="labels" or k=="aliases" or k=="descriptions":
                                 tmp_k = {}
                                 for kk, kv in tmp_entity[k].items():
                                     if kk in pretrain_langs:
