@@ -23,7 +23,7 @@ if __name__ == "__main__":
                         help="which GPU to use. set -1 to use CPU.")
     parser.add_argument("--lr", type=float, default=1e-6,
                         help="learning rate of GCS.")
-    parser.add_argument("--adam_epsilon", type=float, default=1e-8,
+    parser.add_argument("--adam_epsilon", type=float, default=1e-5,
                         help="Adam epsilon")
     parser.add_argument("--warmup_steps", type=int, default=1e4,
                         help="number of training epochs.")

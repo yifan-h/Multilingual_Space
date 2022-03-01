@@ -59,7 +59,7 @@ class MLKGLM(nn.Module):
 
 
 pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
-adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/test_tmp/final_v1.pt"
+adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/checkpoints/final_v1.pt"
 # pre_trained = '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base'
 dataset_training = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/kbp37"
 dataset_relxt = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/RELX"

@@ -76,7 +76,7 @@ class TripleLoader(Data.Dataset):
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
 
     def __len__(self):
-        return self.num_t
+        return int(self.num_t/self.triple_batch)+1
 
     def __getitem__(self, index):
         c_list, o_list = [], []
