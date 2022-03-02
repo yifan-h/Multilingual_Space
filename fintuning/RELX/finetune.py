@@ -32,11 +32,13 @@ class MLKGLM(nn.Module):
                                                 output_hidden_states=True)
         # set and activate adapters
         adapters = []
+        '''
         for i in range(8):
             adapters.append("adapter"+str(i+1))
             self.MLLM.add_adapter(adapters[i])
         self.MLLM.add_adapter_fusion(adapters)
         self.MLLM.active_adapters = ac.Fuse(*adapters)
+        '''
         self.obj = 2
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
         # set two extra modules

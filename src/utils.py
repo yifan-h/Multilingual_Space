@@ -96,20 +96,21 @@ class TripleLoader(Data.Dataset):
     def cleaning(self, c_list, o_list):
         return self.tokenizer(c_list+o_list, padding=True, return_tensors="pt")
 
+
 def grad_parameters(model, freeze=True):
     for name, param in model.named_parameters():
         param.requires_grad = freeze
     return
 
-def grad_adapters(model, freeze=True):
+def grad_universal(model, freeze=True):
     for name, param in model.named_parameters():
-        if "adapter" in name or "universal" in name:
+        if "universal" in name:
             param.requires_grad = freeze
     return
 
 def grad_triple_encoder(model, freeze=True):
     for name, param in model.named_parameters():
-        if "triple_encoder" in name:
+        if "triple" in name:
             param.requires_grad = freeze
     return
 

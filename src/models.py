@@ -16,6 +16,7 @@ class MLKGLM(nn.Module):
         self.MLLM = AutoModel.from_pretrained(args.model_dir, 
                                             return_dict=True,
                                             output_hidden_states=True)
+        '''
         # set and activate adapters
         adapters = []
         for i in range(args.adapter_num):
@@ -23,11 +24,26 @@ class MLKGLM(nn.Module):
             self.MLLM.add_adapter(adapters[i])
         self.MLLM.add_adapter_fusion(adapters)
         self.MLLM.active_adapters = ac.Fuse(*adapters)
-        self.obj = 2
+        '''
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
-        # set two extra modules
-        self.universal_mapping = Conv1D(hidden_num, hidden_num)
-        self.triple_encoder = copy.deepcopy(self.MLLM.encoder.layer[-1])
+        # set mask status
+        self.training_mask = False
+        # set three extra modules
+        self.entity_masking = nn.Sequential(Conv1D(hidden_num, 2))
+        self.universal_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
+                                                nn.LayerNorm(hidden_num, eps=1e-12),
+                                                nn.Dropout(0.1),
+                                                Conv1D(4*hidden_num, hidden_num),
+                                                Conv1D(hidden_num, 4*hidden_num),
+                                                nn.LayerNorm(hidden_num, eps=1e-12),
+                                                nn.Dropout(0.1))
+        self.triple_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
+                                            nn.LayerNorm(hidden_num, eps=1e-12),
+                                            nn.Dropout(0.1),
+                                            Conv1D(4*hidden_num, hidden_num),
+                                            Conv1D(hidden_num, 4*hidden_num),
+                                            nn.LayerNorm(hidden_num, eps=1e-12),
+                                            nn.Dropout(0.1))
 
     def forward(self, **inputs):
         # get MLLM output
@@ -35,12 +51,13 @@ class MLKGLM(nn.Module):
         # take last layer hidden state: (batch_size, sequence_length, hidden_size)
         outputs_MLLM = outputs_MLLM[-1]
         # objective 1: universal space
-        outputs_universal = torch.tanh(self.universal_mapping(outputs_MLLM))
+        outputs_universal = self.universal_mapping(outputs_MLLM)
         # objective 2: transformer layers
-        if self.obj == 2:
-            outputs_MLKGLM = self.triple_encoder(outputs_universal)[0]
-        else: 
-            outputs_MLKGLM = outputs_MLLM
+        outputs_MLKGLM = self.triple_mapping(outputs_universal)
+        # objective 3: get entity mask
+        if self.training_mask:
+            outputs_mask = self.entity_masking(outputs_MLLM)
+            outputs_MLLM = outputs_mask*outputs_MLLM
         return (outputs_MLLM+outputs_universal)/2, (outputs_MLLM+outputs_universal+outputs_MLKGLM)/3
 
 
