@@ -12,10 +12,12 @@ from utils import EntityLoader, TripleLoader, grad_parameters, grad_universal, g
 from models import MLKGLM, loss_universal, loss_triple
 
 
-def train_adapter(args, model_mlkg):
+def train_entity_universal(args, model_mlkg):
     # load data
     entity_dataset = EntityLoader(args)
     entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
+    # set masking tokenizer
+    args.lm_mask_token_id = entity_dataset.lm_mask_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_universal(model_mlkg, True)
@@ -41,7 +43,7 @@ def train_adapter(args, model_mlkg):
             encoded_inputs = {k:torch.squeeze(v) for k, v in encoded_inputs.items()}
             model_mlkg.zero_grad()
             # positive set input
-            outputs, _ = model_mlkg(**encoded_inputs)
+            _, outputs, _ = model_mlkg(**encoded_inputs)
             # backpropogation
             loss = loss_universal(args, outputs, lossfcn_universal)
             loss_list.append(float(loss.data))
@@ -79,6 +81,8 @@ def train_triple_encoder(args, model_mlkg):
     entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
     triple_dataset = TripleLoader(args, entity_dataset.entity_dict)
     triple_data = Data.DataLoader(dataset=triple_dataset, batch_size=1, num_workers=1)
+    # set masking tokenizer
+    args.lm_mask_token_id = triple_dataset.lm_mask_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_universal(model_mlkg, False)
@@ -104,7 +108,7 @@ def train_triple_encoder(args, model_mlkg):
             encoded_inputs = {k:torch.squeeze(v) for k, v in encoded_inputs.items()}
             optimizer.zero_grad()
             # positive set input
-            _, outputs = model_mlkg(**encoded_inputs)
+            _, _, outputs = model_mlkg(**encoded_inputs)
             # backpropogation
             loss = loss_triple(outputs, lossfcn_triple)
             loss_list.append(float(loss.data))
@@ -138,7 +142,7 @@ def train_triple_encoder(args, model_mlkg):
     return
 
 
-def train_both_noise(args, model_mlkg):
+def train_sentence_all(args, model_mlkg):
     # load data
     entity_dataset = EntityLoader(args)
     entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
@@ -171,7 +175,7 @@ def train_both_noise(args, model_mlkg):
             encoded_inputs = {k:torch.squeeze(v) for k, v in encoded_inputs.items()}
             model_mlkg.zero_grad()
             # positive set input
-            outputs, _ = model_mlkg(**encoded_inputs)
+            _, outputs, _ = model_mlkg(**encoded_inputs)
             # backpropogation
             loss = loss_universal(args, outputs, lossfcn_universal)
             loss_list.append(float(loss.data))
@@ -216,7 +220,7 @@ def train_both_noise(args, model_mlkg):
             encoded_inputs = {k:torch.squeeze(v) for k, v in encoded_inputs.items()}
             optimizer.zero_grad()
             # positive set input
-            _, outputs = model_mlkg(**encoded_inputs)
+            _, _, outputs = model_mlkg(**encoded_inputs)
             # backpropogation
             loss = loss_triple(outputs, lossfcn_triple)
             loss_list.append(float(loss.data))
@@ -249,7 +253,7 @@ def ki_mlkg(args):
     model_mlkg = MLKGLM(args)
     # train adapter
     if not os.path.exists(os.path.join(args.tmp_dir, "final_v1.pt")):
-        train_adapter(args, model_mlkg)
+        train_entity_universal(args, model_mlkg)
     model_mlkg = MLKGLM(args)
     load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v1.pt"))
     # train triple_encoder
@@ -257,8 +261,9 @@ def ki_mlkg(args):
         train_triple_encoder(args, model_mlkg)
     model_mlkg = MLKGLM(args)
     load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v2.pt"))
+    return
     # train both with noise
     if not os.path.exists(os.path.join(args.tmp_dir, "final_v3.pt")):
-        train_both_noise(args, model_mlkg)
+        train_sentence_all(args, model_mlkg)
     model_mlkg = MLKGLM(args)
     load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v3.pt"))

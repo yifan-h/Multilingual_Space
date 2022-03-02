@@ -26,6 +26,7 @@ class MLKGLM(nn.Module):
         self.MLLM.active_adapters = ac.Fuse(*adapters)
         '''
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
+        self.lm_mask_token_id = args.lm_mask_token_id
         # set mask status
         self.training_mask = False
         # set three extra modules
@@ -50,15 +51,28 @@ class MLKGLM(nn.Module):
         outputs_MLLM = self.MLLM(**inputs).hidden_states
         # take last layer hidden state: (batch_size, sequence_length, hidden_size)
         outputs_MLLM = outputs_MLLM[-1]
+        outputs_mask_logit = outputs_MLLM*0
+        outputs_mask = outputs_MLLM*0
+        # objective 0: get entity mask
+        if self.training_mask:  # masking training
+            outputs_mask_logit = F.sigmoid(self.entity_masking(outputs_MLLM))
+            outputs_mask = torch.where(outputs_mask_logit<0.5, outputs_mask, outputs_mask+1)
+            outputs_MLLM = outputs_mask*outputs_MLLM
+        else:  # entity/triple training
+            if self.lm_mask_token_id in inputs["input_ids"]:  # triple: mask relation
+                input_ids = inputs["input_ids"] # identical: (batch_size, sequence_length, hidden_size) 
+                input_ids = torch.transpose(torch.transpose(input_ids.expand(outputs_MLLM.shape[2],
+                                                                    outputs_MLLM.shape[0],
+                                                                    outputs_MLLM.shape[1]),0,1),1,2)
+                outputs_mask = torch.where(input_ids==self.lm_mask_token_id, outputs_mask, outputs_mask+1)
+                outputs_MLLM = outputs_mask*outputs_MLLM
         # objective 1: universal space
         outputs_universal = self.universal_mapping(outputs_MLLM)
+        outputs_universal = (outputs_MLLM+outputs_universal) / 2
         # objective 2: transformer layers
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
-        # objective 3: get entity mask
-        if self.training_mask:
-            outputs_mask = self.entity_masking(outputs_MLLM)
-            outputs_MLLM = outputs_mask*outputs_MLLM
-        return (outputs_MLLM+outputs_universal)/2, (outputs_MLLM+outputs_universal+outputs_MLKGLM)/3
+        outputs_MLKGLM = (outputs_universal+outputs_MLKGLM) / 2
+        return outputs_mask_logit, outputs_universal, outputs_MLKGLM
 
 
 def loss_universal(args, outputs, lossfcn):

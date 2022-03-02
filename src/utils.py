@@ -27,6 +27,8 @@ class EntityLoader(Data.Dataset):
         self.fopen = open(os.path.join(args.data_dir, "entity.json"), "r")
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
+        self.lm_mask_token = self.tokenizer.pad_token
+        self.lm_mask_token_id = self.tokenizer.pad_token_id
 
     def __len__(self):
         return self.num_e
@@ -74,9 +76,11 @@ class TripleLoader(Data.Dataset):
         self.fopen = open(os.path.join(args.data_dir, "triple.txt"), "r")
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
+        self.lm_mask_token = self.tokenizer.pad_token
+        self.lm_mask_token_id = self.tokenizer.pad_token_id
 
     def __len__(self):
-        return int(self.num_t/self.triple_batch)+1
+        return int(self.num_t/self.triple_batch)
 
     def __getitem__(self, index):
         c_list, o_list = [], []
@@ -86,7 +90,7 @@ class TripleLoader(Data.Dataset):
             if len(triple_list) != 3: continue
             s, p, o = triple_list
             if p in self.relation_dict:
-                c_list.append(random.choice(self.entity_dict[s])+" "+\
+                c_list.append(random.choice(self.entity_dict[s])+" "+self.lm_mask_token+" "+\
                                 random.choice(self.relation_dict[p]))
             else:
                 c_list.append(random.choice(self.entity_dict[s]))
@@ -94,7 +98,11 @@ class TripleLoader(Data.Dataset):
         return self.cleaning(c_list, o_list)
 
     def cleaning(self, c_list, o_list):
-        return self.tokenizer(c_list+o_list, padding=True, return_tensors="pt")
+        input_tokens = self.tokenizer(c_list+o_list, padding=True, return_tensors="pt")
+        # set separation token [MASK] <mask> attention mask as 0
+        tmp_attn_mask = torch.where(input_tokens["input_ids"]==self.lm_mask_token_id, 0, input_tokens["attention_mask"])
+        input_tokens["attention_mask"] = tmp_attn_mask
+        return input_tokens
 
 
 def grad_parameters(model, freeze=True):
