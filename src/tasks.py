@@ -55,7 +55,7 @@ def train_entity_universal(args, model_mlkg):
             count_save += 1
             if count_save % 1e5 == 0:
                 save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "adapters_"+str(int(count_save/1e5))+".pt"))
-            if count_save % 1e3 == 0:
+            if count_save % 1e2 == 0:
                 # time
                 time_length = round(time.time() - time_start, 4)
                 time_start = time.time()
@@ -63,12 +63,12 @@ def train_entity_universal(args, model_mlkg):
                 loss_avg = round(sum(loss_list) / len(loss_list), 4)
                 loss_list = []
                 # print
-                print("progress (adapter): ", count_save, " / ", len(entity_data)*args.entity_epoch, " | time: ", time_length, "s | loss: ",loss_avg)
+                print("progress (entity): ", count_save, " / ", len(entity_data)*args.entity_epoch, " | time: ", time_length, "s | loss: ",loss_avg)
         # load data
         entity_dataset = EntityLoader(args)
         entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
         # model_mlkg = model_mlkg.to(args.device)
-        model_mlkg, optimizer, entity_data = accelerator.prepare(model_mlkg, optimizer, entity_data)
+        entity_data = accelerator.prepare(entity_data)
     # save model
     save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v1.pt"))
     del model_mlkg
@@ -85,7 +85,7 @@ def train_triple_encoder(args, model_mlkg):
     args.lm_mask_token_id = triple_dataset.lm_mask_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
-    grad_universal(model_mlkg, False)
+    grad_universal(model_mlkg, True)
     grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
@@ -128,14 +128,12 @@ def train_triple_encoder(args, model_mlkg):
                 loss_avg = round(sum(loss_list) / len(loss_list), 4)
                 loss_list = []
                 # print
-                print("progress (encoder): ", count_save, " / ", len(triple_data)*args.triple_epoch, " | time: ", time_length, "s | loss: ",loss_avg)
+                print("progress (triple): ", count_save, " / ", len(triple_data)*args.triple_epoch, " | time: ", time_length, "s | loss: ",loss_avg)
         # load data
-        entity_dataset = EntityLoader(args)
-        entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
         triple_dataset = TripleLoader(args, entity_dataset.entity_dict)
         triple_data = Data.DataLoader(dataset=triple_dataset, batch_size=1, num_workers=1)
         # model_mlkg = model_mlkg.to(args.device)
-        model_mlkg, optimizer, triple_data = accelerator.prepare(model_mlkg, optimizer, triple_data)
+        triple_data = accelerator.prepare(triple_data)
     # save model
     save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v2.pt"))
     del model_mlkg
@@ -195,7 +193,7 @@ def train_sentence_all(args, model_mlkg):
                 loss_avg = round(sum(loss_list) / len(loss_list), 4)
                 loss_list = []
                 # print
-                print("progress (both): ", count_save, " / ", len(entity_data), " | time: ", time_length, "s | loss: ",loss_avg)
+                print("progress (sent.): ", count_save, " / ", len(entity_data), " | time: ", time_length, "s | loss: ",loss_avg)
         # load data
         entity_dataset = EntityLoader(args)
         entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)

@@ -14,7 +14,8 @@ class EntityLoader(Data.Dataset):
         entity_dict = {}
         # load entity dict
         with open(os.path.join(args.data_dir, "entity.json"), "r") as f:
-            for line in tqdm(f, desc="load entity data"): 
+            # for line in tqdm(f, desc="load entity data"):
+            for line in f:
                 num_e += 1
                 tmp_data = json.loads(line)
                 entity_dict[tmp_data["id"]] = []
@@ -55,7 +56,7 @@ class TripleLoader(Data.Dataset):
         relation_dict = {}
         with open(os.path.join(args.data_dir, "relation.json"), "r") as f:
             # get the number of entity
-            for line in tqdm(f, desc="load relation data"): 
+            for line in f: 
                 tmp_data = json.loads(line)
                 if len(tmp_data["labels"]) < 1: continue
                 relation_dict[tmp_data["id"]] = []
@@ -64,7 +65,8 @@ class TripleLoader(Data.Dataset):
         # load triple
         num_t = 0
         with open(os.path.join(args.data_dir, "triple.txt"), "r") as f:
-            for line in tqdm(f, desc="load triple data"):
+            # for line in tqdm(f, desc="load triple data"):
+            for line in f:
                 triple_list = line[:-1].split("\t")
                 if len(triple_list) != 3: continue
                 num_t += 1
