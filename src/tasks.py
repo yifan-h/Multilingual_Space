@@ -75,17 +75,17 @@ def train_entity_universal(args, model_mlkg):
     return
 
 
-def train_triple_encoder(args, model_mlkg):
+def train_triple_encoder(args, model_mlkg, triple_context=False):
     # load data
     entity_dataset = EntityLoader(args)
     entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
-    triple_dataset = TripleLoader(args, entity_dataset.entity_dict)
+    triple_dataset = TripleLoader(args, entity_dataset.entity_dict, triple_context=triple_context)
     triple_data = Data.DataLoader(dataset=triple_dataset, batch_size=1, num_workers=1)
     # set masking tokenizer
     args.lm_mask_token_id = triple_dataset.lm_mask_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
-    grad_universal(model_mlkg, True)
+    grad_universal(model_mlkg, triple_context)
     grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
@@ -96,7 +96,7 @@ def train_triple_encoder(args, model_mlkg):
     # model_mlkg = model_mlkg.to(args.device)
     model_mlkg, optimizer, triple_data = accelerator.prepare(model_mlkg, optimizer, triple_data)
     # set loss function
-    lossfcn_triple = InfoNCE()
+    lossfcn_triple = InfoNCE(negative_mode='unpaired')
     # enable connection with triple encoder
     model_mlkg.obj = 2
     # training
@@ -135,7 +135,10 @@ def train_triple_encoder(args, model_mlkg):
         # model_mlkg = model_mlkg.to(args.device)
         triple_data = accelerator.prepare(triple_data)
     # save model
-    save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v2.pt"))
+    if triple_context:
+        save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v3.pt"))
+    else:
+        save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v2.pt"))
     del model_mlkg
     return
 
@@ -254,11 +257,16 @@ def ki_mlkg(args):
         train_entity_universal(args, model_mlkg)
     model_mlkg = MLKGLM(args)
     load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v1.pt"))
-    # train triple_encoder
+    # train triple_encoder uncontextualized
     if not os.path.exists(os.path.join(args.tmp_dir, "final_v2.pt")):
         train_triple_encoder(args, model_mlkg)
     model_mlkg = MLKGLM(args)
     load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v2.pt"))
+    # train triple_encoder triple-contextualized
+    if not os.path.exists(os.path.join(args.tmp_dir, "final_v3.pt")):
+        train_triple_encoder(args, model_mlkg, True)
+    model_mlkg = MLKGLM(args)
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v3.pt"))
     return
     # train both with noise
     if not os.path.exists(os.path.join(args.tmp_dir, "final_v3.pt")):

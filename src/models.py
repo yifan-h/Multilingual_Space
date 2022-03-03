@@ -86,17 +86,20 @@ def loss_universal(args, outputs, lossfcn):
             if i > j:
                 idx_query.append(i)
                 idx_pos.append(j)
+    '''
     if len(idx_query) > args.batch_num:
         idx_all = [i for i in range(len(idx_query))]
         idx_random = random.sample(idx_all, args.batch_num)
         idx_query = [idx_query[i] for i in idx_random]
         idx_pos = [idx_pos[i] for i in idx_random]
+    '''
     return lossfcn(outputs_pos[idx_query], outputs_pos[idx_pos], outputs_neg)
 
 
 def loss_triple(outputs, lossfcn):
     # transform set-level to sample-level
     outputs = torch.mean(outputs, dim=1)
-    outputs_query = outputs[:int(outputs.shape[0]/2)]
-    outputs_pos = outputs[int(outputs.shape[0]/2):]
-    return lossfcn(outputs_query, outputs_pos)
+    outputs_query = outputs[:int(outputs.shape[0]/3)]
+    outputs_pos = outputs[int(outputs.shape[0]/3):int(outputs.shape[0]/3*2)]
+    outputs_neg = outputs[int(outputs.shape[0]/3*2):]
+    return lossfcn(outputs_query, outputs_pos, outputs_neg)
