@@ -26,9 +26,9 @@ if __name__ == "__main__":
                         help="Adam epsilon")
     parser.add_argument("--warmup_steps", type=int, default=1e4,
                         help="number of training epochs.")
-    parser.add_argument("--entity_epoch", type=int, default=5,
+    parser.add_argument("--entity_epoch", type=int, default=2,
                         help="number of training epochs.")
-    parser.add_argument("--triple_epoch", type=int, default=20,
+    parser.add_argument("--triple_epoch", type=int, default=10,
                         help="number of training epochs.")
     parser.add_argument("--patience", type=int, default=10,
                         help="used for early stop")
