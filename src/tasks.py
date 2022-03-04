@@ -55,7 +55,7 @@ def train_entity_universal(args, model_mlkg):
             count_save += 1
             if count_save % 1e5 == 0:
                 save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "adapters_"+str(int(count_save/1e5))+".pt"))
-            if count_save % 1e2 == 0:
+            if count_save % 1e3 == 0:
                 # time
                 time_length = round(time.time() - time_start, 4)
                 time_start = time.time()

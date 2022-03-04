@@ -30,19 +30,32 @@ class MLKGLM(nn.Module):
         # set mask status
         self.training_mask = False
         # set three extra modules
-        self.entity_masking = nn.Sequential(Conv1D(hidden_num, 2))
+        self.entity_masking = nn.Sequential(Conv1D(hidden_num, 2),
+                                            nn.Tanh())
         self.universal_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
+                                                nn.Tanh(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1),
                                                 Conv1D(4*hidden_num, hidden_num),
                                                 Conv1D(hidden_num, 4*hidden_num),
+                                                nn.Tanh(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1))
         self.triple_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
+                                            nn.Tanh(),
                                             nn.LayerNorm(hidden_num, eps=1e-12),
                                             nn.Dropout(0.1),
                                             Conv1D(4*hidden_num, hidden_num),
                                             Conv1D(hidden_num, 4*hidden_num),
+                                            nn.Tanh(),
+                                            nn.LayerNorm(hidden_num, eps=1e-12),
+                                            nn.Dropout(0.1))
+        self.universal_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
+                                            nn.Tanh(),
+                                            nn.LayerNorm(hidden_num, eps=1e-12),
+                                            nn.Dropout(0.1))
+        self.triple_aggregator = nn.Sequential(Conv1D(hidden_num, 3*hidden_num),
+                                            nn.Tanh(),
                                             nn.LayerNorm(hidden_num, eps=1e-12),
                                             nn.Dropout(0.1))
 
@@ -68,10 +81,10 @@ class MLKGLM(nn.Module):
                 outputs_MLLM = outputs_mask*outputs_MLLM
         # objective 1: universal space
         outputs_universal = self.universal_mapping(outputs_MLLM)
-        outputs_universal = (outputs_MLLM+outputs_universal) / 2
+        outputs_universal = self.universal_aggregator(torch.cat((outputs_MLLM, outputs_universal), dim=2))
         # objective 2: transformer layers
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
-        outputs_MLKGLM = (outputs_universal+outputs_MLKGLM) / 2
+        outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=2))
         return outputs_mask_logit, outputs_universal, outputs_MLKGLM
 
 
@@ -86,13 +99,11 @@ def loss_universal(args, outputs, lossfcn):
             if i > j:
                 idx_query.append(i)
                 idx_pos.append(j)
-    '''
     if len(idx_query) > args.batch_num:
         idx_all = [i for i in range(len(idx_query))]
         idx_random = random.sample(idx_all, args.batch_num)
         idx_query = [idx_query[i] for i in idx_random]
         idx_pos = [idx_pos[i] for i in idx_random]
-    '''
     return lossfcn(outputs_pos[idx_query], outputs_pos[idx_pos], outputs_neg)
 
 
