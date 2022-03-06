@@ -8,11 +8,12 @@ from accelerate import Accelerator
 from accelerate import DistributedDataParallelKwargs
 from info_nce import InfoNCE
 
-from utils import EntityLoader, TripleLoader, grad_parameters, grad_universal, grad_triple_encoder, save_model, load_model
+from utils import EntityLoader, TripleLoader, MixLoader, grad_parameters, grad_universal, grad_triple_encoder, save_model, load_model
 from models import MLKGLM, loss_universal, loss_triple
 
 
 def train_entity_universal(args, model_mlkg):
+    #### (h, h')
     # load data
     entity_dataset = EntityLoader(args)
     entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
@@ -69,23 +70,16 @@ def train_entity_universal(args, model_mlkg):
         entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
         # model_mlkg = model_mlkg.to(args.device)
         entity_data = accelerator.prepare(entity_data)
-    # save model
-    save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v1.pt"))
-    del model_mlkg
-    return
-
-
-def train_triple_encoder(args, model_mlkg, triple_context=False):
+    #### (h, t)
     # load data
     entity_dataset = EntityLoader(args)
-    entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
-    triple_dataset = TripleLoader(args, entity_dataset.entity_dict, triple_context=triple_context)
+    triple_dataset = TripleLoader(args, entity_dataset.entity_dict)
     triple_data = Data.DataLoader(dataset=triple_dataset, batch_size=1, num_workers=1)
     # set masking tokenizer
     args.lm_mask_token_id = triple_dataset.lm_mask_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
-    grad_universal(model_mlkg, triple_context)
+    grad_universal(model_mlkg, False)
     grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
@@ -97,8 +91,6 @@ def train_triple_encoder(args, model_mlkg, triple_context=False):
     model_mlkg, optimizer, triple_data = accelerator.prepare(model_mlkg, optimizer, triple_data)
     # set loss function
     lossfcn_triple = InfoNCE(negative_mode='unpaired')
-    # enable connection with triple encoder
-    model_mlkg.obj = 2
     # training
     count_save = 0
     time_start = time.time()
@@ -135,10 +127,81 @@ def train_triple_encoder(args, model_mlkg, triple_context=False):
         # model_mlkg = model_mlkg.to(args.device)
         triple_data = accelerator.prepare(triple_data)
     # save model
-    if triple_context:
-        save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v3.pt"))
-    else:
-        save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v2.pt"))
+    save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v1.pt"))
+    del model_mlkg
+    return
+
+
+def train_triple_encoder(args, model_mlkg, triple_context=True):
+    # load data
+    entity_dataset = EntityLoader(args)
+    mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=triple_context)
+    mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)
+    # set masking tokenizer
+    args.lm_mask_token_id = mix_dataset.lm_mask_token_id
+    # set parameters: autograd
+    grad_parameters(model_mlkg, False)
+    grad_universal(model_mlkg, True)
+    grad_triple_encoder(model_mlkg, False)
+    # set model and optimizer
+    accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
+    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
+    scheduler = get_linear_schedule_with_warmup(optimizer, 
+                                                num_warmup_steps=args.warmup_steps,
+                                                num_training_steps=args.triple_epoch*len(mix_data))
+    # model_mlkg = model_mlkg.to(args.device)
+    model_mlkg, optimizer, mix_data = accelerator.prepare(model_mlkg, optimizer, mix_data)
+    # set loss function
+    lossfcn_triple = InfoNCE(negative_mode='unpaired')
+    # training
+    count_save = 0
+    time_start = time.time()
+    loss_list1, loss_list2 = [], []
+    for e in range(args.triple_epoch):
+        for encoded_inputs in mix_data:
+            encoded_inputs_e, encoded_inputs_t = encoded_inputs
+            encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
+            encoded_inputs_t = {k:torch.squeeze(v) for k, v in encoded_inputs_t.items()}
+            #### ((h,t), t)
+            grad_triple_encoder(model_mlkg, True)
+            optimizer.zero_grad()
+            # positive set input
+            _, _, outputs2 = model_mlkg(**encoded_inputs_t)
+            # backpropogation: triple
+            loss = loss_triple(outputs2, lossfcn_triple)
+            loss_list2.append(float(loss.data))
+            accelerator.backward(loss)
+            #### ((h,t), h')
+            grad_triple_encoder(model_mlkg, False)
+            _, outputs1, _ = model_mlkg(**encoded_inputs_e)
+            # backpropogation: entity
+            loss = loss_triple(outputs1, lossfcn_triple)
+            loss_list1.append(float(loss.data))
+            accelerator.backward(loss)
+            # zero grad
+            optimizer.step()
+            scheduler.step()
+            # save model
+            count_save += 1
+            if count_save % 1e5 == 0:
+                save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "triple_encoder_"+str(int(count_save/1e5))+".pt"))
+            if count_save % 1e3 == 0:
+                # time
+                time_length = round(time.time() - time_start, 4)
+                time_start = time.time()
+                # loss
+                loss_avg1 = round(sum(loss_list1) / len(loss_list1), 4)
+                loss_avg2 = round(sum(loss_list2) / len(loss_list2), 4)
+                loss_list1, loss_list2 = [], []
+                # print
+                print("progress (triple): ", count_save, "/", len(triple_data)*args.triple_epoch, " |time: ", time_length, "s |loss: ",loss_avg1, " ", loss_avg2)
+        # load data
+        triple_dataset = TripleLoader(args, entity_dataset.entity_dict)
+        triple_data = Data.DataLoader(dataset=triple_dataset, batch_size=1, num_workers=1)
+        # model_mlkg = model_mlkg.to(args.device)
+        triple_data = accelerator.prepare(triple_data)
+    # save model
+    save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v2.pt"))
     del model_mlkg
     return
 
@@ -252,23 +315,18 @@ def train_sentence_all(args, model_mlkg):
 def ki_mlkg(args):
     # define model
     model_mlkg = MLKGLM(args)
-    # train adapter
+    # train uncontextualized
     if not os.path.exists(os.path.join(args.tmp_dir, "final_v1.pt")):
         train_entity_universal(args, model_mlkg)
     model_mlkg = MLKGLM(args)
     load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v1.pt"))
-    # train triple_encoder uncontextualized
+    # train triple context
     if not os.path.exists(os.path.join(args.tmp_dir, "final_v2.pt")):
         train_triple_encoder(args, model_mlkg)
     model_mlkg = MLKGLM(args)
     load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v2.pt"))
-    # train triple_encoder triple-contextualized
-    if not os.path.exists(os.path.join(args.tmp_dir, "final_v3.pt")):
-        train_triple_encoder(args, model_mlkg, True)
-    model_mlkg = MLKGLM(args)
-    load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v3.pt"))
     return
-    # train both with noise
+    # train sentence context
     if not os.path.exists(os.path.join(args.tmp_dir, "final_v3.pt")):
         train_sentence_all(args, model_mlkg)
     model_mlkg = MLKGLM(args)

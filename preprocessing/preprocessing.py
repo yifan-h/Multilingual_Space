@@ -8,6 +8,74 @@ from multiprocessing import Pool
 from gensim.models import Word2Vec
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
+import time
+from threading import Thread
+
+def preprocess_des(args):
+    '''
+    pretrain_langs = set(["af", "an", "ar", "ast", "az", "bar", "be", "bg", "bn", "br", "bs", "ca", "ceb",
+                            "cs", "cy", "da", "de", "el", "en", "es", "et", "eu", "fa", "fi", "fr", "fy",
+                            "ga", "gl", "gu", "he", "hi", "hr", "hu", "hy", "id", "is", "it", "ja", "jv",
+                            "ka", "kk", "kn", "ko", "la", "lb", "lt", "lv", "mk", "ml", "mn", "mr", "ms",
+                            "my", "nds", "ne", "nl", "nn", "no", "oc", "pl", "pt", "ro", "ru", "scn", "sco",
+                            "sh", "sk", "sl", "sq", "sr", "sv", "sw", "ta", "te", "th", "tl", "tr", "tt", 
+                            "uk", "ur", "uz", "vi", "war", "zh", "zh-classical"])
+    # download wikipedia pages
+    import wikipediaapi
+    wikipediaapi_langs = {}
+    for l in pretrain_langs:
+        wikipediaapi_langs[l] = wikipediaapi.Wikipedia(l)
+    # get file list
+    entity_path = os.path.join(args.data_dir, "entity_"+args.file_idx)
+    entity_path_des = os.path.join(args.data_dir, "des", "entity_des_"+args.file_idx)
+    # get description
+    clean_key = set(["id", "labels", "descriptions"])
+    # get description set
+    with open(entity_path, "r") as r_file:
+        with open(entity_path_des, "w") as wd_file:
+            for line in r_file:
+                curr_data = json.loads(line)
+                # no description: continue
+                if "labels" not in curr_data: continue
+                if len(curr_data["labels"]) <= 1: continue
+                # with description: write des
+                tmp_data = {}
+                for k, v in curr_data.items():
+                    if k == "id":
+                        tmp_data[k] = v
+                    if k == "labels":
+                        tmp_data_label = {}
+                        for kk, kv in curr_data[k].items():
+                            tmp_data_label[kk] = kv["value"]
+                        tmp_data[k] = tmp_data_label
+                tmp_data_des = {}
+                for k, v in tmp_data["labels"].items():
+                    wiki = wikipediaapi_langs[k]
+                    page = wiki.page(v)
+                    tmp_sent = wiki.extracts(page, exsentences=2)  # slow
+                    if v in tmp_sent:
+                        tmp_data_des[k] = tmp_sent
+                tmp_data["descriptions"] = tmp_data_des
+                wd_file.write(json.dumps(tmp_data))
+                wd_file.write("\n")
+    '''
+    entity_path = os.path.join(args.data_dir, "entity_des.json")
+    entity_path_half = os.path.join(args.data_dir, "entity_des_half.json")
+    des_path = os.path.join(args.data_dir, "description.json")
+    with open(des_path, "w") as w_file:
+        # entity_des.json
+        with open(entity_path, "r") as r_file:
+            for line in r_file:
+                curr_data = json.loads(line)
+                if len(curr_data["descriptions"])==0: continue
+                w_file.write(line)
+        # entity_des_half.json
+        with open(entity_path_half, "r") as r_file:
+            for line in r_file:
+                curr_data = json.loads(line)
+                if len(curr_data["descriptions"])==0: continue
+                w_file.write(line)
+
 
 
 def preprocess_clean(args, dataset="all"):
