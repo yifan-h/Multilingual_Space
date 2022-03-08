@@ -26,17 +26,17 @@ if __name__ == "__main__":
                         help="Adam epsilon")
     parser.add_argument("--warmup_steps", type=int, default=1e4,
                         help="number of training epochs.")
-    parser.add_argument("--entity_epoch", type=int, default=2,
+    parser.add_argument("--entity_epoch", type=int, default=1,
                         help="number of training epochs.")
     parser.add_argument("--triple_epoch", type=int, default=20,
                         help="number of training epochs.")
     parser.add_argument("--patience", type=int, default=10,
                         help="used for early stop")
-    parser.add_argument("--batch_num", type=int, default=64,
+    parser.add_argument("--batch_num", type=int, default=128,
                         help="number of triple samples per 1 batch")
     parser.add_argument("--neg_num", type=int, default=8,
                         help="number of negative samples")
-    parser.add_argument("--lm_mask_token_id", type=int, default=0,
+    parser.add_argument("--lm_mask_token_id", type=int, default=103,
                         help="token id of masked token")
     parser.add_argument("--adapter_num", type=int, default=8,
                         help="number of different adapters")

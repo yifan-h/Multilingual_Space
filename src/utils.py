@@ -28,8 +28,8 @@ class EntityLoader(Data.Dataset):
         self.fopen = open(os.path.join(args.data_dir, "entity.json"), "r")
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
-        self.lm_mask_token = self.tokenizer.pad_token
-        self.lm_mask_token_id = self.tokenizer.pad_token_id
+        self.lm_mask_token = self.tokenizer.mask_token
+        self.lm_mask_token_id = self.tokenizer.mask_token_id
 
     def __len__(self):
         return self.num_e
@@ -79,8 +79,8 @@ class TripleLoader(Data.Dataset):
         self.fopen = open(os.path.join(args.data_dir, "triple.txt"), "r")
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
-        self.lm_mask_token = self.tokenizer.pad_token
-        self.lm_mask_token_id = self.tokenizer.pad_token_id
+        self.lm_mask_token = self.tokenizer.mask_token
+        self.lm_mask_token_id = self.tokenizer.mask_token_id
 
     def __len__(self):
         return int(self.num_t/self.triple_batch)
@@ -107,7 +107,7 @@ class TripleLoader(Data.Dataset):
 
 
 class MixLoader(Data.Dataset):
-    def __init__(self, args, entity_dict, triple_context=True, sent_context=False):
+    def __init__(self, args, entity_dict, triple_context=True):
         # load relation dict
         relation_dict = {}
         with open(os.path.join(args.data_dir, "relation.json"), "r") as f:
@@ -128,26 +128,27 @@ class MixLoader(Data.Dataset):
                 num_t += 1
         # load description
         self.des_dict = {}
-        if sent_context:
+        if not triple_context:
             with open(os.path.join(args.data_dir, "description.json"), "r") as f:
                 # for line in tqdm(f, desc="load triple data"):
                 for line in f:
                     tmp_data = json.loads(line)
                     self.des_dict[tmp_data["id"]] = tmp_data
+            self.fopen = open(os.path.join(args.data_dir, "triple_des.txt"), "r")
+        else:
+            self.fopen = open(os.path.join(args.data_dir, "triple.txt"), "r")
         self.triple_batch = args.batch_num
         self.num_t = num_t
         self.relation_dict = relation_dict
-        self.relation_pool = set(relation_dict.keys())
         self.entity_dict = entity_dict
+        self.relation_pool = set(relation_dict.keys())
         self.entity_pool = set(entity_dict.keys())
-        self.fopen = open(os.path.join(args.data_dir, "triple.txt"), "r")
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
-        self.lm_mask_token = self.tokenizer.pad_token
-        self.lm_mask_token_id = self.tokenizer.pad_token_id
+        self.lm_mask_token = self.tokenizer.mask_token
+        self.lm_mask_token_id = self.tokenizer.mask_token_id
         # set context: triple context or sentence context
         self.triple_context = triple_context
-        self.sent_context = sent_context
 
     def __len__(self):
         return int(self.num_t/self.triple_batch)
@@ -175,9 +176,12 @@ class MixLoader(Data.Dataset):
                                 p_text+" "+random.choice(self.entity_dict[o]))
                 '''
             else:  # sentence as context
-                ## TODO...
-                c_list.append(random.choice(self.entity_dict[s])+" "+self.lm_mask_token+" "+\
-                                random.choice(self.entity_dict[o]))
+                tmp_lang = random.choice([k for k,v in self.des_dict[s]["description"].items()])
+                tmp_sent = self.des_dict[s]["description"][tmp_lang]
+                tmp_label = self.entity_label[s]["labels"][tmp_lang]
+                tmp_idx = tmp_sent.find(tmp_label)
+                c_list.append(tmp_sent[:tmp_idx]+" "+self.lm_mask_token+" "+tmp_sent[tmp_idx:tmp_idx+len(tmp_label)]\
+                                +" "+self.lm_mask_token+" "+tmp_sent[tmp_idx+len(tmp_label):])
                 ## cl_list.append()
             cl_list.append(random.choice(self.entity_dict[s]))
             o_list.append(random.choice(self.entity_dict[o]))

@@ -62,6 +62,7 @@ def preprocess_des(args):
     entity_path = os.path.join(args.data_dir, "entity_des.json")
     entity_path_half = os.path.join(args.data_dir, "entity_des_half.json")
     des_path = os.path.join(args.data_dir, "description.json")
+    entity_set = set()
     with open(des_path, "w") as w_file:
         # entity_des.json
         with open(entity_path, "r") as r_file:
@@ -69,13 +70,23 @@ def preprocess_des(args):
                 curr_data = json.loads(line)
                 if len(curr_data["descriptions"])==0: continue
                 w_file.write(line)
+                entity_set.add(curr_data["id"])
         # entity_des_half.json
         with open(entity_path_half, "r") as r_file:
             for line in r_file:
                 curr_data = json.loads(line)
                 if len(curr_data["descriptions"])==0: continue
                 w_file.write(line)
-
+                entity_set.add(curr_data["id"])
+    # des triple
+    triple_path = os.path.join(args.data_dir, "triple.txt")
+    triple_des_path = os.path.join(args.data_dir, "triple_des.txt")
+    with open(triple_path, "r") as r_file:
+        with open(triple_des_path, "w") as w_file:
+            for line in tqdm(r_file):
+                subj, pred, obj = line[:-1].split("\t")
+                if subj in entity_set and obj in entity_set:
+                    w_file.write(line)
 
 
 def preprocess_clean(args, dataset="all"):
