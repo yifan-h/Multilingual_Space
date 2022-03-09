@@ -24,23 +24,14 @@ adapter model:...
 '''
 class MLKGLM(nn.Module):
     """docstring for ClassName"""
-    def __init__(self, args):
+    def __init__(self, path):
         super(MLKGLM, self).__init__()
         # load pretrained MLLM
-        self.MLLM = AutoModel.from_pretrained(args.model_dir, 
+        self.MLLM = AutoModel.from_pretrained(path, 
                                             return_dict=True,
                                             output_hidden_states=True)
-        '''
-        # set and activate adapters
-        adapters = []
-        for i in range(args.adapter_num):
-            adapters.append("adapter"+str(i+1))
-            self.MLLM.add_adapter(adapters[i])
-        self.MLLM.add_adapter_fusion(adapters)
-        self.MLLM.active_adapters = ac.Fuse(*adapters)
-        '''
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
-        self.lm_mask_token_id = args.lm_mask_token_id
+        self.lm_mask_token_id = 103
         # set three extra modules
         self.universal_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
@@ -78,7 +69,6 @@ class MLKGLM(nn.Module):
                                             nn.LayerNorm(hidden_num, eps=1e-12),
                                             nn.Tanh(),
                                             nn.Dropout(0.1))
-
     def forward(self, **inputs):
         # get MLLM output
         outputs_MLLM = self.MLLM(**inputs).hidden_states
@@ -94,7 +84,6 @@ class MLKGLM(nn.Module):
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
         outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=2))
         return outputs_universal, outputs_MLKGLM
-
     def get_mask(self, outputs_MLLM, input_ids):
         tmp_batch_num = input_ids.shape[0]
         for i in range(int(tmp_batch_num)):
@@ -121,7 +110,7 @@ elif base_model == "mtmb":
     tokenizer = AutoTokenizer.from_pretrained("akoksal/MTMB")
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device("cpu")
+device = torch.device("cuda:6")
 print(device)
 print(torch.cuda.device_count())
 print(torch.cuda.is_available())
@@ -132,7 +121,7 @@ class Model(nn.Module):
         if base_model == "mbert":
             # self.net_bert = BertModel.from_pretrained(pre_trained)  # mbert
             self.net_bert = MLKGLM(pre_trained)
-            self.net_bert.load_state_dict(torch.load(adapter_path, map_location='cpu'), strict=False)
+            self.net_bert.load_state_dict(torch.load(adapter_path, map_location='cpu'))
         elif base_model == "mtmb":
             self.net_bert = AutoModel.from_pretrained("akoksal/MTMB")
         self.has_layer_norm = has_layer_norm
@@ -157,12 +146,8 @@ class Model(nn.Module):
                 param.requires_grad = True
         '''
         for name, param in self.net_bert.named_parameters():
-            if "triple" in name:
-                print("[FROZE]: %s" % name)
-                param.requires_grad = True
-            else:
-                print("[FREE]: %s" % name)
-                param.requires_grad = True
+            print("[FREE]: %s" % name)
+            param.requires_grad = True
         if self.has_layer_norm:
             self.fc1 = nn.LayerNorm(hidden_size)
         if self.has_dropout:

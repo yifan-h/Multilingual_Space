@@ -75,10 +75,10 @@ class MLKGLM(nn.Module):
             outputs_MLLM = self.get_mask(outputs_MLLM, inputs["input_ids"])
         # objective 1: universal space
         outputs_universal = self.universal_mapping(outputs_MLLM)
-        outputs_universal = self.universal_aggregator(torch.cat((outputs_MLLM, outputs_universal), dim=2))
+        outputs_universal = self.universal_aggregator(torch.cat((outputs_MLLM, outputs_universal), dim=-1))
         # objective 2: transformer layers
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
-        outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=2))
+        outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
         return outputs_universal, outputs_MLKGLM
 
     def get_mask(self, outputs_MLLM, input_ids):
