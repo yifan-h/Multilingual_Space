@@ -8,7 +8,8 @@ from accelerate import Accelerator
 from accelerate import DistributedDataParallelKwargs
 from info_nce import InfoNCE
 
-from utils import EntityLoader, TripleLoader, MixLoader, grad_parameters, grad_universal, grad_triple_encoder, save_model, load_model
+from utils import EntityLoader, TripleLoader, MixLoader, grad_parameters, grad_universal, \
+                    grad_triple_encoder, save_model, load_model
 from models import MLKGLM, loss_universal, loss_triple
 
 
@@ -45,7 +46,7 @@ def train_entity_universal(args, model_mlkg):
             encoded_inputs = {k:torch.squeeze(v) for k, v in encoded_inputs.items()}
             model_mlkg.zero_grad()
             # positive set input
-            _, outputs, _ = model_mlkg(**encoded_inputs)
+            outputs, _ = model_mlkg(**encoded_inputs)
             # backpropogation
             loss = loss_universal(args, outputs, lossfcn_universal)
             loss_list.append(float(loss.data))
@@ -99,7 +100,7 @@ def train_entity_universal(args, model_mlkg):
             encoded_inputs = {k:torch.squeeze(v) for k, v in encoded_inputs.items()}
             optimizer.zero_grad()
             # positive set input
-            _, _, outputs = model_mlkg(**encoded_inputs)
+            _, outputs = model_mlkg(**encoded_inputs)
             # backpropogation
             loss = loss_triple(outputs, lossfcn_triple)
             loss_list.append(float(loss.data))
@@ -167,7 +168,7 @@ def train_triple_encoder(args, model_mlkg):
             grad_triple_encoder(model_mlkg, True)
             optimizer.zero_grad()
             # positive set input
-            _, _, outputs2 = model_mlkg(**encoded_inputs_t)
+            _, outputs2 = model_mlkg(**encoded_inputs_t)
             # backpropogation: triple
             loss = loss_triple(outputs2, lossfcn_triple)
             loss_list2.append(float(loss.data))
@@ -178,7 +179,7 @@ def train_triple_encoder(args, model_mlkg):
             #### ((h,t), h')
             grad_triple_encoder(model_mlkg, False)
             optimizer.zero_grad()
-            _, outputs1, _ = model_mlkg(**encoded_inputs_e)
+            outputs1, _ = model_mlkg(**encoded_inputs_e)
             # backpropogation: entity
             loss = loss_universal(args, outputs1, lossfcn_universal)
             loss_list1.append(float(loss.data))
@@ -217,7 +218,6 @@ def train_sentence_all(args, model_mlkg):
     mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=False)
     mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)
     # set masking tokenizer
-    model_mlkg.training_mask = True
     args.lm_mask_token_id = mix_dataset.lm_mask_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
@@ -228,10 +228,11 @@ def train_sentence_all(args, model_mlkg):
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
     scheduler = get_linear_schedule_with_warmup(optimizer, 
                                                 num_warmup_steps=args.warmup_steps,
-                                                num_training_steps=args.triple_epoch*len(mix_data))
+                                                num_training_steps=args.triple_epoch*2*len(mix_data))
     # model_mlkg = model_mlkg.to(args.device)
     model_mlkg, optimizer, mix_data = accelerator.prepare(model_mlkg, optimizer, mix_data)
     # set loss function
+    lossfcn_universal = InfoNCE(negative_mode='unpaired')
     lossfcn_triple = InfoNCE(negative_mode='unpaired')
     # training
     count_save = 0
@@ -239,23 +240,26 @@ def train_sentence_all(args, model_mlkg):
     loss_list1, loss_list2 = [], []
     for e in range(args.triple_epoch):
         for encoded_inputs in mix_data:
-            encoded_inputs_e, encoded_inputs_t = encoded_inputs
+            encoded_inputs_e, encoded_inputs_s = encoded_inputs
             encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
-            encoded_inputs_t = {k:torch.squeeze(v) for k, v in encoded_inputs_t.items()}
+            encoded_inputs_s = {k:torch.squeeze(v) for k, v in encoded_inputs_s.items()}
             #### ((h,t), t)
             grad_triple_encoder(model_mlkg, True)
             optimizer.zero_grad()
             # positive set input
-            _, _, outputs2 = model_mlkg(**encoded_inputs_t)
+            _, outputs2 = model_mlkg(**encoded_inputs_s)
             # backpropogation: triple
             loss = loss_triple(outputs2, lossfcn_triple)
             loss_list2.append(float(loss.data))
             accelerator.backward(loss)
+            # zero grad
+            optimizer.step()
+            scheduler.step()
             #### ((h,t), h')
             grad_triple_encoder(model_mlkg, False)
-            _, outputs1, _ = model_mlkg(**encoded_inputs_e)
+            outputs1, _ = model_mlkg(**encoded_inputs_e)
             # backpropogation: entity
-            loss = loss_triple(outputs1, lossfcn_triple)
+            loss = loss_triple(outputs1, lossfcn_universal)
             loss_list1.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -276,12 +280,12 @@ def train_sentence_all(args, model_mlkg):
                 # print
                 print("progress (sent.): ", count_save, "/", len(mix_data)*args.triple_epoch, " |time: ", time_length, "s |loss: ",loss_avg1, " ", loss_avg2)
         # load data
-        mix_dataset = TripleLoader(args, entity_dataset.entity_dict)
+        mix_dataset = MixLoader(args, entity_dataset.entity_dict)
         mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)
         # model_mlkg = model_mlkg.to(args.device)
         mix_data = accelerator.prepare(mix_data)
     # save model
-    save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v2.pt"))
+    save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v3.pt"))
     del model_mlkg
     return
 
@@ -300,7 +304,6 @@ def ki_mlkg(args):
         train_triple_encoder(args, model_mlkg)
     model_mlkg = MLKGLM(args)
     load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v2.pt"))
-    return
     # train sentence context
     if not os.path.exists(os.path.join(args.tmp_dir, "final_v3.pt")):
         train_sentence_all(args, model_mlkg)

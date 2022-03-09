@@ -27,14 +27,9 @@ class MLKGLM(nn.Module):
         '''
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
         self.lm_mask_token_id = args.lm_mask_token_id
-        # set mask status
-        self.training_mask = False
         # set three extra modules
-        self.entity_masking = nn.Sequential(Conv1D(hidden_num, 2),
-                                            nn.Tanh())
         self.universal_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Tanh(),
                                                 nn.Dropout(0.1),
                                                 Conv1D(4*hidden_num, hidden_num),
                                                 nn.LayerNorm(4*hidden_num, eps=1e-12),
@@ -46,11 +41,9 @@ class MLKGLM(nn.Module):
                                                 nn.Dropout(0.1),
                                                 Conv1D(hidden_num, hidden_num),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Tanh(),
                                                 nn.Dropout(0.1))
         self.triple_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
                                             nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Tanh(),
                                             nn.Dropout(0.1),
                                             Conv1D(4*hidden_num, hidden_num),
                                             nn.LayerNorm(4*hidden_num, eps=1e-12),
@@ -62,7 +55,6 @@ class MLKGLM(nn.Module):
                                             nn.Dropout(0.1),
                                             Conv1D(hidden_num, hidden_num),
                                             nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Tanh(),
                                             nn.Dropout(0.1))
         self.universal_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
                                             nn.LayerNorm(hidden_num, eps=1e-12),
@@ -78,21 +70,16 @@ class MLKGLM(nn.Module):
         outputs_MLLM = self.MLLM(**inputs).hidden_states
         # take last layer hidden state: (batch_size, sequence_length, hidden_size)
         outputs_MLLM = outputs_MLLM[-1]
-        outputs_mask_logit = outputs_MLLM*0
         # objective 0: get entity mask
-        if self.training_mask:  # masking training
-            outputs_mask_logit = F.sigmoid(self.entity_masking(outputs_MLLM))
-            outputs_MLLM = self.get_mask(outputs_MLLM, inputs["input_ids"], outputs_mask_logit)
-        else:  # entity/triple training
-            if self.lm_mask_token_id in inputs["input_ids"]:  # triple: mask relation
-                outputs_MLLM = self.get_mask(outputs_MLLM, inputs["input_ids"])
+        if self.lm_mask_token_id in inputs["input_ids"]:  # triple: mask relation
+            outputs_MLLM = self.get_mask(outputs_MLLM, inputs["input_ids"])
         # objective 1: universal space
         outputs_universal = self.universal_mapping(outputs_MLLM)
         outputs_universal = self.universal_aggregator(torch.cat((outputs_MLLM, outputs_universal), dim=2))
         # objective 2: transformer layers
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
         outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=2))
-        return outputs_mask_logit, outputs_universal, outputs_MLKGLM
+        return outputs_universal, outputs_MLKGLM
 
     def get_mask(self, outputs_MLLM, input_ids):
         tmp_batch_num = input_ids.shape[0]

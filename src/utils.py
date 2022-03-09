@@ -47,7 +47,7 @@ class EntityLoader(Data.Dataset):
         inputs_pos = [v["value"] for k, v in tmp_data["labels"].items()]
         # inputs_neg = self.negative_sampler(self.neg_num)
         inputs_neg = self.negative_sampler(len(inputs_pos))
-        return self.tokenizer(inputs_pos+inputs_neg, padding=True, return_tensors="pt")
+        return self.tokenizer(inputs_pos+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
 
 
 class TripleLoader(Data.Dataset):
@@ -102,7 +102,7 @@ class TripleLoader(Data.Dataset):
 
     def cleaning(self, c_list, o_list):
         inputs_neg = self.negative_sampler(len(c_list))
-        input_tokens = self.tokenizer(c_list+o_list+inputs_neg, padding=True, return_tensors="pt")
+        input_tokens = self.tokenizer(c_list+o_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
         return input_tokens
 
 
@@ -176,9 +176,9 @@ class MixLoader(Data.Dataset):
                                 p_text+" "+random.choice(self.entity_dict[o]))
                 '''
             else:  # sentence as context
-                tmp_lang = random.choice([k for k,v in self.des_dict[s]["description"].items()])
-                tmp_sent = self.des_dict[s]["description"][tmp_lang]
-                tmp_label = self.entity_label[s]["labels"][tmp_lang]
+                tmp_lang = random.choice([k for k,v in self.des_dict[s]["descriptions"].items()])
+                tmp_sent = self.des_dict[s]["descriptions"][tmp_lang]
+                tmp_label = self.des_dict[s]["labels"][tmp_lang]
                 tmp_idx = tmp_sent.find(tmp_label)
                 c_list.append(tmp_sent[:tmp_idx]+" "+self.lm_mask_token+" "+tmp_sent[tmp_idx:tmp_idx+len(tmp_label)]\
                                 +" "+self.lm_mask_token+" "+tmp_sent[tmp_idx+len(tmp_label):])
@@ -194,40 +194,41 @@ class MixLoader(Data.Dataset):
     def cleaning(self, c_list, cl_list, o_list):
         # entity
         inputs_neg = self.negative_sampler(len(cl_list))
-        input_tokens_e = self.tokenizer(c_list+cl_list+inputs_neg, padding=True, return_tensors="pt")
+        input_tokens_e = self.tokenizer(c_list+cl_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
         tmp_attn_mask = torch.where(input_tokens_e["input_ids"]==self.lm_mask_token_id, 0, input_tokens_e["attention_mask"])
         input_tokens_e["attention_mask"] = tmp_attn_mask
         # triple
         inputs_neg = self.negative_sampler(len(c_list))
-        input_tokens_t = self.tokenizer(c_list+o_list+inputs_neg, padding=True, return_tensors="pt")
+        input_tokens_t = self.tokenizer(c_list+o_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
         tmp_attn_mask = torch.where(input_tokens_t["input_ids"]==self.lm_mask_token_id, 0, input_tokens_t["attention_mask"])
         input_tokens_t["attention_mask"] = tmp_attn_mask
         return input_tokens_e, input_tokens_t
 
 
-def grad_parameters(model, freeze=True):
+def grad_parameters(model, free=True):
     for name, param in model.named_parameters():
-        param.requires_grad = freeze
+        param.requires_grad = free
     return
 
-def grad_universal(model, freeze=True):
+def grad_universal(model, free=True):
     for name, param in model.named_parameters():
         if "universal" in name:
-            param.requires_grad = freeze
+            param.requires_grad = free
     return
 
-def grad_triple_encoder(model, freeze=True):
+def grad_triple_encoder(model, free=True):
     for name, param in model.named_parameters():
         if "triple" in name:
-            param.requires_grad = freeze
+            param.requires_grad = free
     return
 
 def save_model(model, accelerator, path):
+    model = accelerator.unwrap_model(model)
     accelerator.save(model.state_dict(), path)
     return
 
 def load_model(model, path):
-    model.load_state_dict(torch.load(path, map_location='cpu'), strict=False)
+    model.load_state_dict(torch.load(path, map_location='cpu'))
     return
