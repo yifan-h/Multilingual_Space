@@ -26,96 +26,114 @@ class MLKGLM(nn.Module):
         self.MLLM.active_adapters = ac.Fuse(*adapters)
         '''
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
+        self.training = True
         self.lm_mask_token_id = args.lm_mask_token_id
         # set three extra modules
         self.universal_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
+                                                    nn.ELU(),
+                                                    nn.LayerNorm(hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1),
+                                                    Conv1D(4*hidden_num, hidden_num),
+                                                    nn.ELU(),
+                                                    nn.LayerNorm(4*hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1),
+                                                    Conv1D(hidden_num, 4*hidden_num),
+                                                    nn.ELU(),
+                                                    nn.LayerNorm(hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1),
+                                                    Conv1D(hidden_num, hidden_num),
+                                                    nn.ELU(),
+                                                    nn.LayerNorm(hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1))
+        self.universal_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
+                                                    nn.LayerNorm(hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1))
+        self.triple_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
+                                                nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1),
                                                 Conv1D(4*hidden_num, hidden_num),
+                                                nn.ELU(),
                                                 nn.LayerNorm(4*hidden_num, eps=1e-12),
-                                                nn.Tanh(),
                                                 nn.Dropout(0.1),
                                                 Conv1D(hidden_num, 4*hidden_num),
+                                                nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Tanh(),
                                                 nn.Dropout(0.1),
                                                 Conv1D(hidden_num, hidden_num),
+                                                nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1))
-        self.triple_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Dropout(0.1),
-                                            Conv1D(4*hidden_num, hidden_num),
-                                            nn.LayerNorm(4*hidden_num, eps=1e-12),
-                                            nn.Tanh(),
-                                            nn.Dropout(0.1),
-                                            Conv1D(hidden_num, 4*hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Tanh(),
-                                            nn.Dropout(0.1),
-                                            Conv1D(hidden_num, hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Dropout(0.1))
-        self.universal_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Tanh(),
-                                            nn.Dropout(0.1))
-        self.triple_aggregator = nn.Sequential(Conv1D(hidden_num, 3*hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Tanh(),
-                                            nn.Dropout(0.1))
+        self.triple_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
+                                                nn.LayerNorm(hidden_num, eps=1e-12),
+                                                nn.Dropout(0.1))
 
     def forward(self, **inputs):
         # get MLLM output
         outputs_MLLM = self.MLLM(**inputs).hidden_states
         # take last layer hidden state: (batch_size, sequence_length, hidden_size)
         outputs_MLLM = outputs_MLLM[-1]
-        # objective 0: get entity mask
-        if self.lm_mask_token_id in inputs["input_ids"]:  # triple: mask relation
-            outputs_MLLM = self.get_mask(outputs_MLLM, inputs["input_ids"])
         # objective 1: universal space
         outputs_universal = self.universal_mapping(outputs_MLLM)
         outputs_universal = self.universal_aggregator(torch.cat((outputs_MLLM, outputs_universal), dim=-1))
         # objective 2: transformer layers
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
-        outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
-        return outputs_universal, outputs_MLKGLM
+        outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
+        if self.training:
+            return outputs_universal, outputs_MLKGLM
+        else:
+            return (outputs_MLLM + outputs_universal + outputs_MLKGLM) / 3
 
-    def get_mask(self, outputs_MLLM, input_ids):
-        tmp_batch_num = input_ids.shape[0]
-        for i in range(int(tmp_batch_num)):
-            if self.lm_mask_token_id not in input_ids[i]: continue
-            mask_idx = ((input_ids[i] == self.lm_mask_token_id).nonzero(as_tuple=True)[0])
-            if len(mask_idx) == 1:
-                outputs_MLLM[i,mask_idx[0]:,:] = outputs_MLLM[i,-1,:]
-            else: ## len(mask_idx) == 2
-                outputs_MLLM[i,:mask_idx[0],:] = outputs_MLLM[i,-1,:]
-                outputs_MLLM[i,mask_idx[1]:,:] = outputs_MLLM[i,-1,:]
-        return outputs_MLLM
 
-def loss_universal(args, outputs, lossfcn):
+def loss_universal(args, outputs, lossfcn, input_ids=None):
     # transform set-level to sample-level
-    outputs = torch.mean(outputs, dim=1)
+    # outputs = torch.mean(outputs, dim=1)
     outputs_pos = outputs[:int(outputs.shape[0]/2)]
+    if input_ids is not None:
+        outputs_pos = get_mask(outputs_pos, input_ids, args.lm_mask_token_id)
     outputs_neg = outputs[int(outputs.shape[0]/2):]
+    # average
+    outputs_pos = torch.mean(outputs_pos, dim=1)
+    outputs_neg = torch.mean(outputs_neg, dim=1)
     idx_query, idx_pos = [], []
     for i in range(int(outputs.shape[0]/2)):
         for j in range(int(outputs.shape[0]/2)):
             if i > j:
                 idx_query.append(i)
                 idx_pos.append(j)
+    '''
     if len(idx_query) > args.batch_num:
         idx_all = [i for i in range(len(idx_query))]
         idx_random = random.sample(idx_all, args.batch_num)
         idx_query = [idx_query[i] for i in idx_random]
         idx_pos = [idx_pos[i] for i in idx_random]
+    '''
     return lossfcn(outputs_pos[idx_query], outputs_pos[idx_pos], outputs_neg)
 
 
-def loss_triple(outputs, lossfcn):
+def loss_triple(args, outputs, lossfcn, input_ids=None):
     # transform set-level to sample-level
-    outputs = torch.mean(outputs, dim=1)
+    # outputs = torch.mean(outputs, dim=1)
     outputs_query = outputs[:int(outputs.shape[0]/3)]
+    if input_ids is not None:
+        outputs_query = get_mask(outputs_query, input_ids, args.lm_mask_token_id)
     outputs_pos = outputs[int(outputs.shape[0]/3):int(outputs.shape[0]/3*2)]
     outputs_neg = outputs[int(outputs.shape[0]/3*2):]
+    # average
+    outputs_query = torch.mean(outputs_query, dim=1)
+    outputs_pos = torch.mean(outputs_pos, dim=1)
+    outputs_neg = torch.mean(outputs_neg, dim=1)
     return lossfcn(outputs_query, outputs_pos, outputs_neg)
+
+
+def get_mask(outputs, input_ids, lm_mask_token_id):
+    tmp_batch_num = input_ids.shape[0]
+    for i in range(int(tmp_batch_num)):
+        if lm_mask_token_id not in input_ids[i]: continue
+        mask_idx = ((input_ids[i] == lm_mask_token_id).nonzero(as_tuple=True)[0])
+        if len(mask_idx) == 1:
+            outputs[i,mask_idx[0]:,:] = 0
+        else: ## len(mask_idx) == 2
+            outputs[i,:mask_idx[0],:] = 0
+            outputs[i,mask_idx[1]:,:] = 0
+    return outputs

@@ -3,7 +3,7 @@ import torch
 import time
 from tqdm import tqdm
 import torch.utils.data as Data
-from transformers import AdamW, get_linear_schedule_with_warmup
+from transformers import AdamW, get_cosine_schedule_with_warmup
 from accelerate import Accelerator
 from accelerate import DistributedDataParallelKwargs
 from info_nce import InfoNCE
@@ -28,7 +28,7 @@ def train_entity_universal(args, model_mlkg):
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
-    scheduler = get_linear_schedule_with_warmup(optimizer, 
+    scheduler = get_cosine_schedule_with_warmup(optimizer, 
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.entity_epoch*len(entity_data))
     # model_mlkg = model_mlkg.to(args.device)
@@ -84,7 +84,7 @@ def train_entity_universal(args, model_mlkg):
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
-    scheduler = get_linear_schedule_with_warmup(optimizer, 
+    scheduler = get_cosine_schedule_with_warmup(optimizer, 
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*len(triple_data))
     # model_mlkg = model_mlkg.to(args.device)
@@ -102,7 +102,7 @@ def train_entity_universal(args, model_mlkg):
             # positive set input
             _, outputs = model_mlkg(**encoded_inputs)
             # backpropogation
-            loss = loss_triple(outputs, lossfcn_triple)
+            loss = loss_triple(args, outputs, lossfcn_triple)
             loss_list.append(float(loss.data))
             # loss.backward()
             accelerator.backward(loss)
@@ -143,11 +143,11 @@ def train_triple_encoder(args, model_mlkg):
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_universal(model_mlkg, True)
-    grad_triple_encoder(model_mlkg, False)
+    grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
-    scheduler = get_linear_schedule_with_warmup(optimizer, 
+    scheduler = get_cosine_schedule_with_warmup(optimizer, 
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*2*len(mix_data))
     # model_mlkg = model_mlkg.to(args.device)
@@ -165,12 +165,13 @@ def train_triple_encoder(args, model_mlkg):
             encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
             encoded_inputs_t = {k:torch.squeeze(v) for k, v in encoded_inputs_t.items()}
             #### ((h,t), t)
+            grad_universal(model_mlkg, False)
             grad_triple_encoder(model_mlkg, True)
             optimizer.zero_grad()
             # positive set input
-            _, outputs2 = model_mlkg(**encoded_inputs_t)
+            _, outputs = model_mlkg(**encoded_inputs_t)
             # backpropogation: triple
-            loss = loss_triple(outputs2, lossfcn_triple)
+            loss = loss_triple(args, outputs, lossfcn_triple, encoded_inputs_t["input_ids"])
             loss_list2.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -178,10 +179,11 @@ def train_triple_encoder(args, model_mlkg):
             scheduler.step()
             #### ((h,t), h')
             grad_triple_encoder(model_mlkg, False)
+            grad_universal(model_mlkg, True)
             optimizer.zero_grad()
-            outputs1, _ = model_mlkg(**encoded_inputs_e)
+            outputs, _ = model_mlkg(**encoded_inputs_e)
             # backpropogation: entity
-            loss = loss_universal(args, outputs1, lossfcn_universal)
+            loss = loss_universal(args, outputs, lossfcn_universal, encoded_inputs_e["input_ids"])
             loss_list1.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -202,7 +204,7 @@ def train_triple_encoder(args, model_mlkg):
                 # print
                 print("progress (triple): ", count_save, "/", len(mix_data)*args.triple_epoch, " |time: ", time_length, "s |loss: ",loss_avg1, " ", loss_avg2)
         # load data
-        mix_dataset = MixLoader(args, entity_dataset.entity_dict)
+        mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=True)
         mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)
         # model_mlkg = model_mlkg.to(args.device)
         mix_data = accelerator.prepare(mix_data)
@@ -213,6 +215,8 @@ def train_triple_encoder(args, model_mlkg):
 
 
 def train_sentence_all(args, model_mlkg):
+    args.batch_num = int(args.batch_num/4)
+    args.triple_epoch = max(int(args.triple_epoch/10), 1)
     # load data
     entity_dataset = EntityLoader(args)
     mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=False)
@@ -222,11 +226,11 @@ def train_sentence_all(args, model_mlkg):
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_universal(model_mlkg, True)
-    grad_triple_encoder(model_mlkg, False)
+    grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
-    scheduler = get_linear_schedule_with_warmup(optimizer, 
+    scheduler = get_cosine_schedule_with_warmup(optimizer, 
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*2*len(mix_data))
     # model_mlkg = model_mlkg.to(args.device)
@@ -244,12 +248,13 @@ def train_sentence_all(args, model_mlkg):
             encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
             encoded_inputs_s = {k:torch.squeeze(v) for k, v in encoded_inputs_s.items()}
             #### ((h,t), t)
+            grad_universal(model_mlkg, False)
             grad_triple_encoder(model_mlkg, True)
             optimizer.zero_grad()
             # positive set input
-            _, outputs2 = model_mlkg(**encoded_inputs_s)
+            _, outputs = model_mlkg(**encoded_inputs_s)
             # backpropogation: triple
-            loss = loss_triple(outputs2, lossfcn_triple)
+            loss = loss_triple(args, outputs, lossfcn_triple, encoded_inputs_s["input_ids"])
             loss_list2.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -257,9 +262,10 @@ def train_sentence_all(args, model_mlkg):
             scheduler.step()
             #### ((h,t), h')
             grad_triple_encoder(model_mlkg, False)
-            outputs1, _ = model_mlkg(**encoded_inputs_e)
+            grad_universal(model_mlkg, True)
+            outputs, _ = model_mlkg(**encoded_inputs_e)
             # backpropogation: entity
-            loss = loss_triple(outputs1, lossfcn_universal)
+            loss = loss_universal(args, outputs, lossfcn_universal, encoded_inputs_e["input_ids"])
             loss_list1.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -280,7 +286,7 @@ def train_sentence_all(args, model_mlkg):
                 # print
                 print("progress (sent.): ", count_save, "/", len(mix_data)*args.triple_epoch, " |time: ", time_length, "s |loss: ",loss_avg1, " ", loss_avg2)
         # load data
-        mix_dataset = MixLoader(args, entity_dataset.entity_dict)
+        mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=False)
         mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)
         # model_mlkg = model_mlkg.to(args.device)
         mix_data = accelerator.prepare(mix_data)

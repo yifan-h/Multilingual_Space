@@ -43,76 +43,62 @@ class MLKGLM(nn.Module):
         elif hasattr(self.MLLM_org, 'pred_layer'):
             self.pred_layer = self.MLLM_org.pred_layer
         # set three extra modules
+        self.training = False
         self.universal_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
+                                                    nn.ELU(),
+                                                    nn.LayerNorm(hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1),
+                                                    Conv1D(4*hidden_num, hidden_num),
+                                                    nn.ELU(),
+                                                    nn.LayerNorm(4*hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1),
+                                                    Conv1D(hidden_num, 4*hidden_num),
+                                                    nn.ELU(),
+                                                    nn.LayerNorm(hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1),
+                                                    Conv1D(hidden_num, hidden_num),
+                                                    nn.ELU(),
+                                                    nn.LayerNorm(hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1))
+        self.universal_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
+                                                    nn.LayerNorm(hidden_num, eps=1e-12),
+                                                    nn.Dropout(0.1))
+        self.triple_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
+                                                nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1),
                                                 Conv1D(4*hidden_num, hidden_num),
+                                                nn.ELU(),
                                                 nn.LayerNorm(4*hidden_num, eps=1e-12),
-                                                nn.Tanh(),
                                                 nn.Dropout(0.1),
                                                 Conv1D(hidden_num, 4*hidden_num),
+                                                nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Tanh(),
                                                 nn.Dropout(0.1),
                                                 Conv1D(hidden_num, hidden_num),
+                                                nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1))
-        self.triple_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Dropout(0.1),
-                                            Conv1D(4*hidden_num, hidden_num),
-                                            nn.LayerNorm(4*hidden_num, eps=1e-12),
-                                            nn.Tanh(),
-                                            nn.Dropout(0.1),
-                                            Conv1D(hidden_num, 4*hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Tanh(),
-                                            nn.Dropout(0.1),
-                                            Conv1D(hidden_num, hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Dropout(0.1))
-        self.universal_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Tanh(),
-                                            nn.Dropout(0.1))
-        self.triple_aggregator = nn.Sequential(Conv1D(hidden_num, 3*hidden_num),
-                                            nn.LayerNorm(hidden_num, eps=1e-12),
-                                            nn.Tanh(),
-                                            nn.Dropout(0.1))
-        self.logit_layer = nn.Sequential(self.MLLM_org.bert.pooler.dense,self.MLLM_org.bert.pooler.activation)
+        self.triple_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
+                                                nn.LayerNorm(hidden_num, eps=1e-12),
+                                                nn.Dropout(0.1))
+        # self.pooling_layer = nn.Sequential(self.MLLM_org.bert.pooler.dense,self.MLLM_org.bert.pooler.activation)
     def forward(self, **inputs):
         # get MLLM output
-        outputs_MLLM = self.MLLM(**inputs)[0]
-        print(outputs_MLLM.shape)
-        print(self.MLLM_org(**inputs)[0].shape)
+        outputs_MLLM = self.MLLM(**inputs)
         # take last layer hidden state: (batch_size, sequence_length, hidden_size)
-        # print(len(outputs_MLLM))
-        # print(outputs_MLLM[0].shape)
-        outputs_MLLM = outputs_MLLM
-        print(outputs_MLLM)
-        # objective 0: get entity mask
-        #if self.lm_mask_token_id in inputs["input_ids"]:  # triple: mask relation
-        #    outputs_MLLM = self.get_mask(outputs_MLLM, inputs["input_ids"])
+        outputs_MLLM = outputs_MLLM[0]
         # objective 1: universal space
         outputs_universal = self.universal_mapping(outputs_MLLM)
-        # print(outputs_MLLM.shape, outputs_universal.shape) 
         outputs_universal = self.universal_aggregator(torch.cat((outputs_MLLM, outputs_universal), dim=-1))
         # objective 2: transformer layers
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
-        outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
-        outputs_logit = self.logit_layer(outputs_MLKGLM)
-        return outputs_logit, 0
-    def get_mask(self, outputs_MLLM, input_ids):
-        tmp_batch_num = input_ids.shape[0]
-        for i in range(int(tmp_batch_num)):
-            if self.lm_mask_token_id not in input_ids[i]: continue
-            mask_idx = ((input_ids[i] == self.lm_mask_token_id).nonzero(as_tuple=True)[0])
-            if len(mask_idx) == 1:
-                outputs_MLLM[i,mask_idx[0]:,:] = outputs_MLLM[i,-1,:]
-            else: ## len(mask_idx) == 2
-                outputs_MLLM[i,:mask_idx[0],:] = outputs_MLLM[i,-1,:]
-                outputs_MLLM[i,mask_idx[1]:,:] = outputs_MLLM[i,-1,:]
-        return outputs_MLLM
+        outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
+        if self.training:
+            return outputs_universal, outputs_MLKGLM
+        else:
+            return self.cls(outputs_MLLM + outputs_universal + outputs_MLKGLM / 3), 0
+            # return self.cls(self.pooling_layer((outputs_MLLM + outputs_universal + outputs_MLKGLM) / 3)), 0
 
 
 logger = logging.getLogger('mLAMA')
@@ -197,7 +183,7 @@ def get_tokenizer(lang: str, name: str):
 def model_prediction_wrap(model, inp_tensor, attention_mask):
     # print(inp_tensor, attention_mask)
     logit = model(input_ids=inp_tensor, attention_mask=attention_mask)[0]
-    print(logit.shape)
+    # print(logit.shape)
     if transformers.__version__ in {'2.4.1', '2.4.0'}:
         if hasattr(model, 'cls'):  # bert
             bias = model.cls.predictions.bias
@@ -1226,6 +1212,7 @@ if __name__ == '__main__':
     print('load model')
     # model = AutoModelWithLMHead.from_pretrained(LM)
     model = MLKGLM(LM)
+    model.load_state_dict(torch.load("/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/checkpoints/final_v1.pt", map_location='cpu'), strict=False)
     if args.lm_layer_model is not None:
         llm = LM_NAME[args.lm_layer_model] if args.lm_layer_model in LM_NAME else args.lm_layer_model
         llm = AutoModelWithLMHead.from_pretrained(llm)

@@ -1,0 +1,1442 @@
+Namespace(adam_epsilon=1e-06, batch_num=64, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_sample20', device=-1, entity_epoch=1, lm_mask_token_id=103, lr=1e-05, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/checkpoints', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-06, batch_num=64, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_sample20', device=-1, entity_epoch=1, lm_mask_token_id=103, lr=1e-05, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/checkpoints', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-06, batch_num=64, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_sample20', device=-1, entity_epoch=1, lm_mask_token_id=103, lr=1e-05, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/checkpoints', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-06, batch_num=64, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_sample20', device=-1, entity_epoch=1, lm_mask_token_id=103, lr=1e-05, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/checkpoints', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-06, batch_num=64, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_sample20', device=-1, entity_epoch=1, lm_mask_token_id=103, lr=1e-05, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/checkpoints', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-06, batch_num=64, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_sample20', device=-1, entity_epoch=1, lm_mask_token_id=103, lr=1e-05, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/checkpoints', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-06, batch_num=64, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_sample20', device=-1, entity_epoch=1, lm_mask_token_id=103, lr=1e-05, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/checkpoints', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-06, batch_num=64, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_sample20', device=-1, entity_epoch=1, lm_mask_token_id=103, lr=1e-05, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/checkpoints', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (entity):  1000  /  61222  | time:  52.3043 s | loss:  0.713
+progress (entity):  1000  /  61222  | time:  52.309 s | loss:  0.7101
+progress (entity):  1000  /  61222  | time:  52.3097 s | loss:  0.7177
+progress (entity):  1000  /  61222  | time:  52.3123 s | loss:  0.7042
+progress (entity):  1000  /  61222  | time:  52.3235 s | loss:  0.7088
+progress (entity):  1000  /  61222  | time:  52.3255 s | loss:  0.7085
+progress (entity):  1000  /  61222  | time:  52.326 s | loss:  0.7056
+progress (entity):  1000  /  61222  | time:  52.3276 s | loss:  0.7155
+progress (entity):  2000  /  61222  | time:  49.6483 s | loss:  0.525
+progress (entity):  2000  /  61222  | time: progress (entity):   49.65722000  s | loss:  /   0.511461222  | time: 
+ 49.6524 s | loss:  0.5136
+progress (entity):  2000  /  61222  | time:  49.6538 s | loss:  0.5191
+progress (entity):  2000  /  61222  | time:  49.6355 s | loss:  0.5154
+progress (entity):  2000  /  61222  | time:  49.6372 s | loss:  0.5257
+progress (entity):  2000  /  61222  | time:  49.6424 s | loss:  0.5256
+progress (entity):  2000  /  61222  | time:  49.6475 s | loss:  0.5253
+progress (entity):  3000  /  61222  | time:  49.4451 s | loss:  0.4495
+progress (entity):  progress (entity): 3000   / 3000  61222 /    | time: 61222   | time:  49.451249.4526  s | loss: s | loss:   0.45310.4579
+
+progress (entity):  3000  /  61222  | time:  49.4548 s | loss:  0.4523
+progress (entity):  3000  /  61222  | time:  49.4586 s | loss:  0.4509
+progress (entity):  3000  /  61222  | time:  49.4563 s | loss:  0.4563
+progress (entity):  3000  /  61222  | time:  49.4469 s | loss:  0.4605
+progress (entity):  3000  /  61222  | time:  49.4552 s | loss:  0.4528
+progress (entity):  4000  /  61222  | time:  48.4173 s | loss:  0.4617
+progress (entity):  4000  /  61222  | time:  48.4323 s | loss:  0.463
+progress (entity):  4000  /  61222  | time:  48.432 s | loss:  0.4525
+progress (entity):  4000  /  61222  | time:  48.4255 s | loss:  0.4608
+progress (entity):  4000  /  61222  | time:  48.4391 s | loss:  0.4549
+progress (entity):  4000  /  61222  | time:  48.4803 s | loss:  0.4633
+progress (entity):  4000  /  61222  | time:  48.4826 s | loss:  0.4677
+progress (entity):  4000  /  61222  | time:  48.4791 s | loss:  0.4644
+progress (entity):  5000  /  61222  | time:  48.3823 s | loss:  0.4056
+progress (entity):  5000  /  61222  | time:  48.3767 s | loss:  0.4156
+progress (entity): progress (entity):  5000  /   500061222   /  | time:   61222  | time: 48.3286  s | loss:  0.414548.3938 
+s | loss:  0.4145
+progress (entity):  5000  /  61222  | time:  48.3319 s | loss:  0.3971
+progress (entity):  5000  /  61222  | time:  48.3948 s | loss:  0.4177
+progress (entity):  5000  /  61222  | time:  48.3355 s | loss:  0.4092
+progress (entity):  5000  /  61222  | time:  48.3914 s | loss:  0.4164
+progress (entity):  6000  /  61222  | time:  48.2183 s | loss:  0.3507
+progress (entity):  6000  /  61222  | time:  48.2176 s | loss:  0.3443
+progress (entity):  6000  /  61222  | time:  48.2217 s | loss:  0.3477
+progress (entity):  6000  /  61222  | time:  48.2263 s | loss:  0.3512
+progress (entity):  6000  /  61222  | time:  48.2169 s | loss:  0.3502
+progress (entity):  6000  /  61222  | time:  48.2279 s | loss:  0.3482
+progress (entity):  6000  /  61222  | time:  48.2299 s | loss:  0.3505
+progress (entity):  6000  /  61222  | time:  48.2283 s | loss:  0.3607
+progress (entity):  7000  /  61222  | time:  48.5746 s | loss:  0.3723
+progress (entity):  7000  /  61222  | time:  48.5952 s | loss:  0.3687
+progress (entity):  7000  /  61222  | time:  48.584 s | loss:  0.3594
+progress (entity):  7000  /  61222  | time:  48.5966 s | loss:  0.3762
+progress (entity):  7000  /  61222  | time:  48.5898 s | loss:  0.3746
+progress (entity):  7000  /  61222  | time:  48.5948 s | loss:  0.3741
+progress (entity):  7000  /  61222  | time:  48.5996 s | loss:  0.3804
+progress (entity):  7000  /  61222  | time:  48.6008 s | loss:  0.3672
+progress (entity):  8000  /  61222  | time:  47.9431 s | loss:  0.3598
+progress (entity):  8000  /  61222  | time:  47.9195 s | loss:  0.3647
+progress (entity):  8000  /  61222  | time:  47.9257 s | loss:  0.3602
+progress (entity):  8000  /  61222  | time:  47.9244 s | loss:  0.3585
+progress (entity):  8000  /  61222  | time:  47.9319 s | loss:  0.3553
+progress (entity):  8000  /  61222  | time:  47.9404 s | loss:  0.3556
+progress (entity):  8000  /  61222  | time:  47.9451 s | loss:  0.3648
+progress (entity):  8000  /  61222  | time:  47.9436 s | loss:  0.3547
+progress (entity):  9000  /  61222  | time:  48.7656 s | loss:  0.3429
+progress (entity):  9000  /  61222  | time:  48.7644 s | loss:  0.3487
+progress (entity):  9000  /  61222  | time:  48.7628 s | loss:  0.3348
+progress (entity):  9000  /  61222  | time:  48.77 s | loss:  0.3427
+progress (entity):  9000  /  61222  | time:  48.7776 s | loss:  0.3443
+progress (entity):  9000  /  61222  | time:  48.7876 s | loss:  0.3389
+progress (entity):  9000  /  61222  | time:  48.7936 s | loss:  0.3292
+progress (entity):  9000  /  61222  | time:  48.7817 s | loss:  0.3416
+progress (entity):  10000  /  61222  | time:  48.6666 s | loss:  0.3192
+progress (entity):  10000  /  61222  | time:  48.6299 s | loss:  0.3345
+progress (entity):  10000  /  61222  | time:  48.6616 s | loss:  0.3304
+progress (entity):  10000  /  61222  | time:  48.6321 s | loss:  0.326
+progress (entity):  10000  /  61222  | time:  48.6709 s | loss:  0.3237
+progress (entity):  10000  /  61222  | time:  48.6704 s | loss:  0.3203
+progress (entity):  10000  /  61222  | time:  48.6382 s | loss:  0.327
+progress (entity):  10000  /  61222  | time:  48.6377 s | loss:  0.3304
+progress (entity):  11000  /  61222  | time:  49.4822 s | loss:  0.2938
+progress (entity):  11000  /  61222  | time:  49.4804 s | loss:  0.2944
+progress (entity):  11000  /  61222  | time:  49.4803 s | loss:  0.3009
+progress (entity):  11000  /  61222  | time:  49.4967 s | loss:  0.2911
+progress (entity):  11000  /  61222  | time:  49.4905 s | loss:  0.2972
+progress (entity):  11000  /  61222  | time:  49.4897 s | loss:  0.2869
+progress (entity):  11000  /  61222  | time:  49.5002 s | loss:  0.2991
+progress (entity):  11000  /  61222  | time:  49.4986 s | loss:  0.288
+progress (entity):  12000  /  61222  | time:  52.5071 s | loss:  0.3069
+progress (entity):  12000  /  61222  | time:  52.507 s | loss:  0.3026
+progress (entity):  12000  /  61222  | time:  52.5289 s | loss:  0.2976
+progress (entity):  12000  /  61222  | time:  52.5292 s | loss:  0.2968
+progress (entity):  12000  /  61222  | time:  52.5093 s | loss:  0.3083
+progress (entity):  12000  /  61222  | time:  52.5201 s | loss:  0.297
+progress (entity):  12000  /  61222  | time:  52.5297 s | loss:  0.3062
+progress (entity):  12000  /  61222  | time:  52.558 s | loss:  0.2994
+progress (entity):  13000  /  61222  | time:  48.4279 s | loss:  0.3192
+progress (entity):  13000  /  61222  | time:  48.4587 s | loss:  0.3135
+progress (entity):  13000  /  61222  | time:  48.4651 s | loss:  0.3211
+progress (entity):  13000  /  61222  | time:  48.461 s | loss:  0.3099
+progress (entity):  13000  /  61222  | time:  48.466 s | loss:  0.3104
+progress (entity):  13000  /  61222  | time:  48.4722 s | loss:  0.3185
+progress (entity):  13000  /  61222  | time:  48.4644 s | loss:  0.3131
+progress (entity):  13000  /  61222  | time:  48.5014 s | loss:  0.3117
+progress (entity):  14000  /  61222  | time:  47.6929 s | loss:  0.2583
+progress (entity):  14000  /  61222  | time:  47.7121 s | loss:  0.2469
+progress (entity):  14000  /  61222  | time:  47.7121 s | loss:  0.2622
+progress (entity):  14000  /  61222  | time:  47.6941 s | loss:  0.2495
+progress (entity):  14000  /  61222  | time:  47.7133 s | loss:  0.2569
+progress (entity):  14000  /  61222  | time:  47.7132 s | loss:  0.2647
+progress (entity):  14000  /  61222  | time:  47.7186 s | loss:  0.2533
+progress (entity):  14000  /  61222  | time:  47.6881 s | loss:  0.2595
+progress (entity):  15000  /  61222  | time:  48.0492 s | loss:  0.2625
+progress (entity):  15000  /  61222  | time:  48.0527 s | loss:  0.2695
+progress (entity):  15000  /  61222  | time:  48.0479 s | loss:  0.2641
+progress (entity):  15000  /  61222  | time:  48.0443 s | loss:  0.2658
+progress (entity):  15000  /  61222  | time:  48.0396 s | loss:  0.2631
+progress (entity):  15000  /  61222  | time:  48.049 s | loss:  0.263
+progress (entity):  15000  /  61222  | time:  48.0617 s | loss:  0.261
+progress (entity):  15000  /  61222  | time:  48.042 s | loss:  0.2586
+progress (entity):  16000  /  61222  | time:  48.5214 s | loss:  0.2911
+progress (entity):  16000  /  61222  | time:  48.5175 s | loss:  0.2951
+progress (entity):  16000  /  61222  | time:  48.5172 s | loss:  0.2956
+progress (entity):  16000  /  61222  | time:  48.5213 s | loss:  0.2984progress (entity):  16000  /  61222  | time:  48.52 s | loss:  0.2874
+
+progress (entity):  16000  /  61222  | time:  48.5189 s | loss:  0.2934
+progress (entity):  16000  /  61222  | time:  48.5411 s | loss:  0.2979
+progress (entity):  16000  /  61222  | time:  48.5388 s | loss:  0.2967
+progress (entity):  17000  /  61222  | time:  48.1697 s | loss:  0.3019
+progress (entity):  17000  /  61222  | time:  48.1673 s | loss:  0.3051
+progress (entity):  17000  /  61222  | time:  48.1697 s | loss:  0.2998
+progress (entity):  17000  /  61222  | time:  48.1715 s | loss:  0.3043
+progress (entity):  17000  /  61222  | time:  48.1725 s | loss:  0.308
+progress (entity):  17000  /  61222  | time:  48.1488 s | loss:  0.3015
+progress (entity):  17000  /  61222  | time:  48.1546 s | loss:  0.2989
+progress (entity):  17000  /  61222  | time:  48.1769 s | loss:  0.2979
+progress (entity):  18000  /  61222  | time:  47.6333 s | loss:  0.2657
+progress (entity):  18000  /  61222  | time:  47.6351 s | loss:  0.2652
+progress (entity):  18000  /  61222  | time:  47.634 s | loss:  0.2681
+progress (entity):  18000  /  61222  | time:  47.6374 s | loss:  0.2703
+progress (entity):  18000  /  61222  | time:  47.6461 s | loss:  0.2743
+progress (entity):  18000  /  61222  | time:  47.65 s | loss:  0.2724
+progress (entity):  18000  /  61222  | time:  47.6455 s | loss:  0.2648
+progress (entity):  18000  /  61222  | time:  47.6476 s | loss:  0.2671
+progress (entity):  19000  /  61222  | time:  48.0076 s | loss:  0.2646
+progress (entity):  19000  /  61222  | time:  48.0001 s | loss:  0.2686
+progress (entity):  19000  /  61222  | time:  48.0012 s | loss:  0.2766
+progress (entity):  19000  /  61222  | time:  48.0161 s | loss:  0.2699
+progress (entity):  19000  /  61222  | time:  48.0015 s | loss:  0.2658
+progress (entity):  19000  /  61222  | time:  48.0225 s | loss:  0.2739
+progress (entity):  19000  /  61222  | time:  48.0102 s | loss:  0.2696
+progress (entity):  19000  /  61222  | time:  48.0232 s | loss:  0.2636
+progress (entity):  20000  /  61222  | time:  48.5582 s | loss:  0.3055
+progress (entity):  20000  /  61222  | time:  48.5583 s | loss:  0.3012
+progress (entity):  20000  /  61222  | time:  48.5543 s | loss:  0.2972
+progress (entity):  20000  /  61222  | time:  48.5726 s | loss:  0.2996
+progress (entity):  20000  /  61222  | time:  48.5624 s | loss:  0.3093
+progress (entity):  20000  /  61222  | time:  48.5621 s | loss:  0.3005
+progress (entity):  20000  /  61222  | time:  48.5642 s | loss:  0.2961
+progress (entity):  20000  /  61222  | time:  48.5652 s | loss:  0.3043
+progress (entity):  21000  /  61222  | time:  49.9348 s | loss:  0.2946
+progress (entity):  21000  /  61222  | time:  49.9355 s | loss:  0.3024
+progress (entity): progress (entity):  21000   / 21000  61222 /    | time: 61222   | time:  49.9389 s | loss:  49.92990.296 s | loss: 
+ 0.2985
+progress (entity):  21000  /  61222  | time:  49.9357 s | loss:  0.2948
+progress (entity):  21000  /  61222  | time:  49.9371 s | loss:  0.2937
+progress (entity):  21000  /  61222  | time:  49.9468 s | loss:  0.2981
+progress (entity):  21000  /  61222  | time:  49.9431 s | loss:  0.2975
+progress (entity):  22000  /  61222  | time:  48.121 s | loss:  0.2775
+progress (entity):  22000  /  61222  | time:  48.1188 s | loss:  0.2845
+progress (entity):  22000  /  61222  | time:  48.1297 s | loss:  0.277
+progress (entity):  22000  /  61222  | time:  48.1278 s | loss:  0.2907
+progress (entity):  22000  /  61222  | time:  48.1284 s | loss:  0.2868
+progress (entity):  22000  /  61222  | time:  48.1153 s | loss:  0.2772
+progress (entity):  22000  /  61222  | time:  48.1126 s | loss:  0.2822
+progress (entity):  22000  /  61222  | time:  48.1296 s | loss:  0.2799
+progress (entity):  23000  /  61222  | time:  47.902 s | loss:  0.2659
+progress (entity):  23000  /  61222  | time:  47.896 s | loss:  0.2686
+progress (entity):  23000  /  61222  | time:  47.8969 s | loss:  0.263
+progress (entity):  23000  /  61222  | time:  47.8966 s | loss:  0.2551
+progress (entity):  23000  /  61222  | time:  47.9093 s | loss:  0.2752
+progress (entity):  23000  /  61222  | time:  47.9012 s | loss:  0.2666
+progress (entity):  23000  /  61222  | time:  47.9065 s | loss:  0.27
+progress (entity):  23000  /  61222  | time:  47.9148 s | loss:  0.261
+progress (entity):  24000  /  61222  | time:  48.4388 s | loss:  0.2509
+progress (entity):  24000  /  61222  | time: progress (entity):   2400048.4485   / s | loss:   612220.2471  | time:  
+48.4442 s | loss:  0.2339
+progress (entity):  24000  /  61222  | time:  48.4469 s | loss:  0.2495
+progress (entity):  24000  /  61222  | time:  48.4289 s | loss:  0.2428
+progress (entity):  24000  /  61222  | time:  48.4514 s | loss:  0.2369
+progress (entity):  24000  /  61222  | time:  48.4565 s | loss:  0.2392
+progress (entity):  24000  /  61222  | time:  48.4477 s | loss:  0.236
+progress (entity):  25000  /  61222  | time:  47.8524 s | loss:  0.2657
+progress (entity):  25000  /  61222  | time:  47.8646 s | loss:  0.2703
+progress (entity):  25000  /  61222  | time:  47.8642 s | loss:  0.2743
+progress (entity):  25000  /  61222  | time:  47.876 s | loss:  0.2699
+progress (entity):  25000  /  61222  | time:  47.8646 s | loss:  0.2752
+progress (entity):  25000  /  61222  | time:  47.8674 s | loss:  0.2725
+progress (entity):  25000  /  61222  | time:  47.8764 s | loss:  0.2633
+progress (entity):  25000  /  61222  | time:  47.8827 s | loss:  0.2627
+progress (entity):  26000  /  61222  | time:  48.734 s | loss:  0.272
+progress (entity): progress (entity):  26000  /  61222  | time:  48.7637 s | loss:  0.2704
+ 26000  /  61222  | time:  48.7408 s | loss:  0.274
+progress (entity):  26000  /  61222  | time:  48.7348 s | loss:  0.277
+progress (entity):  26000  /  61222  | time:  48.7577 s | loss:  0.2769
+progress (entity):  26000  /  61222  | time:  48.7443 s | loss:  0.2627
+progress (entity):  26000  /  61222  | time:  48.7606 s | loss:  0.2662
+progress (entity):  26000  /  61222  | time:  48.7739 s | loss:  0.2712
+progress (entity):  27000  /  61222  | time:  47.401 s | loss:  0.2634
+progress (entity):  27000  /  61222  | time:  47.3982 s | loss:  0.263
+progress (entity):  27000  /  61222  | time:  47.398 s | loss:  0.2585
+progress (entity):  27000  /  61222  | time:  47.3964 s | loss:  0.26
+progress (entity):  27000  /  61222  | time:  47.4035 s | loss:  0.2571
+progress (entity):  27000  /  61222  | time:  47.4034 s | loss:  0.257
+progress (entity):  27000  /  61222  | time:  47.3777 s | loss:  0.2588
+progress (entity):  27000  /  61222  | time:  47.3952 s | loss:  0.2654
+progress (entity):  28000  /  61222  | time:  48.5363 s | loss:  0.2641
+progress (entity):  28000  /  61222  | time:  48.5405 s | loss:  0.2576
+progress (entity):  28000  /  61222  | time:  48.5344 s | loss:  0.2563
+progress (entity):  28000  /  61222  | time:  48.5444 s | loss:  0.2643
+progress (entity):  28000  /  61222  | time:  48.534 s | loss:  0.2571
+progress (entity):  28000  /  61222  | time:  48.532 s | loss:  0.2607
+progress (entity):  28000  /  61222  | time:  48.5514 s | loss:  0.2713
+progress (entity):  28000  /  61222  | time:  48.5589 s | loss:  0.2626
+progress (entity):  29000  /  61222  | time:  47.4271 s | loss:  0.2514
+progress (entity):  29000  /  61222  | time:  47.4088 s | loss:  0.2396
+progress (entity):  29000  /  61222  | time:  47.4263 s | loss:  0.2451
+progress (entity):  29000  /  61222  | time:  47.4134 s | loss:  0.2465
+progress (entity):  29000  /  61222  | time:  47.4277 s | loss:  0.2454
+progress (entity):  29000  /  61222  | time:  47.4211 s | loss:  0.2354
+progress (entity):  29000  /  61222  | time:  47.4431 s | loss:  0.245
+progress (entity):  29000  /  61222  | time:  47.4481 s | loss:  0.2497
+progress (entity):  30000  /  61222  | time:  48.3623 s | loss:  0.2642
+progress (entity):  30000  /  61222  | time:  48.3636 s | loss:  0.2627
+progress (entity):  30000  /  61222  | time:  48.3639 s | loss:  0.2842
+progress (entity):  30000  /  61222  | time:  48.3639 s | loss:  0.268
+progress (entity):  30000  /  61222  | time:  48.3663 s | loss:  0.2679
+progress (entity):  30000  /  61222  | time:  48.3779 s | loss:  0.2715
+progress (entity):  30000  /  61222  | time:  48.3635 s | loss:  0.2562
+progress (entity):  30000  /  61222  | time:  48.3623 s | loss:  0.2692
+progress (entity):  31000  /  61222  | time:  48.3236 s | loss:  0.2588
+progress (entity):  31000  /  61222  | time:  48.3276 s | loss:  0.2533
+progress (entity):  31000  /  61222  | time:  48.3161 s | loss:  0.2593
+progress (entity):  31000  /  61222  | time:  48.3397 s | loss:  0.253
+progress (entity):  31000  /  61222  | time:  48.3418 s | loss:  0.2473
+progress (entity):  31000  /  61222  | time:  48.3192 s | loss:  0.2593
+progress (entity):  31000  /  61222  | time:  48.3197 s | loss:  0.2553
+progress (entity):  31000  /  61222  | time:  48.3452 s | loss:  0.2473
+progress (entity):  32000  /  61222  | time:  47.7438 s | loss:  0.2567
+progress (entity):  32000  /  61222  | time:  47.7537 s | loss:  0.2526
+progress (entity):  32000  /  61222  | time:  47.738 s | loss:  0.2611
+progress (entity): progress (entity):  32000  32000 /    / 61222  61222 | time:    | time:  47.7348 s | loss: 47.753  0.2598s | loss:  0.2616
+
+progress (entity):  32000  /  61222  | time:  47.7348 s | loss:  0.2503
+progress (entity):  32000  /  61222  | time:  47.7625 s | loss:  0.2539
+progress (entity):  32000  /  61222  | time:  47.7497 s | loss:  0.2553
+progress (entity):  33000  /  61222  | time:  47.88 s | loss:  0.2468
+progress (entity):  33000  /  61222  | time:  47.8828 s | loss:  0.2538
+progress (entity):  33000  /  61222  | time:  47.8838 s | loss:  0.2494
+progress (entity):  33000  /  61222  | time:  47.886 s | loss:  0.2483
+progress (entity):  33000  /  61222  | time:  47.883 s | loss:  0.2636
+progress (entity):  33000  /  61222  | time:  47.8846 s | loss:  0.2573
+progress (entity):  33000  /  61222  | time:  47.8799 s | loss:  0.2514
+progress (entity):  33000  /  61222  | time:  47.8875 s | loss:  0.2565
+progress (entity):  34000  /  61222  | time:  47.5903 s | loss:  0.2548
+progress (entity):  34000  /  61222  | time:  47.5895 s | loss:  0.2521
+progress (entity):  34000  /  61222  | time:  47.5901 s | loss:  0.2516
+progress (entity):  34000  /  61222  | time:  47.5871 s | loss:  0.258
+progress (entity):  34000  /  61222  | time:  47.5955 s | loss:  0.2599
+progress (entity):  34000  /  61222  | time:  47.5958 s | loss:  0.2599
+progress (entity):  34000  /  61222  | time:  47.5943 s | loss:  0.2508
+progress (entity):  34000  /  61222  | time:  47.6173 s | loss:  0.2527
+progress (entity):  35000  /  61222  | time:  48.0706 s | loss:  0.2681
+progress (entity):  35000  /  61222  | time:  48.0681 s | loss:  0.2693
+progress (entity):  35000  /  61222  | time:  48.0692 s | loss:  0.2748
+progress (entity):  35000  /  61222  | time:  48.0749 s | loss:  0.2734
+progress (entity):  35000  /  61222  | time:  48.0749 s | loss:  0.2714
+progress (entity):  35000  /  61222  | time:  48.0741 s | loss:  0.2698
+progress (entity):  35000  /  61222  | time:  48.0791 s | loss:  0.2709
+progress (entity):  35000  /  61222  | time:  48.0593 s | loss:  0.2685
+progress (entity):  36000  /  61222  | time:  48.2957 s | loss:  0.2323
+progress (entity):  36000  /  61222  | time:  48.3036 s | loss:  0.2463
+progress (entity):  36000  /  61222  | time:  48.3082 s | loss:  0.2425
+progress (entity):  36000  /  61222  | time:  48.2966 s | loss:  0.2487
+progress (entity):  36000  /  61222  | time:  48.3036 s | loss:  0.2377
+progress (entity):  36000  /  61222  | time:  48.3098 s | loss:  0.2368
+progress (entity):  36000  /  61222  | time:  48.3144 s | loss:  0.2368
+progress (entity):  36000  /  61222  | time:  48.3211 s | loss:  0.2456
+progress (entity):  37000  /  61222  | time:  47.9194 s | loss:  0.246
+progress (entity):  37000  /  61222  | time:  47.9172 s | loss:  0.2513
+progress (entity):  37000  /  61222  | time:  47.9153 s | loss:  0.2491
+progress (entity):  37000  /  61222  | time:  47.9264 s | loss:  0.2466
+progress (entity):  37000  /  61222  | time:  47.9261 s | loss:  0.2451
+progress (entity):  37000  /  61222  | time:  47.934 s | loss:  0.2498
+progress (entity):  37000  /  61222  | time:  47.929 s | loss:  0.241
+progress (entity):  37000  /  61222  | time:  47.9377 s | loss:  0.2421
+progress (entity):  38000  /  61222  | time:  46.9047 s | loss:  0.2335
+progress (entity):  38000  /  61222  | time:  46.907 s | loss:  0.2313
+progress (entity):  38000  /  61222  | time:  46.9056 s | loss:  0.2357
+progress (entity):  38000  /  61222  | time:  46.8987 s | loss:  0.2295
+progress (entity):  38000  /  61222  | time:  46.9202 s | loss:  0.2384
+progress (entity):  38000  /  61222  | time:  46.9094 s | loss:  0.2313
+progress (entity):  38000  /  61222  | time:  46.9151 s | loss:  0.2431
+progress (entity):  38000  /  61222  | time:  46.9198 s | loss:  0.2312
+progress (entity):  39000  /  61222  | time:  47.8887 s | loss:  0.2457
+progress (entity):  39000  /  61222  | time:  47.8816 s | loss:  0.252
+progress (entity):  39000  /  61222  | time:  47.8891 s | loss:  0.2617
+progress (entity):  39000  /  61222  | time:  47.8865 s | loss:  0.2561
+progress (entity):  39000  /  61222  | time:  47.8927 s | loss:  0.2472
+progress (entity):  39000  /  61222  | time:  47.8852 s | loss:  0.2588
+progress (entity):  39000  /  61222  | time:  47.8948 s | loss:  0.2677
+progress (entity):  39000  /  61222  | time:  47.8847 s | loss:  0.2583
+progress (entity):  40000  /  61222  | time:  47.8023 s | loss:  0.2458
+progress (entity):  40000  /  61222  | time:  47.8049 s | loss:  0.2357
+progress (entity):  40000  /  61222  | time:  47.8037 s | loss:  0.2466
+progress (entity):  40000  /  61222  | time:  47.8117 s | loss:  0.2392
+progress (entity):  40000  /  61222  | time:  47.8062 s | loss:  0.2496
+progress (entity):  40000  /  61222  | time:  47.8048 s | loss:  0.2466
+progress (entity):  40000  /  61222  | time:  47.817 s | loss:  0.2406
+progress (entity):  40000  /  61222  | time:  47.8124 s | loss:  0.2453
+progress (entity):  41000  /  61222  | time:  49.0595 s | loss:  0.2326
+progress (entity):  41000  /  61222  | time:  49.0561 s | loss:  0.2199
+progress (entity):  41000  /  61222  | time:  49.0625 s | loss:  0.2281
+progress (entity):  41000  /  61222  | time:  49.0633 s | loss:  0.2263
+progress (entity):  41000  /  61222  | time:  49.0721 s | loss:  0.2238
+progress (entity):  41000  /  61222  | time:  49.0693 s | loss:  0.2419
+progress (entity):  41000  /  61222  | time:  49.0733 s | loss:  0.2276
+progress (entity):  41000  /  61222  | time:  49.0725 s | loss:  0.2303
+progress (entity):  42000  /  61222  | time:  48.2507 s | loss:  0.2431
+progress (entity):  42000  /  61222  | time:  48.2565 s | loss:  0.2421
+progress (entity):  42000  /  61222  | time:  48.2523 s | loss:  0.2435
+progress (entity):  42000  /  61222  | time:  48.2517 s | loss:  0.2578
+progress (entity):  42000  /  61222  | time:  48.2668 s | loss:  0.2457
+progress (entity):  42000  /  61222  | time:  48.2497 s | loss:  0.2471
+progress (entity):  42000  /  61222  | time:  48.2661 s | loss:  0.2571
+progress (entity):  42000  /  61222  | time:  48.2664 s | loss:  0.2553
+progress (entity):  43000  /  61222  | time:  48.2183 s | loss:  0.2445
+progress (entity):  43000  /  61222  | time:  48.2216 s | loss:  0.2555
+progress (entity):  43000  /  61222  | time:  48.2259 s | loss:  0.2485
+progress (entity):  43000  /  61222  | time:  48.2229 s | loss:  0.2492
+progress (entity):  43000  /  61222  | time:  48.2253 s | loss:  0.2503
+progress (entity):  43000  /  61222  | time:  48.2264 s | loss:  0.2461
+progress (entity):  43000  /  61222  | time:  48.2392 s | loss:  0.2463
+progress (entity):  43000  /  61222  | time:  48.2344 s | loss:  0.2485
+progress (entity):  44000  /  61222  | time:  48.9414 s | loss:  0.2261
+progress (entity):  44000  /  61222  | time:  48.9523 s | loss:  0.2233
+progress (entity):  44000  /  61222  | time:  48.9434 s | loss:  0.2196
+progress (entity):  44000  /  61222  | time:  48.9332 s | loss:  0.2299
+progress (entity):  44000  /  61222  | time:  48.9591 s | loss:  0.2261
+progress (entity):  44000  /  61222  | time:  48.9621 s | loss:  0.2215
+progress (entity):  44000  /  61222  | time:  48.947 s | loss:  0.2141
+progress (entity):  44000  /  61222  | time:  48.9449 s | loss:  0.2236
+progress (entity):  45000  /  61222  | time:  48.385 s | loss:  0.2449
+progress (entity):  45000  /  61222  | time:  48.3854 s | loss:  0.2356
+progress (entity):  45000  /  61222  | time:  48.3917 s | loss:  0.2476
+progress (entity):  45000  /  61222  | time:  48.3926 s | loss:  0.2474
+progress (entity):  45000  /  61222  | time:  48.3954 s | loss:  0.2517
+progress (entity):  45000  /  61222  | time:  48.406 s | loss:  0.2488
+progress (entity):  45000  /  61222  | time:  48.4065 s | loss:  0.2449
+progress (entity):  45000  /  61222  | time:  48.4114 s | loss:  0.2434
+progress (entity):  46000  /  61222  | time:  47.9838 s | loss:  0.2504
+progress (entity):  46000  /  61222  | time:  47.9873 s | loss:  0.2462
+progress (entity):  46000  /  61222  | time:  48.0013 s | loss:  0.252
+progress (entity):  46000  /  61222  | time:  47.9856 s | loss:  0.2451
+progress (entity):  46000  /  61222  | time:  48.0095 s | loss:  0.2595
+progress (entity): progress (entity):  46000  46000 /    / 61222  61222 | time:    | time:  48.0071 s | loss:  48.00250.2476 s | loss:  
+0.2466
+progress (entity):  46000  /  61222  | time:  48.0088 s | loss:  0.2528
+progress (entity):  47000  /  61222  | time:  48.5846 s | loss:  0.2298
+progress (entity):  47000  /  61222  | time:  48.5803 s | loss:  0.2266
+progress (entity):  47000  /  61222  | time:  48.5932 s | loss:  0.2312
+progress (entity):  47000  /  61222  | time:  48.5958 s | loss:  0.2231
+progress (entity):  47000  /  61222  | time:  48.5982 s | loss:  0.2295
+progress (entity):  47000  /  61222  | time:  48.6051 s | loss:  0.227
+progress (entity):  47000  /  61222  | time:  48.6068 s | loss:  0.2266
+progress (entity):  47000  /  61222  | time:  48.6153 s | loss:  0.2189
+progress (entity):  48000  /  61222  | time:  48.2695 s | loss:  0.2362
+progress (entity):  48000  /  61222  | time:  48.2841 s | loss:  0.2366
+progress (entity):  48000  /  61222  | time:  48.2857 s | loss:  0.2363
+progress (entity):  48000  /  61222  | time:  48.2824 s | loss:  0.2399
+progress (entity):  48000  /  61222  | time:  48.2731 s | loss:  0.2341
+progress (entity):  48000  /  61222  | time:  48.2794 s | loss:  0.2398
+progress (entity):  48000  /  61222  | time:  48.2731 s | loss:  0.2385
+progress (entity):  48000  /  61222  | time:  48.2647 s | loss:  0.2312
+progress (entity):  49000  /  61222  | time:  48.2745 s | loss:  0.2176
+progress (entity):  49000  /  61222  | time:  48.2861 s | loss:  0.2157
+progress (entity):  49000  /  61222  | time:  48.2878 s | loss:  0.2169
+progress (entity):  49000  /  61222  | time:  48.2874 s | loss:  0.2188
+progress (entity):  49000  /  61222  | time:  48.292 s | loss:  0.2233
+progress (entity):  49000  /  61222  | time:  48.2894 s | loss:  0.2126
+progress (entity):  49000  /  61222  | time:  48.291 s | loss:  0.2201
+progress (entity):  49000  /  61222  | time:  48.3027 s | loss:  0.218
+progress (entity):  50000  /  61222  | time:  48.5552 s | loss:  0.2377
+progress (entity):  50000  /  61222  | time:  48.5246 s | loss:  0.2361
+progress (entity):  50000  /  61222  | time:  48.5332 s | loss:  0.2407
+progress (entity):  50000  /  61222  | time:  48.5626 s | loss:  0.2322
+progress (entity):  50000  /  61222  | time:  48.564 s | loss:  0.2366
+progress (entity):  50000  /  61222  | time:  48.5614 s | loss:  0.2405
+progress (entity):  50000  /  61222  | time:  48.5671 s | loss:  0.2402
+progress (entity):  50000  /  61222  | time:  48.5671 s | loss:  0.239
+progress (entity):  51000  /  61222  | time:  48.9562 s | loss:  0.2366
+progress (entity):  51000  /  61222  | time:  48.9572 s | loss:  0.2361
+progress (entity):  51000  /  61222  | time:  48.9555 s | loss:  0.2529
+progress (entity):  51000  /  61222  | time:  48.9375 s | loss:  0.237
+progress (entity):  51000  /  61222  | time:  48.944 s | loss:  0.2383
+progress (entity):  51000  /  61222  | time:  48.9451 s | loss:  0.2458
+progress (entity):  51000  /  61222  | time:  48.9495 s | loss:  0.2424
+progress (entity):  51000  /  61222  | time:  48.9484 s | loss:  0.2451
+progress (entity):  52000  /  61222  | time:  48.3599 s | loss:  0.2437
+progress (entity):  52000  /  61222  | time:  48.3811 s | loss:  0.2521
+progress (entity):  52000  /  61222  | time:  48.3536 s | loss:  0.2466
+progress (entity):  52000  /  61222  | time:  48.3817 s | loss:  0.2474
+progress (entity):  52000  /  61222  | time:  48.382 s | loss:  0.2517
+progress (entity):  52000  /  61222  | time:  48.3643 s | loss:  0.252
+progress (entity):  52000  /  61222  | time:  48.3638 s | loss:  0.2553
+progress (entity):  52000  /  61222  | time:  48.3746 s | loss:  0.2559
+progress (entity):  53000  /  61222  | time:  48.1148 s | loss:  0.225
+progress (entity):  53000  /  61222  | time:  48.1409 s | loss:  0.2252
+progress (entity):  53000  /  61222  | time:  48.1352 s | loss:  0.2296
+progress (entity):  53000  /  61222  | time:  48.1297 s | loss:  0.2227
+progress (entity):  53000  /  61222  | time:  48.1397 s | loss:  0.216
+progress (entity):  53000  /  61222  | time:  48.1389 s | loss:  0.2146
+progress (entity):  53000  /  61222  | time:  48.1429 s | loss:  0.2183
+progress (entity):  53000  /  61222  | time:  48.1381 s | loss:  0.229
+progress (entity):  54000  /  61222  | time:  47.4027 s | loss:  0.2119
+progress (entity):  54000  /  61222  | time:  47.3736 s | loss:  0.2161
+progress (entity):  54000  /  61222  | time:  47.3769 s | loss:  0.2176
+progress (entity):  54000  /  61222  | time:  47.3772 s | loss:  0.2238
+progress (entity):  54000  /  61222  | time:  47.3799 s | loss:  0.2206
+progress (entity):  54000  /  61222  | time:  47.3799 s | loss:  0.2242
+progress (entity):  54000  /  61222  | time:  47.3826 s | loss:  0.2226
+progress (entity):  54000  /  61222  | time:  47.3881 s | loss:  0.2178
+progress (entity):  55000  /  61222  | time:  47.861 s | loss:  0.2368
+progress (entity):  55000  /  61222  | time:  47.8669 s | loss:  0.2355
+progress (entity):  55000  /  61222  | time:  47.8687 s | loss:  0.2442
+progress (entity):  55000  /  61222  | time:  47.8658 s | loss:  0.2396
+progress (entity):  55000  /  61222  | time:  47.8718 s | loss:  0.2343
+progress (entity):  55000  /  61222  | time:  47.8671 s | loss:  0.2377
+progress (entity):  55000  /  61222  | time:  47.8826 s | loss:  0.2412
+progress (entity):  55000  /  61222  | time:  47.8858 s | loss:  0.2458
+progress (entity):  56000  /  61222  | time:  47.8358 s | loss:  0.2257
+progress (entity):  56000  /  61222  | time:  47.8383 s | loss:  0.2237
+progress (entity):  56000  /  61222  | time:  47.8462 s | loss:  0.2195
+progress (entity):  56000  /  61222  | time:  47.8273 s | loss:  0.21
+progress (entity):  56000  /  61222  | time:  47.8456 s | loss:  0.2122
+progress (entity):  56000  /  61222  | time:  47.8316 s | loss:  0.2133
+progress (entity):  56000  /  61222  | time:  47.8352 s | loss:  0.2203
+progress (entity):  56000  /  61222  | time:  47.8478 s | loss:  0.2154
+progress (entity):  57000  /  61222  | time:  47.0372 s | loss:  0.2205
+progress (entity):  57000  /  61222  | time:  47.0471 s | loss:  0.2209
+progress (entity):  57000  /  61222  | time:  47.0488 s | loss:  0.2152
+progress (entity):  57000  /  61222  | time:  47.0452 s | loss:  0.2168
+progress (entity):  57000  /  61222  | time:  47.0508 s | loss:  0.2112
+progress (entity):  57000  /  61222  | time:  47.0495 s | loss:  0.2212
+progress (entity):  57000  /  61222  | time:  47.0547 s | loss:  0.2044
+progress (entity):  57000  /  61222  | time:  47.0625 s | loss:  0.2096
+progress (entity):  58000  /  61222  | time:  48.4214 s | loss:  0.2244
+progress (entity):  58000  /  61222  | time:  48.4192 progress (entity): s | loss:   0.229358000  / 
+ 61222  | time:  48.4191 s | loss:  0.2237
+progress (entity):  58000  /  61222  | time:  48.4277 s | loss:  0.2211
+progress (entity):  58000  /  61222  | time:  48.4246 s | loss:  0.2209
+progress (entity):  58000  /  61222  | time:  48.4374 s | loss:  0.2344
+progress (entity):  58000  /  61222  | time:  48.4217 s | loss:  0.2287
+progress (entity):  58000  /  61222  | time:  48.4155 s | loss:  0.2266
+progress (entity):  59000  /  61222  | time:  48.1447 s | loss:  0.2356
+progress (entity):  59000  /  61222  | time:  48.1432 s | loss:  0.2266
+progress (entity):  59000  /  61222  | time:  48.147 s | loss:  0.235
+progress (entity):  59000  /  61222  | time:  48.1516 s | loss:  0.2185
+progress (entity):  59000  /  61222  | time:  48.1533 s | loss:  0.2308
+progress (entity):  59000  /  61222  | time:  48.1537 s | loss:  0.2337
+progress (entity):  59000  /  61222  | time:  48.1444 s | loss:  0.2311
+progress (entity):  59000  /  61222  | time:  48.1471 s | loss:  0.228
+progress (entity):  60000  /  61222  | time:  47.6771 s | loss:  0.2333
+progress (entity):  60000  /  61222  | time:  47.6788 s | loss:  0.223
+progress (entity):  60000  /  61222  | time:  47.68 s | loss:  0.2221
+progress (entity):  60000  /  61222  | time:  47.6777 s | loss:  0.2235
+progress (entity):  60000  /  61222  | time:  47.6832 s | loss:  0.2266
+progress (entity):  60000  /  61222  | time:  47.6806 s | loss:  0.2283
+progress (entity):  60000  /  61222  | time:  47.6826 s | loss:  0.2309
+progress (entity):  60000  /  61222  | time:  47.685 s | loss:  0.2183
+progress (entity):  61000  /  61222  | time:  48.0142 s | loss:  0.224
+progress (entity):  61000  /  61222  | time:  48.0122 s | loss:  0.2125
+progress (entity):  61000  /  61222  | time:  48.0136 s | loss:  0.2169
+progress (entity):  61000  /  61222  | time:  48.0147 s | loss:  0.2156
+progress (entity):  61000  /  61222  | time:  48.0104 s | loss:  0.2128
+progress (entity):  61000  /  61222  | time:  48.0098 s | loss:  0.2209
+progress (entity): progress (entity):  61000   / 61000  61222 /    | time: 61222   | time:  48.0174 s | loss:  0.212448.0234 s | loss: 
+ 0.217
+progress (triple):  1000  /  53960  | time:  134.2156 s | loss:  3.7643
+progress (triple):  1000  /  53960  | time:  134.219 s | loss:  3.7691
+progress (triple):  1000  /  53960  | time:  134.2291 s | loss:  3.7692
+progress (triple):  1000  /  53960  | time:  134.2309 s | loss:  3.7673
+progress (triple):  1000  /  53960  | time:  134.2325 s | loss:  3.7634
+progress (triple):  1000  /  53960  | time:  134.2343 s | loss:  3.7612
+progress (triple):  1000  /  53960  | time:  134.2367 s | loss:  3.771
+progress (triple):  1000  /  53960  | time:  134.2455 s | loss:  3.7548
+progress (triple):  2000  /  53960  | time:  137.9559 s | loss:  2.9483
+progress (triple):  2000  /  53960  | time:  137.9621 s | loss:  2.9439
+progress (triple):  2000  /  53960  | time:  137.9788 s | loss:  2.9364
+progress (triple):  2000  /  53960  | time:  137.9777 s | loss:  2.9423
+progress (triple):  2000  /  53960  | time:  137.9639 s | loss:  2.9442
+progress (triple):  2000  /  53960  | time:  137.9619 s | loss:  2.9386
+progress (triple):  2000  /  53960  | time:  137.9543 s | loss:  2.9479
+progress (triple):  2000  /  53960  | time:  137.9769 s | loss:  2.9444
+progress (triple):  3000  /  53960  | time:  134.1149 s | loss:  2.747
+progress (triple):  3000  /  53960  | time:  134.119 s | loss:  2.7488
+progress (triple):  3000  /  53960  | time:  134.117 s | loss:  2.748
+progress (triple):  3000  /  53960  | time:  134.1324 s | loss:  2.7469
+progress (triple):  3000  /  53960  | time:  134.1455 s | loss:  2.7492
+progress (triple):  3000  /  53960  | time:  134.1472 s | loss:  2.7439
+progress (triple):  3000  /  53960  | time:  134.1526 s | loss:  2.7531
+progress (triple):  3000  /  53960  | time:  134.1741 s | loss:  2.7509
+progress (triple):  4000  /  53960  | time:  135.5078 s | loss:  2.652
+progress (triple):  4000  /  53960  | time:  135.4883 s | loss:  2.6527
+progress (triple):  4000  /  53960  | time:  135.448 s | loss:  2.6499
+progress (triple):  4000  /  53960  | time:  135.5172 s | loss:  2.6471
+progress (triple):  4000  /  53960  | time:  135.5182 s | loss:  2.6616
+progress (triple):  4000  /  53960  | time:  135.5137 s | loss:  2.6645
+progress (triple):  4000  /  53960  | time:  135.5327 s | loss:  2.6523
+progress (triple):  4000  /  53960  | time:  135.5435 s | loss:  2.6526
+progress (triple):  5000  /  53960  | time:  135.2748 s | loss:  2.579
+progress (triple):  5000  /  53960  | time:  135.3146 s | loss:  2.5798
+progress (triple):  5000  /  53960  | time:  135.3092 s | loss:  2.5735
+progress (triple):  5000  /  53960  | time:  135.303 s | loss:  2.5841
+progress (triple):  5000  /  53960  | time:  135.3178 s | loss:  2.5789
+progress (triple):  5000  /  53960  | time:  135.2713 s | loss:  2.5819
+progress (triple):  5000  /  53960  | time:  135.3453 s | loss:  2.5853
+progress (triple):  5000  /  53960  | time:  135.3917 s | loss:  2.5832
+progress (triple):  6000  /  53960  | time:  137.7882 s | loss:  2.5103
+progress (triple):  6000  /  53960  | time:  137.8257 s | loss:  2.5088
+progress (triple):  6000  /  53960  | time:  137.8379 s | loss:  2.5119
+progress (triple):  6000  /  53960  | time:  137.8248 s | loss:  2.5105
+progress (triple):  6000  /  53960  | time:  137.8183 s | loss:  2.503
+progress (triple):  6000  /  53960  | time:  137.8538 s | loss:  2.514
+progress (triple):  6000  /  53960  | time:  137.8676 s | loss:  2.5093
+progress (triple):  6000  /  53960  | time:  137.7795 s | loss:  2.5123
+progress (triple):  7000  /  53960  | time:  134.1617 s | loss:  2.4615
+progress (triple):  7000  /  53960  | time:  134.1588 s | loss:  2.4515
+progress (triple):  7000  /  53960  | time:  134.1785 s | loss:  2.4626
+progress (triple):  7000  /  53960  | time:  134.1604 s | loss:  2.4607
+progress (triple):  7000  /  53960  | time:  134.1501 s | loss:  2.4594
+progress (triple):  7000  /  53960  | time:  134.1977 s | loss:  2.4576
+progress (triple):  7000  /  53960  | time:  134.1727 s | loss:  2.4554
+progress (triple):  7000  /  53960  | time:  134.2447 s | loss:  2.467
+progress (triple):  8000  /  53960  | time:  136.6286 s | loss:  2.4035
+progress (triple):  8000  /  53960  | time:  136.5849 s | loss:  2.4077
+progress (triple):  8000  /  53960  | time:  136.6549 s | loss:  2.4077
+progress (triple):  8000  /  53960  | time:  136.6584 s | loss:  2.4106
+progress (triple):  8000  /  53960  | time:  136.6409 s | loss:  2.4096
+progress (triple):  8000  /  53960  | time:  136.681 s | loss:  2.408
+progress (triple):  8000  /  53960  | time:  136.6823 s | loss:  2.4083
+progress (triple):  8000  /  53960  | time:  136.6969 s | loss:  2.4108
+progress (triple):  9000  /  53960  | time:  133.5359 s | loss:  2.3688
+progress (triple):  9000  /  53960  | time:  133.576 s | loss:  2.3709
+progress (triple):  9000  /  53960  | time:  133.559 s | loss:  2.3657
+progress (triple):  9000  /  53960  | time:  133.5784 s | loss:  2.3698
+progress (triple):  9000  /  53960  | time:  133.5735 s | loss:  2.3652
+progress (triple):  9000  /  53960  | time:  133.5692 s | loss:  2.3669
+progress (triple):  9000  /  53960  | time:  133.6077 s | loss:  2.3731
+progress (triple):  9000  /  53960  | time:  133.6381 s | loss:  2.3644
+progress (triple):  10000  /  53960  | time:  135.6955 s | loss:  2.3406
+progress (triple):  10000  /  53960  | time:  135.6545 s | loss:  2.3378
+progress (triple):  10000  /  53960  | time:  135.7028 s | loss:  2.3339
+progress (triple):  10000  /  53960  | time:  135.7153 s | loss:  2.3322
+progress (triple):  10000  /  53960  | time:  135.6972 s | loss:  2.3443
+progress (triple):  10000  /  53960  | time:  135.665 s | loss:  2.3313
+progress (triple):  10000  /  53960  | time:  135.7431 s | loss:  2.3398
+progress (triple):  10000  /  53960  | time:  135.7486 s | loss:  2.3357
+progress (triple):  11000  /  53960  | time:  137.167 s | loss:  2.304
+progress (triple):  11000  /  53960  | time:  137.2129 s | loss:  2.2989
+progress (triple):  11000  /  53960  | time:  137.2274 s | loss:  2.3034
+progress (triple):  11000  /  53960  | time:  137.2111 s | loss:  2.2969
+progress (triple):  11000  /  53960  | time:  137.2318 s | loss:  2.3057
+progress (triple):  11000  /  53960  | time:  137.2014 s | loss:  2.2958
+progress (triple):  11000  /  53960  | time:  137.2098 s | loss:  2.3026
+progress (triple):  11000  /  53960  | time:  137.2523 s | loss:  2.3064
+progress (triple):  12000  /  53960  | time:  136.2128 s | loss:  2.2714
+progress (triple):  12000  /  53960  | time:  136.1899 s | loss:  2.2743
+progress (triple):  12000  /  53960  | time:  136.2061 s | loss:  2.2817
+progress (triple):  12000  /  53960  | time:  136.1971 s | loss:  2.2812
+progress (triple):  12000  /  53960  | time:  136.1753 s | loss:  2.2771
+progress (triple):  12000  /  53960  | time:  136.2144 s | loss:  2.2844
+progress (triple):  12000  /  53960  | time:  136.2664 s | loss:  2.2761
+progress (triple):  12000  /  53960  | time:  136.2671 s | loss:  2.2828
+progress (triple):  13000  /  53960  | time:  134.349 s | loss:  2.2607
+progress (triple):  13000  /  53960  | time:  134.3589 s | loss:  2.2668
+progress (triple):  13000  /  53960  | time:  134.2883 s | loss:  2.2639
+progress (triple):  13000  /  53960  | time:  134.3638 s | loss:  2.2674
+progress (triple):  13000  /  53960  | time:  134.2906 s | loss:  2.2605
+progress (triple):  13000  /  53960  | time:  134.3759 s | loss:  2.2691
+progress (triple):  13000  /  53960  | time:  134.3461 s | loss:  2.2605
+progress (triple):  13000  /  53960  | time:  134.3799 s | loss:  2.2631
+progress (triple):  14000  /  53960  | time:  135.2591 s | loss:  2.2466
+progress (triple):  14000  /  53960  | time:  135.2486 s | loss:  2.2435
+progress (triple):  14000  /  53960  | time:  135.2587 s | loss:  2.2476
+progress (triple):  14000  /  53960  | time:  135.2644 s | loss:  2.2358
+progress (triple):  14000  /  53960  | time:  135.2653 s | loss:  2.2425
+progress (triple):  14000  /  53960  | time:  135.2586 s | loss:  2.2488
+progress (triple):  14000  /  53960  | time:  135.2727 s | loss:  2.2432
+progress (triple):  14000  /  53960  | time:  135.2824 s | loss:  2.2475
+progress (triple):  15000  /  53960  | time:  134.5251 s | loss:  2.2197
+progress (triple):  15000  /  53960  | time:  134.5361 s | loss:  2.2213
+progress (triple):  15000  /  53960  | time:  134.5484 s | loss:  2.2235
+progress (triple):  15000  /  53960  | time:  134.5022 s | loss:  2.2265
+progress (triple):  15000  /  53960  | time:  134.5425 s | loss:  2.223
+progress (triple):  15000  /  53960  | time:  134.5328 s | loss:  2.2233
+progress (triple):  15000  /  53960  | time:  134.5551 s | loss:  2.2248
+progress (triple):  15000  /  53960  | time:  134.5635 s | loss:  2.2249
+progress (triple):  16000  /  53960  | time:  134.6484 s | loss:  2.2167
+progress (triple):  16000  /  53960  | time:  134.6537 s | loss:  2.2146
+progress (triple):  16000  /  53960  | time:  134.6354 s | loss:  2.2108
+progress (triple):  16000  /  53960  | time:  134.6565 s | loss:  2.2152
+progress (triple):  16000  /  53960  | time:  134.6333 s | loss:  2.2096
+progress (triple):  16000  /  53960  | time:  134.6643 s | loss:  2.215
+progress (triple):  16000  /  53960  | time:  134.6923 s | loss:  2.2157
+progress (triple):  16000  /  53960  | time:  134.7059 s | loss:  2.2077
+progress (triple):  17000  /  53960  | time:  135.0047 s | loss:  2.2024
+progress (triple):  17000  /  53960  | time:  134.9607 s | loss:  2.2059
+progress (triple):  17000  /  53960  | time:  135.0222 s | loss:  2.1951
+progress (triple):  17000  /  53960  | time:  135.0263 s | loss:  2.2041
+progress (triple):  17000  /  53960  | time:  134.9867 s | loss:  2.198
+progress (triple):  17000  /  53960  | time:  135.0181 s | loss:  2.1947
+progress (triple):  17000  /  53960  | time:  135.0464 s | loss:  2.2
+progress (triple):  17000  /  53960  | time:  135.0579 s | loss:  2.2
+progress (triple):  18000  /  53960  | time:  134.3004 s | loss:  2.1906
+progress (triple):  18000  /  53960  | time:  134.3051 s | loss:  2.1876
+progress (triple):  18000  /  53960  | time:  134.298 s | loss:  2.2039
+progress (triple):  18000  /  53960  | time:  134.2808 s | loss:  2.1898
+progress (triple):  18000  /  53960  | time:  134.2862 s | loss:  2.1878
+progress (triple):  18000  /  53960  | time:  134.3427 s | loss:  2.1917
+progress (triple):  18000  /  53960  | time:  134.3526 s | loss:  2.1899
+progress (triple):  18000  /  53960  | time:  134.3804 s | loss:  2.1864
+progress (triple):  19000  /  53960  | time:  136.0693 s | loss:  2.185
+progress (triple):  19000  /  53960  | time:  136.054 s | loss:  2.1794
+progress (triple):  19000  /  53960  | time:  136.0911 s | loss:  2.1861
+progress (triple):  19000  /  53960  | time:  136.0131 s | loss:  2.1714
+progress (triple):  19000  /  53960  | time:  136.0666 s | loss:  2.1799
+progress (triple):  19000  /  53960  | time:  136.1063 s | loss:  2.1751
+progress (triple):  19000  /  53960  | time:  136.1257 s | loss:  2.1835
+progress (triple):  19000  /  53960  | time:  136.124 s | loss:  2.1814
+progress (triple):  20000  /  53960  | time:  134.75 s | loss:  2.176
+progress (triple):  20000  /  53960  | time:  134.7839 s | loss:  2.1733
+progress (triple):  20000  /  53960  | time:  134.7799 s | loss:  2.1712
+progress (triple):  20000  /  53960  | time:  134.8032 s | loss:  2.1704
+progress (triple):  20000  /  53960  | time:  134.7988 s | loss:  2.163
+progress (triple):  20000  /  53960  | time:  134.8049 s | loss:  2.1727
+progress (triple):  20000  /  53960  | time:  134.8092 s | loss:  2.1766
+progress (triple):  20000  /  53960  | time:  134.7725 s | loss:  2.1685
+progress (triple):  21000  /  53960  | time:  135.7472 s | loss:  2.1655
+progress (triple):  21000  /  53960  | time:  135.7946 s | loss:  2.161
+progress (triple):  21000  /  53960  | time:  135.7796 s | loss:  2.1634
+progress (triple):  21000  /  53960  | time:  135.798 s | loss:  2.16
+progress (triple):  21000  /  53960  | time:  135.8005 s | loss:  2.1615
+progress (triple):  21000  /  53960  | time:  135.8094 s | loss:  2.1672
+progress (triple):  21000  /  53960  | time:  135.8059 s | loss:  2.1671
+progress (triple):  21000  /  53960  | time:  135.8401 s | loss:  2.1621
+progress (triple):  22000  /  53960  | time:  136.4334 s | loss:  2.1458
+progress (triple):  22000  /  53960  | time:  136.4044 s | loss:  2.1412
+progress (triple):  22000  /  53960  | time:  136.4609 s | loss:  2.1509
+progress (triple):  22000  /  53960  | time:  136.4249 s | loss:  2.1457
+progress (triple):  22000  /  53960  | time:  136.4493 s | loss:  2.1524
+progress (triple):  22000  /  53960  | time:  136.4124 s | loss:  2.1459
+progress (triple):  22000  /  53960  | time:  136.4977 s | loss:  2.1521
+progress (triple):  22000  /  53960  | time:  136.4994 s | loss:  2.1469
+progress (triple):  23000  /  53960  | time:  136.036 s | loss:  2.1429
+progress (triple):  23000  /  53960  | time:  136.05 s | loss:  2.1426
+progress (triple):  23000  /  53960  | time:  136.0243 s | loss:  2.1416
+progress (triple):  23000  /  53960  | time:  136.0434 s | loss:  2.141
+progress (triple):  23000  /  53960  | time:  136.0376 s | loss:  2.1433
+progress (triple):  23000  /  53960  | time:  136.0084 s | loss:  2.1442
+progress (triple):  23000  /  53960  | time:  136.0813 s | loss:  2.1512
+progress (triple):  23000  /  53960  | time:  136.0058 s | loss:  2.1491
+progress (triple):  24000  /  53960  | time:  136.8683 s | loss:  2.1422
+progress (triple):  24000  /  53960  | time:  136.8702 s | loss:  2.1398
+progress (triple):  24000  /  53960  | time:  136.8819 s | loss:  2.1352
+progress (triple):  24000  /  53960  | time:  136.8705 s | loss:  2.1461
+progress (triple):  24000  /  53960  | time:  136.911 s | loss:  2.1452
+progress (triple):  24000  /  53960  | time:  136.8815 s | loss:  2.1429
+progress (triple):  24000  /  53960  | time:  136.8791 s | loss:  2.1369
+progress (triple):  24000  /  53960  | time:  136.9518 s | loss:  2.1435
+progress (triple):  25000  /  53960  | time:  134.9794 s | loss:  2.138
+progress (triple):  25000  /  53960  | time:  134.9208 s | loss:  2.1372
+progress (triple):  25000  /  53960  | time:  134.9585 s | loss:  2.1422
+progress (triple):  25000  /  53960  | time:  134.9588 s | loss:  2.135
+progress (triple):  25000  /  53960  | time:  134.9608 s | loss:  2.1408
+progress (triple):  25000  /  53960  | time:  135.0038 s | loss:  2.1392
+progress (triple):  25000  /  53960  | time:  135.0203 s | loss:  2.1401
+progress (triple):  25000  /  53960  | time:  135.0106 s | loss:  2.1303
+progress (triple):  26000  /  53960  | time:  134.0271 s | loss:  2.1338
+progress (triple):  26000  /  53960  | time:  134.0362 s | loss:  2.1154
+progress (triple):  26000  /  53960  | time:  134.0183 s | loss:  2.1213
+progress (triple):  26000  /  53960  | time:  134.0475 s | loss:  2.1248
+progress (triple):  26000  /  53960  | time:  134.0481 s | loss:  2.1167
+progress (triple):  26000  /  53960  | time:  134.074 s | loss:  2.1212
+progress (triple):  26000  /  53960  | time:  134.0773 s | loss:  2.1241
+progress (triple):  26000  /  53960  | time:  134.0887 s | loss:  2.1263
+progress (triple):  27000  /  53960  | time:  137.1783 s | loss:  2.1139
+progress (triple):  27000  /  53960  | time:  137.1941 s | loss:  2.1144
+progress (triple):  27000  /  53960  | time:  137.209 s | loss:  2.1229
+progress (triple):  27000  /  53960  | time:  137.1953 s | loss:  2.1168
+progress (triple):  27000  /  53960  | time:  137.2165 s | loss:  2.1155
+progress (triple):  27000  /  53960  | time:  137.1478 s | loss:  2.112
+progress (triple):  27000  /  53960  | time:  137.1909 s | loss:  2.1174
+progress (triple):  27000  /  53960  | time:  137.2834 s | loss:  2.1152
+progress (triple):  28000  /  53960  | time:  135.1263 s | loss:  2.1089
+progress (triple):  28000  /  53960  | time:  135.1323 s | loss:  2.1103
+progress (triple):  28000  /  53960  | time:  135.1371 s | loss:  2.11
+progress (triple):  28000  /  53960  | time:  135.1225 s | loss:  2.1215
+progress (triple):  28000  /  53960  | time:  135.1359 s | loss:  2.1065
+progress (triple):  28000  /  53960  | time:  135.1244 s | loss:  2.1157
+progress (triple):  28000  /  53960  | time:  135.1447 s | loss:  2.1136
+progress (triple):  28000  /  53960  | time:  135.0784 s | loss:  2.1161
+progress (triple):  29000  /  53960  | time:  134.2004 s | loss:  2.1017
+progress (triple):  29000  /  53960  | time:  134.2239 s | loss:  2.1104
+progress (triple):  29000  /  53960  | time:  134.2268 s | loss:  2.1122
+progress (triple):  29000  /  53960  | time:  134.2333 s | loss:  2.1108
+progress (triple):  29000  /  53960  | time:  134.2404 s | loss:  2.1137
+progress (triple):  29000  /  53960  | time:  134.2264 s | loss:  2.1132
+progress (triple):  29000  /  53960  | time:  134.2413 s | loss:  2.1071
+progress (triple):  29000  /  53960  | time:  134.2637 s | loss:  2.1107
+progress (triple):  30000  /  53960  | time:  133.6561 s | loss:  2.1056
+progress (triple):  30000  /  53960  | time:  133.6398 s | loss:  2.1014
+progress (triple):  30000  /  53960  | time:  133.65 s | loss:  2.101
+progress (triple):  30000  /  53960  | time:  133.6432 s | loss:  2.0977
+progress (triple):  30000  /  53960  | time:  133.6547 s | loss:  2.103
+progress (triple):  30000  /  53960  | time:  133.6311 s | loss:  2.1029
+progress (triple):  30000  /  53960  | time:  133.6548 s | loss:  2.1031
+progress (triple):  30000  /  53960  | time:  133.6573 s | loss:  2.1031
+progress (triple):  31000  /  53960  | time:  135.5952 s | loss:  2.0942
+progress (triple):  31000  /  53960  | time:  135.5912 s | loss:  2.0961
+progress (triple):  31000  /  53960  | time:  135.5984 s | loss:  2.0986
+progress (triple):  31000  /  53960  | time:  135.5764 s | loss:  2.0928
+progress (triple):  31000  /  53960  | time:  135.6151 s | loss:  2.1029
+progress (triple):  31000  /  53960  | time:  135.6032 s | loss:  2.099
+progress (triple):  31000  /  53960  | time:  135.5943 s | loss:  2.0991
+progress (triple):  31000  /  53960  | time:  135.625 s | loss:  2.098
+progress (triple):  32000  /  53960  | time:  135.1291 s | loss:  2.0904
+progress (triple):  32000  /  53960  | time:  135.1126 s | loss:  2.0932
+progress (triple):  32000  /  53960  | time:  135.132 s | loss:  2.0873
+progress (triple):  32000  /  53960  | time:  135.1051 s | loss:  2.0865
+progress (triple):  32000  /  53960  | time:  135.1343 s | loss:  2.0949
+progress (triple):  32000  /  53960  | time:  135.1572 s | loss:  2.0949
+progress (triple):  32000  /  53960  | time:  135.1547 s | loss:  2.0914
+progress (triple):  32000  /  53960  | time:  135.1519 s | loss:  2.0927
+progress (triple):  33000  /  53960  | time:  135.0663 s | loss:  2.0849
+progress (triple):  33000  /  53960  | time:  135.0954 s | loss:  2.0902
+progress (triple):  33000  /  53960  | time:  135.09 s | loss:  2.0858
+progress (triple):  33000  /  53960  | time:  135.104 s | loss:  2.0857
+progress (triple):  33000  /  53960  | time:  135.0842 s | loss:  2.0784
+progress (triple):  33000  /  53960  | time:  135.1121 s | loss:  2.0802
+progress (triple):  33000  /  53960  | time:  135.0935 s | loss:  2.0923
+progress (triple):  33000  /  53960  | time:  135.086 s | loss:  2.0856
+progress (triple):  34000  /  53960  | time:  134.0538 s | loss:  2.0814
+progress (triple):  34000  /  53960  | time:  134.0763 s | loss:  2.0813
+progress (triple):  34000  /  53960  | time:  134.0871 s | loss:  2.0837
+progress (triple):  34000  /  53960  | time:  134.092 s | loss:  2.0859
+progress (triple):  34000  /  53960  | time:  134.1057 s | loss:  2.079
+progress (triple):  34000  /  53960  | time:  134.0893 s | loss:  2.0834
+progress (triple):  34000  /  53960  | time:  134.1174 s | loss:  2.0851
+progress (triple):  34000  /  53960  | time:  134.1108 s | loss:  2.0792
+progress (triple):  35000  /  53960  | time:  136.3373 s | loss:  2.0761
+progress (triple):  35000  /  53960  | time:  136.3619 s | loss:  2.0738
+progress (triple):  35000  /  53960  | time:  136.3344 s | loss:  2.0789
+progress (triple):  35000  /  53960  | time:  136.3867 s | loss:  2.0749
+progress (triple):  35000  /  53960  | time:  136.3627 s | loss:  2.0787
+progress (triple):  35000  /  53960  | time:  136.3618 s | loss:  2.0708
+progress (triple):  35000  /  53960  | time:  136.3662 s | loss:  2.0741
+progress (triple):  35000  /  53960  | time:  136.3631 s | loss:  2.0741
+progress (triple):  36000  /  53960  | time:  136.4529 s | loss:  2.0793
+progress (triple):  36000  /  53960  | time:  136.4422 s | loss:  2.0733
+progress (triple):  36000  /  53960  | time:  136.4398 s | loss:  2.0728
+progress (triple):  36000  /  53960  | time:  136.4458 s | loss:  2.0793
+progress (triple):  36000  /  53960  | time:  136.4627 s | loss:  2.0743
+progress (triple):  36000  /  53960  | time:  136.4524 s | loss:  2.0893
+progress (triple):  36000  /  53960  | time:  136.4668 s | loss:  2.0787
+progress (triple):  36000  /  53960  | time:  136.4664 s | loss:  2.0821
+progress (triple):  37000  /  53960  | time:  132.8425 s | loss:  2.0756
+progress (triple):  37000  /  53960  | time:  132.8457 s | loss:  2.0642
+progress (triple):  37000  /  53960  | time:  132.8231 s | loss:  2.0741
+progress (triple):  37000  /  53960  | time:  132.8603 s | loss:  2.0703
+progress (triple):  37000  /  53960  | time:  132.8429 s | loss:  2.0647
+progress (triple):  37000  /  53960  | time:  132.8472 s | loss:  2.0741
+progress (triple):  37000  /  53960  | time:  132.8578 s | loss:  2.0648
+progress (triple):  37000  /  53960  | time:  132.8553 s | loss:  2.0639
+progress (triple):  38000  /  53960  | time:  135.7565 s | loss:  2.0602
+progress (triple):  38000  /  53960  | time:  135.7545 s | loss:  2.0641
+progress (triple):  38000  /  53960  | time:  135.7607 s | loss:  2.0674
+progress (triple):  38000  /  53960  | time:  135.7786 s | loss:  2.0566
+progress (triple):  38000  /  53960  | time:  135.782 s | loss:  2.0543
+progress (triple):  38000  /  53960  | time:  135.7904 s | loss:  2.0661
+progress (triple):  38000  /  53960  | time:  135.8091 s | loss:  2.057
+progress (triple):  38000  /  53960  | time:  135.8159 s | loss:  2.0563
+progress (triple):  39000  /  53960  | time:  136.1583 s | loss:  2.0661
+progress (triple):  39000  /  53960  | time:  136.1394 s | loss:  2.0613
+progress (triple):  39000  /  53960  | time:  136.1747 s | loss:  2.0554
+progress (triple):  39000  /  53960  | time:  136.1347 s | loss:  2.0638
+progress (triple):  39000  /  53960  | time:  136.144 s | loss:  2.0609
+progress (triple):  39000  /  53960  | time:  136.1872 s | loss:  2.0584
+progress (triple):  39000  /  53960  | time:  136.1687 s | loss:  2.0598
+progress (triple):  39000  /  53960  | time:  136.2013 s | loss:  2.0634
+progress (triple):  40000  /  53960  | time:  135.6823 s | loss:  2.0507
+progress (triple):  40000  /  53960  | time:  135.6733 s | loss:  2.0602
+progress (triple):  40000  /  53960  | time:  135.6799 s | loss:  2.0674
+progress (triple): progress (triple):  40000  40000 /    / 53960  53960 | time:    | time:  135.6631135.7005  s | loss: s | loss:   2.05332.0583
+
+progress (triple):  40000  /  53960  | time:  135.7055 s | loss:  2.0572
+progress (triple):  40000  /  53960  | time:  135.6719 s | loss:  2.0551
+progress (triple):  40000  /  53960  | time:  135.7065 s | loss:  2.065
+progress (triple):  41000  /  53960  | time:  135.0103 s | loss:  2.0556
+progress (triple):  41000  /  53960  | time:  135.0219 s | loss:  2.0562
+progress (triple):  41000  /  53960  | time:  135.0199 s | loss:  2.0529
+progress (triple):  41000  /  53960  | time:  135.0201 s | loss:  2.0607
+progress (triple):  41000  /  53960  | time:  135.0077 s | loss:  2.0577
+progress (triple):  41000  /  53960  | time:  135.0246 s | loss:  2.0605
+progress (triple):  41000  /  53960  | time:  135.0421 s | loss:  2.0536
+progress (triple):  41000  /  53960  | time:  135.0747 s | loss:  2.0585
+progress (triple):  42000  /  53960  | time:  134.7948 s | loss:  2.047
+progress (triple):  42000  /  53960  | time:  134.8133 s | loss:  2.0544
+progress (triple):  42000  /  53960  | time:  134.7411 s | loss:  2.0475
+progress (triple):  42000  /  53960  | time:  134.77 s | loss:  2.0484
+progress (triple):  42000  /  53960  | time:  134.8157 s | loss:  2.0465
+progress (triple):  42000  /  53960  | time:  134.824 s | loss:  2.0492
+progress (triple):  42000  /  progress (triple): 53960  | time:   42000134.8537   / s | loss:   539602.0482  | time:  
+134.844 s | loss:  2.0495
+progress (triple):  43000  /  53960  | time:  135.8205 s | loss:  2.05
+progress (triple):  43000  /  53960  | time:  135.8052 s | loss:  2.0514
+progress (triple):  43000  /  53960  | time:  135.8024 s | loss:  2.0588
+progress (triple):  43000  /  53960  | time:  135.8353 s | loss:  2.0508
+progress (triple):  43000  /  53960  | time:  135.8353 s | loss:  2.0508
+progress (triple):  43000  /  53960  | time:  135.7973 s | loss:  2.0469
+progress (triple):  43000  /  53960  | time:  135.8494 s | loss:  2.047
+progress (triple):  43000  /  53960  | time:  135.825 s | loss:  2.0492
+progress (triple):  44000  /  53960  | time:  138.0956 s | loss:  2.0448
+progress (triple):  44000  /  53960  | time:  138.1152 s | loss:  2.0355
+progress (triple):  44000  /  53960  | time:  138.0863 s | loss:  2.041
+progress (triple):  44000  /  53960  | time:  138.1118 s | loss:  2.043
+progress (triple):  44000  /  53960  | time:  138.1125 s | loss:  2.0382
+progress (triple):  44000  /  53960  | time:  138.1121 s | loss:  2.0381
+progress (triple):  44000  /  53960  | time:  138.1022 s | loss:  2.045
+progress (triple):  44000  /  53960  | time:  138.0937 s | loss:  2.0432
+progress (triple):  45000  /  53960  | time:  134.7161 s | loss:  2.0364
+progress (triple):  45000  /  53960  | time:  134.734 s | loss:  2.0355
+progress (triple):  45000  /  53960  | time:  134.7402 s | loss:  2.049
+progress (triple):  45000  /  53960  | time:  134.7522 s | loss:  2.0468
+progress (triple):  45000  /  53960  | time:  134.7388 s | loss:  2.0412
+progress (triple):  45000  /  53960  | time:  134.7379 s | loss:  2.0425
+progress (triple):  45000  /  53960  | time:  134.7576 s | loss:  2.0451
+progress (triple):  45000  /  53960  | time:  134.7772 s | loss:  2.0483
+progress (triple):  46000  /  53960  | time:  133.9821 s | loss:  2.038
+progress (triple):  46000  /  53960  | time:  133.9856 s | loss:  2.0335
+progress (triple):  46000  /  53960  | time:  133.9655 s | loss:  2.0376
+progress (triple):  46000  /  53960  | time:  134.0209 s | loss:  2.0311
+progress (triple):  46000  /  53960  | time:  133.9783 s | loss:  2.0381
+progress (triple):  46000  /  53960  | time:  134.0115 s | loss:  2.0263
+progress (triple):  46000  /  53960  | time:  134.0256 s | loss:  2.0325
+progress (triple):  46000  /  53960  | time:  133.9754 s | loss:  2.0292
+progress (triple):  47000  /  53960  | time:  135.6742 s | loss:  2.0367
+progress (triple):  47000  /  53960  | time:  135.6665 s | loss:  2.033
+progress (triple):  47000  /  53960  | time:  135.6675 s | loss:  2.0352
+progress (triple):  47000  /  53960  | time:  135.6593 s | loss:  2.0386
+progress (triple):  47000  /  53960  | time:  135.7043 s | loss:  2.0385
+progress (triple):  47000  /  53960  | time:  135.691 s | loss:  2.0396
+progress (triple):  47000  /  53960  | time:  135.7172 s | loss:  2.0414
+progress (triple):  47000  /  53960  | time:  135.7289 s | loss:  2.0358
+progress (triple):  48000  /  53960  | time:  136.0766 s | loss:  2.0281
+progress (triple):  48000  /  53960  | time:  136.1234 s | loss:  2.0318
+progress (triple):  48000  /  53960  | time:  136.1245 s | loss:  2.034
+progress (triple):  48000  /  53960  | time:  136.1515 s | loss:  2.0318
+progress (triple):  48000  /  53960  | time:  136.1358 s | loss:  2.029
+progress (triple):  48000  /  53960  | time:  136.16 s | loss:  2.035
+progress (triple):  48000  /  53960  | time:  136.1371 s | loss:  2.0357
+progress (triple):  48000  /  53960  | time:  136.1334 s | loss:  2.0282
+progress (triple):  49000  /  53960  | time:  136.8777 s | loss:  2.0241
+progress (triple):  49000  /  53960  | time:  136.916 s | loss:  2.0208
+progress (triple):  49000  /  53960  | time:  136.8917 s | loss:  2.022
+progress (triple): progress (triple):  49000  49000 /    / 53960  53960 | time:    | time:  136.9061 136.8795s | loss:   s | loss: 2.017 2.0217
+
+progress (triple):  49000  /  53960  | time:  136.9031 s | loss:  2.0302
+progress (triple):  49000  /  53960  | time:  136.941 s | loss:  2.0209
+progress (triple):  49000  /  53960  | time:  136.9596 s | loss:  2.0273
+progress (triple):  50000  /  53960  | time:  133.9687 s | loss:  2.0265
+progress (triple):  50000  /  53960  | time:  133.9833 s | loss:  2.0257
+progress (triple):  50000  /  53960  | time:  134.0026 s | loss:  2.0239
+progress (triple):  50000  /  53960  | time:  134.0071 s | loss:  2.0219
+progress (triple):  50000  /  53960  | time:  134.0103 s | loss:  2.0242
+progress (triple):  50000  /  53960  | time:  134.0597 s | loss:  2.0214
+progress (triple):  50000  /  53960  | time:  134.0626 s | loss:  2.0275
+progress (triple):  50000  /  53960  | time:  134.0865 s | loss:  2.0199
+progress (triple):  51000  /  53960  | time:  136.7133 s | loss:  2.031
+progress (triple):  51000  /  53960  | time:  136.7813 s | loss:  2.0298
+progress (triple):  51000  /  53960  | time:  136.7901 s | loss:  2.0232
+progress (triple):  51000  /  53960  | time:  136.7907 s | loss:  2.0198
+progress (triple):  51000  /  53960  | time:  136.7992 s | loss:  2.0213
+progress (triple):  51000  /  53960  | time:  136.7406 s | loss:  2.02
+progress (triple):  51000  /  53960  | time:  136.8195 s | loss:  2.0301
+progress (triple):  51000  /  53960  | time:  136.7686 s | loss:  2.0188
+progress (triple):  52000  /  53960  | time:  139.0611 s | loss:  2.0248
+progress (triple):  52000  /  53960  | time:  139.0288 s | loss:  2.0209
+progress (triple):  52000  /  53960  | time:  139.0265 s | loss:  2.0265
+progress (triple):  52000  /  53960  | time:  139.0398 s | loss:  2.0273
+progress (triple):  52000  /  53960  | time:  139.0295 s | loss:  2.0324
+progress (triple):  52000  /  53960  | time:  139.0908 s | loss:  2.0327
+progress (triple):  52000  /  53960  | time:  139.079 s | loss:  2.0229
+progress (triple):  52000  /  53960  | time:  139.0993 s | loss:  2.0262
+progress (triple):  53000  /  53960  | time:  135.5917 s | loss:  2.0144
+progress (triple):  53000  /  53960  | time:  135.6111 s | loss:  2.0148
+progress (triple):  53000  /  53960  | time:  135.5822 s | loss:  2.0192
+progress (triple):  53000  /  53960  | time:  135.6105 s | loss:  2.0104
+progress (triple):  53000  /  53960  | time:  135.5988 s | loss:  2.0248
+progress (triple):  53000  /  53960  | time:  135.6079 s | loss:  2.0171
+progress (triple):  53000  /  53960  | time:  135.622 s | loss:  2.0076
+progress (triple):  53000  /  53960  | time:  135.6472 s | loss:  2.0157
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (triple):  1000 / 53960  |time:  419.7912 s |loss:  4.2437   1.2588
+progress (triple):  1000 / 53960  |time:  419.8022 s |loss:  4.2452   1.2553
+progress (triple):  1000 / 53960  |time:  419.8041 s |loss:  4.2385   1.2614
+progress (triple):  1000 / 53960  |time:  419.8181 s |loss:  4.2392   1.2585
+progress (triple):  1000 / 53960  |time:  419.8225 s |loss:  4.244   1.2674
+progress (triple):  1000 / 53960  |time:  419.8375 s |loss:  4.2412   1.2654
+progress (triple):  1000 / 53960  |time:  419.8357 s |loss:  4.2359   1.2653
+progress (triple):  1000 / 53960  |time:  419.8531 s |loss:  4.2486   1.2573
+progress (triple):  2000 / 53960  |time:  423.5397 s |loss:  2.9884   0.9534
+progress (triple):  2000 / 53960  |time:  423.6106 s |loss:  3.002   0.9635
+progress (triple):  2000 / 53960  |time:  423.5786 s |loss:  2.9934   0.9589
+progress (triple):  2000 / 53960  |time:  423.5964 s |loss:  2.9911   0.958
+progress (triple):  2000 / 53960  |time:  423.6251 s |loss:  2.9999   0.9539
+progress (triple):  2000 / 53960  |time:  423.5829 s |loss:  3.0075   0.9549
+progress (triple):  2000 / 53960  |time:  423.6013 s |loss:  3.0023   0.9557
+progress (triple):  2000 / 53960  |time:  423.6249 s |loss:  2.9927   0.9683
+progress (triple):  3000 / 53960  |time:  418.6433 s |loss:  2.6052   0.8664
+progress (triple):  3000 / 53960  |time:  418.6415 s |loss:  2.602   0.8639
+progress (triple):  3000 / 53960  |time:  418.6383 s |loss:  2.6073   0.8617
+progress (triple):  3000 / 53960  |time:  418.6788 s |loss:  2.6007   0.8718
+progress (triple):  3000 / 53960  |time:  418.6562 s |loss:  2.5934   0.8742
+progress (triple):  3000 / 53960  |time:  418.675 s |loss:  2.604   0.8735
+progress (triple):  3000 / 53960  |time:  418.6762 s |loss:  2.5986   0.8633
+progress (triple):  3000 / 53960  |time:  418.6769 s |loss:  2.6085   0.8711
+progress (triple):  4000 / 53960  |time:  419.1284 s |loss:  2.3598   0.8201
+progress (triple):  4000 / 53960  |time:  419.1461 s |loss:  2.3483   0.8156
+progress (triple):  4000 / 53960  |time:  419.1433 s |loss:  2.3524   0.8228
+progress (triple):  4000 / 53960  |time:  419.1405 s |loss:  2.3418   0.8198
+progress (triple):  4000 / 53960  |time:  419.1265 s |loss:  2.3598   0.8218
+progress (triple):  4000 / 53960  |time:  419.1395 s |loss:  2.3576   0.8196
+progress (triple):  4000 / 53960  |time:  419.1672 s |loss:  2.3531   0.8129
+progress (triple):  4000 / 53960  |time:  419.1479 s |loss:  2.3544   0.8241
+progress (triple):  5000 / 53960  |time:  417.4608 s |loss:  2.1824   0.79
+progress (triple):  5000 / 53960  |time:  417.4482 s |loss:  2.1843   0.7875
+progress (triple):  5000 / 53960  |time:  417.4671 s |loss:  2.1621   0.7897
+progress (triple):  5000 / 53960  |time:  417.4691 s |loss:  2.163   0.7929
+progress (triple):  5000 / 53960  |time:  417.4569 s |loss:  2.1673   0.7931
+progress (triple):  5000 / 53960  |time:  417.4894 s |loss:  2.1671   0.785
+progress (triple):  5000 / 53960  |time:  417.4644 s |loss:  2.1927   0.7867
+progress (triple):  5000 / 53960  |time:  417.5039 s |loss:  2.1686   0.7814
+progress (triple):  6000 / 53960  |time:  422.1656 s |loss:  2.0715   0.7589
+progress (triple):  6000 / 53960  |time:  422.1542 s |loss:  2.0652   0.7583
+progress (triple):  6000 / 53960  |time:  422.1364 s |loss:  2.0755   0.7521
+progress (triple):  6000 / 53960  |time:  422.1253 s |loss:  2.0598   0.749
+progress (triple):  6000 / 53960  |time:  422.1548 s |loss:  2.0653   0.7567
+progress (triple):  6000 / 53960  |time:  422.1734 s |loss:  2.0692   0.758
+progress (triple):  6000 / 53960  |time:  422.161 s |loss:  2.0593   0.7608
+progress (triple):  6000 / 53960  |time:  422.2107 s |loss:  2.0639   0.7563
+progress (triple):  7000 / 53960  |time:  420.3383 s |loss:  2.0022   0.7315
+progress (triple):  7000 / 53960  |time:  420.3551 s |loss:  2.022   0.7283
+progress (triple):  7000 / 53960  |time:  420.3508 s |loss:  2.0147   0.721
+progress (triple):  7000 / 53960  |time:  420.382 s |loss:  2.0267   0.7258
+progress (triple):  7000 / 53960  |time:  420.3247 s |loss:  2.0131   0.7267
+progress (triple):  7000 / 53960  |time:  420.4016 s |loss:  2.0083   0.7314
+progress (triple):  7000 / 53960  |time:  420.3984 s |loss:  2.0017   0.726
+progress (triple):  7000 / 53960  |time:  420.3784 s |loss:  2.0004   0.7279
+progress (triple):  8000 / 53960  |time:  420.5888 s |loss:  1.9754   0.7099
+progress (triple):  8000 / 53960  |time:  420.5916 s |loss:  1.9885   0.7132
+progress (triple):  8000 / 53960  |time:  420.6118 s |loss:  1.982   0.7264
+progress (triple):  8000 / 53960  |time:  420.6326 s |loss:  1.9702   0.7089
+progress (triple):  8000 / 53960  |time:  420.653 s |loss:  1.9735   0.7102
+progress (triple):  8000 / 53960  |time:  420.6226 s |loss:  1.9682   0.7115
+progress (triple):  8000 / 53960  |time:  420.6561 s |loss:  1.9742   0.7097
+progress (triple):  8000 / 53960  |time:  420.6945 s |loss:  1.97   0.7114
+progress (triple):  9000 / 53960  |time:  422.547 s |loss:  1.9386   0.689
+progress (triple):  9000 / 53960  |time:  422.5725 s |loss:  1.9467   0.6992
+progress (triple):  9000 / 53960  |time:  422.5825 s |loss:  1.954   0.6961
+progress (triple):  9000 / 53960  |time:  422.5777 s |loss:  1.9534   0.7016
+progress (triple):  9000 / 53960  |time:  422.5628 s |loss:  1.9524   0.703
+progress (triple):  9000 / 53960  |time:  422.6277 s |loss:  1.9616   0.7009
+progress (triple):  9000 / 53960  |time:  422.5743 s |loss:  1.958   0.6959
+progress (triple):  9000 / 53960  |time:  422.6474 s |loss:  1.9526   0.6983
+progress (triple):  10000 / 53960  |time:  417.0451 s |loss:  1.9236   0.6733
+progress (triple):  10000 / 53960  |time:  417.0579 s |loss:  1.9237   0.6712
+progress (triple):  10000 / 53960  |time:  417.1109 s |loss:  1.9237   0.6853
+progress (triple):  10000 / 53960  |time:  417.0515 s |loss:  1.9334   0.6848
+progress (triple):  10000 / 53960  |time:  417.1137 s |loss:  1.9336   0.6749
+progress (triple):  10000 / 53960  |time:  417.1537 s |loss:  1.934   0.6739
+progress (triple):  10000 / 53960  |time:  417.1404 s |loss:  1.9223   0.6735
+progress (triple):  10000 / 53960  |time:  417.1448 s |loss:  1.9363   0.6768
+progress (triple):  11000 / 53960  |time:  424.8747 s |loss:  1.9116   0.6616
+progress (triple):  11000 / 53960  |time:  424.8972 s |loss:  1.9104   0.665
+progress (triple):  11000 / 53960  |time:  424.8926 s |loss:  1.9069   0.674
+progress (triple):  11000 / 53960  |time:  424.9186 s |loss:  1.9062   0.6646
+progress (triple):  11000 / 53960  |time:  424.8766 s |loss:  1.9055   0.6591
+progress (triple):  11000 / 53960  |time:  424.8701 s |loss:  1.9209   0.665
+progress (triple):  11000 / 53960  |time:  424.8765 s |loss:  1.91   0.662
+progress (triple):  11000 / 53960  |time:  424.8761 s |loss:  1.9145   0.658
+progress (triple):  12000 / 53960  |time:  418.9931 s |loss:  1.9023   0.6506
+progress (triple):  12000 / 53960  |time:  419.0061 s |loss:  1.8854   0.6447
+progress (triple):  12000 / 53960  |time:  419.0077 s |loss:  1.8949   0.651
+progress (triple):  12000 / 53960  |time:  418.982 s |loss:  1.9126   0.6532
+progress (triple):  12000 / 53960  |time:  419.0138 s |loss:  1.8914   0.6505
+progress (triple):  12000 / 53960  |time:  418.9964 s |loss:  1.8879   0.6507
+progress (triple):  12000 / 53960  |time:  419.0278 s |loss:  1.8982   0.6485
+progress (triple):  12000 / 53960  |time:  419.0579 s |loss:  1.8829   0.6564
+progress (triple):  13000 / 53960  |time:  422.952 s |loss:  1.8879   0.6408
+progress (triple):  13000 / 53960  |time:  422.9257 s |loss:  1.9075   0.6392
+progress (triple):  13000 /progress (triple):   5396013000   |time: /  53960  |time:  422.9324 422.9737s |loss:   s |loss: 1.8856  1.8837    0.6388 0.6353
+
+progress (triple):  13000 / 53960  |time:  422.9622 s |loss:  1.886   0.6407
+progress (triple):  13000 / 53960  |time:  422.9687 s |loss:  1.9013   0.6391
+progress (triple):  13000 / 53960  |time:  422.975 s |loss:  1.8869   0.6449
+progress (triple):  13000 / 53960  |time:  422.9854 s |loss:  1.8831   0.6419
+progress (triple):  14000 / 53960  |time:  418.3132 s |loss:  1.884   0.6357
+progress (triple):  14000 / 53960  |time:  418.2932 s |loss:  1.8749   0.6384
+progress (triple):  14000 / 53960  |time:  418.3197 s |loss:  1.8807   0.6258
+progress (triple):  14000 / 53960  |time:  418.3132 s |loss:  1.8818   0.6415
+progress (triple):  14000 / 53960  |time:  418.3121 s |loss:  1.8747   0.629
+progress (triple):  14000 / 53960  |time:  418.3348 s |loss:  1.8715   0.6317
+progress (triple):  14000 / 53960  |time:  418.3567 s |loss:  1.8737   0.6305
+progress (triple):  14000 / 53960  |time:  418.3264 s |loss:  1.8712   0.6343
+progress (triple):  15000 / 53960  |time:  421.7186 s |loss:  1.8755   0.6217
+progress (triple):  15000 / 53960  |time:  421.704 s |loss:  1.8734   0.6293
+progress (triple):  15000 / 53960  |time:  421.7602 s |loss:  1.8788   0.6293
+progress (triple):  15000 / 53960  |time:  421.7612 s |loss:  1.868   0.6223
+progress (triple):  15000 / 53960  |time:  421.7601 s |loss:  1.8777   0.6258
+progress (triple):  15000 / 53960  |time:  421.7688 s |loss:  1.8583   0.6195
+progress (triple):  15000 / 53960  |time:  421.7751 s |loss:  1.8681   0.6197
+progress (triple):  15000 / 53960  |time:  421.7866 s |loss:  1.8638   0.6252
+progress (triple):  16000 / 53960  |time:  422.1001 s |loss:  1.8714   0.619
+progress (triple):  16000 / 53960  |time:  422.0822 s |loss:  1.8626   0.614
+progress (triple):  16000 / 53960  |time:  422.0962 s |loss:  1.8637   0.6245
+progress (triple):  16000 / 53960  |time:  422.0957 s |loss:  1.8767   0.6174
+progress (triple):  16000 / 53960  |time:  422.1284 s |loss:  1.8662   0.6145
+progress (triple):  16000 / 53960  |time:  422.122 s |loss:  1.87   0.6152
+progress (triple):  16000 / 53960  |time:  422.1416 s |loss:  1.8532   0.6159
+progress (triple):  16000 / 53960  |time:  422.0905 s |loss:  1.8585   0.6225
+progress (triple):  17000 / 53960  |time:  421.3101 s |loss:  1.8514   0.5996
+progress (triple):  17000 / 53960  |time:  421.2733 s |loss:  1.8507   0.6077
+progress (triple):  17000 / 53960  |time:  421.3306 s |loss:  1.8455   0.6032
+progress (triple):  17000 / 53960  |time:  421.3483 s |loss:  1.8544   0.6047
+progress (triple):  17000 / 53960  |time:  421.3249 s |loss:  1.8604   0.606
+progress (triple):  17000 / 53960  |time:  421.3163 s |loss:  1.8555   0.6031
+progress (triple):  17000 / 53960  |time:  421.2797 s |loss:  1.8526   0.6085
+progress (triple):  17000 / 53960  |time:  421.3567 s |loss:  1.8555   0.6004
+progress (triple):  18000 / 53960  |time:  418.6687 s |loss:  1.8524   0.6035
+progress (triple):  18000 / 53960  |time:  418.672 s |loss:  1.8493   0.6028
+progress (triple):  18000 / 53960  |time:  418.7088 s |loss:  1.8479   0.5945
+progress (triple):  18000 / 53960  |time:  418.6881 s |loss:  1.8569   0.5936
+progress (triple):  18000 / 53960  |time:  418.6985 s |loss:  1.8534   0.6061
+progress (triple):  18000 / 53960  |time:  418.7519 s |loss:  1.8493   0.591
+progress (triple):  18000 / 53960  |time:  418.7429 s |loss:  1.847   0.6017
+progress (triple):  18000 / 53960  |time:  418.7437 s |loss:  1.8397   0.594
+progress (triple):  19000 / 53960  |time:  417.604 s |loss:  1.8417   0.6017
+progress (triple):  19000 / 53960  |time:  417.6662 s |loss:  1.8385   0.6014
+progress (triple):  19000 / 53960  |time:  417.6435 s |loss:  1.8428   0.5959
+progress (triple):  19000 / 53960  |time:  417.7018 s |loss:  1.8482   0.5885
+progress (triple):  19000 / 53960  |time:  417.6868 s |loss:  1.8466   0.5893
+progress (triple):  19000 / 53960  |time:  417.6646 s |loss:  1.8446   0.5976
+progress (triple):  19000 / 53960  |time:  417.6529 s |loss:  1.8425   0.5965
+progress (triple):  19000 / 53960  |time:  417.7296 s |loss:  1.8496   0.5887
+progress (triple):  20000 / 53960  |time:  419.2551 s |loss:  1.8384   0.5785
+progress (triple):  20000 / 53960  |time:  419.2401 s |loss:  1.8373   0.5925
+progress (triple):  20000 / 53960  |time:  419.3024 s |loss:  1.8404   0.5891
+progress (triple):  20000 / 53960  |time:  419.2851 s |loss:  1.847   0.5895
+progress (triple):  20000 / 53960  |time:  419.3122 s |loss:  1.8344   0.5897
+progress (triple):  20000 / 53960  |time:  419.3185 s |loss:  1.8368   0.592
+progress (triple):  20000 / 53960  |time:  419.3392 s |loss:  1.8438   0.5973
+progress (triple):  20000 / 53960  |time:  419.3365 s |loss:  1.8365   0.5848
+progress (triple):  21000 / 53960  |time:  420.1109 s |loss:  1.8404   0.5828
+progress (triple):  21000 / 53960  |time:  420.1187 s |loss:  1.838   0.5812
+progress (triple):  21000 / 53960  |time:  420.1261 s |loss:  1.8324   0.5901
+progress (triple):  21000 / 53960  |time:  420.1471 s |loss:  1.8204   0.5798
+progress (triple):  21000 / 53960  |time:  420.1284 s |loss:  1.8296   0.5872
+progress (triple):  21000 / 53960  |time:  420.1412 s |loss:  1.8377   0.5798
+progress (triple):  21000 / 53960  |time:  420.202 s |loss:  1.8291   0.5879
+progress (triple):  21000 / 53960  |time:  420.2185 s |loss:  1.8441   0.5905
+progress (triple):  22000 / 53960  |time:  426.093 s |loss:  1.8335   0.5786
+progress (triple):  22000 / 53960  |time:  426.1296 s |loss:  1.8175   0.5815
+progress (triple):  22000 / 53960  |time:  426.0341 s |loss:  1.8304   0.5737
+progress (triple):  22000 / 53960  |time:  426.138 s |loss:  1.8211   0.5731
+progress (triple):  22000 / 53960  |time:  426.1289 s |loss:  1.8308   0.5766
+progress (triple):  22000 / 53960  |time:  426.1031 s |loss:  1.8331   0.5764
+progress (triple):  22000 / 53960  |time:  426.137 s |loss:  1.8216   0.5776
+progress (triple):  22000 / 53960  |time:  426.1468 s |loss:  1.8306   0.5783
+progress (triple):  23000 / 53960  |time:  418.0121 s |loss:  1.8154   0.5674
+progress (triple):  23000 / 53960  |time:  418.0421 s |loss:  1.8221   0.5653
+progress (triple):  23000 / 53960  |time:  418.0766 s |loss:  1.8254   0.566
+progress (triple):  23000 / 53960  |time:  418.081 s |loss:  1.8308   0.571
+progress (triple):  23000 / 53960  |time:  418.0843 s |loss:  1.8151   0.5656
+progress (triple):  23000 / 53960  |time:  418.0895 s |loss:  1.8247   0.5705
+progress (triple):  23000 / 53960  |time:  418.0669 s |loss:  1.8115   0.5671
+progress (triple):  23000 / 53960  |time:  418.0882 s |loss:  1.8172   0.5645
+progress (triple):  24000 / 53960  |time:  422.3298 s |loss:  1.8071   0.5687
+progress (triple):  24000 / 53960  |time:  422.3137 s |loss:  1.8166   0.5662
+progress (triple):  24000 / 53960  |time:  422.3877 s |loss:  1.8271   0.5652
+progress (triple):  24000 / 53960  |time:  422.345 s |loss:  1.8293   0.5699
+progress (triple):  24000 / 53960  |time:  422.3841 s |loss:  1.8331   0.567
+progress (triple):  24000 / 53960  |time:  422.4029 s |loss:  1.8085   0.5622
+progress (triple):  24000 / 53960  |time:  422.3835 s |loss:  1.8256   0.5673
+progress (triple):  24000 / 53960  |time:  422.3686 s |loss:  1.818   0.5703
+progress (triple):  25000 / 53960  |time:  420.5971 s |loss:  1.82   0.5565
+progress (triple):  25000 / 53960  |time:  420.618 s |loss:  1.8109   0.5605
+progress (triple):  25000 / 53960  |time:  420.5819 s |loss:  1.8201   0.5622
+progress (triple):  25000 / 53960  |time:  420.5383 s |loss:  1.8164   0.5586
+progress (triple):  25000 / 53960  |time:  420.5845 s |loss:  1.821   0.5598
+progress (triple):  25000 / 53960  |time:  420.6378 s |loss:  1.825   0.5708
+progress (triple):  25000 / 53960  |time:  420.6322 s |loss:  1.8089   0.5664
+progress (triple):  25000 / 53960  |time:  420.6156 s |loss:  1.8239   0.5638
+progress (triple):  26000 / 53960  |time:  417.5282 s |loss:  1.8102   0.5556
+progress (triple):  26000 / 53960  |time:  417.5888 s |loss:  1.8141   0.5609
+progress (triple):  26000 / 53960  |time:  417.5725 s |loss:  1.8135   0.5574
+progress (triple):  26000 / 53960  |time:  417.5703 s |loss:  1.8121   0.5559
+progress (triple):  26000 / 53960  |time:  417.5929 s |loss:  1.813   0.5542
+progress (triple):  26000 / 53960  |time:  417.5459 s |loss:  1.8113   0.5574
+progress (triple):  26000 / 53960  |time:  417.6014 s |loss:  1.8123   0.5537
+progress (triple):  26000 / 53960  |time:  417.5614 s |loss:  1.816   0.5492
+progress (triple):  27000 / 53960  |time:  419.9244 s |loss:  1.8023   0.5514
+progress (triple):  27000 / 53960  |time:  419.939 s |loss:  1.8101   0.5533
+progress (triple):  27000 / 53960  |time:  419.9473 s |loss:  1.8028   0.5485
+progress (triple):  27000 / 53960  |time:  419.9404 s |loss:  1.8144   0.5485
+progress (triple):  27000 / 53960  |time:  419.9613 s |loss:  1.8054   0.5472
+progress (triple):  27000 / 53960  |time:  419.9593 s |loss:  1.8107   0.5476
+progress (triple):  27000 / 53960  |time:  419.9395 s |loss:  1.8072   0.5491
+progress (triple):  27000 / 53960  |time:  419.9802 s |loss:  1.8086   0.5458
+progress (triple):  28000 / 53960  |time:  416.3167 s |loss:  1.7999   0.5376
+progress (triple):  28000 / 53960  |time:  416.3092 s |loss:  1.7995   0.5475
+progress (triple):  28000 / 53960  |time:  416.3188 s |loss:  1.7997   0.5436
+progress (triple):  28000 / 53960  |time:  416.3217 s |loss:  1.7984   0.548
+progress (triple):  28000 / 53960  |time:  416.3474 s |loss:  1.8049   0.542
+progress (triple): progress (triple):   2800028000  //  5396053960   |time:  |time:   416.3243416.3258  s |loss: s |loss:   1.80671.7945      0.53890.5447
+
+progress (triple):  28000 / 53960  |time:  416.3009 s |loss:  1.8087   0.5458
+progress (triple):  29000 / 53960  |time:  421.0989 s |loss:  1.8097   0.5441
+progress (triple):  29000 / 53960  |time:  421.1263 s |loss:  1.7997   0.5437
+progress (triple):  29000 / 53960  |time:  421.155 s |loss:  1.8068   0.5417
+progress (triple):  29000 / 53960  |time:  421.1291 s |loss:  1.8035   0.5452
+progress (triple):  29000 / 53960  |time:  421.1574 s |loss:  1.8005   0.5384
+progress (triple):  29000 / 53960  |time:  421.1577 s |loss:  1.8013   0.5403
+progress (triple):  29000 / 53960  |time:  421.1469 s |loss:  1.8089   0.5386
+progress (triple):  29000 / 53960  |time:  421.1465 s |loss:  1.7997   0.5436
+progress (triple):  30000 / 53960  |time:  420.2264 s |loss:  1.806   0.5373
+progress (triple):  30000 / 53960  |time:  420.2228 s |loss:  1.7916   0.5398
+progress (triple):  30000 / 53960  |time:  420.2239 s |loss:  1.8138   0.5425
+progress (triple):  30000 / 53960  |time:  420.2558 s |loss:  1.801   0.5441
+progress (triple):  30000 / 53960  |time:  420.2587 s |loss:  1.8003   0.5425
+progress (triple):  30000 / 53960  |time:  420.2846 s |loss:  1.7957   0.5359
+progress (triple):  30000 / 53960  |time:  420.2713 s |loss:  1.8092   0.535
+progress (triple):  30000 / 53960  |time:  420.3082 s |loss:  1.7968   0.5391
+progress (triple):  31000 / 53960  |time:  419.4911 s |loss:  1.7988   0.5341
+progress (triple):  31000 / 53960  |time:  419.5054 s |loss:  1.8025   0.5366
+progress (triple):  31000 / 53960  |time:  419.4926 s |loss:  1.8029   0.5392
+progress (triple):  31000 / 53960  |time:  419.5124 s |loss:  1.7912   0.5382
+progress (triple):  31000 / 53960  |time:  419.4757 s |loss:  1.7954   0.5394
+progress (triple):  31000 / 53960  |time:  419.4969 s |loss:  1.7935   0.5419
+progress (triple):  31000 / 53960  |time:  419.4921 s |loss:  1.8049   0.5333
+progress (triple):  31000 / 53960  |time:  419.517 s |loss:  1.8   0.5392
+progress (triple):  32000 / 53960  |time:  418.8932 s |loss:  1.785   0.5292
+progress (triple):  32000 / 53960  |time:  418.8781 s |loss:  1.8003   0.5296
+progress (triple):  32000 / 53960  |time:  418.8631 s |loss:  1.7939   0.5312
+progress (triple):  32000 / 53960  |time:  418.8853 s |loss:  1.8035   0.5355
+progress (triple):  32000 / 53960  |time:  418.8607 s |loss:  1.8033   0.5302
+progress (triple):  32000 / 53960  |time:  418.8846 s |loss:  1.7981   0.5347
+progress (triple):  32000 / 53960  |time:  418.9073 s |loss:  1.7969   0.5282
+progress (triple):  32000 / 53960  |time:  418.9253 s |loss:  1.7966   0.5336
+progress (triple):  33000 / 53960  |time:  420.7011 s |loss:  1.7718   0.5228
+progress (triple): progress (triple):   3300033000  //  5396053960   |time:  |time:   420.721420.7307  s |loss: s |loss:   1.79391.7918      0.52550.5248
+
+progress (triple):  33000 / 53960  |time:  420.7256 s |loss:  1.8017   0.527
+progress (triple):  33000 / 53960  |time:  420.7359 s |loss:  1.7992   0.5203
+progress (triple):  33000 / 53960  |time:  420.7341 s |loss:  1.7802   0.5264
+progress (triple):  33000 / 53960  |time:  420.7478 s |loss:  1.7937   0.5273
+progress (triple):  33000 / 53960  |time:  420.7096 s |loss:  1.8025   0.5215
+progress (triple):  34000 / 53960  |time:  420.9355 s |loss:  1.7881   0.5196
+progress (triple):  34000 / 53960  |time:  420.9464 s |loss:  1.7931   0.5212
+progress (triple):  34000 / 53960  |time:  420.9372 s |loss:  1.7991   0.5226
+progress (triple):  34000 / 53960  |time:  420.9463 s |loss:  1.7916   0.5257
+progress (triple):  34000 / 53960  |time:  420.9526 s |loss:  1.7845   0.5223
+progress (triple):  34000 / 53960  |time:  420.9777 s |loss:  1.7883   0.5191
+progress (triple):  34000 / 53960  |time:  420.9729 s |loss:  1.779   0.5188
+progress (triple):  34000 / 53960  |time:  421.0024 s |loss:  1.7771   0.5203
+progress (triple):  35000 / 53960  |time:  423.6854 s |loss:  1.7841   0.5209
+progress (triple):  35000 / 53960  |time:  423.6671 s |loss:  1.7878   0.518
+progress (triple):  35000 / 53960  |time:  423.6602 s |loss:  1.7987   0.5211
+progress (triple):  35000 / 53960  |time:  423.6978 s |loss:  1.7968   0.524
+progress (triple):  35000 / 53960  |time:  423.6742 s |loss:  1.7966   0.5228
+progress (triple):  35000 / 53960  |time:  423.6629 s |loss:  1.7895   0.5273
+progress (triple):  35000 / 53960  |time:  423.7219 s |loss:  1.7794   0.5244
+progress (triple):  35000 / 53960  |time:  423.751 s |loss:  1.7899   0.5195
+progress (triple):  36000 / 53960  |time:  421.7016 s |loss:  1.7765   0.5163
+progress (triple):  36000 / 53960  |time:  421.6838 s |loss:  1.7904   0.5227
+progress (triple):  36000 / 53960  |time:  421.6848 s |loss:  1.7911   0.5243
+progress (triple):  36000 / 53960  |time:  421.7152 s |loss:  1.793   0.5253
+progress (triple):  36000 / 53960  |time:  421.7229 s |loss:  1.7812   0.5171
+progress (triple):  36000 / 53960  |time:  421.6943 s |loss:  1.7849   0.5228
+progress (triple):  36000 / 53960  |time:  421.7409 s |loss:  1.7845   0.5244
+progress (triple):  36000 / 53960  |time:  421.6854 s |loss:  1.7866   0.5165
+progress (triple):  37000 / 53960  |time:  422.8877 s |loss:  1.7809   0.5166
+progress (triple):  37000 / 53960  |time:  422.9157 s |loss:  1.7717   0.5165
+progress (triple):  37000 / 53960  |time:  422.8771 s |loss:  1.7868   0.5235
+progress (triple):  37000 / 53960  |time:  422.8901 s |loss:  1.7848   0.5217
+progress (triple):  37000 / 53960  |time:  422.9339 s |loss:  1.7861   0.5177
+progress (triple):  37000 / 53960  |time:  422.9402 s |loss:  1.779   0.5134
+progress (triple):  37000 / 53960  |time:  422.9634 s |loss:  1.7814   0.5171
+progress (triple):  37000 / 53960  |time:  422.9914 s |loss:  1.782   0.5141
+progress (triple):  38000 / 53960  |time:  421.2712 s |loss:  1.7803   0.5154
+progress (triple):  38000 / 53960  |time:  421.2524 s |loss:  1.7741   0.5062
+progress (triple):  38000 / 53960  |time:  421.306 s |loss:  1.778   0.5179
+progress (triple):  38000 / 53960  |time:  421.3087 s |loss:  1.7697   0.5013
+progress (triple):  38000 / 53960  |time:  421.2261 s |loss:  1.7739   0.5119
+progress (triple):  38000 / 53960  |time:  421.3139 s |loss:  1.788   0.5089
+progress (triple):  38000 / 53960  |time:  421.3091 s |loss:  1.7778   0.5111
+progress (triple):  38000 / 53960  |time:  421.2954 s |loss:  1.7705   0.5087
+progress (triple):  39000 / 53960  |time:  417.1061 s |loss:  1.7801   0.5027
+progress (triple):  39000 / 53960  |time:  417.1416 s |loss:  1.772   0.5106
+progress (triple):  39000 / 53960  |time:  417.1078 s |loss:  1.7743   0.5052
+progress (triple):  39000 / 53960  |time:  417.0863 s |loss:  1.7754   0.5065
+progress (triple):  39000 / 53960  |time:  417.1424 s |loss:  1.7749   0.5045
+progress (triple):  39000 / 53960  |time:  417.1403 s |loss:  1.7752   0.5074
+progress (triple):  39000 / 53960  |time:  417.1431 s |loss:  1.7728   0.5141
+progress (triple):  39000 / 53960  |time:  417.1313 s |loss:  1.7652   0.5147
+progress (triple):  40000 / 53960  |time:  423.1027 s |loss:  1.7688   0.5074
+progress (triple):  40000 / 53960  |time:  423.1435 s |loss:  1.7795   0.5002
+progress (triple):  40000 / 53960  |time:  423.1336 s |loss:  1.7781   0.5074
+progress (triple):  40000 / 53960  |time:  423.1417 s |loss:  1.7721   0.5073
+progress (triple):  40000 / 53960  |time:  423.1386 s |loss:  1.7769   0.4987
+progress (triple):  40000 / 53960  |time:  423.1496 s |loss:  1.7772   0.4983
+progress (triple):  40000 / 53960  |time:  423.1661 s |loss:  1.7792   0.5097
+progress (triple):  40000 / 53960  |time:  423.1593 s |loss:  1.7792   0.498
+progress (triple):  41000 / 53960  |time:  418.0115 s |loss:  1.7879   0.5046
+progress (triple):  41000 / 53960  |time:  418.0282 s |loss:  1.7716   0.5119
+progress (triple):  41000 / 53960  |time:  417.9895 s |loss:  1.7656   0.5027
+progress (triple):  41000 / 53960  |time:  418.0237 s |loss:  1.7818   0.5032
+progress (triple):  41000 / 53960  |time:  418.0397 s |loss:  1.7665   0.5038
+progress (triple):  41000 / 53960  |time:  418.051 s |loss:  1.7772   0.5083
+progress (triple):  41000 / 53960  |time:  418.0499 s |loss:  1.7704   0.5071
+progress (triple):  41000 / 53960  |time:  418.0411 s |loss:  1.7711   0.512
+progress (triple):  42000 / 53960  |time:  421.0047 s |loss:  1.78   0.4983
+progress (triple):  42000 / 53960  |time:  420.9988 s |loss:  1.7724   0.5041
+progress (triple):  42000 / 53960  |time:  421.0226 s |loss:  1.771   0.5038
+progress (triple):  42000progress (triple):   /42000  53960/   |time: 53960   |time:  420.9997421.0018  s |loss: s |loss:   1.76991.7623      0.50240.5058
+
+progress (triple):  42000 / 53960  |time:  421.0294 s |loss:  1.7708   0.5005
+progress (triple):  42000 / 53960  |time:  421.021 s |loss:  1.7596   0.5014
+progress (triple):  42000 / 53960  |time:  421.0546 s |loss:  1.7695   0.503
+progress (triple):  43000 / 53960  |time:  421.6445 s |loss:  1.7726   0.4966
+progress (triple):  43000 / 53960  |time:  421.6661 s |loss:  1.7824   0.5001
+progress (triple):  43000 / 53960  |time:  421.6699 s |loss:  1.7782   0.5003
+progress (triple):  43000 / 53960  |time:  421.7013 s |loss:  1.7731   0.4977
+progress (triple):  43000 / 53960  |time:  421.6876 s |loss:  1.779   0.4969
+progress (triple):  43000 / 53960  |time:  421.707 s |loss:  1.7712   0.4937
+progress (triple):  43000 / 53960  |time:  421.699 s |loss:  1.7791   0.4971
+progress (triple):  43000 / 53960  |time:  421.7175 s |loss:  1.7858   0.5021
+progress (triple):  44000 / 53960  |time:  418.3551 s |loss:  1.7612   0.4851
+progress (triple):  44000 / 53960  |time:  418.3764 s |loss:  1.7593   0.4876
+progress (triple):  44000 / 53960  |time:  418.369 s |loss:  1.7678   0.5016
+progress (triple):  44000 / 53960  |time:  418.3305 s |loss:  1.763   0.4871
+progress (triple):  44000 / 53960  |time:  418.3831 s |loss:  1.7564   0.4972
+progress (triple):  44000 / 53960  |time:  418.3554 s |loss:  1.7712   0.4898
+progress (triple):  44000 / 53960  |time:  418.3834 s |loss:  1.7658   0.497
+progress (triple):  44000 / 53960  |time:  418.4222 s |loss:  1.7541   0.5014
+progress (triple):  45000 / 53960  |time:  420.9546 s |loss:  1.772   0.4884
+progress (triple):  45000 / 53960  |time:  420.9822 s |loss:  1.7705   0.4863
+progress (triple):  45000 / 53960  |time:  420.9527 s |loss:  1.7594   0.4938
+progress (triple):  45000 / 53960  |time:  421.0077 s |loss:  1.7625   0.4902
+progress (triple):  45000 / 53960  |time:  421.0023 s |loss:  1.7638   0.4923
+progress (triple):  45000 / 53960  |time:  421.0291 s |loss:  1.773   0.4929
+progress (triple):  45000 / 53960  |time:  421.0496 s |loss:  1.7608   0.5013
+progress (triple):  45000 / 53960  |time:  421.0263 s |loss:  1.7701   0.4942
+progress (triple):  46000 / 53960  |time:  421.6866 s |loss:  1.7748   0.4921
+progress (triple):  46000 / 53960  |time:  421.7712 s |loss:  1.756   0.4868
+progress (triple):  46000 / 53960  |time:  421.7332 s |loss:  1.7532   0.4919
+progress (triple):  46000 / 53960  |time:  421.7588 s |loss:  1.7586   0.492
+progress (triple):  46000 / 53960  |time:  421.7884 s |loss:  1.7607   0.491
+progress (triple):  46000 / 53960  |time:  421.7354 s |loss:  1.7695   0.4834
+progress (triple):  46000 / 53960  |time:  421.7652 s |loss:  1.7605   0.4907
+progress (triple):  46000 / 53960  |time:  421.8057 s |loss:  1.7572   0.4888
+progress (triple):  47000 / 53960  |time:  419.4499 s |loss:  1.7527   0.4921
+progress (triple):  47000 / 53960  |time:  419.46 s |loss:  1.769   0.4883
+progress (triple):  47000 / 53960  |time:  419.4591 s |loss:  1.7678   0.4892
+progress (triple):  47000 / 53960  |time:  419.4822 s |loss:  1.7558   0.4853
+progress (triple):  47000 / 53960  |time:  419.4655 s |loss:  1.7603   0.491
+progress (triple):  47000 / 53960  |time:  419.4768 s |loss:  1.7624   0.4815
+progress (triple):  47000 / 53960  |time:  419.5017 s |loss:  1.7666   0.4938
+progress (triple):  47000 / 53960  |time:  419.4862 s |loss:  1.7696   0.4901
+progress (triple):  48000 / 53960  |time:  418.1317 s |loss:  1.7618   0.4903
+progress (triple):  48000 / 53960  |time:  418.1226 s |loss:  1.7647   0.4861
+progress (triple):  48000 / 53960  |time:  418.1477 s |loss:  1.7637   0.4859
+progress (triple):  48000 / 53960  |time:  418.1497 s |loss:  1.7523   0.4915
+progress (triple):  48000 / 53960  |time:  418.1528 s |loss:  1.757   0.4861
+progress (triple):  48000 / 53960  |time:  418.1731 s |loss:  1.758   0.484
+progress (triple):  48000 / 53960  |time:  418.2004 s |loss:  1.7658   0.4899
+progress (triple):  48000 / 53960  |time:  418.1965 s |loss:  1.7627   0.4851
+progress (triple):  49000 / 53960  |time:  422.4306 s |loss:  1.763   0.4839
+progress (triple):  49000 / 53960  |time:  422.4656 s |loss:  1.7637   0.4797
+progress (triple):  49000 / 53960  |time:  422.4173 s |loss:  1.7561   0.4737
+progress (triple):  49000 / 53960  |time:  422.4435 s |loss:  1.758   0.4835
+progress (triple):  49000 / 53960  |time:  422.4574 s |loss:  1.7558   0.4791
+progress (triple):  49000 / 53960  |time:  422.4661 s |loss:  1.7446   0.4782
+progress (triple):  49000 / 53960  |time:  422.4806 s |loss:  1.7537   0.4788
+progress (triple):  49000 / 53960  |time:  422.434 s |loss:  1.7512   0.4804
+progress (triple):  50000 / 53960  |time:  417.8195 s |loss:  1.745   0.477
+progress (triple):  50000 / 53960  |time:  417.8106 s |loss:  1.7631   0.4786
+progress (triple):  50000 / 53960  |time:  417.8361 s |loss:  1.7477   0.4763
+progress (triple):  50000 / 53960  |time:  417.8265 s |loss:  1.7465   0.4739
+progress (triple):  50000 / 53960  |time:  417.8299 s |loss:  1.7562   0.4826
+progress (triple):  50000 / 53960  |time:  417.8511 s |loss:  1.7571   0.4763
+progress (triple):  50000 / 53960  |time:  417.8409 s |loss:  1.7551   0.478
+progress (triple):  50000 / 53960  |time:  417.8686 s |loss:  1.7498   0.4721
+progress (triple):  51000 / 53960  |time:  420.504 s |loss:  1.7534   0.4763
+progress (triple):  51000 / 53960  |time:  420.4956 s |loss:  1.7536   0.4812
+progress (triple):  51000 / 53960  |time:  420.4711 s |loss:  1.7589   0.4768
+progress (triple):  51000 / 53960  |time:  420.4647 s |loss:  1.7438   0.4802
+progress (triple):  51000 / 53960  |time:  420.5141 s |loss:  1.7571   0.4786
+progress (triple):  51000 / 53960  |time:  420.5174 s |loss:  1.7575   0.4768
+progress (triple):  51000 / 53960  |time:  420.4929 s |loss:  1.7573   0.4798
+progress (triple):  51000 / 53960  |time:  420.519 s |loss:  1.7615   0.4809
+progress (triple):  52000 / 53960  |time:  419.863 s |loss:  1.7557   0.4839
+progress (triple):  52000 / 53960  |time:  419.8503 s |loss:  1.7552   0.4846progress (triple): 
+ 52000 / 53960  |time:  419.8654 s |loss:  1.7498   0.4824
+progress (triple):  52000 / 53960  |time:  419.8516 s |loss:  1.7458   0.4824
+progress (triple):  52000 / 53960  |time:  419.8821 s |loss:  1.7388   0.4809
+progress (triple):  52000 / 53960  |time:  419.8814 s |loss:  1.7526   0.4833
+progress (triple):  52000 / 53960  |time:  419.8818 s |loss:  1.7538   0.4801
+progress (triple):  52000 / 53960  |time:  419.9185 s |loss:  1.752   0.4798
+progress (triple):  53000 / 53960  |time:  420.5653 s |loss:  1.7476   0.4734
+progress (triple):  53000 / 53960  |time:  420.5831 s |loss:  1.7533   0.4804
+progress (triple):  53000 / 53960  |time:  420.5482 s |loss:  1.7617   0.475
+progress (triple):  53000 / 53960  |time:  420.6073 s |loss:  1.7534   0.4731
+progress (triple):  53000 / 53960  |time:  420.5428 s |loss:  1.7523   0.4691
+progress (triple):  53000 / 53960  |time:  420.6037 s |loss:  1.7628   0.4758
+progress (triple):  53000 / 53960  |time:  420.6144 s |loss:  1.7503   0.4772
+progress (triple):  53000 / 53960  |time:  420.5995 s |loss:  1.7433   0.4773
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/project/sachan/yifan/projects/Multilingual_Space/src/tasks.py", line 309, in ki_mlkg
+    train_sentence_all(args, model_mlkg)
+  File "/cluster/project/sachan/yifan/projects/Multilingual_Space/src/tasks.py", line 250, in train_sentence_all
+    _, outputs2 = model_mlkg(**encoded_inputs_s)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 619, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/projects/Multilingual_Space/src/models.py", line 72, in forward
+    outputs_MLKGLM = self.triple_mapping(outputs_universal)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/container.py", line 117, in forward
+    input = module(input)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/activation.py", line 359, in forward
+    return torch.tanh(input)
+RuntimeError: CUDA out of memory. Tried to allocate 1.10 GiB (GPU 3; 23.65 GiB total capacity; 16.13 GiB already allocated; 1.07 GiB free; 21.55 GiB reserved in total by PyTorch)

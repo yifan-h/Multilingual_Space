@@ -46,7 +46,7 @@ class EntityLoader(Data.Dataset):
         tmp_data = json.loads(tmp_data)
         inputs_pos = [v["value"] for k, v in tmp_data["labels"].items()]
         # inputs_neg = self.negative_sampler(self.neg_num)
-        inputs_neg = self.negative_sampler(len(inputs_pos))
+        inputs_neg = self.negative_sampler(len(inputs_pos)+1)
         return self.tokenizer(inputs_pos+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
 
 
@@ -119,13 +119,19 @@ class MixLoader(Data.Dataset):
                 for k, v in tmp_data["labels"].items():
                     relation_dict[tmp_data["id"]].append(v["value"])
         # load triple
-        num_t = 0
+        num_t, num_s = 0, 0
         with open(os.path.join(args.data_dir, "triple.txt"), "r") as f:
             # for line in tqdm(f, desc="load triple data"):
             for line in f:
                 triple_list = line[:-1].split("\t")
                 if len(triple_list) != 3: continue
                 num_t += 1
+        with open(os.path.join(args.data_dir, "triple_des.txt"), "r") as f:
+            # for line in tqdm(f, desc="load triple data"):
+            for line in f:
+                triple_list = line[:-1].split("\t")
+                if len(triple_list) != 3: continue
+                num_s += 1
         # load description
         self.des_dict = {}
         if not triple_context:
@@ -135,10 +141,11 @@ class MixLoader(Data.Dataset):
                     tmp_data = json.loads(line)
                     self.des_dict[tmp_data["id"]] = tmp_data
             self.fopen = open(os.path.join(args.data_dir, "triple_des.txt"), "r")
+            self.num = num_s
         else:
             self.fopen = open(os.path.join(args.data_dir, "triple.txt"), "r")
+            self.num = num_t
         self.triple_batch = args.batch_num
-        self.num_t = num_t
         self.relation_dict = relation_dict
         self.entity_dict = entity_dict
         self.relation_pool = set(relation_dict.keys())
@@ -151,7 +158,7 @@ class MixLoader(Data.Dataset):
         self.triple_context = triple_context
 
     def __len__(self):
-        return int(self.num_t/self.triple_batch)
+        return int(self.num/self.triple_batch)
 
     def __getitem__(self, index):
         c_list, cl_list, o_list = [], [], []
