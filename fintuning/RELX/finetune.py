@@ -81,6 +81,15 @@ class MLKGLM(nn.Module):
         self.triple_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1))
+        # for testing
+        self.all_aggregator = nn.Linear(3*hidden_num, hidden_num, bias=False)
+        self.all_aggregator.weight.data = self.weight_init_sum(self.all_aggregator.weight.data)
+
+    def weight_init_sum(self, t):
+        hidden_num = int(t.shape[-1]/3)
+        return 0.0003 + torch.cat((0.333*torch.eye(hidden_num,hidden_num),
+                                    0.333*torch.eye(hidden_num,hidden_num),
+                                    0.333*torch.eye(hidden_num,hidden_num)),dim=1)
 
     def forward(self, **inputs):
         # get MLLM output
@@ -96,24 +105,13 @@ class MLKGLM(nn.Module):
         if self.training:
             return outputs_universal, outputs_MLKGLM
         else:
-            return (outputs_MLLM + outputs_universal + outputs_MLKGLM) / 3
+            #return (outputs_MLLM + outputs_universal + outputs_MLKGLM) / 3
+            return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
 
-    def get_mask(self, outputs_MLLM, input_ids):
-        tmp_batch_num = input_ids.shape[0]
-        for i in range(int(tmp_batch_num)):
-            if self.lm_mask_token_id not in input_ids[i]: continue
-            mask_idx = ((input_ids[i] == self.lm_mask_token_id).nonzero(as_tuple=True)[0])
-            if len(mask_idx) == 1:
-                outputs_MLLM[i,mask_idx[0]:,:] = outputs_MLLM[i,-1,:]
-            else: ## len(mask_idx) == 2
-                outputs_MLLM[i,:mask_idx[0],:] = outputs_MLLM[i,-1,:]
-                outputs_MLLM[i,mask_idx[1]:,:] = outputs_MLLM[i,-1,:]
-        return outputs_MLLM
-
-
-pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
-adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/checkpoints/final_v2.pt"
-# pre_trained = '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base'
+#pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
+#adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert/final_v3.pt"
+pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
+adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlmr/final_v3.pt"
 dataset_training = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/kbp37"
 dataset_relxt = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/RELX"
 max_seq_length = 256
@@ -124,7 +122,7 @@ elif base_model == "mtmb":
     tokenizer = AutoTokenizer.from_pretrained("akoksal/MTMB")
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device("cuda:5")
+device = torch.device("cuda:7")
 print(device)
 print(torch.cuda.device_count())
 print(torch.cuda.is_available())
@@ -134,8 +132,9 @@ class Model(nn.Module):
         super(Model, self).__init__()
         if base_model == "mbert":
             # self.net_bert = BertModel.from_pretrained(pre_trained)  # mbert
+            # self.net_bert = AutoModel.from_pretrained(pre_trained)
             self.net_bert = MLKGLM(pre_trained)
-            self.net_bert.load_state_dict(torch.load(adapter_path, map_location='cpu'))
+            self.net_bert.load_state_dict(torch.load(adapter_path, map_location='cpu'), strict=False)
         elif base_model == "mtmb":
             self.net_bert = AutoModel.from_pretrained("akoksal/MTMB")
         self.has_layer_norm = has_layer_norm
@@ -161,7 +160,7 @@ class Model(nn.Module):
         '''
         for name, param in self.net_bert.named_parameters():
             if "triple" in name:
-                print("[FROZE]: %s" % name)
+                print("[FREE]: %s" % name)
                 param.requires_grad = True
             else:
                 print("[FREE]: %s" % name)
@@ -180,6 +179,7 @@ class Model(nn.Module):
         x = x['last_hidden_state']
         '''
         x = self.net_bert(input_ids=x, attention_mask=attention)
+        
         #Getting head
         #print("typeof xxxx========: {}".format(type(x)))
         #print("xxxx========: {}".format(x))
@@ -270,6 +270,7 @@ def to_id(text, representation = 'marker'):
         e2 = tokenizer.encode(text[text.index(f'<{sc}>')+4:text.index(f'</{sc}>')].strip(), add_special_tokens=False)
         final = tokenizer.encode(text[text.index(f'</{sc}>')+5:].strip(), add_special_tokens=False)
         return torch.tensor([101]+initial+[be1]+e1+[le1]+middle+[be2]+e2+[le2]+final+[102])
+        #return torch.tensor([101]+initial+e1+middle+e2+final+[102])  # RELX + 
 
 def feature_extraction(fp):
     X, y = read_kbp_format(fp)
@@ -400,3 +401,4 @@ for epoch in range(10):
     print('Epoch: ',epoch+1)
     print(f'Training Loss: {total_loss:.4f}, Val Loss: {val_loss:.4f}, Test Loss: {test_loss:.4f}\nTraining accuracy:{train_acc:.4f}, Training F1:{train_f1:.4f}, Validation accuracy:{val_acc:.4f}, Validation F1:{val_f1:.4f}, Test accuracy:{test_acc:.4f}, Test F1:{test_f1:.4f}')
     print(f"German F1: {de_f1:.4f}, English F1: {en_f1:.4f}, Spanish F1: {es_f1:.4f}, French F1: {fr_f1:.4f}, Turkish F1: {tr_f1:.4f}")
+

@@ -67,6 +67,15 @@ class MLKGLM(nn.Module):
         self.triple_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1))
+        # for testing
+        self.all_aggregator = nn.Linear(3*hidden_num, hidden_num, bias=False)
+        self.all_aggregator.weight.data = self.weight_init_sum(self.all_aggregator.weight.data)
+
+    def weight_init_sum(self, t):
+        hidden_num = int(t.shape[-1]/3)
+        return 0.0003 + torch.cat((0.333*torch.eye(hidden_num,hidden_num),
+                                    0.333*torch.eye(hidden_num,hidden_num),
+                                    0.333*torch.eye(hidden_num,hidden_num)),dim=1)
 
     def forward(self, **inputs):
         # get MLLM output
