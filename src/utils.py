@@ -174,8 +174,7 @@ class MixLoader(Data.Dataset):
                 p_text = ""
             # get context
             if self.triple_context:  # triple as context
-                c_list.append(random.choice(self.entity_dict[s])+" "+self.lm_mask_token+" "+\
-                                p_text+" "+random.choice(self.entity_dict[o]))
+                c_list.append(random.choice(self.entity_dict[s])+" "+self.lm_mask_token+" "+p_text)
                 '''
                 # resample a relation
                 if len(p_text): p_text = random.choice(self.relation_dict[p])

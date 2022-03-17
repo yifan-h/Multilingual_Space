@@ -91,7 +91,7 @@ class MLKGLM(nn.Module):
         if self.training:
             return outputs_universal, outputs_MLKGLM
         else:
-            return (outputs_MLLM + outputs_universal + outputs_MLKGLM) / 3
+            return self.weight_init_sum(outputs_MLLM + outputs_universal + outputs_MLKGLM)
 
 
 def loss_universal(args, outputs, lossfcn, input_ids=None):

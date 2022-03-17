@@ -6,8 +6,8 @@ from preexp import pre_static_dist, pre_mapping_dist
 
 def main_func(args):
     # preprocess_rlabel(args)
-    # preprocess_clean(args, "all")  # clean wikidata entities
-    preprocess_des(args)  # get descriptions for entities
+    preprocess_clean(args, "small")  # clean wikidata entities
+    # preprocess_des(args)  # get descriptions for entities
     # preprocess_pre(args)  # clean a subset of wikidata entities for pre-experiment
     # pre_static_dist(args)  # calculate entity label embedding (store in ./embed)
     # pre_mapping_dist(args)
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multilingual Space")
 
     # data
-    parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/sub_clean_sample20",
+    parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10",
                         help="the input data directory.")
     parser.add_argument("--file_idx", type=str, default="000",
                         help="the idx of the entity file in parallel.")

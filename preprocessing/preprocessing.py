@@ -196,16 +196,17 @@ def preprocess_clean(args, dataset="all"):
             print("Entity number : ", len(entity_set), entity_count_wa)
             print("Aliases number: ", aliases_count)
             print("Language number: ", len(lang_set))
-    else: # get a subset  (40 languages)
+    else: # get a subset  (80 languages)
+        clean_key = set(["id", "labels"])
         subentity_set = set()
         with open(subentity_path, "r") as r_file:
             for line in tqdm(r_file):
                 tmp_entity = json.loads(line)
                 label_count = 0
                 for l, _ in tmp_entity["labels"].items():
-                    if l in subset_langs: 
+                    if l in pretrain_langs: 
                         label_count += 1
-                if label_count >= 20: subentity_set.add(tmp_entity["id"])
+                if label_count >= 10: subentity_set.add(tmp_entity["id"])
         # clean triple
         print(len(subentity_set))
         sub_triple_path = os.path.join(args.data_dir, "triple_subset.txt")
@@ -240,7 +241,7 @@ def preprocess_clean(args, dataset="all"):
                         if k =="labels":
                             tmp_k = {}
                             for kk, kv in tmp_entity[k].items():
-                                if kk in subset_langs:
+                                if kk in pretrain_langs:
                                     tmp_k[kk] = kv
                             if len(tmp_k) == 0: print("Error entity: ", tmp_entity["id"])
                             new_entity[k] = tmp_k

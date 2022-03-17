@@ -216,7 +216,7 @@ def train_triple_encoder(args, model_mlkg):
 
 def train_sentence_all(args, model_mlkg):
     args.batch_num = int(args.batch_num/4)
-    # args.triple_epoch = max(int(args.triple_epoch/10), 1)
+    args.triple_epoch = max(int(args.triple_epoch/10), 1)
     # load data
     entity_dataset = EntityLoader(args)
     mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=False)
