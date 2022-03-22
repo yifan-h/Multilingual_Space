@@ -206,7 +206,7 @@ def preprocess_clean(args, dataset="all"):
                 for l, _ in tmp_entity["labels"].items():
                     if l in pretrain_langs: 
                         label_count += 1
-                if label_count >= 10: subentity_set.add(tmp_entity["id"])
+                if label_count >= 20: subentity_set.add(tmp_entity["id"])
         # clean triple
         print(len(subentity_set))
         sub_triple_path = os.path.join(args.data_dir, "triple_subset.txt")

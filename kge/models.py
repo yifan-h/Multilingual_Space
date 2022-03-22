@@ -5,8 +5,8 @@ import random
 import torch.nn as nn
 import torch.nn.functional as F
 from transformers import AutoModel, Conv1D
-import transformers.adapters.composition as ac
 
+from utils import load_model
 
 class MLKGLM(nn.Module):
     """docstring for ClassName"""
@@ -26,8 +26,7 @@ class MLKGLM(nn.Module):
         self.MLLM.active_adapters = ac.Fuse(*adapters)
         '''
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
-        self.training = True
-        self.lm_mask_token_id = args.lm_mask_token_id
+        self.training = False
         # set three extra modules
         self.universal_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
                                                     nn.ELU(),
@@ -88,61 +87,26 @@ class MLKGLM(nn.Module):
         # objective 2: transformer layers
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
         outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
-        if self.training:
-            return outputs_universal, outputs_MLKGLM
+        return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
+
+
+class KGLM(nn.Module):
+    """docstring for ClassName"""
+    def __init__(self, args):
+        super(KGLM, self).__init__()
+        # load pretrained MLLM
+        self.model_name = args.model_name
+        if args.model_name[-2:] == "KG":
+            self.base_model = MLKGLM(args)
+            load_model(self.base_model, args.modelkg_dir)
         else:
-            return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
+            self.base_model = AutoModel.from_pretrained(args.model_dir, 
+                                                        return_dict=True,
+                                                        output_hidden_states=True)
+        # self.all_aggregator = nn.Linear(768, 64)
 
-
-def loss_universal(args, outputs, lossfcn, input_ids=None):
-    # transform set-level to sample-level
-    # outputs = torch.mean(outputs, dim=1)
-    outputs_pos = outputs[:int(outputs.shape[0]/2)]
-    if input_ids is not None:
-        outputs_pos = get_mask(outputs_pos, input_ids, args.lm_mask_token_id)
-    outputs_neg = outputs[int(outputs.shape[0]/2):]
-    # average
-    outputs_pos = torch.mean(outputs_pos, dim=1)
-    outputs_neg = torch.mean(outputs_neg, dim=1)
-    idx_query, idx_pos = [], []
-    for i in range(int(outputs.shape[0]/2)):
-        for j in range(int(outputs.shape[0]/2)):
-            if i > j:
-                idx_query.append(i)
-                idx_pos.append(j)
-    '''
-    if len(idx_query) > args.batch_num:
-        idx_all = [i for i in range(len(idx_query))]
-        idx_random = random.sample(idx_all, args.batch_num)
-        idx_query = [idx_query[i] for i in idx_random]
-        idx_pos = [idx_pos[i] for i in idx_random]
-    '''
-    return lossfcn(outputs_pos[idx_query], outputs_pos[idx_pos], outputs_neg)
-
-
-def loss_triple(args, outputs, lossfcn, input_ids=None):
-    # transform set-level to sample-level
-    # outputs = torch.mean(outputs, dim=1)
-    outputs_query = outputs[:int(outputs.shape[0]/3)]
-    if input_ids is not None:
-        outputs_query = get_mask(outputs_query, input_ids, args.lm_mask_token_id)
-    outputs_pos = outputs[int(outputs.shape[0]/3):int(outputs.shape[0]/3*2)]
-    outputs_neg = outputs[int(outputs.shape[0]/3*2):]
-    # average
-    outputs_query = torch.mean(outputs_query, dim=1)
-    outputs_pos = torch.mean(outputs_pos, dim=1)
-    outputs_neg = torch.mean(outputs_neg, dim=1)
-    return lossfcn(outputs_query, outputs_pos, outputs_neg)
-
-
-def get_mask(outputs, input_ids, lm_mask_token_id):
-    tmp_batch_num = input_ids.shape[0]
-    for i in range(int(tmp_batch_num)):
-        if lm_mask_token_id not in input_ids[i]: continue
-        mask_idx = ((input_ids[i] == lm_mask_token_id).nonzero(as_tuple=True)[0])
-        if len(mask_idx) == 1:
-            outputs[i,mask_idx[0]:,:] = 0
-        else: ## len(mask_idx) == 2
-            outputs[i,:mask_idx[0],:] = 0
-            outputs[i,mask_idx[1]:,:] = 0
-    return outputs
+    def forward(self, **inputs):
+        if self.model_name[-2:] == "KG":
+            return torch.mean(self.base_model(**inputs), dim=1)
+        else:
+            return torch.mean(self.base_model(**inputs).hidden_states[-1], dim=1)
