@@ -12,9 +12,9 @@ if __name__ == "__main__":
     # data
     parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10",
                         help="the input data directory.")
-    parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base",
+    parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased",
                         help="The stored model directory.")
-    parser.add_argument("--tmp_dir", type=str, default="./tmp/xlm_80",
+    parser.add_argument("--tmp_dir", type=str, default="./tmp/mbert_80",
                         help="The stored model directory.")
 
     # model

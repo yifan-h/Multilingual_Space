@@ -22,18 +22,20 @@ if __name__ == "__main__":
                         help="The stored model directory.")
 
     # model
-    parser.add_argument("--device", type=int, default=5,
+    parser.add_argument("--device", type=int, default=7,
                         help="which GPU to use. set -1 to use CPU.")
-    parser.add_argument("--lr", type=float, default=1e-4,
+    parser.add_argument("--lr", type=float, default=2e-6,
                         help="learning rate of GCS.")
-    parser.add_argument("--adam_epsilon", type=float, default=1e-8,
+    parser.add_argument("--adam_epsilon", type=float, default=1e-6,
                         help="Adam epsilon")
-    parser.add_argument("--epoch", type=int, default=100,
+    parser.add_argument("--epoch", type=int, default=10,
                         help="number of training epochs.")
-    parser.add_argument("--batch_num", type=int, default=64,
+    parser.add_argument("--batch_num", type=int, default=32,
                         help="number of triple samples per 1 batch")
     parser.add_argument("--neg_num", type=int, default=2,
                         help="number of negative samples")
+    parser.add_argument("--patience", type=int, default=2,
+                        help="used for early stop")
 
     args = parser.parse_args()
     print(args)

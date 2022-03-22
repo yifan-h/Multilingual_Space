@@ -25,12 +25,6 @@ def test_dbp5l(args):
     {'el': {'train': ['4742\t419\t766'], 'val': ['1352\t358\t4073'], 'test': ['4045\t683\t4044']}, 'en': {'train': ['1938\t448\t1702'], 'val': ['12397\t150\t6235'], 'test': ['12461\t708\t7662']}, 'es': {'train': ['5789\t358\t10613'], 'val': ['749\t394\t7700'], 'test': ['632\t339\t2797']}, 'fr': {'train': ['11149\t289\t890'], 'val': ['8449\t352\t2422'], 'test': ['3815\t351\t1830']}, 'ja': {'train': ['4897\t284\t2664'], 'val': ['2218\t351\t3391'], 'test': ['3189\t225\t425']}} 
     {'el-en': ['3931\t3931'], 'el-es': ['1236\t1224'], 'el-fr': ['2844\t2825'], 'el-ja': ['3902\t3827'], 'en-fr': ['3436\t3414'], 'es-en': ['1653\t1669'], 'es-fr': ['6212\t6368'], 'ja-en': ['3072\t3119'], 'ja-es': ['1002\t1011'], 'ja-fr': ['2300\t2319']}
     '''
-    # set parameters: autograd
-    model = KGLM(args)
-    grad_parameters(model, True)
-    # set model and optimizer
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-    model = model.to(args.device)
     # set loss function
     # lossfcn = torch.nn.CosineEmbeddingLoss()
     lossfcn = InfoNCE(negative_mode='unpaired')
@@ -68,34 +62,71 @@ def test_dbp5l(args):
     '''
     # training and testing KG for all languages
     for k, v in kgs.items():
+        model = KGLM(args).to(args.device)    
+        grad_parameters(model, True)
+        # set model and optimizer
+        optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+        # dataset
         train_list, val_list, test_list = v["train"], v["val"], v["test"]
         # get object pool
         obj_pool = set()
         for t in train_list+test_list:
             obj_pool.add(entities[k][int(t.split("\t")[-1])])
-        # training
-        '''
+        # training, validation, testing
         grad_parameters(model, True)
-        for i in range(0, len(train_list), args.batch_num):
-            # get text
-            e_src = [entities[k][int(a.split("\t")[0])] + " " + relation[int(a.split("\t")[1])] for a in train_list[i: i+args.batch_num]]
-            e_dst = [entities[k][int(a.split("\t")[2])] for a in train_list[i: i+args.batch_num]]
-            e_neg = random.sample(obj_pool, len(e_dst)*args.neg_num)
-            # get tokens
-            input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
-            input_dst = tokenizer(e_dst, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
-            input_neg = tokenizer(e_neg, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
-            # get outputs
-            output_src = model(**input_src)
-            output_dst = model(**input_dst)
-            output_neg = model(**input_neg)
-            # get loss
-            loss = lossfcn(output_src, output_dst, output_neg)
-            # backward
-            loss.backward()
-            optimizer.step()
-            print("KGC: ", k, ": ", round(float(loss.data), 4))
-        '''
+        max_val_loss = [1e10 for i in range(args.patience)]
+        for e in range(args.epoch):
+            # training
+            loss_list = []
+            for i in range(0, len(train_list), args.batch_num):
+                # get text
+                e_src = [entities[k][int(a.split("\t")[0])] + " " + relation[int(a.split("\t")[1])] for a in train_list[i: i+args.batch_num]]
+                e_dst = [entities[k][int(a.split("\t")[2])] for a in train_list[i: i+args.batch_num]]
+                e_neg = random.sample(obj_pool, len(e_dst)*args.neg_num)
+                # get tokens
+                input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+                input_dst = tokenizer(e_dst, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+                input_neg = tokenizer(e_neg, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+                # get outputs
+                output_src = model(**input_src)
+                output_dst = model(**input_dst)
+                output_neg = model(**input_neg)
+                # get loss
+                loss = lossfcn(output_src, output_dst, output_neg)
+                loss_list.append(float(loss.data))
+                # backward
+                loss.backward()
+                optimizer.step()
+            # validation
+            val_loss_list = []
+            grad_parameters(model, False)
+            for i in range(0, len(val_list), args.batch_num):
+                # get text
+                e_src = [entities[k][int(a.split("\t")[0])] + " " + relation[int(a.split("\t")[1])] for a in val_list[i: i+args.batch_num]]
+                e_dst = [entities[k][int(a.split("\t")[2])] for a in val_list[i: i+args.batch_num]]
+                e_neg = random.sample(obj_pool, len(e_dst)*args.neg_num)
+                # get tokens
+                input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+                input_dst = tokenizer(e_dst, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+                input_neg = tokenizer(e_neg, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+                # get outputs
+                output_src = model(**input_src)
+                output_dst = model(**input_dst)
+                output_neg = model(**input_neg)
+                # get loss
+                loss = lossfcn(output_src, output_dst, output_neg)
+                val_loss_list.append(float(loss.data))
+            grad_parameters(model, True)
+            # early stop
+            print("KGC: ", k, "| training loss: ", round(sum(loss_list)/len(loss_list), 4), \
+                                "| val loss: ", round(sum(val_loss_list)/len(val_loss_list), 4))
+            '''
+            if sum(val_loss_list)/len(val_loss_list) < max(max_val_loss):
+                max_val_loss.remove(max(max_val_loss))
+                max_val_loss.append(sum(val_loss_list)/len(val_loss_list))
+            else:
+                break
+            '''
         # testing
         grad_parameters(model, False)
         rank_list = []
@@ -117,9 +148,9 @@ def test_dbp5l(args):
             rank_list.append(rank)
         count_1, count_10 = 0, 0 
         for r in rank_list:
-            if r == 1: count_1 += 1
-            if r <= 10: count_10 += 1
-        print("The performance (hit@1, hit@10) of language [", k, "] is: ", round(100*count_1/len(obj_list), 4), " and " ,
-                                                                            round(100*count_10/len(obj_list), 4))
+            if r < 1: count_1 += 1
+            if r < 10: count_10 += 1
+        print("The performance (hit@1, hit@10) of language [", k, "] is: ", round(100*count_1/len(rank_list), 4), " and " ,
+                                                                            round(100*count_10/len(rank_list), 4))
 
     return
