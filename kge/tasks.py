@@ -30,6 +30,12 @@ def test_dbp5l(args):
     lossfcn = InfoNCE(negative_mode='unpaired')
     # set tokenizer
     tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
+    # get parameter set
+    model = KGLM(args)
+    param_list = []
+    for name, param in model.named_parameters():
+        if "all_aggregator" in name:
+            param_list.append(name)
     '''
     # training alignment
     for k, v in aligns.items():
@@ -62,10 +68,16 @@ def test_dbp5l(args):
     '''
     # training and testing KG for all languages
     for k, v in kgs.items():
-        model = KGLM(args).to(args.device)    
+        del model
+        model = KGLM(args).to(args.device)
         grad_parameters(model, True)
         # set model and optimizer
-        optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+        aggregator_params = list(filter(lambda kv: kv[0] in param_list, model.named_parameters()))
+        base_params = list(filter(lambda kv: kv[0] not in param_list, model.named_parameters()))
+        aggregator_params = [i[1]for i in aggregator_params]
+        base_params = [i[1]for i in base_params]
+        optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': 1e-3}],
+                                        lr=args.lr, weight_decay=1e-3)
         # dataset
         train_list, val_list, test_list = v["train"], v["val"], v["test"]
         # get object pool
@@ -120,13 +132,11 @@ def test_dbp5l(args):
             # early stop
             print("KGC: ", k, "| training loss: ", round(sum(loss_list)/len(loss_list), 4), \
                                 "| val loss: ", round(sum(val_loss_list)/len(val_loss_list), 4))
-            '''
             if sum(val_loss_list)/len(val_loss_list) < max(max_val_loss):
                 max_val_loss.remove(max(max_val_loss))
                 max_val_loss.append(sum(val_loss_list)/len(val_loss_list))
             else:
                 break
-            '''
         # testing
         grad_parameters(model, False)
         rank_list = []

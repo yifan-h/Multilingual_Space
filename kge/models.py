@@ -103,10 +103,12 @@ class KGLM(nn.Module):
             self.base_model = AutoModel.from_pretrained(args.model_dir, 
                                                         return_dict=True,
                                                         output_hidden_states=True)
-        # self.all_aggregator = nn.Linear(768, 64)
+        self.new_all_aggregator = nn.Linear(768, 64)
 
     def forward(self, **inputs):
         if self.model_name[-2:] == "KG":
-            return torch.mean(self.base_model(**inputs), dim=1)
+            outputs_base = self.base_model(**inputs)
         else:
-            return torch.mean(self.base_model(**inputs).hidden_states[-1], dim=1)
+            outputs_base = self.base_model(**inputs).hidden_states[-1]
+        outputs = self.new_all_aggregator(outputs_base)
+        return torch.mean(outputs, dim=1)

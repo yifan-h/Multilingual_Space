@@ -24,11 +24,11 @@ if __name__ == "__main__":
     # model
     parser.add_argument("--device", type=int, default=7,
                         help="which GPU to use. set -1 to use CPU.")
-    parser.add_argument("--lr", type=float, default=2e-6,
+    parser.add_argument("--lr", type=float, default=1e-6,
                         help="learning rate of GCS.")
-    parser.add_argument("--adam_epsilon", type=float, default=1e-6,
+    parser.add_argument("--adam_epsilon", type=float, default=1e-8,
                         help="Adam epsilon")
-    parser.add_argument("--epoch", type=int, default=10,
+    parser.add_argument("--epoch", type=int, default=20,
                         help="number of training epochs.")
     parser.add_argument("--batch_num", type=int, default=32,
                         help="number of triple samples per 1 batch")
