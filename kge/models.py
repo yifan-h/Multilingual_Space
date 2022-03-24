@@ -112,5 +112,5 @@ class KGLM(nn.Module):
         else:
             outputs = self.base_model(**inputs).hidden_states[-1]
         outputs = torch.mean(outputs, dim=1)
-        outputs = F.elu(self.new_all_aggregator(outputs))
+        # outputs = F.elu(self.new_all_aggregator(outputs))
         return outputs

@@ -79,7 +79,6 @@ def load_data(args, data_name):
             with open(os.path.join(data_path, "alignment", file), "r") as f:
                 for line in f:
                     tmp_align.append(line[:-1])
-                    break
             # get language
             if "en_de" in file:
                 k = "en_de"
