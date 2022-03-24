@@ -88,6 +88,7 @@ class MLKGLM(nn.Module):
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
         outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
         return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
+        # return outputs_MLLM + outputs_universal + outputs_MLKGLM
 
 
 class KGLM(nn.Module):
@@ -103,12 +104,13 @@ class KGLM(nn.Module):
             self.base_model = AutoModel.from_pretrained(args.model_dir, 
                                                         return_dict=True,
                                                         output_hidden_states=True)
-        self.new_all_aggregator = nn.Linear(768, 64)
+        self.new_all_aggregator = nn.Linear(768, 128)
 
     def forward(self, **inputs):
         if self.model_name[-2:] == "KG":
-            outputs_base = self.base_model(**inputs)
+            outputs = self.base_model(**inputs)
         else:
-            outputs_base = self.base_model(**inputs).hidden_states[-1]
-        outputs = self.new_all_aggregator(outputs_base)
-        return torch.mean(outputs, dim=1)
+            outputs = self.base_model(**inputs).hidden_states[-1]
+        outputs = torch.mean(outputs, dim=1)
+        outputs = F.elu(self.new_all_aggregator(outputs))
+        return outputs

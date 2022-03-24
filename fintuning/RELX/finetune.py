@@ -41,7 +41,6 @@ class MLKGLM(nn.Module):
         '''
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
         self.training = False
-        self.lm_mask_token_id = 103
         # set three extra modules
         self.universal_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
                                                     nn.ELU(),
@@ -102,16 +101,18 @@ class MLKGLM(nn.Module):
         # objective 2: transformer layers
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
         outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
-        if self.training:
-            return outputs_universal, outputs_MLKGLM
-        else:
-            #return (outputs_MLLM + outputs_universal + outputs_MLKGLM) / 3
-            return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
+        return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
+
+    def weight_init_sum(self, t):
+        hidden_num = int(t.shape[-1]/3)
+        return 0.0003 + torch.cat((0.333*torch.eye(hidden_num,hidden_num),
+                                    0.333*torch.eye(hidden_num,hidden_num),
+                                    0.333*torch.eye(hidden_num,hidden_num)),dim=1)
 
 #pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
-#adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert/final_v3.pt"
+#adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_80/final_v3.pt"
 pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
-adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlmr/final_v3.pt"
+adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlm_80/final_v2.pt"
 dataset_training = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/kbp37"
 dataset_relxt = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/RELX"
 max_seq_length = 256
@@ -345,8 +346,7 @@ for epoch in range(10):
         inputs_0 = X_train_feat[indices[idx*batch_size:min(len(X_train_feat), (idx+1)*batch_size)]].to(device)
         input_attention = X_train_attention[indices[idx*batch_size:min(len(X_train_attention), (idx+1)*batch_size)]].to(device)
         labels = y_train[indices[idx*batch_size:min(len(y_train), (idx+1)*batch_size)]].to(device)
-
-        print("typeof inputs: {}".format(type(inputs_0)))
+        # print("typeof inputs: {}".format(type(inputs_0)))
         #outputs = model(np.asarray(inputs_0), input_attention)
         outputs = model(inputs_0, input_attention)
         loss = criterion(outputs, labels) / accumulation_steps 

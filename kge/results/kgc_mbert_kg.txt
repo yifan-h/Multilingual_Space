@@ -1,0 +1,96 @@
+Namespace(adam_epsilon=1e-08, batch_num=32, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=6, epoch=20, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', model_name='mBERT-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert/final_v3.pt', neg_num=1, patience=2, tmp_dir='./tmp/checkpoints')
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+KGC: [ el ] | training loss:  2.614 | val loss:  2.3389 | hit@1:  1.9666  | hit@10:  18.7807
+KGC: [ el ] | training loss:  2.1128 | val loss:  1.9922 | hit@1:  2.3599  | hit@10:  22.4189
+KGC: [ el ] | training loss:  1.8823 | val loss:  1.8774 | hit@1:  3.2448  | hit@10:  25.6637
+KGC: [ el ] | training loss:  1.7366 | val loss:  1.7751 | hit@1:  3.1465  | hit@10:  27.237
+KGC: [ el ] | training loss:  1.6681 | val loss:  1.6997 | hit@1:  4.5231  | hit@10:  29.1052
+KGC: [ el ] | training loss:  1.559 | val loss:  1.6228 | hit@1:  5.1131  | hit@10:  31.3668
+KGC: [ el ] | training loss:  1.4808 | val loss:  1.5772 | hit@1:  8.4562  | hit@10:  29.3019
+KGC: [ el ] | training loss:  1.4486 | val loss:  1.5196 | hit@1:  6.3913  | hit@10:  32.0551
+KGC: [ el ] | training loss:  1.3951 | val loss:  1.4806 | hit@1:  7.0796  | hit@10:  34.9066
+KGC: [ el ] | training loss:  1.3703 | val loss:  1.5078 | hit@1:  6.3913  | hit@10:  34.7099
+KGC: [ el ] | training loss:  1.3031 | val loss:  1.3965 | hit@1:  6.1947  | hit@10:  36.0865
+KGC: [ el ] | training loss:  1.2897 | val loss:  1.415 | hit@1:  5.3097  | hit@10:  32.0551
+KGC: [ el ] | training loss:  1.2659 | val loss:  1.3825 | hit@1:  5.5064  | hit@10:  32.1534
+KGC: [ el ] | training loss:  1.2345 | val loss:  1.337 | hit@1:  7.3746  | hit@10:  34.2183
+KGC: [ el ] | training loss:  1.1901 | val loss:  1.3041 | hit@1:  8.4562  | hit@10:  37.6598
+KGC: [ el ] | training loss:  1.1684 | val loss:  1.2733 | hit@1:  9.3412  | hit@10:  36.0865
+KGC: [ el ] | training loss:  1.1657 | val loss:  1.2534 | hit@1:  7.8663  | hit@10:  37.6598
+KGC: [ el ] | training loss:  1.1132 | val loss:  1.2228 | hit@1:  6.4897  | hit@10:  38.6431
+KGC: [ el ] | training loss:  1.1254 | val loss:  1.2454 | hit@1:  9.3412  | hit@10:  38.3481
+KGC: [ el ] | training loss:  1.0947 | val loss:  1.2437 | hit@1:  8.7512  | hit@10:  38.7414
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+KGC: [ en ] | training loss:  1.4938 | val loss:  1.2056 | hit@1:  2.0632  | hit@10:  12.6608
+KGC: [ en ] | training loss:  1.0979 | val loss:  1.0261 | hit@1:  2.3848  | hit@10:  14.8312
+KGC: [ en ] | training loss:  0.9644 | val loss:  0.9234 | hit@1:  2.8001  | hit@10:  16.948
+KGC: [ en ] | training loss:  0.8934 | val loss:  0.885 | hit@1:  2.6929  | hit@10:  18.462
+KGC: [ en ] | training loss:  0.8371 | val loss:  0.8128 | hit@1:  3.9925  | hit@10:  19.0916
+KGC: [ en ] | training loss:  0.8042 | val loss:  0.7959 | hit@1:  2.8135  | hit@10:  18.4486
+KGC: [ en ] | training loss:  0.762 | val loss:  0.7647 | hit@1:  2.9609  | hit@10:  20.552
+KGC: [ en ] | training loss:  0.7496 | val loss:  0.7475 | hit@1:  2.8671  | hit@10:  20.552
+KGC: [ en ] | training loss:  0.7172 | val loss:  0.7225 | hit@1:  3.6977  | hit@10:  21.53
+KGC: [ en ] | training loss:  0.689 | val loss:  0.707 | hit@1:  5.3992  | hit@10:  21.7712
+KGC: [ en ] | training loss:  0.6866 | val loss:  0.7031 | hit@1:  5.3055  | hit@10:  21.5032
+KGC: [ en ] | training loss:  0.6694 | val loss:  0.6663 | hit@1:  5.1179  | hit@10:  21.8516
+KGC: [ en ] | training loss:  0.6703 | val loss:  0.6698 | hit@1:  6.2031  | hit@10:  22.2535
+KGC: [ en ] | training loss:  0.6508 | val loss:  0.6496 | hit@1:  6.8462  | hit@10:  22.8564
+KGC: [ en ] | training loss:  0.636 | val loss:  0.6424 | hit@1:  8.5745  | hit@10:  22.9502
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+KGC: [ es ] | training loss:  1.5555 | val loss:  1.1969 | hit@1:  8.5239  | hit@10:  21.0811
+KGC: [ es ] | training loss:  1.0921 | val loss:  0.983 | hit@1:  9.8129  | hit@10:  22.7859
+KGC: [ es ] | training loss:  0.9483 | val loss:  0.8924 | hit@1:  8.3368  | hit@10:  23.9085
+KGC: [ es ] | training loss:  0.8808 | val loss:  0.8412 | hit@1:  7.8586  | hit@10:  24.0333
+KGC: [ es ] | training loss:  0.8234 | val loss:  0.8117 | hit@1:  11.0395  | hit@10:  24.8025
+KGC: [ es ] | training loss:  0.7982 | val loss:  0.7931 | hit@1:  10.4158  | hit@10:  25.2807
+KGC: [ es ] | training loss:  0.7347 | val loss:  0.7425 | hit@1:  10.2079  | hit@10:  24.8025
+KGC: [ es ] | training loss:  0.7605 | val loss:  0.709 | hit@1:  11.1227  | hit@10:  25.842
+KGC: [ es ] | training loss:  0.7177 | val loss:  0.6928 | hit@1:  8.5239  | hit@10:  25.6965
+KGC: [ es ] | training loss:  0.7168 | val loss:  0.6795 | hit@1:  10.9563  | hit@10:  26.341
+KGC: [ es ] | training loss:  0.6799 | val loss:  0.6814 | hit@1:  10.9771  | hit@10:  28.1913
+KGC: [ es ] | training loss:  0.703 | val loss:  0.6681 | hit@1:  10.8524  | hit@10:  28.3784
+KGC: [ es ] | training loss:  0.6773 | val loss:  0.6675 | hit@1:  11.2682  | hit@10:  29.0229
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+KGC: [ fr ] | training loss:  1.5955 | val loss:  1.2589 | hit@1:  13.7137  | hit@10:  28.0269
+KGC: [ fr ] | training loss:  1.1602 | val loss:  1.0979 | hit@1:  14.9125  | hit@10:  31.6231
+KGC: [ fr ] | training loss:  1.0562 | val loss:  1.04 | hit@1:  14.8166  | hit@10:  32.7979
+KGC: [ fr ] | training loss:  0.9808 | val loss:  0.9863 | hit@1:  14.0494  | hit@10:  33.3733
+KGC: [ fr ] | training loss:  0.9345 | val loss:  0.9303 | hit@1:  13.8816  | hit@10:  33.7569
+KGC: [ fr ] | training loss:  0.8975 | val loss:  0.9127 | hit@1:  13.0424  | hit@10:  34.2364
+KGC: [ fr ] | training loss:  0.859 | val loss:  0.8786 | hit@1:  12.8746  | hit@10:  34.0446
+KGC: [ fr ] | training loss:  0.8395 | val loss:  0.8413 | hit@1:  13.3301  | hit@10:  34.62
+KGC: [ fr ] | training loss:  0.8179 | val loss:  0.8417 | hit@1:  13.0664  | hit@10:  33.8768
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+KGC: [ ja ] | training loss:  2.3515 | val loss:  1.9573 | hit@1:  14.5698  | hit@10:  26.642
+KGC: [ ja ] | training loss:  1.8366 | val loss:  1.7422 | hit@1:  14.9861  | hit@10:  28.0296
+KGC: [ ja ] | training loss:  1.6805 | val loss:  1.639 | hit@1:  14.6161  | hit@10:  28.2146
+KGC: [ ja ] | training loss:  1.5907 | val loss:  1.5755 | hit@1:  12.6735  | hit@10:  29.926
+KGC: [ ja ] | training loss:  1.5387 | val loss:  1.522 | hit@1:  9.2969  | hit@10:  30.6198
+KGC: [ ja ] | training loss:  1.4887 | val loss:  1.4766 | hit@1:  9.3432  | hit@10:  31.1286
+KGC: [ ja ] | training loss:  1.4556 | val loss:  1.4529 | hit@1:  10.037  | hit@10:  32.4699
+KGC: [ ja ] | training loss:  1.4216 | val loss:  1.4238 | hit@1:  9.2969  | hit@10:  32.7937
+KGC: [ ja ] | training loss:  1.3896 | val loss:  1.3994 | hit@1:  9.7132  | hit@10:  32.9325
+KGC: [ ja ] | training loss:  1.3636 | val loss:  1.3988 | hit@1:  10.222  | hit@10:  33.2562
+KGC: [ ja ] | training loss:  1.3403 | val loss:  1.3684 | hit@1:  10.407  | hit@10:  33.58
+KGC: [ ja ] | training loss:  1.3125 | val loss:  1.3391 | hit@1:  10.1758  | hit@10:  33.8113
+KGC: [ ja ] | training loss:  1.2908 | val loss:  1.3213 | hit@1:  10.7308  | hit@10:  34.2738
+KGC: [ ja ] | training loss:  1.2724 | val loss:  1.3022 | hit@1:  10.3145  | hit@10:  34.2276
+KGC: [ ja ] | training loss:  1.2527 | val loss:  1.283 | hit@1:  10.407  | hit@10:  35.0601
+KGC: [ ja ] | training loss:  1.2306 | val loss:  1.2797 | hit@1:  10.7308  | hit@10:  35.2451
+KGC: [ ja ] | training loss:  1.2096 | val loss:  1.2633 | hit@1:  10.592  | hit@10:  35.6152
+KGC: [ ja ] | training loss:  1.1973 | val loss:  1.2342 | hit@1:  10.7771  | hit@10:  35.7539
+KGC: [ ja ] | training loss:  1.1845 | val loss:  1.2291 | hit@1:  10.5458  | hit@10:  36.0315
+KGC: [ ja ] | training loss:  1.162 | val loss:  1.2134 | hit@1:  10.3145  | hit@10:  36.494

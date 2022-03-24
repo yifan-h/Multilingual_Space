@@ -76,6 +76,12 @@ def grad_parameters(model, free=True):
         param.requires_grad = free
     return
 
+def grad_aggregator(model, free=True):
+    for name, param in model.named_parameters():
+        if "aggregator" in name:
+            param.requires_grad = free
+    return
+
 def save_model(model, accelerator, path):
     model = accelerator.unwrap_model(model)
     accelerator.save(model.state_dict(), path)

@@ -14,7 +14,7 @@ if __name__ == "__main__":
                         help="the input data directory.")
     parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased",
                         help="The stored model directory.")
-    parser.add_argument("--modelkg_dir", type=str, default="/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert/final_v3.pt",
+    parser.add_argument("--modelkg_dir", type=str, default="/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_80/final_v3.pt",
                         help="The stored model directory.")
     parser.add_argument("--model_name", type=str, default="mBERT",
                         help="The model to test: [mBERT, XLM, mBERT-KG, XLM-KG].")
@@ -25,14 +25,18 @@ if __name__ == "__main__":
     parser.add_argument("--device", type=int, default=7,
                         help="which GPU to use. set -1 to use CPU.")
     parser.add_argument("--lr", type=float, default=1e-6,
-                        help="learning rate of GCS.")
+                        help="learning rate of FT.")
+    parser.add_argument("--lm_lr", type=float, default=1e-6,
+                        help="learning rate of PLM.")
+    parser.add_argument("--weight_decay", type=float, default=5e-3,
+                        help="weight decay value")
     parser.add_argument("--adam_epsilon", type=float, default=1e-8,
                         help="Adam epsilon")
-    parser.add_argument("--epoch", type=int, default=20,
+    parser.add_argument("--epoch", type=int, default=50,
                         help="number of training epochs.")
-    parser.add_argument("--batch_num", type=int, default=32,
+    parser.add_argument("--batch_num", type=int, default=16,
                         help="number of triple samples per 1 batch")
-    parser.add_argument("--neg_num", type=int, default=2,
+    parser.add_argument("--neg_num", type=float, default=1,
                         help="number of negative samples")
     parser.add_argument("--patience", type=int, default=2,
                         help="used for early stop")
