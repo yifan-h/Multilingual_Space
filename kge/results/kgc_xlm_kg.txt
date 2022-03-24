@@ -1,0 +1,55 @@
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Namespace(adam_epsilon=1e-08, batch_num=16, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=3, epoch=50, lm_lr=1e-06, lr=1e-06, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', model_name='XLM-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlm_80/final_v3.pt', neg_num=1, patience=2, tmp_dir='./tmp/checkpoints', weight_decay=0.005)
+KGC: [ el ] | training loss:  2.0007 | val loss:  1.5469
+KGC: [ el ] | training loss:  1.3307 | val loss:  1.1793
+KGC: [ el ] | training loss:  1.2357 | val loss:  1.236
+KGC: [ el ] | training loss:  1.1466 | val loss:  1.157
+KGC: [ el ] | training loss:  1.105 | val loss:  1.1631
+KGC: [ el ] | training loss:  1.0432 | val loss:  1.0705
+KGC: [ el ] | training loss:  1.0354 | val loss:  1.045
+KGC: [ el ] | training loss:  1.0269 | val loss:  1.0999
+The performance (hit@1, hit@10) of language [ el ] is:  9.1445  and  39.6264
+KGC: [ en ] | training loss:  1.0252 | val loss:  0.7953
+KGC: [ en ] | training loss:  0.7368 | val loss:  0.7127
+KGC: [ en ] | training loss:  0.6809 | val loss:  0.6674
+KGC: [ en ] | training loss:  0.6169 | val loss:  0.6097
+KGC: [ en ] | training loss:  0.5859 | val loss:  0.6174
+KGC: [ en ] | training loss:  0.5832 | val loss:  0.6209
+The performance (hit@1, hit@10) of language [ en ] is:  3.9523  and  24.866
+KGC: [ es ] | training loss:  1.2018 | val loss:  0.9026
+KGC: [ es ] | training loss:  0.9312 | val loss:  0.7717
+KGC: [ es ] | training loss:  0.9076 | val loss:  0.8427
+KGC: [ es ] | training loss:  1.0312 | val loss:  1.0232
+The performance (hit@1, hit@10) of language [ es ] is:  3.4511  and  25.738
+KGC: [ fr ] | training loss:  1.1106 | val loss:  0.9508
+KGC: [ fr ] | training loss:  0.9092 | val loss:  0.835
+KGC: [ fr ] | training loss:  0.8492 | val loss:  0.8452
+KGC: [ fr ] | training loss:  0.8697 | val loss:  0.8138
+KGC: [ fr ] | training loss:  0.8029 | val loss:  0.8266
+KGC: [ fr ] | training loss:  0.8398 | val loss:  0.7891
+KGC: [ fr ] | training loss:  0.7415 | val loss:  0.7509
+KGC: [ fr ] | training loss:  1.2182 | val loss:  1.3697
+The performance (hit@1, hit@10) of language [ fr ] is:  5.5862  and  23.4476
+KGC: [ ja ] | training loss:  1.6365 | val loss:  1.2407
+KGC: [ ja ] | training loss:  1.1855 | val loss:  1.0995
+KGC: [ ja ] | training loss:  1.0691 | val loss:  1.0673
+KGC: [ ja ] | training loss:  1.0202 | val loss:  1.0741
+KGC: [ ja ] | training loss:  1.0809 | val loss:  1.0852
+The performance (hit@1, hit@10) of language [ ja ] is:  10.222  and  32.84

@@ -69,7 +69,31 @@ def load_data(args, data_name):
                     align_list.append(str(int(float(s)))+"\t"+str(int(float(t))))
             aligns[file[:-4]] = align_list
         return entities, relation_dict, kgs, aligns
-
+    else:  # wk3l60
+        data_path = os.path.join(args.data_dir, "wk3l60")
+        # load alignments
+        files = ["en_de_60k_test75.csv", "en_de_60k_train25.csv", "en_fr_60k_test75.csv", "en_fr_60k_train25.csv"]
+        aligns = {}
+        for file in files:
+            tmp_align = []
+            with open(os.path.join(data_path, "alignment", file), "r") as f:
+                for line in f:
+                    tmp_align.append(line[:-1])
+                    break
+            # get language
+            if "en_de" in file:
+                k = "en_de"
+            else:
+                k = "en_fr"
+            if k not in aligns:
+                aligns[k]={}
+            # get train/test
+            if "train" in file:
+                kk = "train"
+            else:
+                kk = "test"
+            aligns[k][kk] = tmp_align
+        return aligns
 
 def grad_parameters(model, free=True):
     for name, param in model.named_parameters():

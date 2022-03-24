@@ -1,26 +1,24 @@
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.decoder.weight']
+Namespace(adam_epsilon=1e-08, batch_num=16, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=7, epoch=0, lm_lr=1e-06, lr=1e-06, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/', model_name='XLM-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlm_80/final_v3.pt', neg_num=1, patience=2, tmp_dir='./tmp/checkpoints', weight_decay=0.005)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/ were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.decoder.weight']
 - This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.decoder.weight']
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/ were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.decoder.weight']
 - This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.decoder.weight']
+The performance (hit@1, hit@10) of language [ el ] is:  0.0983  and  1.6716
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/ were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.decoder.weight']
 - This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.decoder.weight']
+The performance (hit@1, hit@10) of language [ en ] is:  0.0402  and  0.1876
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/ were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.decoder.weight']
 - This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.decoder.weight']
+The performance (hit@1, hit@10) of language [ es ] is:  0.0416  and  0.8524
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/ were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.decoder.weight']
 - This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Namespace(adam_epsilon=1e-08, batch_num=32, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=5, epoch=0, lr=1e-06, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', model_name='XLM-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlmr/final_v3.pt', neg_num=2, tmp_dir='./tmp/checkpoints')
-The number of objects [ el ] is:  534
-The performance (hit@1, hit@10) of language [ el ] is:  0.4916  and  4.6214
-The number of objects [ en ] is:  3284
-The performance (hit@1, hit@10) of language [ en ] is:  0.134  and  1.7953
-The number of objects [ es ] is:  2101
-The performance (hit@1, hit@10) of language [ es ] is:  0.0208  and  1.5177
-The number of objects [ fr ] is:  1859
-The performance (hit@1, hit@10) of language [ fr ] is:  0.1199  and  1.3186
-The number of objects [ ja ] is:  1114
-The performance (hit@1, hit@10) of language [ ja ] is:  0.2313  and  2.0352
+The performance (hit@1, hit@10) of language [ fr ] is:  0.1199  and  2.5414
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/ were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+The performance (hit@1, hit@10) of language [ ja ] is:  0.2313  and  0.9251
