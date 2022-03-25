@@ -221,8 +221,7 @@ def test_wk3l60(args):
         # training, validation, testing
         max_val_loss = [1e10 for i in range(args.patience)]
         results = []
-        '''
-        # training
+        # training： 1 epoch
         random.shuffle(train_list)
         grad_parameters(model, True)
         loss_list = []
@@ -246,15 +245,6 @@ def test_wk3l60(args):
             # backward
             loss.backward()
             optimizer.step()
-        # early stop
-        print("KGC: [", k, "] | training loss: ", round(sum(loss_list)/len(loss_list), 4), \
-                            "| val loss: ", round(sum(val_loss_list)/len(val_loss_list), 4))
-        if sum(val_loss_list)/len(val_loss_list) < max(max_val_loss):
-            max_val_loss.remove(max(max_val_loss))
-            max_val_loss.append(sum(val_loss_list)/len(val_loss_list))
-        else:
-            break
-        '''
         # testing
         grad_parameters(model, False)
         rank_list = []
@@ -268,24 +258,24 @@ def test_wk3l60(args):
             inputs = tokenizer(entity_list[i: i+1024], padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
             outputs_emb = model(**inputs).cpu()
             test_emb = torch.cat((test_emb, outputs_emb), dim=0)
-        for e in test_list:
+        for e in tqdm(test_list):
             e_src = e.split("@@@")[0]
             e_dst = e.split("@@@")[1]
             input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
             output_src = model(**input_src).cpu()
-            # score = torch.squeeze(cos_sim(output_src, obj_emb)).numpy()  # for FT setting
-            score = torch.squeeze(torch.mm(output_src, torch.t(test_emb))).numpy()  # for ZS setting
+            score = torch.squeeze(cos_sim(output_src, test_emb)).numpy()
+            # score = torch.squeeze(torch.mm(output_src, torch.t(test_emb))).numpy()
             ranks = np.argsort(np.argsort(-score))
             rank = ranks[entity_list.index(e_dst)]
             rank_list.append(rank)
-        count_1, count_10, mrr = 0, 0, 0
+        count_1, count_5, mrr = 0, 0, 0
         for r in rank_list:
             if r < 1: count_1 += 1
-            if r < 10: count_10 += 1
+            if r < 5: count_5 += 1
             mrr += 1/(r+1)
-        result = [round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4), round(mrr/len(rank_list), 4)]
+        result = [round(count_1/len(rank_list), 4), round(count_5/len(rank_list), 4), round(mrr/len(rank_list), 4)]
         results.append(result)
-        print("KGC: [", k, "] | hit@1: ", result[0], "hit@10: ", result[1], "mrr: ", result[2])
+        print("KGC: [", k, "] | hit@1: ", result[0], "hit@5: ", result[1], "mrr: ", result[2])
         # grad_parameters(model, True)
         print("The performance (hit@1, hit@10) of language [", k, "] is: ", min(results))
 

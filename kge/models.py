@@ -87,8 +87,8 @@ class MLKGLM(nn.Module):
         # objective 2: transformer layers
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
         outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
-        return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
-        # return outputs_MLLM + outputs_universal + outputs_MLKGLM
+        # return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
+        return outputs_MLLM + outputs_universal + outputs_MLKGLM
 
 
 class KGLM(nn.Module):
@@ -112,5 +112,5 @@ class KGLM(nn.Module):
         else:
             outputs = self.base_model(**inputs).hidden_states[-1]
         outputs = torch.mean(outputs, dim=1)
-        # outputs = F.elu(self.new_all_aggregator(outputs))
+        outputs = F.elu(self.new_all_aggregator(outputs))
         return outputs
