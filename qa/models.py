@@ -78,6 +78,8 @@ class MLKGLM(nn.Module):
         outputs_MLKGLM = self.triple_mapping(outputs_universal)
         outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
         return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
+        # return (outputs_MLLM + outputs_universal + outputs_MLKGLM) / 3
+
 
 class LMQA(nn.Module):
     """docstring for ClassName"""
@@ -92,19 +94,54 @@ class LMQA(nn.Module):
             self.base_model = AutoModel.from_pretrained(args.model_dir, 
                                                         return_dict=True,
                                                         output_hidden_states=True)
-        self.new_all_aggregator = nn.Linear(768, 128)
+        self.qa_outputs = nn.Linear(768, 2)
 
-    def forward(self, **inputs):
+    def forward(self,
+                input_ids=None,
+                attention_mask=None,
+                token_type_ids=None,
+                position_ids=None,
+                head_mask=None,
+                inputs_embeds=None,
+                start_positions=None,
+                end_positions=None,
+                output_attentions=None,
+                output_hidden_states=None,
+                return_dict=None,):
         if self.model_name[-2:] == "KG":
             outputs = self.base_model(**inputs)
         else:
             outputs = self.base_model(**inputs).hidden_states[-1]
-        outputs = torch.mean(outputs, dim=1)
-        outputs = F.elu(self.new_all_aggregator(outputs))
-        return outputs
+
+        sequence_output = outputs
+        logits = self.qa_outputs(sequence_output)
+        start_logits, end_logits = logits.split(1, dim=-1)
+        start_logits = start_logits.squeeze(-1).contiguous()
+        end_logits = end_logits.squeeze(-1).contiguous()
+
+        total_loss = None
+        if start_positions is not None and end_positions is not None:
+            # If we are on multi-GPU, split add a dimension
+            if len(start_positions.size()) > 1:
+                start_positions = start_positions.squeeze(-1)
+            if len(end_positions.size()) > 1:
+                end_positions = end_positions.squeeze(-1)
+            # sometimes the start/end positions are outside our model inputs, we ignore these terms
+            ignored_index = start_logits.size(1)
+            start_positions = start_positions.clamp(0, ignored_index)
+            end_positions = end_positions.clamp(0, ignored_index)
+
+            loss_fct = CrossEntropyLoss(ignore_index=ignored_index)
+            start_loss = loss_fct(start_logits, start_positions)
+            end_loss = loss_fct(end_logits, end_positions)
+            total_loss = (start_loss + end_loss) / 2
+
+        output = (start_logits, end_logits)
+        return ((total_loss,) + output) if total_loss is not None else output
 
 
 
+'''
 class BertForQuestionAnswering(BertPreTrainedModel):
     def __init__(self, config):
         super().__init__(config)
@@ -195,3 +232,4 @@ class BertForQuestionAnswering(BertPreTrainedModel):
             hidden_states=outputs.hidden_states,
             attentions=outputs.attentions,
         )
+'''

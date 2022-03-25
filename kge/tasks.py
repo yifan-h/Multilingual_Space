@@ -253,8 +253,8 @@ def test_wk3l60(args):
         entity_list = list(entity_pool_test)
         print("The number of objects [", k, "] is: ", len(entity_list))
         test_emb = torch.Tensor()
-        for i in range(0, len(entity_list), 1024):
-            inputs = tokenizer(entity_list[i: i+1024], padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+        for i in range(0, len(entity_list), args.batch_num*5):
+            inputs = tokenizer(entity_list[i: i+args.batch_num*5], padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
             outputs_emb = model(**inputs).cpu()
             test_emb = torch.cat((test_emb, outputs_emb), dim=0)
         for e in test_list:

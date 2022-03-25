@@ -29,9 +29,9 @@ if __name__ == "__main__":
                         help="learning rate of FT.")
     parser.add_argument("--lm_lr", type=float, default=1e-6,
                         help="learning rate of PLM.")
-    parser.add_argument("--weight_decay", type=float, default=1e-2,
+    parser.add_argument("--weight_decay", type=float, default=1e-3,
                         help="weight decay value")
-    parser.add_argument("--adam_epsilon", type=float, default=1e-8,
+    parser.add_argument("--adam_epsilon", type=float, default=1e-6,
                         help="Adam epsilon")
     parser.add_argument("--epoch", type=int, default=50,
                         help="number of training epochs.")
