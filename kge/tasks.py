@@ -209,7 +209,7 @@ def test_wk3l60(args):
         base_params = list(filter(lambda kv: kv[0] not in param_list, model.named_parameters()))
         aggregator_params = [i[1]for i in aggregator_params]
         base_params = [i[1]for i in base_params]
-        optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=1e-6, weight_decay=args.weight_decay)
+        optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=args.lm_lr, weight_decay=args.weight_decay)
         # optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
         # dataset
         train_list, test_list = v["train"], v["test"]
@@ -219,7 +219,6 @@ def test_wk3l60(args):
             entity_pool.add(e.split("@@@")[0])
             entity_pool.add(e.split("@@@")[1])
         # training, validation, testing
-        max_val_loss = [1e10 for i in range(args.patience)]
         results = []
         # training： 1 epoch
         random.shuffle(train_list)
@@ -258,7 +257,7 @@ def test_wk3l60(args):
             inputs = tokenizer(entity_list[i: i+1024], padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
             outputs_emb = model(**inputs).cpu()
             test_emb = torch.cat((test_emb, outputs_emb), dim=0)
-        for e in tqdm(test_list):
+        for e in test_list:
             e_src = e.split("@@@")[0]
             e_dst = e.split("@@@")[1]
             input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)

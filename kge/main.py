@@ -29,7 +29,7 @@ if __name__ == "__main__":
                         help="learning rate of FT.")
     parser.add_argument("--lm_lr", type=float, default=1e-6,
                         help="learning rate of PLM.")
-    parser.add_argument("--weight_decay", type=float, default=5e-3,
+    parser.add_argument("--weight_decay", type=float, default=1e-2,
                         help="weight decay value")
     parser.add_argument("--adam_epsilon", type=float, default=1e-8,
                         help="Adam epsilon")
