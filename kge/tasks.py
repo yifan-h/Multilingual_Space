@@ -38,19 +38,49 @@ def test_dbp5l(args):
     for name, param in model.named_parameters():
         if "new_all_aggregator" in name:
             param_list.append(name)
-    '''
-    # training alignment
-    for k, v in aligns.items():
-        # preprocess data
-        l_src, l_dst = k.split("-")
-        for i in range(0, len(v), args.batch_num):
-            # get entity id
-            a_src = [int(a.split("\t")[0]) for a in v[i: i+args.batch_num]]
-            a_dst = [int(a.split("\t")[1]) for a in v[i: i+args.batch_num]]
-            # get entity label
-            e_src = [entities[l_src][a] for a in a_src]
-            e_dst = [entities[l_dst][a] for a in a_dst]
-            e_neg = random.sample(entity_pool, len(e_dst)*args.neg_num)
+    model = KGLM(args).to(args.device)
+    # grad_parameters(model, True)
+    # set model and optimizer
+    aggregator_params = list(filter(lambda kv: kv[0] in param_list, model.named_parameters()))
+    base_params = list(filter(lambda kv: kv[0] not in param_list, model.named_parameters()))
+    aggregator_params = [i[1]for i in aggregator_params]
+    base_params = [i[1]for i in base_params]
+    optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=1e-6, weight_decay=args.weight_decay)
+    # dataset (id to text)
+    train_list_text, val_list_text, test_list_text = [], [], []
+    obj_list_train, obj_list_val = [], []
+    for k, v in kgs.items():
+        for t in v["train"]:
+            s, r, o = t.split("\t")
+            s, r, o = int(s), int(r), int(o)
+            #if k == "en":
+            train_list_text.append(entities[k][s]+"\t"+relation[r]+"\t"+entities[k][o])
+            obj_list_train.append(entities[k][o])
+        for t in v["val"]:
+            s, r, o = t.split("\t")
+            s, r, o = int(s), int(r), int(o)
+            val_list_text.append(entities[k][s]+"\t"+relation[r]+"\t"+entities[k][o])
+            obj_list_val.append(entities[k][o])
+        for t in v["test"]:
+            s, r, o = t.split("\t")
+            s, r, o = int(s), int(r), int(o)
+            test_list_text.append(entities[k][s]+"\t"+relation[r]+"\t"+entities[k][o])
+    # prepare val and test data
+    obj_list_train = list(set(obj_list_train))
+    obj_list_val = list(set(obj_list_val))
+    # training, validation, testing
+    results = []
+    # epoch loop
+    for e in range(args.epoch):
+        # training
+        random.shuffle(train_list_text)
+        grad_parameters(model, True)
+        loss_list = []
+        for i in range(0, len(train_list_text), args.batch_num):
+            # get text
+            e_src = [" ".join(a.split("\t")[:2]) for a in train_list_text[i: i+args.batch_num]]
+            e_dst = [a.split("\t")[-1] for a in train_list_text[i: i+args.batch_num]]
+            e_neg = random.sample(obj_list_train, int(len(e_dst)*args.neg_num))
             # get tokens
             input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
             input_dst = tokenizer(e_dst, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
@@ -60,14 +90,78 @@ def test_dbp5l(args):
             output_dst = model(**input_dst)
             output_neg = model(**input_neg)
             # get loss
-            # target = torch.Tensor([1 for _ in range(output_dst.shape[0])]+[-1 for _ in range(output_neg.shape[0])]).to(args.device)
-            # loss = lossfcn(output_src.repeat((1+args.neg_num), 1), torch.cat((output_dst, output_neg), dim=0), target)
             loss = lossfcn(output_src, output_dst, output_neg)
+            loss_list.append(float(loss.data))
             # backward
             loss.backward()
             optimizer.step()
-            print("Alignment: ", k, ": ", round(float(loss.data), 4))
-    '''
+        # print("validation...", len(obj_list_val))
+        # validation
+        grad_parameters(model, False)
+        rank_list = []
+        obj_emb = torch.Tensor()
+        for i in range(0, len(obj_list_val), args.batch_num*10):
+            inputs = tokenizer(obj_list_val[i: i+args.batch_num*10], padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+            outputs_emb = model(**inputs).cpu()
+            obj_emb = torch.cat((obj_emb, outputs_emb), dim=0)
+        # grad_parameters(model, False)
+        val_list_text_sample = random.sample(val_list_text, int(len(val_list_text)/10))
+        for t in val_list_text_sample:
+            e_src = " ".join(t.split("\t")[:2])
+            e_dst = t.split("\t")[-1]
+            input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+            output_src = model(**input_src).cpu()
+            score = torch.squeeze(cos_sim(output_src, obj_emb)).numpy()  # for FT setting
+            # score = torch.squeeze(torch.mm(output_src, torch.t(obj_emb))).numpy()  # for ZS setting
+            ranks = np.argsort(np.argsort(-score))
+            rank = ranks[obj_list_val.index(e_dst)]
+            rank_list.append(rank)
+        count_1_val, count_10_val = 0, 0 
+        for r in rank_list:
+            if r < 1: count_1_val += 1
+            if r < 10: count_10_val += 1
+        print("----KGC: loss: ", round(sum(loss_list)/len(loss_list), 4), \
+                "| val hit@1: ", round(count_1_val/len(val_list_text_sample), 4), "hit@10: ", round(count_10_val/len(val_list_text_sample), 4))
+        # testing
+        # print("testing...")
+        for k, v in kgs.items():
+            test_list = v["test"]
+            obj_pool_test = set()
+            for t in test_list:
+                obj_pool_test.add(entities[k][int(t.split("\t")[-1])])
+            # print("The number of objects [", k, "] is: ", len(obj_pool_test))
+            obj_list_test = list(obj_pool_test)
+            rank_list = []
+            inputs = tokenizer(obj_list_test, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+            obj_emb = model(**inputs).cpu()
+            for t in test_list:
+                e_src = entities[k][int(t.split("\t")[0])] + " " + relation[int(t.split("\t")[1])]
+                e_dst = entities[k][int(t.split("\t")[-1])]
+                input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+                output_src = model(**input_src).cpu()
+                score = torch.squeeze(cos_sim(output_src, obj_emb)).numpy()  # for FT setting
+                # score = torch.squeeze(torch.mm(output_src, torch.t(obj_emb))).numpy()  # for ZS setting
+                ranks = np.argsort(np.argsort(-score))
+                rank = ranks[obj_list_test.index(e_dst)]
+                rank_list.append(rank)
+            count_1, count_10 = 0, 0 
+            for r in rank_list:
+                if r < 1: count_1 += 1
+                if r < 10: count_10 += 1
+            result = [(count_1_val+count_10_val)/len(val_list_text_sample), round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4)]
+            results.append(result)
+            print("KGC: [", k, "] | test hit@1: ", round(count_1/len(test_list), 4), "hit@10: ", round(count_10/len(test_list), 4))
+    # grad_parameters(model, True)
+    print("The performance (hit@1, hit@10) of language [", k, "] is: ", max(results))
+    # print("The performance (hit@1, hit@10) of language [", k, "] is: ", round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4))
+    return
+
+
+
+
+
+
+
     # training and testing KG for all languages
     for k, v in kgs.items():
         del model
@@ -90,6 +184,17 @@ def test_dbp5l(args):
         grad_parameters(model, False)
         max_val_loss = [1e10 for i in range(args.patience)]
         results = []
+        # prepare val and test data
+        obj_pool_val = set()
+        for t in val_list:
+            obj_pool_val.add(entities[k][int(t.split("\t")[-1])])
+        obj_list_val = list(obj_pool_val)
+        obj_pool_test = set()
+        for t in test_list:
+            obj_pool_test.add(entities[k][int(t.split("\t")[-1])])
+        obj_list_test = list(obj_pool_test)
+        print("The number of objects [", k, "] is: ", len(obj_pool_test))
+        # epoch loop
         for e in range(args.epoch):
             # training
             random.shuffle(train_list)
@@ -111,30 +216,34 @@ def test_dbp5l(args):
                 output_neg = model(**input_neg)
                 # get loss
                 loss = lossfcn(output_src, output_dst, output_neg)
+                # labels = torch.Tensor([1 for _ in range(output_src.shape[0])]+[-1 for _ in range(output_src.shape[0])])
+                # labels = labels.to(args.device)
+                # loss = lossfcn(torch.cat((output_src, output_src), dim=0), torch.cat((output_dst, output_neg), dim=0), labels)
+                # loss = lossfcn(output_src, output_dst)
                 loss_list.append(float(loss.data))
                 # backward
                 loss.backward()
                 optimizer.step()
             # validation
             grad_parameters(model, False)
-            val_loss_list = []
+            rank_list = []
+            inputs = tokenizer(obj_list_val, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+            obj_emb = model(**inputs).cpu()
             # grad_parameters(model, False)
-            for i in range(0, len(val_list), args.batch_num):
-                # get text
-                e_src = [entities[k][int(a.split("\t")[0])] + " " + relation[int(a.split("\t")[1])] for a in val_list[i: i+args.batch_num]]
-                e_dst = [entities[k][int(a.split("\t")[2])] for a in val_list[i: i+args.batch_num]]
-                e_neg = random.sample(obj_pool, int(len(e_dst)*args.neg_num))
-                # get tokens
+            for t in val_list:
+                e_src = entities[k][int(t.split("\t")[0])] + " " + relation[int(t.split("\t")[1])]
+                e_dst = entities[k][int(t.split("\t")[-1])]
                 input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
-                input_dst = tokenizer(e_dst, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
-                input_neg = tokenizer(e_neg, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
-                # get outputs
-                output_src = model(**input_src)
-                output_dst = model(**input_dst)
-                output_neg = model(**input_neg)
-                # get loss
-                loss = lossfcn(output_src, output_dst, output_neg)
-                val_loss_list.append(float(loss.data))
+                output_src = model(**input_src).cpu()
+                score = torch.squeeze(cos_sim(output_src, obj_emb)).numpy()  # for FT setting
+                # score = torch.squeeze(torch.mm(output_src, torch.t(obj_emb))).numpy()  # for ZS setting
+                ranks = np.argsort(np.argsort(-score))
+                rank = ranks[obj_list_val.index(e_dst)]
+                rank_list.append(rank)
+            count_1_val, count_10_val = 0, 0 
+            for r in rank_list:
+                if r < 1: count_1_val += 1
+                if r < 10: count_10_val += 1
             # early stop
             '''
             print("KGC: [", k, "] | training loss: ", round(sum(loss_list)/len(loss_list), 4), \
@@ -147,34 +256,30 @@ def test_dbp5l(args):
             '''
             # testing
             rank_list = []
-            obj_pool_test = set()
-            for t in test_list:
-                obj_pool_test.add(entities[k][int(t.split("\t")[-1])])
-            obj_list = list(obj_pool_test)
-            # print("The number of objects [", k, "] is: ", len(obj_list))
-            inputs = tokenizer(obj_list, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
+            inputs = tokenizer(obj_list_test, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
             obj_emb = model(**inputs).cpu()
             for t in test_list:
                 e_src = entities[k][int(t.split("\t")[0])] + " " + relation[int(t.split("\t")[1])]
                 e_dst = entities[k][int(t.split("\t")[-1])]
                 input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
                 output_src = model(**input_src).cpu()
-                # score = torch.squeeze(cos_sim(output_src, obj_emb)).numpy()  # for FT setting
-                score = torch.squeeze(torch.mm(output_src, torch.t(obj_emb))).numpy()  # for ZS setting
+                score = torch.squeeze(cos_sim(output_src, obj_emb)).numpy()  # for FT setting
+                # score = torch.squeeze(torch.mm(output_src, torch.t(obj_emb))).numpy()  # for ZS setting
                 ranks = np.argsort(np.argsort(-score))
-                rank = ranks[obj_list.index(e_dst)]
+                rank = ranks[obj_list_test.index(e_dst)]
                 rank_list.append(rank)
             count_1, count_10 = 0, 0 
             for r in rank_list:
                 if r < 1: count_1 += 1
                 if r < 10: count_10 += 1
-            result = [round(sum(val_loss_list)/len(val_loss_list), 4), round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4)]
-            results.append(result)
+            # result = [round(sum(val_loss_list)/len(val_loss_list), 4), round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4)]
+            # results.append(result)
             print("KGC: [", k, "] | training loss: ", round(sum(loss_list)/len(loss_list), 4), \
-                                "| val loss: ", round(sum(val_loss_list)/len(val_loss_list), 4), \
-                                "| hit@1: ", result[1], "hit@10: ", result[2])
+                        "| val hit@1: ", round(count_1_val/len(val_list), 4), "hit@10: ", round(count_10_val/len(val_list), 4), \
+                        "| test hit@1: ", round(count_1/len(test_list), 4), "hit@10: ", round(count_10/len(test_list), 4))
         # grad_parameters(model, True)
-        print("The performance (hit@1, hit@10) of language [", k, "] is: ", min(results))
+        # print("The performance (hit@1, hit@10) of language [", k, "] is: ", min(results))
+        # print("The performance (hit@1, hit@10) of language [", k, "] is: ", round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4))
 
     return
 

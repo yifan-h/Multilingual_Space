@@ -68,7 +68,7 @@ class MLKGLM(nn.Module):
                                                 nn.Dropout(0.1))
         # for testing
         self.all_aggregator = nn.Sequential(nn.Linear(3*hidden_num, hidden_num, bias=False),
-                                            nn.Dropout(0.1))
+                                            nn.Dropout(0.2))
         # self.all_aggregator.weight.data = self.weight_init_sum(self.all_aggregator.weight.data)
 
     def weight_init_sum(self, t):
@@ -105,14 +105,15 @@ class KGLM(nn.Module):
             self.base_model = AutoModel.from_pretrained(args.model_dir, 
                                                         return_dict=True,
                                                         output_hidden_states=True)
-        self.new_all_aggregator = nn.Sequential(nn.Linear(768, 64),
-                                                nn.Dropout(0.1))
+        # 64 for EA
+        self.new_all_aggregator = nn.Sequential(nn.Linear(768, 128),
+                                                nn.Dropout(0.2))
 
     def forward(self, **inputs):
         if self.model_name[-2:] == "KG":
             outputs = self.base_model(**inputs)
         else:
             outputs = self.base_model(**inputs).hidden_states[-1]
+        outputs = torch.tanh(self.new_all_aggregator(outputs))
         outputs = torch.mean(outputs, dim=1)
-        outputs = F.tanh(self.new_all_aggregator(outputs))
         return outputs

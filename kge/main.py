@@ -3,8 +3,8 @@ import argparse
 from tasks import test_dbp5l, test_wk3l60
 
 def main_func(args):
-    # test_dbp5l(args)
-    test_wk3l60(args)
+    test_dbp5l(args)
+    # test_wk3l60(args)
 
 
 if __name__ == "__main__":
@@ -29,13 +29,13 @@ if __name__ == "__main__":
                         help="learning rate of FT.")
     parser.add_argument("--lm_lr", type=float, default=1e-6,
                         help="learning rate of PLM.")
-    parser.add_argument("--weight_decay", type=float, default=1e-3,
+    parser.add_argument("--weight_decay", type=float, default=5e-3,
                         help="weight decay value")
     parser.add_argument("--adam_epsilon", type=float, default=1e-6,
                         help="Adam epsilon")
-    parser.add_argument("--epoch", type=int, default=50,
+    parser.add_argument("--epoch", type=int, default=10,
                         help="number of training epochs.")
-    parser.add_argument("--batch_num", type=int, default=16,
+    parser.add_argument("--batch_num", type=int, default=50,
                         help="number of triple samples per 1 batch")
     parser.add_argument("--neg_num", type=float, default=1,
                         help="number of negative samples")
