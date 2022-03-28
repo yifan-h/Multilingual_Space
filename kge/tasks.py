@@ -156,12 +156,6 @@ def test_dbp5l(args):
     # print("The performance (hit@1, hit@10) of language [", k, "] is: ", round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4))
     return
 
-
-
-
-
-
-
     # training and testing KG for all languages
     for k, v in kgs.items():
         del model
