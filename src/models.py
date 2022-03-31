@@ -7,6 +7,12 @@ import torch.nn.functional as F
 from transformers import AutoModel
 import transformers.adapters.composition as ac
 
+seed = 123
+random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 
 class MLKGLM(nn.Module):
     """docstring for ClassName"""
@@ -25,7 +31,7 @@ class MLKGLM(nn.Module):
                                                 nn.Dropout(0.1),  # project down
                                                 nn.Linear(int(hidden_num / 4), hidden_num),
                                                 nn.ELU(),
-                                                nn.LayerNorm(4*hidden_num, eps=1e-12),
+                                                nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1),  # project up
                                                 nn.Linear(hidden_num, 4*hidden_num),
                                                 nn.ELU(),
@@ -37,9 +43,10 @@ class MLKGLM(nn.Module):
                                                 nn.Linear(hidden_num, hidden_num),
                                                 nn.Tanh(),
                                                 nn.Dropout(0.1))
-        # for testing
-        self.all_aggregator = nn.Linear(2*hidden_num, hidden_num, bias=False)
-        self.all_aggregator.weight.data = self.weight_init_sum(self.all_aggregator.weight.data)
+        if not self.training:
+            # for testing
+            self.all_aggregator = nn.Linear(2*hidden_num, hidden_num, bias=False)
+            self.all_aggregator.weight.data = self.weight_init_sum(self.all_aggregator.weight.data)
 
     def weight_init_sum(self, t):
         hidden_num = int(t.shape[-1]/2)
@@ -89,7 +96,7 @@ def loss_universal(args, outputs, lossfcn, input_ids=None, el2=True):
     loss_dp = lossfcn(outputs_pos[idx_query], outputs_pos[idx_pos], outputs_neg)
     if el2 == True:
         lossfcn_el2 = nn.SmoothL1Loss()
-        loss_el2 = lossfcn_el2(outputs_pos[idx_query], outputs_pos[idx_pos]) - lossfcn_el2(outputs_pos[idx_query], outputs_neg)
+        loss_el2 = lossfcn_el2(outputs_pos[idx_query], outputs_pos[idx_pos]) - lossfcn_el2(outputs_pos[idx_query], outputs_neg[idx_pos])
         return loss_dp + loss_el2
     else:
         return loss_dp

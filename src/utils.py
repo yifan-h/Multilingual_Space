@@ -6,6 +6,12 @@ import torch.utils.data as Data
 from tqdm import tqdm
 from transformers import AutoTokenizer
 
+seed = 123
+random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 
 class EntityLoader(Data.Dataset):
     def __init__(self, args):
@@ -22,7 +28,7 @@ class EntityLoader(Data.Dataset):
                 for k, v in tmp_data["labels"].items():
                     entity_dict[tmp_data["id"]].append(v["value"])
         self.num_e = num_e
-        self.neg_num = args.neg_num
+        # self.neg_num = args.neg_num
         self.entity_dict = entity_dict
         self.entity_pool = set(entity_dict.keys())
         self.fopen = open(os.path.join(args.data_dir, "entity.json"), "r")
@@ -172,15 +178,11 @@ class MixLoader(Data.Dataset):
                 p_text = random.choice(self.relation_dict[p])
             else:
                 p_text = ""
+            # add random object label
+            p_text += random.choice(self.entity_dict[random.choice(self.entity_pool)])
             # get context
             if self.triple_context:  # triple as context
                 c_list.append(random.choice(self.entity_dict[s])+" "+self.lm_mask_token+" "+p_text)
-                '''
-                # resample a relation
-                if len(p_text): p_text = random.choice(self.relation_dict[p])
-                cl_list.append(random.choice(self.entity_dict[s])+" "+self.lm_mask_token+" "+\
-                                p_text+" "+random.choice(self.entity_dict[o]))
-                '''
             else:  # sentence as context
                 tmp_lang = random.choice([k for k,v in self.des_dict[s]["descriptions"].items()])
                 tmp_sent = self.des_dict[s]["descriptions"][tmp_lang]
@@ -188,7 +190,6 @@ class MixLoader(Data.Dataset):
                 tmp_idx = tmp_sent.find(tmp_label)
                 c_list.append(tmp_sent[:tmp_idx]+" "+self.lm_mask_token+" "+tmp_sent[tmp_idx:tmp_idx+len(tmp_label)]\
                                 +" "+self.lm_mask_token+" "+tmp_sent[tmp_idx+len(tmp_label):])
-                ## cl_list.append()
             cl_list.append(random.choice(self.entity_dict[s]))
             o_list.append(random.choice(self.entity_dict[o]))
         return self.cleaning(c_list, cl_list, o_list)
@@ -227,6 +228,12 @@ def grad_universal(model, free=True):
 def grad_triple_encoder(model, free=True):
     for name, param in model.named_parameters():
         if "triple" in name:
+            param.requires_grad = free
+    return
+
+def grad_kgencoder(model, free=True):
+    for name, param in model.named_parameters():
+        if "knowledge_mapping" in name:
             param.requires_grad = free
     return
 

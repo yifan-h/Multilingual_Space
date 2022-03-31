@@ -8,10 +8,15 @@ from accelerate import Accelerator
 from accelerate import DistributedDataParallelKwargs
 from info_nce import InfoNCE
 
-from utils import EntityLoader, TripleLoader, MixLoader, grad_parameters, grad_universal, \
-                    grad_triple_encoder, save_model, load_model
+from utils import EntityLoader, TripleLoader, MixLoader, grad_parameters, grad_kgencoder,\
+                     save_model, load_model
 from models import MLKGLM, loss_universal, loss_triple
 
+seed = 123
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 
 def train_entity_universal(args, model_mlkg):
     #### (h, h')
@@ -24,8 +29,6 @@ def train_entity_universal(args, model_mlkg):
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_kgencoder(model_mlkg, True)
-    # grad_universal(model_mlkg, True)
-    # grad_triple_encoder(model_mlkg, False)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
@@ -55,8 +58,6 @@ def train_entity_universal(args, model_mlkg):
             scheduler.step()
             # save model
             count_save += 1
-            if count_save % 1e5 == 0:
-                save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "adapters_"+str(int(count_save/1e5))+".pt"))
             if count_save % 1e3 == 0:
                 # time
                 time_length = round(time.time() - time_start, 4)
@@ -76,10 +77,6 @@ def train_entity_universal(args, model_mlkg):
     entity_dataset = EntityLoader(args)
     triple_dataset = TripleLoader(args, entity_dataset.entity_dict)
     triple_data = Data.DataLoader(dataset=triple_dataset, batch_size=1, num_workers=1)
-    # set parameters: autograd
-    # grad_parameters(model_mlkg, False)
-    # grad_universal(model_mlkg, False)
-    # grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
@@ -142,8 +139,6 @@ def train_triple_encoder(args, model_mlkg):
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_kgencoder(model_mlkg, True)
-    # grad_universal(model_mlkg, True)
-    # grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
@@ -165,8 +160,6 @@ def train_triple_encoder(args, model_mlkg):
             encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
             encoded_inputs_t = {k:torch.squeeze(v) for k, v in encoded_inputs_t.items()}
             #### ((h,t), t)
-            # grad_universal(model_mlkg, False)
-            # grad_triple_encoder(model_mlkg, True)
             optimizer.zero_grad()
             # positive set input
             outputs = model_mlkg(**encoded_inputs_t)
@@ -178,8 +171,6 @@ def train_triple_encoder(args, model_mlkg):
             optimizer.step()
             scheduler.step()
             #### ((h,t), h')
-            # grad_triple_encoder(model_mlkg, False)
-            # grad_universal(model_mlkg, True)
             optimizer.zero_grad()
             outputs = model_mlkg(**encoded_inputs_e)
             # backpropogation: entity
@@ -191,8 +182,6 @@ def train_triple_encoder(args, model_mlkg):
             scheduler.step()
             # save model
             count_save += 1
-            if count_save % 1e5 == 0:
-                save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "triple_encoder_"+str(int(count_save/1e5))+".pt"))
             if count_save % 1e3 == 0:
                 # time
                 time_length = round(time.time() - time_start, 4)
@@ -202,7 +191,7 @@ def train_triple_encoder(args, model_mlkg):
                 loss_avg2 = round(sum(loss_list2) / len(loss_list2), 4)
                 loss_list1, loss_list2 = [], []
                 # print
-                print("progress (context triple): ", count_save, "/", len(mix_data)*args.triple_epoch, " |time: ", time_length, "s |loss: ",loss_avg1, " ", loss_avg2)
+                print("progress (context triple): ", count_save, "/", len(mix_data)*args.triple_epoch, " |time: ", time_length, "s |loss (u, t): ",loss_avg1, " ", loss_avg2)
         # load data
         mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=True)
         mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)
@@ -249,8 +238,6 @@ def train_sentence_all(args, model_mlkg):
             encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
             encoded_inputs_s = {k:torch.squeeze(v) for k, v in encoded_inputs_s.items()}
             #### ((h,t), t)
-            # grad_universal(model_mlkg, False)
-            # grad_triple_encoder(model_mlkg, True)
             optimizer.zero_grad()
             # positive set input
             outputs = model_mlkg(**encoded_inputs_s)
@@ -262,8 +249,6 @@ def train_sentence_all(args, model_mlkg):
             optimizer.step()
             scheduler.step()
             #### ((h,t), h')
-            # grad_universal(model_mlkg, True)
-            # grad_triple_encoder(model_mlkg, False)
             outputs = model_mlkg(**encoded_inputs_e)
             # backpropogation: entity
             loss = loss_universal(args, outputs, lossfcn_universal, encoded_inputs_e["input_ids"])
@@ -274,8 +259,6 @@ def train_sentence_all(args, model_mlkg):
             scheduler.step()
             # save model
             count_save += 1
-            if count_save % 1e5 == 0:
-                save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "triple_encoder_"+str(int(count_save/1e5))+".pt"))
             if count_save % 1e3 == 0:
                 # time
                 time_length = round(time.time() - time_start, 4)
@@ -284,8 +267,7 @@ def train_sentence_all(args, model_mlkg):
                 loss_avg1 = round(sum(loss_list1) / len(loss_list1), 4)
                 loss_avg2 = round(sum(loss_list2) / len(loss_list2), 4)
                 loss_list1, loss_list2 = [], []
-                # print
-                print("progress (sent.): ", count_save, "/", len(mix_data)*args.triple_epoch, " |time: ", time_length, "s |loss: ",loss_avg1, " ", loss_avg2)
+                print("progress (context sent.): ", count_save, "/", len(mix_data)*args.triple_epoch, " |time: ", time_length, "s |loss (u, t): ",loss_avg1, " ", loss_avg2)
         # load data
         mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=False)
         mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)

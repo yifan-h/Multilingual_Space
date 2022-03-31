@@ -20,7 +20,7 @@ if __name__ == "__main__":
     # model
     parser.add_argument("--device", type=int, default=-1,
                         help="which GPU to use. set -1 to use CPU.")
-    parser.add_argument("--lr", type=float, default=5e-5,
+    parser.add_argument("--lr", type=float, default=1e-4,
                         help="learning rate of GCS.")
     parser.add_argument("--adam_epsilon", type=float, default=1e-8,
                         help="Adam epsilon")
@@ -28,7 +28,7 @@ if __name__ == "__main__":
                         help="number of training epochs.")
     parser.add_argument("--entity_epoch", type=int, default=1,
                         help="number of training epochs.")
-    parser.add_argument("--triple_epoch", type=int, default=10,
+    parser.add_argument("--triple_epoch", type=int, default=20,
                         help="number of training epochs.")
     parser.add_argument("--patience", type=int, default=10,
                         help="used for early stop")
