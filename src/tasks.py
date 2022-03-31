@@ -3,7 +3,7 @@ import torch
 import time
 from tqdm import tqdm
 import torch.utils.data as Data
-from transformers import AdamW, get_cosine_schedule_with_warmup
+from transformers import AdamW, get_cosine_with_hard_restarts_schedule_with_warmup
 from accelerate import Accelerator
 from accelerate import DistributedDataParallelKwargs
 from info_nce import InfoNCE
@@ -23,20 +23,19 @@ def train_entity_universal(args, model_mlkg):
     model_mlkg.lm_mask_token_id = args.lm_mask_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
-    grad_universal(model_mlkg, True)
-    grad_triple_encoder(model_mlkg, False)
+    grad_kgencoder(model_mlkg, True)
+    # grad_universal(model_mlkg, True)
+    # grad_triple_encoder(model_mlkg, False)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
-    scheduler = get_cosine_schedule_with_warmup(optimizer, 
+    scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=10,
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.entity_epoch*len(entity_data))
     # model_mlkg = model_mlkg.to(args.device)
     model_mlkg, optimizer, entity_data = accelerator.prepare(model_mlkg, optimizer, entity_data)
     # set loss function
     lossfcn_universal = InfoNCE(negative_mode='unpaired')
-    # disable connection with triple encoder
-    model_mlkg.obj = 1
     # training
     count_save = 0
     time_start = time.time()
@@ -46,7 +45,7 @@ def train_entity_universal(args, model_mlkg):
             encoded_inputs = {k:torch.squeeze(v) for k, v in encoded_inputs.items()}
             model_mlkg.zero_grad()
             # positive set input
-            outputs, _ = model_mlkg(**encoded_inputs)
+            outputs = model_mlkg(**encoded_inputs)
             # backpropogation
             loss = loss_universal(args, outputs, lossfcn_universal)
             loss_list.append(float(loss.data))
@@ -78,13 +77,13 @@ def train_entity_universal(args, model_mlkg):
     triple_dataset = TripleLoader(args, entity_dataset.entity_dict)
     triple_data = Data.DataLoader(dataset=triple_dataset, batch_size=1, num_workers=1)
     # set parameters: autograd
-    grad_parameters(model_mlkg, False)
-    grad_universal(model_mlkg, False)
-    grad_triple_encoder(model_mlkg, True)
+    # grad_parameters(model_mlkg, False)
+    # grad_universal(model_mlkg, False)
+    # grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
-    scheduler = get_cosine_schedule_with_warmup(optimizer, 
+    scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=10,
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*len(triple_data))
     # model_mlkg = model_mlkg.to(args.device)
@@ -100,7 +99,7 @@ def train_entity_universal(args, model_mlkg):
             encoded_inputs = {k:torch.squeeze(v) for k, v in encoded_inputs.items()}
             optimizer.zero_grad()
             # positive set input
-            _, outputs = model_mlkg(**encoded_inputs)
+            outputs = model_mlkg(**encoded_inputs)
             # backpropogation
             loss = loss_triple(args, outputs, lossfcn_triple)
             loss_list.append(float(loss.data))
@@ -142,12 +141,13 @@ def train_triple_encoder(args, model_mlkg):
     model_mlkg.lm_mask_token_id = args.lm_mask_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
-    grad_universal(model_mlkg, True)
-    grad_triple_encoder(model_mlkg, True)
+    grad_kgencoder(model_mlkg, True)
+    # grad_universal(model_mlkg, True)
+    # grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
-    scheduler = get_cosine_schedule_with_warmup(optimizer, 
+    scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=10,
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*2*len(mix_data))
     # model_mlkg = model_mlkg.to(args.device)
@@ -165,11 +165,11 @@ def train_triple_encoder(args, model_mlkg):
             encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
             encoded_inputs_t = {k:torch.squeeze(v) for k, v in encoded_inputs_t.items()}
             #### ((h,t), t)
-            grad_universal(model_mlkg, False)
-            grad_triple_encoder(model_mlkg, True)
+            # grad_universal(model_mlkg, False)
+            # grad_triple_encoder(model_mlkg, True)
             optimizer.zero_grad()
             # positive set input
-            _, outputs = model_mlkg(**encoded_inputs_t)
+            outputs = model_mlkg(**encoded_inputs_t)
             # backpropogation: triple
             loss = loss_triple(args, outputs, lossfcn_triple, encoded_inputs_t["input_ids"])
             loss_list2.append(float(loss.data))
@@ -178,10 +178,10 @@ def train_triple_encoder(args, model_mlkg):
             optimizer.step()
             scheduler.step()
             #### ((h,t), h')
-            grad_triple_encoder(model_mlkg, False)
-            grad_universal(model_mlkg, True)
+            # grad_triple_encoder(model_mlkg, False)
+            # grad_universal(model_mlkg, True)
             optimizer.zero_grad()
-            outputs, _ = model_mlkg(**encoded_inputs_e)
+            outputs = model_mlkg(**encoded_inputs_e)
             # backpropogation: entity
             loss = loss_universal(args, outputs, lossfcn_universal, encoded_inputs_e["input_ids"])
             loss_list1.append(float(loss.data))
@@ -202,7 +202,7 @@ def train_triple_encoder(args, model_mlkg):
                 loss_avg2 = round(sum(loss_list2) / len(loss_list2), 4)
                 loss_list1, loss_list2 = [], []
                 # print
-                print("progress (triple): ", count_save, "/", len(mix_data)*args.triple_epoch, " |time: ", time_length, "s |loss: ",loss_avg1, " ", loss_avg2)
+                print("progress (context triple): ", count_save, "/", len(mix_data)*args.triple_epoch, " |time: ", time_length, "s |loss: ",loss_avg1, " ", loss_avg2)
         # load data
         mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=True)
         mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)
@@ -225,12 +225,13 @@ def train_sentence_all(args, model_mlkg):
     args.lm_mask_token_id = mix_dataset.lm_mask_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
-    grad_universal(model_mlkg, True)
-    grad_triple_encoder(model_mlkg, True)
+    grad_kgencoder(model_mlkg, True)
+    # grad_universal(model_mlkg, True)
+    # grad_triple_encoder(model_mlkg, True)
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon)
-    scheduler = get_cosine_schedule_with_warmup(optimizer, 
+    scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=10,
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*2*len(mix_data))
     # model_mlkg = model_mlkg.to(args.device)
@@ -242,17 +243,17 @@ def train_sentence_all(args, model_mlkg):
     count_save = 0
     time_start = time.time()
     loss_list1, loss_list2 = [], []
-    for e in range(args.triple_epoch):
+    for e in range(min(1, args.triple_epoch)):
         for encoded_inputs in mix_data:
             encoded_inputs_e, encoded_inputs_s = encoded_inputs
             encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
             encoded_inputs_s = {k:torch.squeeze(v) for k, v in encoded_inputs_s.items()}
             #### ((h,t), t)
-            grad_universal(model_mlkg, False)
-            grad_triple_encoder(model_mlkg, True)
+            # grad_universal(model_mlkg, False)
+            # grad_triple_encoder(model_mlkg, True)
             optimizer.zero_grad()
             # positive set input
-            _, outputs = model_mlkg(**encoded_inputs_s)
+            outputs = model_mlkg(**encoded_inputs_s)
             # backpropogation: triple
             loss = loss_triple(args, outputs, lossfcn_triple, encoded_inputs_s["input_ids"])
             loss_list2.append(float(loss.data))
@@ -261,9 +262,9 @@ def train_sentence_all(args, model_mlkg):
             optimizer.step()
             scheduler.step()
             #### ((h,t), h')
-            grad_triple_encoder(model_mlkg, False)
-            grad_universal(model_mlkg, True)
-            outputs, _ = model_mlkg(**encoded_inputs_e)
+            # grad_universal(model_mlkg, True)
+            # grad_triple_encoder(model_mlkg, False)
+            outputs = model_mlkg(**encoded_inputs_e)
             # backpropogation: entity
             loss = loss_universal(args, outputs, lossfcn_universal, encoded_inputs_e["input_ids"])
             loss_list1.append(float(loss.data))

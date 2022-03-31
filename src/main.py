@@ -14,13 +14,13 @@ if __name__ == "__main__":
                         help="the input data directory.")
     parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased",
                         help="The stored model directory.")
-    parser.add_argument("--tmp_dir", type=str, default="./tmp/mbert_80",
+    parser.add_argument("--tmp_dir", type=str, default="./tmp/mbert_80_simple",
                         help="The stored model directory.")
 
     # model
     parser.add_argument("--device", type=int, default=-1,
                         help="which GPU to use. set -1 to use CPU.")
-    parser.add_argument("--lr", type=float, default=1e-5,
+    parser.add_argument("--lr", type=float, default=5e-5,
                         help="learning rate of GCS.")
     parser.add_argument("--adam_epsilon", type=float, default=1e-8,
                         help="Adam epsilon")

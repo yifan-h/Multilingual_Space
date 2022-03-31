@@ -3,8 +3,8 @@ import argparse
 from tasks import test_dbp5l, test_wk3l60
 
 def main_func(args):
-    # test_dbp5l(args)
-    test_wk3l60(args)
+    test_dbp5l(args)
+    # test_wk3l60(args)
 
 
 if __name__ == "__main__":

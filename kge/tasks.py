@@ -46,6 +46,7 @@ def test_dbp5l(args):
     aggregator_params = [i[1]for i in aggregator_params]
     base_params = [i[1]for i in base_params]
     optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=1e-6, weight_decay=args.weight_decay)
+    '''
     # dataset (id to text)
     train_list_text, val_list_text, test_list_text = [], [], []
     obj_list_train, obj_list_val = [], []
@@ -155,12 +156,11 @@ def test_dbp5l(args):
     print("The performance (hit@1, hit@10) of language [", k, "] is: ", max(results))
     # print("The performance (hit@1, hit@10) of language [", k, "] is: ", round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4))
     return
-
+    '''
     # training and testing KG for all languages
     for k, v in kgs.items():
         del model
         model = KGLM(args).to(args.device)
-        # grad_parameters(model, True)
         # set model and optimizer
         aggregator_params = list(filter(lambda kv: kv[0] in param_list, model.named_parameters()))
         base_params = list(filter(lambda kv: kv[0] not in param_list, model.named_parameters()))
@@ -175,7 +175,6 @@ def test_dbp5l(args):
         for t in train_list+test_list:
             obj_pool.add(entities[k][int(t.split("\t")[-1])])
         # training, validation, testing
-        grad_parameters(model, False)
         max_val_loss = [1e10 for i in range(args.patience)]
         results = []
         # prepare val and test data
