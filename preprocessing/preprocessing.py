@@ -11,6 +11,98 @@ import matplotlib.pyplot as plt
 import time
 from threading import Thread
 
+
+def extend_kgdataset(args):
+    entity_path = os.path.join(args.data_dir, "latest_all_clean.json")
+    data_path = args.kg_dir
+    # get all WK entity set
+    entity_set_wk = set()
+    with open(entity_path, "r") as f:
+        for line in tqdm(f):
+            tmp_data = json.loads(line)
+            if "en" in tmp_data["labels"]:
+                entity_set_wk.add(tmp_data["labels"]["en"]["value"].lower())
+    # get all kg entity
+    entity_set_kg_train, entity_set_train = set(), set()
+    with open(os.path.join(data_path, "en_de_60k_train25.csv"), "r") as f:
+        for line in f:
+            tmp_e = line[:-1].split("@@@")[0]
+            entity_set_train.add(tmp_e)
+            if tmp_e in entity_set_wk:
+                entity_set_kg_train.add(tmp_e)
+    with open(os.path.join(data_path, "en_fr_60k_train25.csv"), "r") as f:
+        for line in f:
+            tmp_e = line[:-1].split("@@@")[0]
+            entity_set_train.add(tmp_e)
+            if tmp_e in entity_set_wk:
+                entity_set_kg_train.add(tmp_e)
+    entity_set_kg_test, entity_set_test = set(), set()
+    with open(os.path.join(data_path, "en_de_60k_test75.csv"), "r") as f:
+        for line in f:
+            tmp_e = line[:-1].split("@@@")[0]
+            entity_set_test.add(tmp_e)
+            if tmp_e in entity_set_wk:
+                entity_set_kg_test.add(tmp_e)
+    with open(os.path.join(data_path, "en_fr_60k_test75.csv"), "r") as f:
+        for line in f:
+            tmp_e = line[:-1].split("@@@")[0]
+            entity_set_test.add(tmp_e)
+            if tmp_e in entity_set_wk:
+                entity_set_kg_test.add(tmp_e)
+    print("The aligned entity number for training and testing is: ", \
+                                len(entity_set_train), " ", len(entity_set_kg_train), " and ", 
+                                len(entity_set_test), " ", len(entity_set_kg_test))
+    # get language statistics
+    entity_count_train, entity_count_test = {}, {}
+    with open(entity_path, "r") as f:
+        for line in tqdm(f):
+            tmp_data = json.loads(line)
+            if "en" in tmp_data["labels"]:
+                tmp_label = tmp_data["labels"]["en"]["value"].lower()
+                if tmp_label in entity_set_train:
+                    for k, v in tmp_data["labels"].items():
+                        if k not in entity_count_train:
+                            entity_count_train[k] = 1
+                        else:
+                            entity_count_train[k] = entity_count_train[k]+1
+                if tmp_label in entity_set_test:
+                    for k, v in tmp_data["labels"].items():
+                        if k not in entity_count_test:
+                            entity_count_test[k] = 1
+                        else:
+                            entity_count_test[k] = entity_count_test[k]+1
+    print("The statistics of entity label (test) language is: ", entity_count_train, "\n", entity_count_test)
+    # start to get alignment data
+    lang_set = {'el': 11334, 'lt': 10744, 'sk': 11659, 'uk': 16295, 'es': 26697, 'ga': 12556, 'oc': 11648, \
+                'zh': 19979, 'nl': 27907, 'ast': 18061, 'sl': 15401, 'ms': 11434, 'ro': 14583, 'da': 19085, \
+                'ca': 22375, 'ar': 16733, 'pt': 22427, 'ru': 20926, 'hy': 10519, 'eo': 14016, 'et': 11556, \
+                'nn': 15796, 'gl': 12487, 'cy': 13311, 'fi': 19377, 'id': 14916, 'vi': 13141, 'nb': 20400, \
+                'sv': 22315, 'bg': 11029, 'eu': 16161, 'it': 25146, 'he': 14961, 'sh': 10143, 'hu': 19604, \
+                'tr': 15953, 'fa': 16898, 'pl': 21628, 'sq': 13511, 'arz': 11722, 'cs': 17457, 'hr': 11081, \
+                'ja': 19409, 'ko': 14009, 'sr': 11396}  # 45 languages
+    # construct dataset
+    for k, _ in lang_set.items():
+        data_path_train = os.path.join(data_path, "en_"+k+"_60k_train25.csv")
+        data_path_test = os.path.join(data_path, "en_"+k+"_60k_test75.csv")
+        with open(data_path_train, "w") as f_train:
+            with open(data_path_test, "w") as f_test:
+                with open(entity_path, "r") as f:
+                    for line in tqdm(f):
+                        tmp_data = json.loads(line)
+                        if "en" in tmp_data["labels"]:
+                            if k in tmp_data["labels"]:
+                                tmp_label = tmp_data["labels"]["en"]["value"].lower()
+                                if tmp_label in entity_set_train:
+                                    f_train.write(tmp_label+"@@@"+tmp_data["labels"][k]["value"])
+                                    f_train.write("\n")
+                                elif tmp_label in entity_set_test:
+                                    f_test.write(tmp_label+"@@@"+tmp_data["labels"][k]["value"])
+                                    f_test.write("\n")
+    return
+
+
+
+
 def preprocess_des(args):
     '''
     pretrain_langs = set(["af", "an", "ar", "ast", "az", "bar", "be", "bg", "bn", "br", "bs", "ca", "ceb",

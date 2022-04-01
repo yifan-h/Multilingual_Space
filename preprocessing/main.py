@@ -1,25 +1,28 @@
 import argparse
 
-from preprocessing import preprocess_clean, preprocess_pre, pre_cooccurrence, preprocess_rlabel, preprocess_des
+from preprocessing import preprocess_clean, preprocess_pre, pre_cooccurrence, preprocess_rlabel, preprocess_des, extend_kgdataset
 from preexp import pre_static_dist, pre_mapping_dist
 
 
 def main_func(args):
     # preprocess_rlabel(args)
-    preprocess_clean(args, "small")  # clean wikidata entities
+    # preprocess_clean(args, "small")  # clean wikidata entities
     # preprocess_des(args)  # get descriptions for entities
     # preprocess_pre(args)  # clean a subset of wikidata entities for pre-experiment
     # pre_static_dist(args)  # calculate entity label embedding (store in ./embed)
     # pre_mapping_dist(args)
     # pre_cooccurrence(args)
+    extend_kgdataset(args)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multilingual Space")
 
     # data
-    parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10",
+    parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/sub_clean",
                         help="the input data directory.")
+    parser.add_argument("--kg_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/downstream/wk3l60/alignment",
+                        help="the KG data directory.")
     parser.add_argument("--file_idx", type=str, default="000",
                         help="the idx of the entity file in parallel.")
     parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/",
