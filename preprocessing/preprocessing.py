@@ -14,7 +14,7 @@ from threading import Thread
 
 def extend_kgdataset(args):
     entity_path = os.path.join(args.data_dir, "latest_all_clean.json")
-    data_path = args.kg_dir
+    data_path = os.path.join(args.kg_dir, "alignment")
     # get all WK entity set
     entity_set_wk = set()
     with open(entity_path, "r") as f:
@@ -80,7 +80,7 @@ def extend_kgdataset(args):
                 'sv': 22315, 'bg': 11029, 'eu': 16161, 'it': 25146, 'he': 14961, 'sh': 10143, 'hu': 19604, \
                 'tr': 15953, 'fa': 16898, 'pl': 21628, 'sq': 13511, 'arz': 11722, 'cs': 17457, 'hr': 11081, \
                 'ja': 19409, 'ko': 14009, 'sr': 11396}  # 45 languages
-    # construct dataset
+    # construct alignment dataset
     for k, _ in lang_set.items():
         data_path_train = os.path.join(data_path, "en_"+k+"_60k_train25.csv")
         data_path_test = os.path.join(data_path, "en_"+k+"_60k_test75.csv")

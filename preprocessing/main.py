@@ -21,7 +21,7 @@ if __name__ == "__main__":
     # data
     parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/sub_clean",
                         help="the input data directory.")
-    parser.add_argument("--kg_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/downstream/wk3l60/alignment",
+    parser.add_argument("--kg_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/downstream/wk3l60",
                         help="the KG data directory.")
     parser.add_argument("--file_idx", type=str, default="000",
                         help="the idx of the entity file in parallel.")
