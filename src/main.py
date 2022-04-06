@@ -28,7 +28,7 @@ if __name__ == "__main__":
                         help="number of training epochs.")
     parser.add_argument("--entity_epoch", type=int, default=1,
                         help="number of training epochs.")
-    parser.add_argument("--triple_epoch", type=int, default=20,
+    parser.add_argument("--triple_epoch", type=int, default=10,
                         help="number of training epochs.")
     parser.add_argument("--patience", type=int, default=10,
                         help="used for early stop")
@@ -36,8 +36,8 @@ if __name__ == "__main__":
                         help="number of triple samples per 1 batch")
     parser.add_argument("--neg_num", type=int, default=8,
                         help="number of negative samples")
-    parser.add_argument("--lm_mask_token_id", type=int, default=250001,
-                        help="token id of masked token, 103 for mBERT, 250001 for XLM-R")
+    parser.add_argument("--lm_pad_token_id", type=int, default=0,
+                        help="token id of masked token, 0 for mBERT, 1 for XLM-R")
 
     args = parser.parse_args()
     print(args)

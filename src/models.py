@@ -6,6 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from transformers import AutoModel
 import transformers.adapters.composition as ac
+from info_nce import InfoNCE
 
 seed = 123
 random.seed(seed)
@@ -24,7 +25,7 @@ class MLKGLM(nn.Module):
                                                 output_hidden_states=True)
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
         self.training = True
-        self.lm_mask_token_id = args.lm_mask_token_id
+        self.lm_pad_token_id = args.lm_pad_token_id
         # set three extra modules
         self.knowledge_mapping = nn.Sequential(nn.Linear(hidden_num, int(hidden_num / 4)),
                                                 nn.ELU(),
@@ -64,7 +65,7 @@ class MLKGLM(nn.Module):
             outputs_MLLM = outputs_MLLM + 0.05*torch.randn_like(outputs_MLLM)
         outputs_both = self.knowledge_mapping(outputs_MLLM)
         if self.training:
-            return (outputs_both + outputs_MLLM) / 2
+            return (outputs_both + outputs_MLLM) / 2, outputs_MLLM.clone()
         else:
             outputs_both = self.all_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
             return outputs_both
@@ -75,7 +76,7 @@ def loss_universal(args, outputs, lossfcn, input_ids=None, el2=True):
     # outputs = torch.mean(outputs, dim=1)
     outputs_pos = outputs[:int(outputs.shape[0]/2)]
     if input_ids is not None:
-        outputs_pos = get_mask(outputs_pos, input_ids, args.lm_mask_token_id)
+        outputs_pos = get_mask(outputs_pos, input_ids, args.lm_pad_token_id)
     outputs_neg = outputs[int(outputs.shape[0]/2):]
     # average
     outputs_pos = torch.mean(outputs_pos, dim=1)
@@ -107,7 +108,7 @@ def loss_triple(args, outputs, lossfcn, input_ids=None, el2=True):
     # outputs = torch.mean(outputs, dim=1)
     outputs_query = outputs[:int(outputs.shape[0]/3)]
     if input_ids is not None:
-        outputs_query = get_mask(outputs_query, input_ids, args.lm_mask_token_id)
+        outputs_query = get_mask(outputs_query, input_ids, args.lm_pad_token_id)
     outputs_pos = outputs[int(outputs.shape[0]/3):int(outputs.shape[0]/3*2)]
     outputs_neg = outputs[int(outputs.shape[0]/3*2):]
     # average
@@ -122,16 +123,60 @@ def loss_triple(args, outputs, lossfcn, input_ids=None, el2=True):
     else:
         return loss_dp
 
-def get_mask(outputs, input_ids, lm_mask_token_id):
-    tmp_batch_num = input_ids.shape[0]
-    for i in range(int(tmp_batch_num)):
-        if lm_mask_token_id not in input_ids[i]: continue
-        mask_idx = ((input_ids[i] == lm_mask_token_id).nonzero(as_tuple=True)[0])
-        if len(mask_idx) == 1:
-            outputs[i,mask_idx[0]:,:] = 0
-        else: ## len(mask_idx) == 2
-            outputs[i,:mask_idx[0],:] = 0
-            outputs[i,mask_idx[1]:,:] = 0
+
+def loss_wocontext(args, outputs, input_ids=None, lm_emb=None, el2=True):
+    lossfcn = InfoNCE(negative_mode='unpaired')
+    lossfcn_el2 = nn.SmoothL1Loss()
+    lossfcn_re = nn.SmoothL1Loss()
+    outputs_query = outputs[:int(outputs.shape[0]/3)]
+    outputs_pos = outputs[int(outputs.shape[0]/3):int(outputs.shape[0]/3*2)]
+    outputs_neg = outputs[int(outputs.shape[0]/3*2):]
+    # remove pad token
+    if input_ids is not None:
+        outputs_query = get_mask(outputs_query, input_ids, args.lm_pad_token_id)
+        outputs_pos = get_mask(outputs_pos, input_ids, args.lm_pad_token_id)
+        outputs_neg = get_mask(outputs_neg, input_ids, args.lm_pad_token_id)
+    # remove entity token
+    if lm_emb is not None:
+        lm_emb = lm_emb[:int(lm_emb.shape[0]/3)]
+        context_query = outputs[:int(outputs.shape[0]/3)] - outputs_query
+        lm_emb = get_mask(lm_emb, input_ids, args.lm_pad_token_id, reverse=True)
+    # average
+    outputs_query = torch.mean(outputs_query, dim=1)
+    outputs_pos = torch.mean(outputs_pos, dim=1)
+    outputs_neg = torch.mean(outputs_neg, dim=1)
+    # cosine loss
+    loss_dp = lossfcn(outputs_query, outputs_pos, outputs_neg)
+    # l2-norm loss
+    loss_el2 = 0
+    if el2 == True:
+        loss_el2 = lossfcn_el2(outputs_query, outputs_pos) - lossfcn_el2(outputs_query, outputs_neg)
+    # reconstruction loss
+    loss_re = 0
+    if lm_emb is not None:
+        loss_re = lossfcn_re(context_query, lm_emb)
+    return loss_dp + loss_el2 + loss_re
+
+
+def get_mask(outputs, input_ids, lm_pad_token_id, reverse=False):
+    tmp_batch_num = outputs.shape[0]
+    if not reverse:  # keep entity
+        for i in range(int(tmp_batch_num)):
+            if lm_pad_token_id not in input_ids[i]: continue
+            mask_idx = ((input_ids[i] == lm_pad_token_id).nonzero(as_tuple=True)[0])
+            if len(mask_idx) == 1:
+                outputs[i,mask_idx[0]:,:] = 0
+            else: ## len(mask_idx) >= 2
+                outputs[i,:mask_idx[0],:] = 0
+                outputs[i,mask_idx[1]:,:] = 0
+    else:  # keep context
+        for i in range(int(tmp_batch_num)):
+            if lm_pad_token_id not in input_ids[i]: continue
+            mask_idx = ((input_ids[i] == lm_pad_token_id).nonzero(as_tuple=True)[0])
+            if len(mask_idx) == 1:
+                outputs[i,mask_idx[0]:,:] = 0
+            else: ## len(mask_idx) >= 2
+                outputs[i,mask_idx[0]:mask_idx[1],:] = 0
     return outputs
 
 '''

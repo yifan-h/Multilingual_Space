@@ -8,9 +8,9 @@ from accelerate import Accelerator
 from accelerate import DistributedDataParallelKwargs
 from info_nce import InfoNCE
 
-from utils import EntityLoader, TripleLoader, MixLoader, grad_parameters, grad_kgencoder,\
+from utils import EntityLoader, TripleLoader, MixLoader, WOCLoader, WCLoader, grad_parameters, grad_kgencoder,\
                      save_model, load_model
-from models import MLKGLM, loss_universal, loss_triple
+from models import MLKGLM, loss_universal, loss_triple, loss_wocontext
 
 seed = 123
 torch.manual_seed(seed)
@@ -18,14 +18,15 @@ torch.cuda.manual_seed(seed)
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
 
+'''
 def train_entity_universal(args, model_mlkg):
     #### (h, h')
     # load data
     entity_dataset = EntityLoader(args)
     entity_data = Data.DataLoader(dataset=entity_dataset, batch_size=1, num_workers=1)
     # set masking tokenizer
-    args.lm_mask_token_id = entity_dataset.lm_mask_token_id
-    model_mlkg.lm_mask_token_id = args.lm_mask_token_id
+    args.lm_pad_token_id = entity_dataset.lm_pad_token_id
+    model_mlkg.lm_pad_token_id = args.lm_pad_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_kgencoder(model_mlkg, True)
@@ -134,8 +135,8 @@ def train_triple_encoder(args, model_mlkg):
     mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=True)
     mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)
     # set masking tokenizer
-    args.lm_mask_token_id = mix_dataset.lm_mask_token_id
-    model_mlkg.lm_mask_token_id = args.lm_mask_token_id
+    args.lm_pad_token_id = mix_dataset.lm_pad_token_id
+    model_mlkg.lm_pad_token_id = args.lm_pad_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_kgencoder(model_mlkg, True)
@@ -156,6 +157,7 @@ def train_triple_encoder(args, model_mlkg):
     loss_list1, loss_list2 = [], []
     for e in range(args.triple_epoch):
         for encoded_inputs in mix_data:
+            a=time.time()
             encoded_inputs_e, encoded_inputs_t = encoded_inputs
             encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
             encoded_inputs_t = {k:torch.squeeze(v) for k, v in encoded_inputs_t.items()}
@@ -211,7 +213,7 @@ def train_sentence_all(args, model_mlkg):
     mix_dataset = MixLoader(args, entity_dataset.entity_dict, triple_context=False)
     mix_data = Data.DataLoader(dataset=mix_dataset, batch_size=1, num_workers=1)
     # set masking tokenizer
-    args.lm_mask_token_id = mix_dataset.lm_mask_token_id
+    args.lm_pad_token_id = mix_dataset.lm_pad_token_id
     # set parameters: autograd
     grad_parameters(model_mlkg, False)
     grad_kgencoder(model_mlkg, True)
@@ -277,12 +279,147 @@ def train_sentence_all(args, model_mlkg):
     save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "final_v3.pt"))
     del model_mlkg
     return
+'''
+
+
+def train_wocontext(args, model_mlkg):
+    # load data
+    wocontext_dataset = WOCLoader(args)
+    wocontext_data = Data.DataLoader(dataset=wocontext_dataset, batch_size=1, num_workers=1)
+    args.lm_pad_token_id = wocontext_dataset.lm_pad_token_id
+    # set parameters: autograd
+    grad_parameters(model_mlkg, False)
+    grad_kgencoder(model_mlkg, True)
+    # set model and optimizer
+    accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
+    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=1e-4)
+    scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=10,
+                                                num_warmup_steps=args.warmup_steps,
+                                                num_training_steps=args.triple_epoch*len(wocontext_data))
+    # model_mlkg = model_mlkg.to(args.device)
+    model_mlkg, optimizer, wocontext_data = accelerator.prepare(model_mlkg, optimizer, wocontext_data)
+    # training
+    count_save = 0
+    time_start = time.time()
+    loss_list1, loss_list2 = [], []
+    for e in range(args.triple_epoch):
+        for encoded_inputs in wocontext_data:
+            encoded_inputs_e, encoded_inputs_t = encoded_inputs
+            encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
+            encoded_inputs_t = {k:torch.squeeze(v) for k, v in encoded_inputs_t.items()}
+            #### triple
+            optimizer.zero_grad()
+            outputs, _ = model_mlkg(**encoded_inputs_t)
+            # backpropogation: triple
+            loss = loss_wocontext(args, outputs)
+            loss_list2.append(float(loss.data))
+            accelerator.backward(loss)
+            # zero grad
+            optimizer.step()
+            scheduler.step()
+            #### entity
+            outputs, _ = model_mlkg(**encoded_inputs_e)
+            # backpropogation: entity
+            loss = loss_wocontext(args, outputs)
+            loss_list1.append(float(loss.data))
+            accelerator.backward(loss)
+            # zero grad
+            optimizer.step()
+            scheduler.step()
+            # save model
+            count_save += 1
+            if count_save % 1e3 == 0:
+                # time
+                time_length = round(time.time() - time_start, 4)
+                time_start = time.time()
+                # loss
+                loss_avg1 = round(sum(loss_list1) / len(loss_list1), 4)
+                loss_avg2 = round(sum(loss_list2) / len(loss_list2), 4)
+                loss_list1, loss_list2 = [], []
+                print("progress (w/o context): ", count_save, "/", len(wocontext_data)*args.triple_epoch, " |time: ", time_length, "s |loss (u, t): ",loss_avg1, " ", loss_avg2)
+        # load data
+        wocontext_dataset = WOCLoader(args)
+        wocontext_data = Data.DataLoader(dataset=wocontext_dataset, batch_size=1, num_workers=1)
+        wocontext_data = accelerator.prepare(wocontext_data)
+    # save model
+    save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))
+    del model_mlkg
+    return
+
+
+def train_wcontext(args, model_mlkg):
+    args.lr = args.lr / 10
+    args.batch_num = int(args.batch_num / 2)
+    # load data
+    wcontext_dataset = WCLoader(args)
+    wcontext_data = Data.DataLoader(dataset=wcontext_dataset, batch_size=1, num_workers=1)
+    args.lm_pad_token_id = wcontext_dataset.lm_pad_token_id
+    # set parameters: autograd
+    grad_parameters(model_mlkg, False)
+    grad_kgencoder(model_mlkg, True)
+    # set model and optimizer
+    accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
+    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=1e-4)
+    scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=10,
+                                                num_warmup_steps=args.warmup_steps,
+                                                num_training_steps=args.triple_epoch*len(wcontext_data))
+    # model_mlkg = model_mlkg.to(args.device)
+    model_mlkg, optimizer, wcontext_data = accelerator.prepare(model_mlkg, optimizer, wcontext_data)
+    # training
+    count_save = 0
+    time_start = time.time()
+    loss_list1, loss_list2 = [], []
+    for e in range(1):
+        for encoded_inputs in wcontext_data:
+            encoded_inputs_e, encoded_inputs_s = encoded_inputs
+            encoded_inputs_e = {k:torch.squeeze(v) for k, v in encoded_inputs_e.items()}
+            encoded_inputs_s = {k:torch.squeeze(v) for k, v in encoded_inputs_s.items()}
+            #### triple
+            optimizer.zero_grad()
+            outputs, lm_emb = model_mlkg(**encoded_inputs_s)
+            # backpropogation: triple
+            loss = loss_wocontext(args, outputs, encoded_inputs_s["input_ids"], lm_emb)
+            loss_list2.append(float(loss.data))
+            accelerator.backward(loss)
+            # zero grad
+            optimizer.step()
+            scheduler.step()
+            #### entity
+            outputs, lm_emb = model_mlkg(**encoded_inputs_e)
+            # backpropogation: entity
+            loss = loss_wocontext(args, outputs, encoded_inputs_e["input_ids"], lm_emb)
+            loss_list1.append(float(loss.data))
+            accelerator.backward(loss)
+            # zero grad
+            optimizer.step()
+            scheduler.step()
+            # save model
+            count_save += 1
+            if count_save % 1e3 == 0:
+                # time
+                time_length = round(time.time() - time_start, 4)
+                time_start = time.time()
+                # loss
+                loss_avg1 = round(sum(loss_list1) / len(loss_list1), 4)
+                loss_avg2 = round(sum(loss_list2) / len(loss_list2), 4)
+                loss_list1, loss_list2 = [], []
+                print("progress (w context): ", count_save, "/", len(wcontext_data)*args.triple_epoch, " |time: ", time_length, "s |loss (u, t): ",loss_avg1, " ", loss_avg2)
+        # load data
+        wcontext_dataset = WOCLoader(args)
+        wcontext_data = Data.DataLoader(dataset=wcontext_dataset, batch_size=1, num_workers=1)
+        wcontext_data = accelerator.prepare(wcontext_data)
+    # save model
+    save_model(model_mlkg, accelerator, os.path.join(args.tmp_dir, "pytorch_model.bin"))
+    del model_mlkg
+    return
+
 
 
 
 def ki_mlkg(args):
     # define model
     model_mlkg = MLKGLM(args)
+    '''
     # train uncontextualized
     if not os.path.exists(os.path.join(args.tmp_dir, "final_v1.pt")):
         train_entity_universal(args, model_mlkg)
@@ -298,3 +435,14 @@ def ki_mlkg(args):
         train_sentence_all(args, model_mlkg)
     model_mlkg = MLKGLM(args)
     load_model(model_mlkg, os.path.join(args.tmp_dir, "final_v3.pt"))
+    '''
+    # train uncontextualized
+    if not os.path.exists(os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin")):
+        train_wocontext(args, model_mlkg)
+    model_mlkg = MLKGLM(args)
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))
+    # train sentence context
+    if not os.path.exists(os.path.join(args.tmp_dir, "pytorch_model.bin")):
+        train_wcontext(args, model_mlkg)
+    model_mlkg = MLKGLM(args)
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model.bin"))

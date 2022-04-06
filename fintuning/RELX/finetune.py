@@ -24,90 +24,59 @@ adapter model:...
 '''
 class MLKGLM(nn.Module):
     """docstring for ClassName"""
-    def __init__(self, path):
+    def __init__(self, args):
         super(MLKGLM, self).__init__()
         # load pretrained MLLM
-        self.MLLM = AutoModel.from_pretrained(path, 
-                                            return_dict=True,
-                                            output_hidden_states=True)
-        '''
-        # set and activate adapters
-        adapters = []
-        for i in range(args.adapter_num):
-            adapters.append("adapter"+str(i+1))
-            self.MLLM.add_adapter(adapters[i])
-        self.MLLM.add_adapter_fusion(adapters)
-        self.MLLM.active_adapters = ac.Fuse(*adapters)
-        '''
+        self.MLLM = AutoModel.from_pretrained(args.model_dir, 
+                                                return_dict=True,
+                                                output_hidden_states=True)
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
         self.training = False
+        self.lm_pad_token_id = args.lm_pad_token_id
         # set three extra modules
-        self.universal_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
-                                                    nn.ELU(),
-                                                    nn.LayerNorm(hidden_num, eps=1e-12),
-                                                    nn.Dropout(0.1),
-                                                    Conv1D(4*hidden_num, hidden_num),
-                                                    nn.ELU(),
-                                                    nn.LayerNorm(4*hidden_num, eps=1e-12),
-                                                    nn.Dropout(0.1),
-                                                    Conv1D(hidden_num, 4*hidden_num),
-                                                    nn.ELU(),
-                                                    nn.LayerNorm(hidden_num, eps=1e-12),
-                                                    nn.Dropout(0.1),
-                                                    Conv1D(hidden_num, hidden_num),
-                                                    nn.ELU(),
-                                                    nn.LayerNorm(hidden_num, eps=1e-12),
-                                                    nn.Dropout(0.1))
-        self.universal_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
-                                                    nn.LayerNorm(hidden_num, eps=1e-12),
-                                                    nn.Dropout(0.1))
-        self.triple_mapping = nn.Sequential(Conv1D(hidden_num, hidden_num),
+        self.knowledge_mapping = nn.Sequential(nn.Linear(hidden_num, int(hidden_num / 4)),
+                                                nn.ELU(),
+                                                nn.Dropout(0.1),  # project down
+                                                nn.Linear(int(hidden_num / 4), hidden_num),
                                                 nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Dropout(0.1),
-                                                Conv1D(4*hidden_num, hidden_num),
+                                                nn.Dropout(0.1),  # project up
+                                                nn.Linear(hidden_num, 4*hidden_num),
                                                 nn.ELU(),
-                                                nn.LayerNorm(4*hidden_num, eps=1e-12),
-                                                nn.Dropout(0.1),
-                                                Conv1D(hidden_num, 4*hidden_num),
-                                                nn.ELU(),
-                                                nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Dropout(0.1),
-                                                Conv1D(hidden_num, hidden_num),
+                                                nn.Dropout(0.1),  # project up
+                                                nn.Linear(4*hidden_num, hidden_num),
                                                 nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
+                                                nn.Dropout(0.1),  # project down
+                                                nn.Linear(hidden_num, hidden_num),
+                                                nn.Tanh(),
                                                 nn.Dropout(0.1))
-        self.triple_aggregator = nn.Sequential(Conv1D(hidden_num, 2*hidden_num),
-                                                nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Dropout(0.1))
-        # for testing
-        self.all_aggregator = nn.Linear(3*hidden_num, hidden_num, bias=False)
-        self.all_aggregator.weight.data = self.weight_init_sum(self.all_aggregator.weight.data)
+        if not self.training:
+            # for testing
+            self.all_aggregator = nn.Linear(2*hidden_num, hidden_num, bias=False)
+            self.all_aggregator.weight.data = self.weight_init_sum(self.all_aggregator.weight.data)
 
     def weight_init_sum(self, t):
-        hidden_num = int(t.shape[-1]/3)
-        return 0.0003 + torch.cat((0.333*torch.eye(hidden_num,hidden_num),
-                                    0.333*torch.eye(hidden_num,hidden_num),
-                                    0.333*torch.eye(hidden_num,hidden_num)),dim=1)
+        hidden_num = int(t.shape[-1]/2)
+        nn.init.xavier_normal_(t)
+        return t*0.05 + torch.cat((0.5*torch.eye(hidden_num,hidden_num),
+                                    0.5*torch.eye(hidden_num,hidden_num)),dim=1)
 
     def forward(self, **inputs):
         # get MLLM output
         outputs_MLLM = self.MLLM(**inputs).hidden_states
         # take last layer hidden state: (batch_size, sequence_length, hidden_size)
         outputs_MLLM = outputs_MLLM[-1]
-        # objective 1: universal space
-        outputs_universal = self.universal_mapping(outputs_MLLM)
-        outputs_universal = self.universal_aggregator(torch.cat((outputs_MLLM, outputs_universal), dim=-1))
-        # objective 2: transformer layers
-        outputs_MLKGLM = self.triple_mapping(outputs_universal)
-        outputs_MLKGLM = self.triple_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
-        return self.all_aggregator(torch.cat((outputs_MLLM, outputs_universal, outputs_MLKGLM), dim=-1))
+        # add adversarial noise
+        if self.training:
+            outputs_MLLM = outputs_MLLM + 0.05*torch.randn_like(outputs_MLLM)
+        outputs_both = self.knowledge_mapping(outputs_MLLM)
+        if self.training:
+            return (outputs_both + outputs_MLLM) / 2, outputs_MLLM.clone()
+        else:
+            outputs_both = self.all_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
+            return outputs_both
 
-    def weight_init_sum(self, t):
-        hidden_num = int(t.shape[-1]/3)
-        return 0.0003 + torch.cat((0.333*torch.eye(hidden_num,hidden_num),
-                                    0.333*torch.eye(hidden_num,hidden_num),
-                                    0.333*torch.eye(hidden_num,hidden_num)),dim=1)
 
 #pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
 #adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_80/final_v3.pt"
