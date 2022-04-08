@@ -183,7 +183,7 @@ def extend_kgdataset(args):
                                 lang_set[k] = 1
                             else:
                                 lang_set[k] += 1
-        # en: 25238, only keep when # num > 10000
+        # en: 25238, only keep when # num > 10000 (19 languages)
         entity_dict_wiki = {}
         with open(data_path, "r") as f:
             for line in tqdm(f):
