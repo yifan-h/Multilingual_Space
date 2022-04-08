@@ -76,7 +76,7 @@ def extend_kgdataset(args):
                     'nn': 15796, 'gl': 12487, 'cy': 13311, 'fi': 19377, 'id': 14916, 'vi': 13141, 'nb': 20400, \
                     'sv': 22315, 'bg': 11029, 'eu': 16161, 'it': 25146, 'he': 14961, 'sh': 10143, 'hu': 19604, \
                     'tr': 15953, 'fa': 16898, 'pl': 21628, 'sq': 13511, 'arz': 11722, 'cs': 17457, 'hr': 11081, \
-                    'ja': 19409, 'ko': 14009, 'sr': 11396}  # 45 languages
+                    'ja': 19409, 'ko': 14009, 'sr': 11396}  # 45 languages (>10000)
         # construct alignment dataset
         for k, _ in lang_set.items():
             data_path_train = os.path.join(data_path, "en_"+k+"_60k_train25.csv")
@@ -96,18 +96,20 @@ def extend_kgdataset(args):
                                         f_test.write(tmp_label+"@@@"+tmp_data["labels"][k]["value"])
                                         f_test.write("\n")
     else:
-        entity_path = os.path.join(args.data_dir, "latest_all_clean.json")
+        data_path = os.path.join(args.data_dir, "latest_all_clean.json")
         # get all WK entity set
         entity_set_wk = set()
-        with open(entity_path, "r") as f:
+        with open(data_path, "r") as f:
             for line in tqdm(f):
                 tmp_data = json.loads(line)
                 if "en" in tmp_data["labels"]:
                     entity_set_wk.add(tmp_data["labels"]["en"]["value"])
-        # get KG
-        data_path = os.path.join(args.kg_dir, "entity/en.tsv")
+        # get entity
+        entity_path = os.path.join(args.kg_dir, "entity/en.tsv")
         entity_set_en = set()
-        with open(data_path, "r") as f:
+        entity_dict_en = {}
+        count = 0
+        with open(entity_path, "r") as f:
             for line in f:
                 tmp_label = line[:-1].split("/")[-1].replace("_", " ")
                 if "," in tmp_label:
@@ -115,13 +117,90 @@ def extend_kgdataset(args):
                 if " (" in tmp_label:
                     tmp_label = tmp_label.split(" (")[0]
                 entity_set_en.add(tmp_label)
+                entity_dict_en[count] = tmp_label
+                count += 1
         entity_align_en = entity_set_en.intersection(entity_set_wk)
-
-        # get train and test
-        data_path = os.path.join(args.kg_dir, "kg")
-        with open(os.path.join(data_path, "en-train.tsv"), "r") as f:
+        print(len(entity_set_wk), len(entity_set_en), len(entity_align_en))
+        # get relation
+        relation_dict_en = {}
+        count = 0
+        relation_path = os.path.join(args.kg_dir, "relations.txt")
+        with open(relation_path, "r") as f:
             for line in f:
-                pass
+                tmp_label = line[:-1].split("/")[-1]
+                relation_dict_en[count] = tmp_label
+                count += 1
+        # process train
+        kg_path = os.path.join(args.kg_dir, "kg")
+        en_train_triple = []
+        with open(os.path.join(kg_path, "en-train.tsv"), "r") as f:
+            for line in f:
+                s, r, o = line[:-1].split("\t")
+                s, r, o = int(s), int(r), int(o)
+                if entity_dict_en[s] in entity_align_en and entity_dict_en[o] in entity_align_en:
+                    t = "\t".join([entity_dict_en[s], relation_dict_en[r], entity_dict_en[o]])
+                    en_train_triple.append(t)
+        with open(os.path.join(args.kg_dir, "extended/en-train.tsv"), "w") as f:
+            for t in en_train_triple:
+                f.write(t)
+                f.write("\n")
+        # process test
+        en_test_triple = []
+        entity_align_en_test = set()
+        with open(os.path.join(kg_path, "en-test.tsv"), "r") as f:
+            for line in f:
+                s, r, o = line[:-1].split("\t")
+                s, r, o = int(s), int(r), int(o)
+                if entity_dict_en[s] in entity_align_en and entity_dict_en[o] in entity_align_en:
+                    t = "\t".join([entity_dict_en[s], relation_dict_en[r], entity_dict_en[o]])
+                    en_test_triple.append(t)
+                    entity_align_en_test.add(entity_dict_en[s])
+                    entity_align_en_test.add(entity_dict_en[o])
+        print(len(entity_align_en_test))
+        with open(os.path.join(args.kg_dir, "extended/en-test.tsv"), "w") as f:
+            for t in en_test_triple:
+                f.write(t)
+                f.write("\n")
+        # other languages
+        '''
+        lang_set = {}
+        with open(data_path, "r") as f:
+            for line in tqdm(f):
+                tmp_data = json.loads(line)
+                if "en" in tmp_data["labels"]:
+                    if tmp_data["labels"]["en"]["value"] in entity_align_en_test:
+                        for k, v in tmp_data["labels"].items():
+                            if k not in lang_set:
+                                lang_set[k] = 1
+                            else:
+                                lang_set[k] += 1
+        print(lang_set)
+        '''
+        lang_set = {'pl': 12186, 'fr': 17161, 'ru': 11401, 'de': 15229, 'it': 14272, 'ja': 10936, \
+                    'es': 15449, 'ar': 10048, 'ast': 10154, 'ca': 11979, 'fa': 10396, 'hu': 10103, \
+                    'nl': 16133, 'pt': 12309, 'sv': 11642, 'zh': 11368}  # 17 languages (> 10000, 'en': 21426)
+        entity_dict_wiki = {}
+        with open(data_path, "r") as f:
+            for line in tqdm(f):
+                tmp_data = json.loads(line)
+                if "en" in tmp_data["labels"]:
+                    if tmp_data["labels"]["en"]["value"] in entity_align_en_test:
+                        tmp_labels = {}
+                        for k, _ in lang_set.items():
+                            if k in tmp_data["labels"]:
+                                tmp_labels[k] = tmp_data["labels"][k]["value"]
+                        entity_dict_wiki["en"] = tmp_labels
+        for k, _ in lang_set.items():
+            data_path_test = os.path.join(args.kg_dir, "extended", k+"-test.tsv")
+            with open(data_path_test, "w") as f_test:
+                for t_text in en_test_triple:
+                    s_text, r_text, o_text = t_text.split("\t")
+                    if s_text in entity_dict_wiki and o_text in entity_dict_wiki:
+                        if k in entity_dict_wiki[s_text] and k in entity_dict_wiki[o_text]:
+                            t = "\t".join([entity_dict_wiki[s_text][k], r_text, entity_dict_wiki[o_text][k]])
+                            f_test.write(t)
+                            f_test.write("\n")
+
     return
 
 

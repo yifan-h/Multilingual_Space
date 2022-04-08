@@ -27,10 +27,10 @@ class MLKGLM(nn.Module):
         self.training = True
         self.lm_pad_token_id = args.lm_pad_token_id
         # set three extra modules
-        self.knowledge_mapping = nn.Sequential(nn.Linear(hidden_num, int(hidden_num / 4)),
+        self.knowledge_mapping = nn.Sequential(nn.Linear(hidden_num, int(hidden_num / 2)),
                                                 nn.ELU(),
                                                 nn.Dropout(0.1),  # project down
-                                                nn.Linear(int(hidden_num / 4), hidden_num),
+                                                nn.Linear(int(hidden_num / 2), hidden_num),
                                                 nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1),  # project up
@@ -42,7 +42,8 @@ class MLKGLM(nn.Module):
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1),  # project down
                                                 nn.Linear(hidden_num, hidden_num),
-                                                nn.Tanh(),
+                                                nn.ELU(),
+                                                nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1))
         if not self.training:
             # for testing
@@ -62,7 +63,7 @@ class MLKGLM(nn.Module):
         outputs_MLLM = outputs_MLLM[-1]
         # add adversarial noise
         if self.training:
-            outputs_MLLM = outputs_MLLM + 0.05*torch.randn_like(outputs_MLLM)
+            outputs_MLLM = outputs_MLLM + 0.1*torch.abs(outputs_MLLM).mean()*torch.randn_like(outputs_MLLM)
         outputs_both = self.knowledge_mapping(outputs_MLLM)
         if self.training:
             return (outputs_both + outputs_MLLM) / 2, outputs_MLLM.clone()
@@ -126,8 +127,8 @@ def loss_triple(args, outputs, lossfcn, input_ids=None, el2=True):
 
 def loss_wocontext(args, outputs, input_ids=None, lm_emb=None, el2=True):
     lossfcn = InfoNCE(negative_mode='unpaired')
-    lossfcn_el2 = nn.SmoothL1Loss()
-    lossfcn_re = nn.SmoothL1Loss()
+    lossfcn_el2 = nn.MSELoss()
+    lossfcn_re = nn.MSELoss()
     outputs_query = outputs[:int(outputs.shape[0]/3)]
     outputs_pos = outputs[int(outputs.shape[0]/3):int(outputs.shape[0]/3*2)]
     outputs_neg = outputs[int(outputs.shape[0]/3*2):]

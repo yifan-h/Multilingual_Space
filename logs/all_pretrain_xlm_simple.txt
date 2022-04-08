@@ -1,0 +1,1279 @@
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (w/o context):  1000 / 91990  |time:  799.9477 s |loss (u, t):  4.8816   4.5492
+progress (w/o context):  1000 / 91990  |time:  800.0002 s |loss (u, t):  4.8793   4.5502
+progress (w/o context):  1000 / 91990  |time:  799.9998 s |loss (u, t):  4.8789   4.5518
+progress (w/o context):  1000 / 91990  |time:  800.0125 s |loss (u, t):  4.8807   4.5553
+progress (w/o context):  1000 / 91990  |time:  800.0176 s |loss (u, t):  4.8816   4.5528
+progress (w/o context):  1000 / 91990  |time:  800.0176 s |loss (u, t):  4.8813   4.5505
+progress (w/o context):  1000 / 91990  |time:  800.0541 s |loss (u, t):  4.8817   4.5523
+progress (w/o context):  1000 / 91990  |time:  800.075 s |loss (u, t):  4.881   4.5517
+progress (w/o context):  2000 / 91990  |time:  758.9458 s |loss (u, t):  3.9543   4.0678
+progress (w/o context):  2000 / 91990  |time:  758.9033 s |loss (u, t):  3.9565   4.0667
+progress (w/o context):  2000 / 91990  |time:  758.9463 s |loss (u, t):  3.9514   4.0673
+progress (w/o context):  2000 / 91990  |time:  758.9397 s |loss (u, t):  3.9552   4.0568
+progress (w/o context):  2000 / 91990  |time:  758.9613 s |loss (u, t):  3.9539   4.0735
+progress (w/o context):  2000 / 91990  |time:  759.0642 s |loss (u, t):  3.955   4.0731
+progress (w/o context):  2000 / 91990  |time:  759.0073 s |loss (u, t):  3.9529   4.073
+progress (w/o context):  2000 / 91990  |time:  758.9583 s |loss (u, t):  3.9529   4.0705
+progress (w/o context):  3000 / 91990  |time:  781.4762 s |loss (u, t):  3.5079   3.7674
+progress (w/o context):  3000 / 91990  |time:  781.5457 s |loss (u, t):  3.511   3.7683
+progress (w/o context):  3000 / 91990  |time:  781.5642 s |loss (u, t):  3.5126   3.7635
+progress (w/o context):  3000 / 91990  |time:  781.5843 s |loss (u, t):  3.5144   3.7711
+progress (w/o context):  3000 / 91990  |time:  781.5827 s |loss (u, t):  3.5091   3.7713
+progress (w/o context):  3000 / 91990  |time:  781.5246 s |loss (u, t):  3.509   3.7735
+progress (w/o context):  3000 / 91990  |time:  781.6435 s |loss (u, t):  3.5102   3.7639
+progress (w/o context):  3000 / 91990  |time:  781.5773 s |loss (u, t):  3.5079   3.7713
+progress (w/o context):  4000 / 91990  |time:  789.5647 s |loss (u, t):  3.223   3.4699
+progress (w/o context):  4000 / 91990  |time:  789.6695 s |loss (u, t):  3.2234   3.4676
+progress (w/o context):  4000 / 91990  |time:  789.7214 s |loss (u, t):  3.2233   3.4668
+progress (w/o context):  4000 / 91990  |time:  789.6756 s |loss (u, t):  3.2247   3.4741
+progress (w/o context):  4000 / 91990  |time:  789.735 s |loss (u, t):  3.2232   3.4686
+progress (w/o context):  4000 / 91990  |time:  789.6975 s |loss (u, t):  3.2226   3.4636
+progress (w/o context):  4000 / 91990  |time:  789.6652 s |loss (u, t):  3.2243   3.469
+progress (w/o context):  4000 / 91990  |time:  789.7471 s |loss (u, t):  3.2228   3.4596
+progress (w/o context):  5000 / 91990  |time:  808.5949 s |loss (u, t):  3.0413   3.2505
+progress (w/o context):  5000 / 91990  |time:  808.7346 s |loss (u, t):  3.038   3.2504
+progress (w/o context):  5000 / 91990  |time:  808.6984 s |loss (u, t):  3.0366   3.2659
+progress (w/o context):  5000 / 91990  |time:  808.7189 s |loss (u, t):  3.0436   3.2506
+progress (w/o context):  5000 / 91990  |time:  808.6795 s |loss (u, t):  3.0366   3.2504
+progress (w/o context):  5000 / 91990  |time:  808.6828 s |loss (u, t):  3.0358   3.2549
+progress (w/o context):  5000 / 91990  |time:  808.687 s |loss (u, t):  3.0393   3.2595
+progress (w/o context):  5000 / 91990  |time:  808.6928 s |loss (u, t):  3.0378   3.253
+progress (w/o context):  6000 / 91990  |time:  796.5885 s |loss (u, t):  2.8904   3.0719
+progress (w/o context):  6000 / 91990  |time:  796.5885 s |loss (u, t):  2.8884   3.079
+progress (w/o context):  6000 / 91990  |time:  796.615 s |loss (u, t):  2.8907   3.0741
+progress (w/o context):  6000 / 91990  |time:  796.5913 s |loss (u, t):  2.8928   3.0741
+progress (w/o context):  6000 / 91990  |time:  796.5798 s |loss (u, t):  2.8909   3.0735
+progress (w/o context):  6000 / 91990  |time:  796.5604 s |loss (u, t):  2.8878   3.0802
+progress (w/o context):  6000 / 91990  |time:  796.6504 s |loss (u, t):  2.887   3.0772
+progress (w/o context):  6000 / 91990  |time:  797.2561 s |loss (u, t):  2.8894   3.0766
+progress (w/o context):  7000 / 91990  |time:  798.2446 s |loss (u, t):  2.7737   2.9317
+progress (w/o context):  7000 / 91990  |time:  798.2637 s |loss (u, t):  2.7731   2.9338
+progress (w/o context):  7000 / 91990  |time:  797.5866 s |loss (u, t):  2.7737   2.9259
+progress (w/o context):  7000 / 91990  |time:  798.2114 s |loss (u, t):  2.7751   2.9265
+progress (w/o context):  7000 / 91990  |time:  798.2873 s |loss (u, t):  2.7699   2.9251
+progress (w/o context):  7000 / 91990  |time:  798.2986 s |loss (u, t):  2.7736   2.9178
+progress (w/o context):  7000 / 91990  |time:  798.2868 s |loss (u, t):  2.7751   2.9304
+progress (w/o context):  7000 / 91990  |time:  798.3243 s |loss (u, t):  2.7723   2.9291
+progress (w/o context):  8000 / 91990  |time:  825.8324 s |loss (u, t):  2.687   2.8135
+progress (w/o context):  8000 / 91990  |time:  825.7818 s |loss (u, t):  2.6869   2.8105
+progress (w/o context):  8000 / 91990  |time:  825.8333 s |loss (u, t):  2.6863   2.8136
+progress (w/o context):  8000 / 91990  |time:  825.8173 s |loss (u, t):  2.6862   2.822
+progress (w/o context):  8000 / 91990  |time:  825.8498 s |loss (u, t):  2.6854   2.809
+progress (w/o context):  8000 / 91990  |time:  825.8915 s |loss (u, t):  2.6899   2.8184
+progress (w/o context):  8000 / 91990  |time:  825.896 s |loss (u, t):  2.6889   2.8174
+progress (w/o context):  8000 / 91990  |time:  825.9195 s |loss (u, t):  2.6853   2.8207
+progress (w/o context):  9000 / 91990  |time:  790.7905 s |loss (u, t):  2.6186   2.7202
+progress (w/o context):  9000 / 91990  |time:  790.7503 s |loss (u, t):  2.62   2.7195
+progress (w/o context):  9000 / 91990  |time:  790.791 s |loss (u, t):  2.619   2.7297
+progress (w/o context):  9000 / 91990  |time:  790.7088 s |loss (u, t):  2.6271   2.7307
+progress (w/o context):  9000 / 91990  |time:  790.7256 s |loss (u, t):  2.6199   2.7194
+progress (w/o context):  9000 / 91990  |time:  790.7982 s |loss (u, t):  2.6244   2.7297
+progress (w/o context):  9000 / 91990  |time:  790.8009 s |loss (u, t):  2.6185   2.7327
+progress (w/o context):  9000 / 91990  |time:  790.7772 s |loss (u, t):  2.6215   2.723
+progress (w/o context):  10000 / 91990  |time:  954.1636 s |loss (u, t):  2.5696   2.6668
+progress (w/o context):  10000 / 91990  |time:  954.1531 s |loss (u, t):  2.5743   2.6651
+progress (w/o context):  10000 / 91990  |time:  954.1788 s |loss (u, t):  2.567   2.6646
+progress (w/o context):  10000 / 91990  |time:  954.2008 s |loss (u, t):  2.5717   2.6688
+progress (w/o context):  10000 / 91990  |time:  954.2023 s |loss (u, t):  2.5701   2.6755
+progress (w/o context):  10000 / 91990  |time:  954.1934 s |loss (u, t):  2.567   2.6684
+progress (w/o context):  10000 / 91990  |time:  954.2026 s |loss (u, t):  2.5682   2.672
+progress (w/o context):  10000 / 91990  |time:  954.2011 s |loss (u, t):  2.5708   2.664
+progress (w/o context):  11000 / 91990  |time:  789.3085 s |loss (u, t):  2.5304   2.5979
+progress (w/o context):  11000 / 91990  |time:  789.3348 s |loss (u, t):  2.5302   2.6006
+progress (w/o context):  11000 / 91990  |time:  789.3134 s |loss (u, t):  2.5252   2.6028
+progress (w/o context):  11000 / 91990  |time:  789.3642 s |loss (u, t):  2.5279   2.6148
+progress (w/o context):  11000 / 91990  |time:  789.3272 s |loss (u, t):  2.5265   2.6055
+progress (w/o context):  11000 / 91990  |time:  789.3705 s |loss (u, t):  2.5295   2.6089
+progress (w/o context):  11000 / 91990  |time:  789.3611 s |loss (u, t):  2.5332   2.6099
+progress (w/o context):  11000 / 91990  |time:  789.396 s |loss (u, t):  2.5313   2.6001
+progress (w/o context):  12000 / 91990  |time:  850.8588 s |loss (u, t):  2.4909   2.5612
+progress (w/o context):  12000 / 91990  |time:  850.9309 s |loss (u, t):  2.4859   2.5608
+progress (w/o context):  12000 / 91990  |time:  850.9182 s |loss (u, t):  2.4875   2.5567
+progress (w/o context):  12000 / 91990  |time:  850.9357 s |loss (u, t):  2.4895   2.5623
+progress (w/o context):  12000 / 91990  |time:  850.9349 s |loss (u, t):  2.493   2.5646
+progress (w/o context):  12000 / 91990  |time:  850.917 s |loss (u, t):  2.4866   2.5567
+progress (w/o context):  12000 / 91990  |time:  850.9663 s |loss (u, t):  2.491   2.5597
+progress (w/o context):  12000 / 91990  |time:  850.9557 s |loss (u, t):  2.4926   2.564
+progress (w/o context):  13000 / 91990  |time:  820.3305 s |loss (u, t):  2.4633   2.5155
+progress (w/o context):  13000 / 91990  |time:  820.2684 s |loss (u, t):  2.4635   2.511
+progress (w/o context):  13000 / 91990  |time:  820.3038 s |loss (u, t):  2.4576   2.5132
+progress (w/o context):  13000 / 91990  |time:  820.3335 s |loss (u, t):  2.4619   2.5087
+progress (w/o context):  13000 / 91990  |time:  820.3057 s |loss (u, t):  2.4615   2.5221
+progress (w/o context):  13000 / 91990  |time:  820.3632 s |loss (u, t):  2.4612   2.5015
+progress (w/o context):  13000 / 91990  |time:  820.3423 s |loss (u, t):  2.4635   2.5163
+progress (w/o context):  13000 / 91990  |time:  820.3848 s |loss (u, t):  2.4595   2.5084
+progress (w/o context):  14000 / 91990  |time:  815.2715 s |loss (u, t):  2.4357   2.4801
+progress (w/o context):  14000 / 91990  |time:  815.2984 s |loss (u, t):  2.4371   2.4727
+progress (w/o context):  14000 / 91990  |time:  815.2965 s |loss (u, t):  2.4361   2.4786
+progress (w/o context):  14000 / 91990  |time:  815.3352 s |loss (u, t):  2.4345   2.4848
+progress (w/o context):  14000 / 91990  |time:  815.314 s |loss (u, t):  2.4316   2.4789
+progress (w/o context):  14000 / 91990  |time:  815.3317 s |loss (u, t):  2.4361   2.4779
+progress (w/o context):  14000 / 91990  |time:  815.3325 s |loss (u, t):  2.44   2.4734
+progress (w/o context):  14000 / 91990  |time:  815.3619 s |loss (u, t):  2.4383   2.4727
+progress (w/o context):  15000 / 91990  |time:  848.0285 s |loss (u, t):  2.4194   2.4511
+progress (w/o context):  15000 / 91990  |time:  848.1122 s |loss (u, t):  2.4237   2.4502
+progress (w/o context):  15000 / 91990  |time:  848.1324 s |loss (u, t):  2.4216   2.4535
+progress (w/o context):  15000 / 91990  |time:  848.0993 s |loss (u, t):  2.4162   2.4539
+progress (w/o context):  15000 / 91990  |time:  848.0699 s |loss (u, t):  2.4218   2.4561
+progress (w/o context):  15000 / 91990  |time:  848.1141 s |loss (u, t):  2.4161   2.4504
+progress (w/o context):  15000 / 91990  |time:  848.1368 s |loss (u, t):  2.4215   2.4577
+progress (w/o context):  15000 / 91990  |time:  848.1327 s |loss (u, t):  2.4156   2.4563
+progress (w/o context):  16000 / 91990  |time:  849.9334 s |loss (u, t):  2.3868   2.411
+progress (w/o context):  16000 / 91990  |time:  849.9905 s |loss (u, t):  2.3962   2.4102
+progress (w/o context):  16000 / 91990  |time:  850.0134 s |loss (u, t):  2.389   2.4165
+progress (w/o context):  16000 / 91990  |time:  850.0245 s |loss (u, t):  2.3876   2.4243
+progress (w/o context):  16000 / 91990  |time:  850.057 s |loss (u, t):  2.3888   2.411
+progress (w/o context):  16000 / 91990  |time:  850.0311 s |loss (u, t):  2.3901   2.4227
+progress (w/o context):  16000 / 91990  |time:  850.0253 s |loss (u, t):  2.3861   2.4178
+progress (w/o context):  16000 / 91990  |time:  850.0397 s |loss (u, t):  2.388   2.4115
+progress (w/o context):  17000 / 91990  |time:  806.5936 s |loss (u, t):  2.3794   2.3867
+progress (w/o context):  17000 / 91990  |time:  806.6505 s |loss (u, t):  2.377   2.3752
+progress (w/o context):  17000 / 91990  |time:  806.6303 s |loss (u, t):  2.3756   2.3926
+progress (w/o context):  17000 / 91990  |time:  806.6262 s |loss (u, t):  2.3791   2.3851
+progress (w/o context):  17000 / 91990  |time:  806.6723 s |loss (u, t):  2.3769   2.3839
+progress (w/o context):  17000 / 91990  |time:  806.6622 s |loss (u, t):  2.3768   2.3846
+progress (w/o context):  17000 / 91990  |time:  806.6691 s |loss (u, t):  2.3775   2.3833
+progress (w/o context):  17000 / 91990  |time:  806.6919 s |loss (u, t):  2.3749   2.3877
+progress (w/o context):  18000 / 91990  |time:  831.8983 s |loss (u, t):  2.3612   2.3633
+progress (w/o context):  18000 / 91990  |time:  831.9269 s |loss (u, t):  2.3592   2.371
+progress (w/o context):  18000 / 91990  |time:  831.9484 s |loss (u, t):  2.3677   2.3592
+progress (w/o context):  18000 / 91990  |time:  831.9316 s |loss (u, t):  2.3604   2.3664
+progress (w/o context):  18000 / 91990  |time:  831.9722 s |loss (u, t):  2.3617   2.3621
+progress (w/o context):  18000 / 91990  |time:  831.9442 s |loss (u, t):  2.3639   2.3728
+progress (w/o context):  18000 / 91990  |time:  832.0073 s |loss (u, t):  2.3564   2.3726
+progress (w/o context):  18000 / 91990  |time:  832.0653 s |loss (u, t):  2.3626   2.3637
+progress (w/o context):  19000 / 91990  |time:  995.963 s |loss (u, t):  2.3447   2.3526
+progress (w/o context):  19000 / 91990  |time:  996.0011 s |loss (u, t):  2.3467   2.3484
+progress (w/o context):  19000 / 91990  |time:  996.0236 s |loss (u, t):  2.3464   2.3405
+progress (w/o context):  19000 / 91990  |time:  996.0337 s |loss (u, t):  2.3455   2.3486
+progress (w/o context):  19000 / 91990  |time:  996.076 s |loss (u, t):  2.3454   2.3529
+progress (w/o context):  19000 / 91990  |time:  996.034 s |loss (u, t):  2.3416   2.3499
+progress (w/o context):  19000 / 91990  |time:  996.0702 s |loss (u, t):  2.3437   2.3482
+progress (w/o context):  19000 / 91990  |time:  996.0153 s |loss (u, t):  2.3509   2.3518
+progress (w/o context):  20000 / 91990  |time:  798.4324 s |loss (u, t):  2.3301   2.3325
+progress (w/o context):  20000 / 91990  |time:  798.4907 s |loss (u, t):  2.3283   2.3187
+progress (w/o context):  20000 / 91990  |time:  798.4272 s |loss (u, t):  2.3287   2.3179
+progress (w/o context):  20000 / 91990  |time:  798.4774 s |loss (u, t):  2.33   2.316
+progress (w/o context):  20000 / 91990  |time:  798.5099 s |loss (u, t):  2.3281   2.3083
+progress (w/o context):  20000 / 91990  |time:  798.5346 s |loss (u, t):  2.3298   2.3266
+progress (w/o context):  20000 / 91990  |time:  798.5288 s |loss (u, t):  2.3297   2.3166
+progress (w/o context):  20000 / 91990  |time:  798.4995 s |loss (u, t):  2.3289   2.323
+progress (w/o context):  21000 / progress (w/o context): 91990  |time:   21000 759.6493 /s |loss (u, t):   919902.3146   |time:    2.3181759.6469
+ s |loss (u, t):  2.3175   2.3241
+progress (w/o context):  21000 / 91990  |time:  759.6454 s |loss (u, t):  2.3225   2.3053
+progress (w/o context):  21000 / 91990  |time:  759.6812 s |loss (u, t):  2.3169   2.319
+progress (w/o context):  21000 / 91990  |time:  759.6756 s |loss (u, t):  2.3176   2.3151
+progress (w/o context):  21000 / 91990  |time:  759.6962 s |loss (u, t):  2.319   2.3138
+progress (w/o context):  21000 / 91990  |time:  759.6961 s |loss (u, t):  2.3217   2.3178
+progress (w/o context):  21000 / 91990  |time:  759.7124 s |loss (u, t):  2.3187   2.3096
+progress (w/o context):  22000 / 91990  |time:  778.0285 s |loss (u, t):  2.3086   2.2949
+progress (w/o context):  22000 / 91990  |time:  777.9738 s |loss (u, t):  2.3057   2.294
+progress (w/o context):  22000 / 91990  |time:  777.973 s |loss (u, t):  2.3059   2.2909
+progress (w/o context):  22000 / 91990  |time:  777.9956 s |loss (u, t):  2.3108   2.2902
+progress (w/o context):  22000 / 91990  |time:  777.9746 s |loss (u, t):  2.3105   2.2915
+progress (w/o context):  22000 / 91990  |time:  778.0464 s |loss (u, t):  2.3079   2.292
+progress (w/o context):  22000 / 91990  |time:  778.0894 s |loss (u, t):  2.3056   2.2942
+progress (w/o context):  22000 / 91990  |time:  778.0456 s |loss (u, t):  2.3043   2.2894
+progress (w/o context):  23000 / 91990  |time:  767.3067 s |loss (u, t):  2.2992   2.2846
+progress (w/o context):  23000 / 91990  |time:  767.3844 s |loss (u, t):  2.2999   2.2787
+progress (w/o context):  23000 / 91990  |time:  767.4053 s |loss (u, t):  2.2966   2.2851
+progress (w/o context):  23000 / 91990  |time:  767.4169 s |loss (u, t):  2.2969   2.2768
+progress (w/o context):  23000 / 91990  |time:  767.4173 s |loss (u, t):  2.2976   2.2698
+progress (w/o context):  23000 / 91990  |time:  767.405 s |loss (u, t):  2.2975   2.2737
+progress (w/o context):  23000 / 91990  |time:  767.3648 s |loss (u, t):  2.2967   2.2786
+progress (w/o context):  23000 / 91990  |time:  767.4335 s |loss (u, t):  2.2934   2.2732
+progress (w/o context):  24000 /progress (w/o context):  91990   |time: 24000  786.4492/  s |loss (u, t): 91990  2.2976 |time:     2.2737786.4412 s |loss (u, t): 
+ 2.2985   2.2701
+progress (w/o context):  24000 / 91990  |time:  786.5228 s |loss (u, t):  2.2951   2.2691
+progress (w/o context):  24000 / 91990  |time:  786.4734 s |loss (u, t):  2.2922   2.2666
+progress (w/o context):  24000 / 91990  |time:  786.4745 s |loss (u, t):  2.293   2.2682
+progress (w/o context):  24000 / 91990  |time:  786.4713 s |loss (u, t):  2.2929   2.2534
+progress (w/o context):  24000 / 91990  |time:  786.5413 s |loss (u, t):  2.2983   2.2651
+progress (w/o context):  24000 / 91990  |time:  786.7481 s |loss (u, t):  2.2928   2.2571
+progress (w/o context):  25000 / 91990  |time:  797.7948 s |loss (u, t):  2.2766   2.2501
+progress (w/o context):  25000 / 91990  |time:  798.0618 s |loss (u, t):  2.2775   2.2514
+progress (w/o context):  25000 / 91990  |time:  797.9934 s |loss (u, t):  2.2766   2.2492
+progress (w/o context):  25000 / 91990  |time:  798.1043 s |loss (u, t):  2.2801   2.2505
+progress (w/o context):  25000 / 91990  |time:  798.0863 s |loss (u, t):  2.2812   2.2489
+progress (w/o context):  25000 / 91990  |time:  798.1477 s |loss (u, t):  2.2815   2.2451
+progress (w/o context):  25000 / 91990  |time:  798.1058 s |loss (u, t):  2.2802   2.2544
+progress (w/o context):  25000 / 91990  |time:  798.1317 s |loss (u, t):  2.2802   2.2565
+progress (w/o context):  progress (w/o context): 26000  / 2600091990   |time:  / 824.913891990  s |loss (u, t):  |time:   2.2763 824.9821   s |loss (u, t): 2.2386 2.2722
+   2.2294
+progress (w/o context):  26000 / 91990  |time:  824.9872 s |loss (u, t):  2.2752   2.2333
+progress (w/o context):  26000 / 91990  |time:  825.0217 s |loss (u, t):  2.2735   2.24
+progress (w/o context):  26000 / 91990  |time:  824.9744 s |loss (u, t):  2.2744   2.2367
+progress (w/o context):  26000 / 91990  |time:  825.0772 s |loss (u, t):  2.2714   2.24
+progress (w/o context):  26000 / 91990  |time:  825.0455 s |loss (u, t):  2.2699   2.2343
+progress (w/o context):  26000 / 91990  |time:  824.9797 s |loss (u, t):  2.2677   2.233
+progress (w/o context):  27000 progress (w/o context): / 91990 progress (w/o context):  |time:   27000 769.9654  /s |loss (u, t):  27000 91990 2.2672   |time:   /  769.90492.227591990  s |loss (u, t):  |time: 
+  2.2641 769.9019   s |loss (u, t): 2.2229 2.2605
+   2.2147
+progress (w/o context):  27000 / 91990  |time:  769.9891 s |loss (u, t):  2.268   2.226
+progress (w/o context):  27000 / 91990  |time:  769.9259 s |loss (u, t):  2.265   2.2185
+progress (w/o context):  27000 / 91990  |time:  769.9871 s |loss (u, t):  2.2656   2.2204
+progress (w/o context):  27000 / 91990  |time:  769.9596 s |loss (u, t):  2.2719   2.2269
+progress (w/o context):  27000 / 91990  |time:  769.9576 s |loss (u, t):  2.2674   2.2233
+progress (w/o context):  28000 progress (w/o context): / 91990   |time:  28000943.3004 s |loss (u, t):   2.2641   progress (w/o context): 2.2226/  91990 
+28000 |time:   progress (w/o context): 943.3088/   s |loss (u, t): 9199028000   2.2639 |time:     /943.27752.2228  91990s |loss (u, t): 
+   |time: 2.2646   943.2719  2.2212s |loss (u, t):  2.2654 
+  2.228
+progress (w/o context):  28000 / 91990  |time:  943.368 s |loss (u, t):  2.2641   2.2277
+progress (w/o context):  28000 / 91990  |time:  943.3764 s |loss (u, t):  2.2672   2.229
+progress (w/o context):  28000 / 91990  |time:  943.387 s |loss (u, t):  2.2627   2.2268
+progress (w/o context):  28000 / 91990  |time:  943.3937 s |loss (u, t):  2.2653   2.2273
+progress (w/o context):  29000 /progress (w/o context):  91990  |time:  782.4402  progress (w/o context): s |loss (u, t): 29000   2.249   2.208629000
+/ 91990 /  91990 |time:   |time:  782.334  s |loss (u, t):  2.2538   2.2067782.3947
+ progress (w/o context): s |loss (u, t):   2.254229000    /2.2107 91990
+  |time:  782.4383 s |loss (u, t):  2.2577   2.2144
+progress (w/o context):  29000 / 91990  |time:  782.4225 s |loss (u, t):  2.2566   2.2148
+progress (w/o context):  29000 / 91990  |time:  782.4632 s |loss (u, t):  2.249   2.2137
+progress (w/o context):  29000 / 91990  |time:  782.414 s |loss (u, t):  2.2485   2.204
+progress (w/o context):  29000 / 91990  |time:  782.4858 s |loss (u, t):  2.2487   2.2091
+progress (w/o context):  30000 progress (w/o context): / 91990  |time:   30000 811.9075 /s |loss (u, t):   91990progress (w/o context):  2.244 |time:      811.90672.2001 30000s |loss (u, t):  
+ 2.2384 progress (w/o context): /    2.195130000 / 9199091990 
+  |time:  |time:   811.9137811.8898  s |loss (u, t): s |loss (u, t):   2.24522.2464      2.20022.1951
+
+progress (w/o context):  30000 / 91990  |time:  811.9558 s |loss (u, t):  2.2398   2.1963
+progress (w/o context):  30000 / 91990  |time:  811.9534 s |loss (u, t):  2.2465   2.205
+progress (w/o context):  30000 / 91990  |time:  811.9647 s |loss (u, t):  2.2429   2.1937
+progress (w/o context):  30000 / 91990  |time:  811.9901 s |loss (u, t):  2.2447   2.1891
+progress (w/o context):  31000 / 91990  |time:  775.5054 s |loss (u, t):  2.2353   2.1895
+progress (w/o context):  31000 / 91990  |time:  775.5106 s |loss (u, t):  2.2358   2.1923
+progress (w/o context):  31000 / 91990  |time:  775.5381 s |loss (u, t):  2.2381   2.1971
+progress (w/o context):  31000 / 91990  |time:  775.515 s |loss (u, t):  2.2362   2.1867
+progress (w/o context):  31000 / 91990  |time:  775.5457 s |loss (u, t):  2.2351   2.1836
+progress (w/o context):  31000 / 91990  |time:  775.5136 s |loss (u, t):  2.2369   2.1874
+progress (w/o context):  31000 / 91990  |time:  775.506 s |loss (u, t):  2.2379   2.1914
+progress (w/o context):  31000 / 91990  |time:  775.5958 s |loss (u, t):  2.2414   2.1883
+progress (w/o context):  32000 / 91990  |time:  797.9169 s |loss (u, t):  2.2349   2.1736
+progress (w/o context):  32000 / 91990  |time:  798.0188 s |loss (u, t):  2.2322   2.1724
+progress (w/o context):  32000 / 91990  |time:  798.0259 s |loss (u, t):  2.2319   2.1839
+progress (w/o context):  32000 / 91990  |time:  798.0672 s |loss (u, t):  2.2359   2.1784
+progress (w/o context):  32000 / 91990  |time:  798.0247 s |loss (u, t):  2.2367   2.1808
+progress (w/o context):  32000 / 91990  |time:  798.0674 s |loss (u, t):  2.2363   2.1689
+progress (w/o context):  32000 / 91990  |time:  798.1354 s |loss (u, t):  2.2329   2.1858
+progress (w/o context):  32000 / 91990  |time:  798.2028 s |loss (u, t):  2.2357   2.1836
+progress (w/o context):  33000 / 91990progress (w/o context):   |time:   783.711833000  s |loss (u, t):  progress (w/o context): 2.2332/    9199033000   2.1745 |time:  /
+ 783.674591990  s |loss (u, t):  |time:   783.7041 2.2285s |loss (u, t):    2.2308  2.1729  
+2.1698
+progress (w/o context):  33000 / 91990  |time:  783.5948 s |loss (u, t):  2.2322   2.1762
+progress (w/o context):  33000 / 91990  |time:  783.8288 s |loss (u, t):  2.2327   2.1725
+progress (w/o context):  33000 / 91990  |time:  783.8358 s |loss (u, t):  2.2321   2.1655
+progress (w/o context):  33000 / 91990  |time:  783.7272 s |loss (u, t):  2.2287   2.177
+progress (w/o context):  33000 / 91990  |time:  783.881 s |loss (u, t):  2.2346   2.1738
+progress (w/o context):  34000 / 91990progress (w/o context):   |time:   34000800.2745  s |loss (u, t):  /2.2205   2.1574 
+91990  |time: progress (w/o context):  800.382 s |loss (u, t):  2.2199    340002.1606 progress (w/o context): 
+/  9199034000   |time:  / 800.394691990  |time:  800.2744  s |loss (u, t): s |loss (u, t):  2.2185 2.2247    2.1603 progress (w/o context): 
+ 2.1633 34000
+ progress (w/o context): / 91990   |time:  34000 800.2719 progress (w/o context): s |loss (u, t): /   2.22559199034000     |time:   /2.1596 800.364791990 
+ s |loss (u, t):  |time:   2.2251800.2674   s |loss (u, t):   2.16842.2218  
+ 2.1596
+progress (w/o context):  34000 / 91990  |time:  800.3951 s |loss (u, t):  2.2269   2.1652
+progress (w/o context):  35000 progress (w/o context): / 91990   |time:  35000 768.8303 s |loss (u, t): /  2.219291990    |time:   2.1578
+768.8415 s |loss (u, t):  2.2275   2.1667
+progress (w/o context):  35000 / 91990  |time:  768.859 s |loss (u, t):  2.2236   2.1648
+progress (w/o context):  35000 / 91990  |time:  768.852 s |loss (u, t):  2.2214   2.158
+progress (w/o context):  35000 / 91990  |time:  768.8664 s |loss (u, t):  2.2219   2.1671
+progress (w/o context):  35000 / 91990  |time:  768.8683 s |loss (u, t):  2.2229   2.1637
+progress (w/o context):  35000 / 91990  |time:  768.8686 s |loss (u, t):  2.2216   2.162
+progress (w/o context):  35000 / 91990  |time:  768.9122 s |loss (u, t):  2.2188   2.1508
+progress (w/o context):  36000 progress (w/o context): / 91990  |time:  progress (w/o context):  767.192 36000s |loss (u, t):   2.2235   / 36000 2.1622 91990
+ progress (w/o context):  |time: /  767.267891990   s |loss (u, t): 36000 |time:   2.2179  /   2.153691990  |time: 
+ 767.2506767.2337  s |loss (u, t):  s |loss (u, t): 2.2201    2.15422.2274  
+ progress (w/o context): 2.1536
+ 36000 /progress (w/o context):  91990  |time:  767.2472 s |loss (u, t):   36000 / 2.218891990  |time:     767.267 s |loss (u, t):  2.15812.2233progress (w/o context):  
+   360002.1513 
+/ 91990  |time:  767.2434 s |loss (u, t):  2.2219   2.1468
+progress (w/o context):  36000 / 91990  |time:  767.2747 s |loss (u, t):  2.2203   2.1514
+progress (w/o context):  37000 /progress (w/o context):  91990  37000 |time:   989.8061/  s |loss (u, t): 91990  2.2214 |time:     989.82212.156 s |loss (u, t):  
+2.2233   2.1576
+progress (w/o context):  37000 / 91990  |time:  989.8287 s |loss (u, t):  2.2201   2.1582
+progress (w/o context):  37000 / 91990  |time:  989.8376 s |loss (u, t):  2.2164   2.1639
+progress (w/o context):  37000 / 91990  |time:  989.9133 s |loss (u, t):  2.2222   2.1543
+progress (w/o context):  37000 / 91990  |time:  989.8617 s |loss (u, t):  2.2213   2.1619
+progress (w/o context):  37000 / 91990  |time:  989.906 s |loss (u, t):  2.2241   2.1487
+progress (w/o context):  37000 / 91990  |time:  989.9181 s |loss (u, t):  2.2248   2.15
+progress (w/o context):  38000progress (w/o context):   38000/  91990/   |time: 91990   |time:  791.3279791.2311  s |loss (u, t): s |loss (u, t):   2.21232.2112      2.15792.1395
+
+progress (w/o context):  38000 / 91990  |time:  791.3277 s |loss (u, t):  2.2111   2.1493
+progress (w/o context):  38000 / 91990  |time:  791.2384 s |loss (u, t):  2.2088   2.1459
+progress (w/o context):  38000 / 91990  |time:  791.2372 s |loss (u, t):  2.2178   2.1451
+progress (w/o context):  38000 / 91990  |time:  791.3335 s |loss (u, t):  2.2167   2.1523
+progress (w/o context):  38000 / 91990  |time:  791.352 s |loss (u, t):  2.2194   2.1534
+progress (w/o context):  38000 / 91990  |time:  791.3077 s |loss (u, t):  2.2195   2.1496
+progress (w/o context):  39000 progress (w/o context): /  9199039000   |time:  / 91990 771.6104 |time:   s |loss (u, t):  771.5512 2.2101s |loss (u, t):    2.2161   2.1546 2.1395
+
+progress (w/o context):  39000 / 91990  |time:  771.6536 s |loss (u, t):  2.2152   2.14
+progress (w/o context):  39000 / 91990  |time:  771.6302 s |loss (u, t):  2.2166   2.1435
+progress (w/o context):  39000 / 91990  |time:  771.6648 s |loss (u, t):  2.215   2.1575
+progress (w/o context):  39000 / 91990  |time:  771.6549 s |loss (u, t):  2.217   2.1451
+progress (w/o context):  39000 / 91990  |time:  771.6905 s |loss (u, t):  2.2155   2.1569
+progress (w/o context):  39000 / 91990  |time:  771.6754 s |loss (u, t):  2.2142   2.1531
+progress (w/o context):  40000 / 91990  |time:  758.5497 s |loss (u, t):  2.2158   2.1524
+progress (w/o context):  40000 / 91990  |time:  758.5844 s |loss (u, t):  2.2186   2.1456
+progress (w/o context):  40000 / 91990  |time:  758.6669 s |loss (u, t):  2.2119   2.15
+progress (w/o context):  40000 / 91990  |time:  758.6316 s |loss (u, t):  2.2122   2.1507
+progress (w/o context):  40000 / 91990  |time:  758.6458 s |loss (u, t):  2.2156   2.153
+progress (w/o context):  40000 / 91990  |time:  758.6845 s |loss (u, t):  2.2164   2.1471
+progress (w/o context):  40000 / 91990  |time:  758.686 s |loss (u, t):  2.2142   2.1581
+progress (w/o context):  40000 / 91990  |time:  758.7391 s |loss (u, t):  2.2174   2.1313
+progress (w/o context):  41000 / 91990  |time: progress (w/o context):  802.3248  s |loss (u, t): 41000  2.2177   /2.1537
+ progress (w/o context): 91990  41000 |time:   802.4204/  s |loss (u, t): 91990  2.2152 |time:     2.1538802.4175 s |loss (u, t): 
+ 2.2182   2.1392
+progress (w/o context):  41000 / 91990  |time:  802.4436 s |loss (u, t):  2.2166   2.1445
+progress (w/o context):  41000 / 91990  |time:  802.49 s |loss (u, t):  2.2148   2.1444
+progress (w/o context):  41000 / 91990  |time:  802.4627 s |loss (u, t):  2.2191   2.1441
+progress (w/o context):  41000 / 91990  |time:  802.4493 s |loss (u, t):  2.2149   2.1474
+progress (w/o context):  41000 / 91990  |time:  802.4078 s |loss (u, t):  2.2154   2.1511
+progress (w/o context):  42000 / 91990  |time:  progress (w/o context): 759.253 s |loss (u, t):   420002.2777    /2.2366 91990
+  |time:  759.2744 s |loss (u, t):  2.2762   2.2329
+progress (w/o context):  42000 / 91990  |time:  759.2818 s |loss (u, t):  2.2737   2.2341
+progress (w/o context):  42000 / 91990  |time:  759.3309 s |loss (u, t):  2.2756   2.2324
+progress (w/o context):  42000 / 91990  |time:  759.3334 s |loss (u, t):  2.2756   2.2342
+progress (w/o context):  42000 / 91990  |time:  759.302 s |loss (u, t):  2.2781   2.2384
+progress (w/o context):  42000 / 91990  |time:  759.3045 s |loss (u, t):  2.2709   2.2348
+progress (w/o context):  42000 / 91990  |time:  759.3826 s |loss (u, t):  2.2771   2.2333
+progress (w/o context):  43000 / 91990  |time:  782.4299 s |loss (u, t):  2.2959   2.2775
+progress (w/o context):  43000 / 91990  |time:  782.4914 s |loss (u, t):  2.2974   2.2727
+progress (w/o context):  43000 / 91990  |time:  782.4797 s |loss (u, t):  2.291   2.2706
+progress (w/o context):  43000 / 91990  |time:  782.423 s |loss (u, t):  2.2975   2.2612
+progress (w/o context):  43000 / 91990  |time:  782.4725 s |loss (u, t):  2.2975   2.2669
+progress (w/o context):  43000 / 91990  |time:  782.4766 s |loss (u, t):  2.2932   2.2818
+progress (w/o context):  43000 / 91990  |time:  782.5656 s |loss (u, t):  2.2995   2.2613
+progress (w/o context):  43000 / 91990  |time:  782.6001 s |loss (u, t):  2.2983   2.2647
+progress (w/o context):  44000 / 91990  |time:  779.2552 s |loss (u, t):  2.2901   2.2531
+progress (w/o context):  44000 / 91990  |time:  779.2662 s |loss (u, t):  2.2876   2.2605
+progress (w/o context):  44000 / 91990  |time:  779.2563 s |loss (u, t):  2.2824   2.2623
+progress (w/o context):  44000 / 91990  |time:  779.2732 s |loss (u, t):  2.2823   2.2543
+progress (w/o context):  44000 / 91990  |time:  779.1746 s |loss (u, t):  2.2952   2.2714
+progress (w/o context):  44000 / 91990  |time:  779.1813 s |loss (u, t):  2.2865   2.2532
+progress (w/o context):  44000 / 91990  |time:  779.2719 s |loss (u, t):  2.29   2.2625
+progress (w/o context):  44000 / 91990  |time:  779.3712 s |loss (u, t):  2.2895   2.257
+progress (w/o context):  45000 / 91990  |time:  764.2493 s |loss (u, t):  2.2801progress (w/o context):    2.2532
+ 45000 / 91990  |time:  764.2553 s |loss (u, t):  2.2795   2.2498
+progress (w/o context):  45000progress (w/o context):   /45000  91990 / |time:   91990  |time: 764.2349  s |loss (u, t): 764.1296  2.2849s |loss (u, t):    2.2832  2.2484  
+2.2453
+progress (w/o context):  45000 / 91990  |time:  764.2602 s |loss (u, t):  2.2784   2.2551
+progress (w/o context):  45000 / 91990  |time:  764.2725 s |loss (u, t):  2.2859   2.2466
+progress (w/o context):  45000 / 91990  |time:  764.2775 s |loss (u, t):  2.2827   2.2403
+progress (w/o context):  45000 / 91990  |time:  764.4146 s |loss (u, t):  2.283   2.2511
+progress (w/o context):  46000 progress (w/o context): / 91990  46000 |time:   976.0313 /s |loss (u, t):  2.2765   2.2329 progress (w/o context): 91990
+  |time:   46000976.0175  s |loss (u, t):  2.2746  /  2.238891990  |time: 
+ 976.0629 s |loss (u, t):  2.2811   2.2372
+progress (w/o context):  46000 / 91990  |time:  976.0683 s |loss (u, t):  2.2771   2.2327
+progress (w/o context):  46000 / 91990  |time:  975.9441 s |loss (u, t):  2.2799   2.2426
+progress (w/o context):  46000 / 91990  |time:  976.0595 s |loss (u, t):  2.2761   2.2384
+progress (w/o context):  46000 / 91990  |time:  976.081 s |loss (u, t):  2.2833   2.2366
+progress (w/o context):  46000 / 91990  |time:  976.0621 s |loss (u, t):  2.2777   2.2278
+progress (w/o context):  47000 / 91990  |time:  735.6476 s |loss (u, t):  2.2773   2.2443
+progress (w/o context):  47000 / 91990  |time:  735.7023 s |loss (u, t):  2.28   2.242
+progress (w/o context):  47000 / 91990  |time:  735.7196 s |loss (u, t):  2.2818   2.2435
+progress (w/o context):  47000 / 91990  |time:  735.7134 s |loss (u, t):  2.2775   2.2411
+progress (w/o context):  47000 / 91990  |time:  735.7301 s |loss (u, t):  2.2809   2.2439
+progress (w/o context):  47000 / 91990  |time:  735.7281 s |loss (u, t):  2.2811   2.2548
+progress (w/o context):  47000 / 91990  |time:  735.773 s |loss (u, t):  2.2765   2.2482
+progress (w/o context):  47000 / 91990  |time:  735.8414 s |loss (u, t):  2.2815   2.2441
+progress (w/o context): progress (w/o context):  48000  48000 / 91990 / |time:   91990  |time: 797.0994  s |loss (u, t):  2.273797.0119   s |loss (u, t):   2.21892.2674 
+  2.2281
+progress (w/o context):  48000 / 91990  |time:  797.1531 s |loss (u, t):  2.2645   2.2233
+progress (w/o context):  48000 / 91990  |time:  797.1235 s |loss (u, t):  2.269   2.2243
+progress (w/o context):  48000 / 91990  |time:  797.1446 s |loss (u, t):  2.2606   2.2228
+progress (w/o context):  48000 / 91990  |time:  797.1992 s |loss (u, t):  2.2721   2.224
+progress (w/o context):  48000 / 91990  |time:  797.0502 s |loss (u, t):  2.2696   2.2157
+progress (w/o context):  48000 / 91990  |time:  797.1889 s |loss (u, t):  2.267   2.2267
+progress (w/o context):  49000 progress (w/o context): / 91990  49000 |time:   790.2866 s |loss (u, t):  2.2582 progress (w/o context):  /   2.21169199049000 
+ |time:  /  91990 790.2833 s |loss (u, t):   |time: 2.2645  790.332 s |loss (u, t):    progress (w/o context): 2.26742.2273   
+49000  2.2214/
+ 91990  |time:  790.3292 s |loss (u, t):  2.2678   2.2188
+progress (w/o context):  49000 / 91990  |time:  790.2712 s |loss (u, t):  2.2645   2.2263
+progress (w/o context):  49000 / 91990  |time:  790.3305 s |loss (u, t):  2.2656   2.2216
+progress (w/o context):  49000 / 91990  |time:  790.3208 s |loss (u, t):  2.2628   2.2219
+progress (w/o context):  49000 / 91990  |time:  790.3341 s |loss (u, t):  2.2609   2.2232
+progress (w/o context):  50000 progress (w/o context): / 91990   |time:  50000 804.901/  91990  |time:  804.9296 s |loss (u, t):  s |loss (u, t): 2.251   2.2062 
+2.2498  progress (w/o context):  2.1983 
+50000 / progress (w/o context): 91990  |time:   50000 804.8948 s |loss (u, t): /  2.246491990    |time:   2.196804.8753
+ s |loss (u, t):  2.2508   2.1967
+progress (w/o context):  50000 / 91990  |time:  804.9081 s |loss (u, t):  2.2552   2.198
+progress (w/o context):  50000 / 91990  |time:  804.9524 s |loss (u, t):  2.249   2.1995
+progress (w/o context):  50000 / 91990  |time:  804.9857 s |loss (u, t):  2.251   2.202
+progress (w/o context):  50000 / 91990  |time:  805.0136 s |loss (u, t):  2.2519   2.1954
+progress (w/o context):  progress (w/o context): 51000  /51000  91990  |time: /  91990  |time:  832.7582 832.7084s |loss (u, t):   s |loss (u, t):  2.2652.2642      2.21132.1966
+
+progress (w/o context):  51000 / 91990  |time:  832.766 s |loss (u, t):  2.2602   2.1997
+progress (w/o context):  51000 / 91990  |time:  832.6991 s |loss (u, t):  2.264   progress (w/o context): 2.2056 
+51000 / 91990  |time:  832.775 s |loss (u, t):  2.2612   2.2103
+progress (w/o context):  51000 / 91990  |time:  832.7972 s |loss (u, t):  2.2569   2.204
+progress (w/o context):  51000 / 91990  |time:  832.8483 s |loss (u, t):  2.2659   2.2025
+progress (w/o context):  51000 / 91990  |time:  832.8697 s |loss (u, t):  2.2616   2.207
+progress (w/o context):  52000 / 91990  |time:  progress (w/o context): 812.2116 s |loss (u, t):   52000 2.2441progress (w/o context):  /    52000919902.205   |time: 
+/ 91990  |time:   progress (w/o context): 812.138812.1399  s |loss (u, t): s |loss (u, t):    520002.24332.2435     progress (w/o context):   2.19/2.185 
+ 52000
+91990   |time:  /812.2568  91990s |loss (u, t):    |time: 2.2392   812.2464  2.1881s |loss (u, t):  
+2.2417   2.1823
+progress (w/o context):  52000 / 91990  |time:  812.2203 s |loss (u, t):  2.2435   2.1853
+progress (w/o context):  52000 / 91990  |time:  812.3019 s |loss (u, t):  2.2439   2.1846
+progress (w/o context):  52000 / 91990  |time:  812.3029 s |loss (u, t):  2.2405   2.1876
+progress (w/o context):  progress (w/o context): 53000  /53000  91990  |time:  / 91990 824.3303 |time:   s |loss (u, t):  2.2369824.3812   s |loss (u, t):   2.17452.234 
+  2.1723
+progress (w/o context):  53000 / 91990  |time:  824.3817 s |loss (u, t):  2.2323   2.1866
+progress (w/o context):  53000 / 91990  |time:  824.4226 s |loss (u, t):  2.2362   2.1826
+progress (w/o context):  53000 / 91990  |time:  824.4274 s |loss (u, t):  2.237   2.1782
+progress (w/o context):  53000 / 91990  |time:  824.4387 s |loss (u, t):  2.2345   2.1851
+progress (w/o context):  53000 / 91990  |time:  824.4343 s |loss (u, t):  2.24   2.1747
+progress (w/o context):  53000 / 91990  |time:  824.3871 s |loss (u, t):  2.2312   2.1826
+progress (w/o context):  54000 / 91990  |time:  816.8427 s |loss (u, t):  2.2416   2.1824
+progress (w/o context): progress (w/o context):   5400054000  //  9199091990   |time:  |time:   816.8725816.8635  s |loss (u, t): s |loss (u, t):   2.24342.242      2.18192.1839
+
+progress (w/o context):  54000 / 91990  |time:  816.9279 s |loss (u, t):  2.2462   2.1827
+progress (w/o context):  54000 / 91990  |time:  816.9331 s |loss (u, t):  2.2432   2.179
+progress (w/o context):  54000 / 91990  |time:  816.8835 s |loss (u, t):  2.238   2.1822
+progress (w/o context):  54000 / 91990  |time:  816.9372 s |loss (u, t):  2.2446   2.1849
+progress (w/o context):  54000 / 91990  |time:  816.9093 s |loss (u, t):  2.2477   2.1808
+progress (w/o context):  55000 progress (w/o context): / 91990  55000 |time:   / 839.474291990 s |loss (u, t):  2.2328    |time:  839.5647  s |loss (u, t):  2.1673
+2.2284 progress (w/o context):    2.170255000 
+/ 91990  |time:  839.5335 s |loss (u, t):  2.2323   2.1649
+progress (w/o context):  55000 / 91990  |time:  839.5862 s |loss (u, t):  2.2343   2.1581
+progress (w/o context):  55000 / 91990  |time:  839.5656 s |loss (u, t):  2.2307   2.1696
+progress (w/o context):  55000 / 91990  |time:  839.5898 s |loss (u, t):  2.234   2.1594
+progress (w/o context):  55000 / 91990  |time:  839.6195 s |loss (u, t):  2.2313   2.1689
+progress (w/o context):  55000 / 91990  |time:  839.6784 s |loss (u, t):  2.2339   2.1626
+progress (w/o context):  56000 progress (w/o context): / 91990  |time:   949.9579 56000s |loss (u, t):  / 91990  2.2186    |time: 2.1562 
+progress (w/o context): 949.9696 s |loss (u, t):  2.2193    560002.1538 progress (w/o context): 
+/  91990 56000 |time:   949.8616 / 91990  |time:  s |loss (u, t): 949.9678 s |loss (u, t):   progress (w/o context): 2.22132.2212       2.1533560002.1537 
+/
+ 91990  |time:  949.9053 s |loss (u, t):  2.2181   2.1556
+progress (w/o context):  56000 / 91990  |time:  949.9553 s |loss (u, t):  2.2236   2.1582
+progress (w/o context):  56000 / 91990  |time:  949.9669 s |loss (u, t):  2.2206   2.1577
+progress (w/o context):  56000 / 91990  |time:  949.9525 s |loss (u, t):  2.2175   2.148
+progress (w/o context):  57000 / 91990  |time:  747.7851 s |loss (u, t):  2.2138   2.1377
+progress (w/o context):  57000 / 91990  |time:  747.8309 s |loss (u, t):  2.2143   2.1397
+progress (w/o context):  57000 / 91990  |time:  747.8209 s |loss (u, t):  2.2182   2.1278
+progress (w/o context):  57000 / 91990  |time:  747.8359 s |loss (u, t):  2.2117   2.1387
+progress (w/o context):  57000 / 91990  |time:  747.8224 s |loss (u, t):  2.2139   2.1409
+progress (w/o context):  57000 / 91990  |time:  747.8459 s |loss (u, t):  2.2127   2.1348
+progress (w/o context):  57000 / 91990  |time:  747.8434 s |loss (u, t):  2.2138   2.1362
+progress (w/o context):  57000 / 91990  |time:  747.8347 s |loss (u, t):  2.2178   2.1403
+progress (w/o context):  58000 /progress (w/o context):  91990  |time:   58000730.0437  s |loss (u, t):  2.2055/   91990  2.1454 |time:  
+730.0323 s |loss (u, t):  2.2057   2.1367
+progress (w/o context):  58000 / 91990  |time:  730.0554 s |loss (u, t):  2.2062   2.1344
+progress (w/o context):  58000 / 91990  |time:  730.0749 s |loss (u, t):  2.2093   2.1465
+progress (w/o context):  58000 / 91990  |time:  730.0593 s |loss (u, t):  2.2062   2.1427
+progress (w/o context):  58000 / 91990  |time:  730.0985 s |loss (u, t):  2.2073   2.1327
+progress (w/o context):  58000 / 91990  |time:  730.0862 s |loss (u, t):  2.208   2.1474
+progress (w/o context):  58000 / 91990  |time:  730.1374 s |loss (u, t):  2.2079   2.1416
+progress (w/o context):  59000 / 91990  |time:  746.4585 s |loss (u, t):  2.1973   2.1198
+progress (w/o context):  59000 / 91990  |time:  746.4828 s |loss (u, t):  2.2027   2.1264
+progress (w/o context):  59000 / 91990  |time:  746.5066 s |loss (u, t):  2.2042   2.1279
+progress (w/o context):  59000 / 91990  |time:  746.5128 s |loss (u, t):  2.2004   2.1317
+progress (w/o context):  59000 / 91990  |time:  746.5654 s |loss (u, t):  2.2026   2.1232
+progress (w/o context):  59000 / 91990  |time:  746.6309 s |loss (u, t):  2.2   2.1225
+progress (w/o context):  59000 / 91990  |time:  746.5997 s |loss (u, t):  2.1983   2.1173
+progress (w/o context):  59000 / 91990  |time:  746.6394 s |loss (u, t):  2.2016   2.129
+progress (w/o context):  60000 / 91990  |time: progress (w/o context):   727.021860000  s |loss (u, t):  2.2011/   2.1151
+ 91990  |time:  progress (w/o context): 726.972 s |loss (u, t):   2.1998 60000   2.1167/
+ 91990  |time:  727.0351progress (w/o context):  s |loss (u, t):  2.199   60000  2.1158
+/ 91990  |time:  progress (w/o context): 726.9833 s |loss (u, t):   2.198860000    2.106/
+ 91990  |time:  726.9714 s |loss (u, t):  2.1969   2.1156
+progress (w/o context):  60000 / 91990  |time:  727.0941 s |loss (u, t):  2.2021   2.1157
+progress (w/o context):  60000 / 91990  |time:  727.1334 s |loss (u, t):  2.2002   2.1215
+progress (w/o context):  60000 / 91990  |time:  727.1131 s |loss (u, t):  2.1957   2.1237
+progress (w/o context):  61000 / 91990  |time:  735.6175 s |loss (u, t):  2.1871   2.1053
+progress (w/o context):  61000 / 91990  |time:  735.6898 s |loss (u, t):  2.1908   2.105
+progress (w/o context):  61000 / 91990  |time:  735.6842 s |loss (u, t):  2.1945   2.0982
+progress (w/o context):  61000 / 91990  |time:  735.6627 s |loss (u, t):  2.188   2.1073
+progress (w/o context):  61000 / 91990  |time:  735.7037 s |loss (u, t):  2.1919   2.1008
+progress (w/o context):  61000 / 91990  |time:  735.6685 s |loss (u, t):  2.1885   2.1049
+progress (w/o context):  61000 / 91990  |time:  735.7821 s |loss (u, t):  2.1919   2.1092
+progress (w/o context):  61000 / 91990  |time:  735.8197 s |loss (u, t):  2.1926   2.1149
+progress (w/o context):  62000 / 91990 progress (w/o context):  |time:   748.942762000  s |loss (u, t):  2.1835/   91990  |time:   748.8092.0896
+ s |loss (u, t):  progress (w/o context): 2.1833    620002.0981 
+/ 91990  |time:  748.9246 s |loss (u, t):  2.1804   2.0941
+progress (w/o context):  62000 / 91990  |time:  748.958 s |loss (u, t):  2.1847   2.104
+progress (w/o context):  62000 / 91990  |time:  748.8573 s |loss (u, t):  2.1896   2.1061
+progress (w/o context):  62000 / 91990  |time:  748.9884 s |loss (u, t):  2.1839   2.0928
+progress (w/o context):  62000 / 91990  |time:  748.9906 s |loss (u, t):  2.1837   2.0857
+progress (w/o context):  62000 / 91990  |time:  749.0777 s |loss (u, t):  2.1844   2.0944
+progress (w/o context):  63000 / 91990 progress (w/o context):  |time:  735.1266  s |loss (u, t):  630002.1858    2.0919/ 
+91990  |time:  735.2373 s |loss (u, t):  2.185   2.0896
+progress (w/o context):  63000 / 91990  |time:  735.2576 s |loss (u, t):  2.1842   2.0848
+progress (w/o context):  63000 / 91990  |time:  735.2003 s |loss (u, t):  2.1798   2.0808
+progress (w/o context):  63000 / 91990  |time:  735.2086 s |loss (u, t):  2.1815   2.0935
+progress (w/o context):  63000 / 91990  |time:  735.3156 s |loss (u, t):  2.1827   2.0964
+progress (w/o context):  63000 / 91990  |time:  735.314 s |loss (u, t):  2.1839   2.0884
+progress (w/o context):  63000 / 91990  |time:  735.3782 s |loss (u, t):  2.1761   2.0849
+progress (w/o context):  64000 progress (w/o context): / 91990   |time: 64000  751.9217progress (w/o context): /  s |loss (u, t):  91990 64000 2.1733  |time:    / 751.8811  919902.0859s |loss (u, t):    |time: 
+2.1726   752.0021  2.082s |loss (u, t):  
+2.1795   2.0869
+progress (w/o context):  64000 / 91990  |time:  751.9613 s |loss (u, t):  2.1718   2.0815
+progress (w/o context):  64000 / 91990  |time:  752.1055 s |loss (u, t):  2.1732   2.0794
+progress (w/o context):  64000 / 91990  |time:  752.0669 s |loss (u, t):  2.1778   2.0854
+progress (w/o context):  64000 / 91990  |time:  752.125 s |loss (u, t):  2.1764   2.0907
+progress (w/o context):  64000 / 91990  |time:  752.1699 s |loss (u, t):  2.1752   2.0831
+progress (w/o context):  65000 progress (w/o context): / 91990   |time: 65000  / 917.92891990   |time: s |loss (u, t):   progress (w/o context): 2.1711918.0294   s |loss (u, t):    2.07642.168365000  
+  2.0682/ 91990
+  |time:  progress (w/o context): 917.8677 s |loss (u, t):  2.1682   65000  2.0719progress (w/o context): 
+/ 91990  65000 |time:   918.0085 /s |loss (u, t):   919902.1702   |time:    2.0794917.9637 s |loss (u, t): 
+ 2.1715   2.0803
+progress (w/o context):  65000 / 91990  |time:  918.0455 s |loss (u, t):  2.1748   2.0731
+progress (w/o context):  65000 / 91990  |time:  917.9577 s |loss (u, t):  2.1687   2.0785
+progress (w/o context):  65000 / 91990  |time:  918.099 s |loss (u, t):  2.1693   2.0639
+progress (w/o context):  66000 / 91990  |time:  751.9792 s |loss (u, t):  2.1641   2.0645
+progress (w/o context):  66000 / 91990  |time:  752.0606 s |loss (u, t):  2.1643   2.0709
+progress (w/o context):  66000 / 91990  |time:  752.0591 s |loss (u, t):  progress (w/o context): 2.1679  66000   2.0613/ 
+91990  |time:  752.0549 s |loss (u, t):  2.1631   2.0565
+progress (w/o context):  66000 / 91990  |time:  752.09 s |loss (u, t):  2.1629   2.0694
+progress (w/o context):  66000 / 91990  |time:  752.0883 s |loss (u, t):  2.1616   2.0587
+progress (w/o context):  66000 / 91990  |time:  752.0796 s |loss (u, t):  2.1588   2.0652
+progress (w/o context):  66000 / 91990  |time:  752.1255 s |loss (u, t):  2.1628   2.0676
+progress (w/o context):  67000 / 91990  |time:  831.8663 s |loss (u, t):  2.1612   2.0631
+progress (w/o context):  67000 / 91990  |time:  831.886 s |loss (u, t):  2.1573   2.0646
+progress (w/o context):  67000 / 91990  |time:  831.829 s |loss (u, t):  2.1593   2.0564
+progress (w/o context):  67000 / 91990  |time:  831.8795 s |loss (u, t):  2.1638   2.0709
+progress (w/o context):  67000 / 91990  |time:  831.9152 s |loss (u, t):  2.1624   2.0628
+progress (w/o context):  67000 / 91990  |time:  831.9624 s |loss (u, t):  2.1601   2.0627
+progress (w/o context):  67000 / 91990  |time:  831.9621 s |loss (u, t):  2.1656   2.0656
+progress (w/o context):  67000 / 91990  |time:  832.0169 s |loss (u, t):  2.1659   2.0621
+progress (w/o context):  68000 / 91990  |time:  835.6872 s |loss (u, t):  2.1533   2.0614
+progress (w/o context):  68000 / 91990  |time:  835.6777 s |loss (u, t):  2.1552   2.0486
+progress (w/o context):  68000 / 91990  |time:  835.6469 s |loss (u, t):  2.1529   2.0569
+progress (w/o context):  68000 / 91990  |time:  835.6976 s |loss (u, t):  2.16   2.057
+progress (w/o context):  68000 / 91990  |time:  835.6285 s |loss (u, t):  2.1561   2.0561
+progress (w/o context):  68000 / 91990  |time:  835.7688 s |loss (u, t):  2.156   2.0609
+progress (w/o context):  68000 / 91990  |time:  835.7495 s |loss (u, t):  2.1559   2.0516
+progress (w/o context):  68000 / 91990  |time:  835.882 s |loss (u, t):  2.1564   2.0573
+progress (w/o context):  69000 / 91990  |time:  822.0911 s |loss (u, t):  2.1521   2.0614
+progress (w/o context):  69000 / 91990  |time:  822.1206 s |loss (u, t):  2.154   2.0521
+progress (w/o context):  69000 / 91990  |time:  822.1243 s |loss (u, t):  2.154   2.0424
+progress (w/o context):  69000 / 91990  |time:  822.1549 s |loss (u, t):  2.1532   2.0483
+progress (w/o context):  69000 / 91990  |time:  822.1593 s |loss (u, t):  2.1598   2.0442
+progress (w/o context):  69000 / 91990  |time:  822.041 s |loss (u, t):  2.1534   2.058
+progress (w/o context):  69000 / 91990  |time:  822.2333 s |loss (u, t):  2.152   2.0513
+progress (w/o context):  69000 / 91990  |time:  822.2168 s |loss (u, t):  2.158   2.0537
+progress (w/o context):  70000 progress (w/o context): / 91990  |time:   70000 833.8261 s |loss (u, t):  2.1614progress (w/o context):  /    919902.04970000   |time: 
+ progress (w/o context): /833.7899   91990s |loss (u, t): 70000    |time: 2.1571  /  833.8518 91990  2.0509s |loss (u, t):  |time:   
+2.153833.8381   s |loss (u, t):   2.05332.1597 
+  2.0562
+progress (w/o context):  70000 / 91990  |time:  833.8867 s |loss (u, t):  2.1568   2.052
+progress (w/o context):  70000 / 91990  |time:  833.8463 s |loss (u, t):  2.1575   2.0542
+progress (w/o context):  70000 / 91990  |time:  833.8706 s |loss (u, t):  2.1607   2.0488
+progress (w/o context):  70000 / 91990  |time:  833.8645 s |loss (u, t):  2.1589   2.0494
+progress (w/o context):  71000 progress (w/o context): / 91990  |time:   839.272671000  s |loss (u, t):  / 91990  |time: 2.1451progress (w/o context):     839.3176 2.0423 71000s |loss (u, t): 
+  progress (w/o context): /2.1458 71000   /   2.044891990  |time:  91990
+ 839.3259 |time:   839.3189s |loss (u, t):  2.1474   s |loss (u, t):   progress (w/o context): 2.03392.1461 
+  71000  2.0428
+/ 91990  |time:  839.3043 s |loss (u, t):  2.144   2.0413
+progress (w/o context):  71000 / 91990  |time:  839.3487 s |loss (u, t):  2.1455   2.0327
+progress (w/o context):  71000 / 91990  |time:  839.2735 s |loss (u, t):  2.1492   2.0321
+progress (w/o context):  71000 / 91990  |time:  839.3351 s |loss (u, t):  2.1438   2.033
+progress (w/o context):  72000 / 91990 progress (w/o context):  |time:  progress (w/o context):  845.433472000   s |loss (u, t): 72000  2.1401/  / 91990   91990 |time:   2.0421 |time:  
+845.464845.4557  s |loss (u, t): s |loss (u, t):   2.1432.1477      2.03072.0301
+
+progress (w/o context):  72000 / 91990  |time:  845.4867 s |loss (u, t):  2.1459   2.034
+progress (w/o context):  72000 / 91990  |time:  845.5051 s |loss (u, t):  2.142   2.0246
+progress (w/o context):  72000 / 91990  |time:  845.4871 s |loss (u, t):  2.1436   2.038
+progress (w/o context):  72000 / 91990  |time:  845.5263 s |loss (u, t):  2.1446   2.0401
+progress (w/o context):  72000 / 91990  |time:  845.5559 s |loss (u, t):  2.1479   2.0291
+progress (w/o context):  progress (w/o context): 73000  /73000  91990  |time: /  91990 838.8738 |time:   s |loss (u, t):  838.83742.1442  s |loss (u, t):    2.14622.0399   
+2.0318
+progress (w/o context):  73000 / 91990  |time:  838.8646 s |loss (u, t):  2.1441   2.0438
+progress (w/o context):  73000 / 91990  |time:  838.8226 s |loss (u, t):  2.1479   2.0336
+progress (w/o context):  73000 / 91990  |time:  838.917 s |loss (u, t):  2.1466   2.0457
+progress (w/o context):  73000 / 91990  |time:  838.8214 s |loss (u, t):  2.1448   2.0393
+progress (w/o context):  73000 / 91990  |time:  838.8953 s |loss (u, t):  2.1435   2.0329
+progress (w/o context):  73000 / 91990  |time:  838.9389 s |loss (u, t):  2.1429   2.026
+progress (w/o context):  74000 / 91990  |time:  998.9784 s |loss (u, t):  2.1474   2.0382
+progress (w/o context):  74000 / 91990  |time:  999.0525 s |loss (u, t):  2.1482   2.033
+progress (w/o context):  74000 / 91990  |time:  999.011 s |loss (u, t):  2.144   2.0422
+progress (w/o context):  74000 / 91990  |time:  999.0707 s |loss (u, t):  2.1481   2.04
+progress (w/o context):  74000 / 91990  |time:  999.0765 s |loss (u, t):  2.1515   2.0341
+progress (w/o context):  74000 / 91990  |time:  999.1099 s |loss (u, t):  2.1445   2.0403
+progress (w/o context):  74000 / 91990  |time:  999.1125 s |loss (u, t):  2.1504   2.0407
+progress (w/o context):  74000 / 91990  |time:  999.1293 s |loss (u, t):  2.1437   2.0383
+progress (w/o context):  75000 / 91990  |time:  progress (w/o context): 759.9004 s |loss (u, t):   750002.1386    /2.029 
+91990  |time:  759.8757 s |loss (u, t):  2.1393   2.0315
+progress (w/o context):  75000 / 91990  |time:  759.8281 s |loss (u, t):  2.1413   2.0284
+progress (w/o context):  75000 / 91990  |time:  759.8251 s |loss (u, t):  2.1371   2.024
+progress (w/o context):  75000 / 91990  |time:  759.9623 s |loss (u, t):  2.1362   2.0291
+progress (w/o context):  75000 / 91990  |time:  759.8789 s |loss (u, t):  2.1406   2.0314
+progress (w/o context):  75000 / 91990  |time:  760.0017 s |loss (u, t):  2.1369   2.03
+progress (w/o context):  75000 / 91990  |time:  760.182 s |loss (u, t):  2.1404   2.0245
+progress (w/o context):  76000 / 91990  |time:  786.1711 s |loss (u, t):  2.1394   2.0252
+progress (w/o context):  76000 / 91990  |time:  786.1798 s |loss (u, t):  2.1367   2.0271
+progress (w/o context):  76000 / 91990  |time:  786.2235 s |loss (u, t):  2.1427   2.0254
+progress (w/o context):  76000 / 91990  |time:  786.1888 s |loss (u, t):  2.1469   2.0331
+progress (w/o context):  76000 / 91990  |time:  785.8821 s |loss (u, t):  2.1433   2.0257
+progress (w/o context):  76000 / 91990  |time:  786.194 s |loss (u, t):  2.1407   2.0248
+progress (w/o context):  76000 / 91990  |time:  786.2097 s |loss (u, t):  2.1455   2.0272
+progress (w/o context):  76000 / 91990  |time:  786.2728 s |loss (u, t):  2.1388   2.0314
+progress (w/o context):  77000 progress (w/o context): / 91990  |time:   77000818.797  s |loss (u, t): progress (w/o context):  /2.14   91990 77000    |time: 2.0293 / 91990818.8027 
+ |time:   s |loss (u, t):  818.79152.1432  s |loss (u, t): progress (w/o context):   2.1397   2.0324 77000 
+ 2.035
+/ 91990  |time:  818.7903 s |loss (u, t):  2.1417   2.0362
+progress (w/o context):  77000 / 91990  |time:  818.8879 s |loss (u, t):  2.1417   2.0271
+progress (w/o context):  77000 / 91990  |time:  818.9146 s |loss (u, t):  2.1398progress (w/o context):     770002.0335 
+/ 91990  |time:  818.8496 s |loss (u, t):  2.1374   2.0269
+progress (w/o context):  77000 / 91990  |time:  818.8386 s |loss (u, t):  2.1353   2.0289
+progress (w/o context):  78000 / 91990  |time:  813.7654 s |loss (u, t):  2.1755   2.079
+progress (w/o context):  78000 / 91990  |time:  813.8043 s |loss (u, t):  2.1765   2.0676
+progress (w/o context):  78000 / 91990  |time:  813.8707 s |loss (u, t):  2.1717   2.0742
+progress (w/o context):  78000 / 91990  |time:  813.861 s |loss (u, t):  2.176   2.0789
+progress (w/o context):  78000 / 91990  |time:  813.8638 s |loss (u, t):  2.1762   2.0899
+progress (w/o context):  78000 / 91990  |time:  813.8986 s |loss (u, t):  2.1744   2.0825
+progress (w/o context):  78000 / 91990  |time:  813.8987 s |loss (u, t):  2.1724   2.0725
+progress (w/o context):  78000 / 91990  |time:  813.8692 s |loss (u, t):  2.1774   2.0738
+progress (w/o context):  79000 / 91990  |time:  822.6154 s |loss (u, t):  2.2274   2.1532
+progress (w/o context):  79000 / 91990  |time:  822.6096 s |loss (u, t):  2.2285   2.1515
+progress (w/o context):  79000 / 91990  |time:  822.7076 s |loss (u, t):  2.2266   2.1546
+progress (w/o context):  79000 / 91990  |time:  822.6874 s |loss (u, t):  2.227   2.1506
+progress (w/o context):  79000 / 91990  |time:  822.6539 s |loss (u, t):  2.2304   2.1513
+progress (w/o context):  79000 / 91990  |time:  822.6832 s |loss (u, t):  2.2308   2.1496
+progress (w/o context):  79000 / 91990  |time:  822.6843 s |loss (u, t):  2.2313   2.1532
+progress (w/o context):  79000 / 91990  |time:  822.7354 s |loss (u, t):  2.2266   2.1554
+progress (w/o context):  80000 / 91990  |time:  825.977 s |loss (u, t):  2.2215   2.1353
+progress (w/o context):  80000 / 91990  |time:  825.9878 s |loss (u, t):  2.2171   2.1505
+progress (w/o context):  80000 / 91990  |time:  825.8951 s |loss (u, t):  2.2171   2.1406
+progress (w/o context):  80000 / 91990  |time:  825.9275 s |loss (u, t):  2.2193   2.1343
+progress (w/o context):  80000 / 91990  |time:  825.925 s |loss (u, t):  2.2226   2.1299
+progress (w/o context):  80000 / 91990  |time:  825.9535 s |loss (u, t):  2.2197   2.1421
+progress (w/o context):  80000 / 91990  |time:  825.9914 s |loss (u, t):  2.2199   2.1377
+progress (w/o context):  80000 / 91990  |time:  826.0122 s |loss (u, t):  2.2228   2.1346
+progress (w/o context):  progress (w/o context): 81000  81000 / 91990/   |time: 91990   |time:  859.6231859.7026  s |loss (u, t): s |loss (u, t):   2.23542.2384      2.16552.1649
+
+progress (w/o context):  81000 / 91990  |time:  859.6793 s |loss (u, t):  2.2374   2.1707
+progress (w/o context):  81000 / 91990  |time:  859.6909 s |loss (u, t):  2.2357   2.1662
+progress (w/o context):  81000 / 91990  |time:  859.6678 s |loss (u, t):  2.2412   2.1729
+progress (w/o context):  81000 / 91990  |time:  859.72 s |loss (u, t):  2.2358   2.1618
+progress (w/o context):  81000 / 91990  |time:  859.7633 s |loss (u, t):  2.2338   2.1501
+progress (w/o context):  81000 / 91990  |time:  859.7829 s |loss (u, t):  2.24   2.1596
+progress (w/o context):  82000 progress (w/o context): / 91990  82000 |time:   / 91990846.1989   |time: s |loss (u, t):   846.13472.2315  s |loss (u, t):    2.22742.1504   2.1559
+
+progress (w/o context):  82000 / 91990  |time:  846.284 s |loss (u, t):  2.2261   2.1401
+progress (w/o context):  82000 / 91990  |time:  846.197 s |loss (u, t):  2.2349   2.1479
+progress (w/o context):  82000 / 91990  |time:  846.3075 s |loss (u, t):  2.2264   2.1555
+progress (w/o context):  82000 / 91990  |time:  846.3483 s |loss (u, t):  2.2278   2.1502
+progress (w/o context):  82000 / 91990  |time:  846.4156 s |loss (u, t):  2.225   2.1452
+progress (w/o context):  82000 / 91990  |time:  846.4595 s |loss (u, t):  2.2274   2.1437
+progress (w/o context):  83000progress (w/o context):   / 8300091990  / 91990 |time:   1050.4734 |time:   1050.3081s |loss (u, t):  2.2196    s |loss (u, t): 2.1425 
+2.2227progress (w/o context):     2.138283000 
+/ 91990  |time:  1050.4708 s |loss (u, t):  2.2246   2.1458
+progress (w/o context):  83000 / 91990  |time:  1050.5444 s |loss (u, t):  2.2233   2.1466
+progress (w/o context):  83000 / 91990  |time:  1050.5906 s |loss (u, t):  2.2158   2.1416
+progress (w/o context):  83000 / 91990  |time:  1050.4533 s |loss (u, t):  2.2182   2.1402
+progress (w/o context):  83000 / 91990  |time:  1050.5448 s |loss (u, t):  2.2233   2.1418
+progress (w/o context):  83000 / 91990  |time:  1050.6333 s |loss (u, t):  2.2205   2.1387
+progress (w/o context):  84000 /progress (w/o context):  91990  |time:   763.295184000  s |loss (u, t):  2.213   2.1302/
+ 91990  |time:  763.3564 s |loss (u, t):  2.2152   2.1369
+progress (w/o context):  84000 / 91990  |time:  763.383 s |loss (u, t):  2.2152   2.1421
+progress (w/o context):  84000 / 91990  |time:  763.2671 s |loss (u, t):  2.215   2.143
+progress (w/o context):  84000 / 91990  |time:  763.305 s |loss (u, t):  2.2086   2.1377
+progress (w/o context):  84000 / 91990  |time:  763.3138 s |loss (u, t):  2.2108   2.1364
+progress (w/o context):  84000 / 91990  |time:  763.406 s |loss (u, t):  2.2158   2.1386
+progress (w/o context):  84000 / 91990  |time:  763.3836 s |loss (u, t):  2.2119   2.13
+progress (w/o context):  85000 progress (w/o context): / 91990  |time:   775.337885000  s |loss (u, t):  2.2127  /  2.128591990 
+ |time:  775.3548 s |loss (u, t):  2.2114   2.1263
+progress (w/o context):  85000 / 91990  |time:  775.3065 s |loss (u, t):  2.211   2.1401
+progress (w/o context):  85000 / 91990  |time:  775.4009 s |loss (u, t):  2.2098   2.1302
+progress (w/o context):  85000 / 91990  |time:  775.4666 s |loss (u, t):  2.2135   2.1324
+progress (w/o context):  85000 / 91990  |time:  775.4519 s |loss (u, t):  2.2185   2.1351
+progress (w/o context):  85000 / 91990  |time:  775.4707 s |loss (u, t):  2.2151   2.1313
+progress (w/o context):  85000 / 91990  |time:  775.4543 s |loss (u, t):  2.2223   2.1335
+progress (w/o context):  86000 / 91990  |time:  720.5015 s |loss (u, t):  2.2067   2.1317
+progress (w/o context):  86000 / 91990  |time:  720.5545 s |loss (u, t):  2.2039   2.1237
+progress (w/o context):  86000 / 91990  |time:  720.4773 s |loss (u, t):  2.2076   2.1331
+progress (w/o context):  86000 / 91990  |time:  720.4902 s |loss (u, t):  2.207   2.1288
+progress (w/o context):  86000 / 91990  |time:  720.4961 s |loss (u, t):  2.2082   2.1302
+progress (w/o context):  86000 / 91990  |time:  720.4964 s |loss (u, t):  2.2023   2.1143
+progress (w/o context):  86000 / 91990  |time:  720.5617 s |loss (u, t):  2.2059   2.1259
+progress (w/o context):  86000 / 91990  |time:  720.6437 s |loss (u, t):  2.206   2.1302
+progress (w/o context):  87000 / 91990  |time:  750.29 s |loss (u, t):  2.2005   2.1134
+progress (w/o context):  87000 / 91990  |time:  750.2792 s |loss (u, t):  2.2027   2.1118
+progress (w/o context):  87000 / 91990  |time:  750.2942 s |loss (u, t):  2.2009   2.1205
+progress (w/o context):  87000 / 91990  |time:  750.2331 s |loss (u, t):  2.202   2.1122
+progress (w/o context):  87000 / 91990  |time:  750.3293 s |loss (u, t):  2.1964   2.1103
+progress (w/o context):  87000 / 91990  |time:  750.2966 s |loss (u, t):  2.2012   2.1064
+progress (w/o context):  87000 / 91990  |time:  750.358 s |loss (u, t):  2.1982   2.1098
+progress (w/o context):  87000 / 91990  |time:  750.3456 s |loss (u, t):  2.209   2.111
+progress (w/o context):  88000 / 91990  |time: progress (w/o context):   731.152188000  s |loss (u, t):  2.1985/   91990  2.1085 |time:  
+731.1142 s |loss (u, t):  2.1992   2.1002
+progress (w/o context):  88000 / 91990  |time:  731.2101 s |loss (u, t):  2.2034   2.1012
+progress (w/o context):  88000 / 91990  |time:  731.1665 s |loss (u, t):  2.2009   2.1131
+progress (w/o context):  88000 / 91990  |time:  731.2058 s |loss (u, t):  2.2031   2.1003
+progress (w/o context):  88000 / 91990  |time:  731.2049 s |loss (u, t):  2.2016   2.1044
+progress (w/o context):  88000 / 91990  |time:  731.2232 s |loss (u, t):  2.2042   2.1136
+progress (w/o context):  88000 / 91990  |time:  731.2261 s |loss (u, t):  2.1985   2.1121
+progress (w/o context):  89000 / 91990  |time:  742.8464 s |loss (u, t):  2.1888   2.0903
+progress (w/o context):  89000 / 91990  |time:  742.8895 s |loss (u, t):  2.1893   2.0925
+progress (w/o context):  89000 / 91990  |time:  742.8905 s |loss (u, t):  2.1842   2.0975
+progress (w/o context):  89000 / 91990  |time:  742.8611 s |loss (u, t):  2.1876   2.0971
+progress (w/o context):  89000 / 91990  |time:  742.8521 s |loss (u, t):  2.1801   2.0922
+progress (w/o context):  89000 / 91990  |time:  742.9077 s |loss (u, t):  2.1917   2.0987
+progress (w/o context):  89000 / 91990  |time:  742.9518 s |loss (u, t):  2.1883   2.1031
+progress (w/o context):  89000 / 91990  |time:  742.9357 s |loss (u, t):  2.19   2.0928
+progress (w/o context):  90000 / 91990  |time:  740.1858 s |loss (u, t):  2.1971   2.1018
+progress (w/o context):  90000 / 91990  |time:  740.1452 s |loss (u, t):  2.1915   2.0975
+progress (w/o context):  90000 / 91990  |time:  740.1623 s |loss (u, t):  2.1944   2.1074
+progress (w/o context):  90000 / 91990  |time:  740.1284 s |loss (u, t):  2.1918   2.0979
+progress (w/o context):  90000 / 91990  |time:  740.1691 s |loss (u, t):  2.1908   2.0929
+progress (w/o context):  90000 / 91990  |time:  740.2333 s |loss (u, t):  2.1901   2.1032
+progress (w/o context):  90000 / 91990  |time:  740.2316 s |loss (u, t):  2.1911   2.102
+progress (w/o context):  90000 / 91990  |time:  740.2677 s |loss (u, t):  2.1918   2.1047
+progress (w/o context):  91000 / 91990  |time:  736.8276 s |loss (u, t):  2.1894   2.0896
+progress (w/o context):  91000 / 91990  |time:  736.8542 s |loss (u, t):  2.1891   2.0806
+progress (w/o context):  91000 / 91990  |time:  736.7831 s |loss (u, t):  2.1834   2.0863
+progress (w/o context):  91000 / 91990  |time:  736.7975 s |loss (u, t):  2.1873   2.0876
+progress (w/o context):  91000 / 91990  |time:  736.8186 s |loss (u, t):  2.1859   2.0833
+progress (w/o context):  91000 / 91990  |time:  736.7989 s |loss (u, t):  2.1894   2.0957
+progress (w/o context):  91000 / 91990  |time:  736.7438 s |loss (u, t):  2.1832   2.0822
+progress (w/o context):  91000 / 91990  |time:  736.8692 s |loss (u, t):  2.1827   2.0864
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 255, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-u', 'src/main.py', '--model_dir', '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', '--tmp_dir', './tmp/xlm_80_simple']' died with <Signals.SIGTERM: 15>.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/accelerate_cli.py", line 41, in main
+    args.func(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 469, in launch_command
+    multi_gpu_launcher(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 229, in multi_gpu_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-m', 'torch.distributed.launch', '--use_env', '--nproc_per_node', '8', 'src/main.py', '--model_dir', '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', '--tmp_dir', './tmp/xlm_80_simple']' returned non-zero exit status 1.
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 443, in ki_mlkg
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/utils.py", line 414, in load_model
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    model.load_state_dict(torch.load(path, map_location='cpu'))
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in load_state_dict
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 443, in ki_mlkg
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 443, in ki_mlkg
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 443, in ki_mlkg
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/utils.py", line 414, in load_model
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/utils.py", line 414, in load_model
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 443, in ki_mlkg
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/utils.py", line 414, in load_model
+    model.load_state_dict(torch.load(path, map_location='cpu'))
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in load_state_dict
+    model.load_state_dict(torch.load(path, map_location='cpu'))
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in load_state_dict
+    model.load_state_dict(torch.load(path, map_location='cpu'))
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(    
+        raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(RuntimeErrorraise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+:     
+
+Error(s) in loading state_dict for MLKGLM:
+	size mismatch for MLLM.embeddings.position_ids: copying a param with shape torch.Size([1, 514]) from checkpoint, the shape in current model is torch.Size([1, 512]).
+	size mismatch for MLLM.embeddings.word_embeddings.weight: copying a param with shape torch.Size([250002, 768]) from checkpoint, the shape in current model is torch.Size([119547, 768]).
+	size mismatch for MLLM.embeddings.position_embeddings.weight: copying a param with shape torch.Size([514, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).
+	size mismatch for MLLM.embeddings.token_type_embeddings.weight: copying a param with shape torch.Size([1, 768]) from checkpoint, the shape in current model is torch.Size([2, 768]).RuntimeErrorload_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))RuntimeError
+RuntimeError: 
+: : Error(s) in loading state_dict for MLKGLM:
+	size mismatch for MLLM.embeddings.position_ids: copying a param with shape torch.Size([1, 514]) from checkpoint, the shape in current model is torch.Size([1, 512]).
+	size mismatch for MLLM.embeddings.word_embeddings.weight: copying a param with shape torch.Size([250002, 768]) from checkpoint, the shape in current model is torch.Size([119547, 768]).
+	size mismatch for MLLM.embeddings.position_embeddings.weight: copying a param with shape torch.Size([514, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).
+	size mismatch for MLLM.embeddings.token_type_embeddings.weight: copying a param with shape torch.Size([1, 768]) from checkpoint, the shape in current model is torch.Size([2, 768]).  File "/cluster/scratch/yifhou/Multilingual_Space/src/utils.py", line 414, in load_model
+Error(s) in loading state_dict for MLKGLM:
+	size mismatch for MLLM.embeddings.position_ids: copying a param with shape torch.Size([1, 514]) from checkpoint, the shape in current model is torch.Size([1, 512]).
+	size mismatch for MLLM.embeddings.word_embeddings.weight: copying a param with shape torch.Size([250002, 768]) from checkpoint, the shape in current model is torch.Size([119547, 768]).
+	size mismatch for MLLM.embeddings.position_embeddings.weight: copying a param with shape torch.Size([514, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).
+	size mismatch for MLLM.embeddings.token_type_embeddings.weight: copying a param with shape torch.Size([1, 768]) from checkpoint, the shape in current model is torch.Size([2, 768]).Error(s) in loading state_dict for MLKGLM:
+	size mismatch for MLLM.embeddings.position_ids: copying a param with shape torch.Size([1, 514]) from checkpoint, the shape in current model is torch.Size([1, 512]).
+	size mismatch for MLLM.embeddings.word_embeddings.weight: copying a param with shape torch.Size([250002, 768]) from checkpoint, the shape in current model is torch.Size([119547, 768]).
+	size mismatch for MLLM.embeddings.position_embeddings.weight: copying a param with shape torch.Size([514, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).
+	size mismatch for MLLM.embeddings.token_type_embeddings.weight: copying a param with shape torch.Size([1, 768]) from checkpoint, the shape in current model is torch.Size([2, 768]).
+
+
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    model.load_state_dict(torch.load(path, map_location='cpu'))
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in load_state_dict
+Traceback (most recent call last):
+      File "src/main.py", line 44, in <module>
+raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for MLKGLM:
+	size mismatch for MLLM.embeddings.position_ids: copying a param with shape torch.Size([1, 514]) from checkpoint, the shape in current model is torch.Size([1, 512]).
+	size mismatch for MLLM.embeddings.word_embeddings.weight: copying a param with shape torch.Size([250002, 768]) from checkpoint, the shape in current model is torch.Size([119547, 768]).
+	size mismatch for MLLM.embeddings.position_embeddings.weight: copying a param with shape torch.Size([514, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).
+	size mismatch for MLLM.embeddings.token_type_embeddings.weight: copying a param with shape torch.Size([1, 768]) from checkpoint, the shape in current model is torch.Size([2, 768]).
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 443, in ki_mlkg
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 443, in ki_mlkg
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/utils.py", line 414, in load_model
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/utils.py", line 414, in load_model
+    model.load_state_dict(torch.load(path, map_location='cpu'))
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for MLKGLM:
+	size mismatch for MLLM.embeddings.position_ids: copying a param with shape torch.Size([1, 514]) from checkpoint, the shape in current model is torch.Size([1, 512]).
+	size mismatch for MLLM.embeddings.word_embeddings.weight: copying a param with shape torch.Size([250002, 768]) from checkpoint, the shape in current model is torch.Size([119547, 768]).
+	size mismatch for MLLM.embeddings.position_embeddings.weight: copying a param with shape torch.Size([514, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).
+	size mismatch for MLLM.embeddings.token_type_embeddings.weight: copying a param with shape torch.Size([1, 768]) from checkpoint, the shape in current model is torch.Size([2, 768]).
+    model.load_state_dict(torch.load(path, map_location='cpu'))
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for MLKGLM:
+	size mismatch for MLLM.embeddings.position_ids: copying a param with shape torch.Size([1, 514]) from checkpoint, the shape in current model is torch.Size([1, 512]).
+	size mismatch for MLLM.embeddings.word_embeddings.weight: copying a param with shape torch.Size([250002, 768]) from checkpoint, the shape in current model is torch.Size([119547, 768]).
+	size mismatch for MLLM.embeddings.position_embeddings.weight: copying a param with shape torch.Size([514, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).
+	size mismatch for MLLM.embeddings.token_type_embeddings.weight: copying a param with shape torch.Size([1, 768]) from checkpoint, the shape in current model is torch.Size([2, 768]).
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 443, in ki_mlkg
+    load_model(model_mlkg, os.path.join(args.tmp_dir, "pytorch_model_wocontext.bin"))
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/utils.py", line 414, in load_model
+    model.load_state_dict(torch.load(path, map_location='cpu'))
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for MLKGLM:
+	size mismatch for MLLM.embeddings.position_ids: copying a param with shape torch.Size([1, 514]) from checkpoint, the shape in current model is torch.Size([1, 512]).
+	size mismatch for MLLM.embeddings.word_embeddings.weight: copying a param with shape torch.Size([250002, 768]) from checkpoint, the shape in current model is torch.Size([119547, 768]).
+	size mismatch for MLLM.embeddings.position_embeddings.weight: copying a param with shape torch.Size([514, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).
+	size mismatch for MLLM.embeddings.token_type_embeddings.weight: copying a param with shape torch.Size([1, 768]) from checkpoint, the shape in current model is torch.Size([2, 768]).
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 255, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-u', 'src/main.py', '--model_dir', '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', '--tmp_dir', './tmp/xlm_80_simple']' returned non-zero exit status 1.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/accelerate_cli.py", line 41, in main
+    args.func(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 469, in launch_command
+    multi_gpu_launcher(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 229, in multi_gpu_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-m', 'torch.distributed.launch', '--use_env', '--nproc_per_node', '8', 'src/main.py', '--model_dir', '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', '--tmp_dir', './tmp/xlm_80_simple']' returned non-zero exit status 1.
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (w context):  progress (w context): 1000  1000/  /18920  18920 |time:    |time: 3601.726  3601.7302s |loss (u, t):   s |loss (u, t): 2.4676  2.4622    2.8473 
+2.84
+progress (w context):  1000 / 18920  |time:  3601.8611 s |loss (u, t):  2.4684   2.8544
+progress (w context):  1000 / 18920  |time:  3602.189 s |loss (u, t):  2.457   2.8538
+progress (w context):  1000 / 18920  |time:  3602.3859 s |loss (u, t):  2.4759   2.8563
+progress (w context):  1000 / 18920  |time:  3602.4878 s |loss (u, t):  2.4723   2.8513
+progress (w context):  1000 / 18920  |time:  3603.0008 s |loss (u, t):  2.4773   2.8455
+progress (w context):  1000 / 18920  |time:  3603.0725 s |loss (u, t):  2.4659   2.8348
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 255, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-u', 'src/main.py', '--model_dir', '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', '--tmp_dir', './tmp/xlm_80_simple']' died with <Signals.SIGTERM: 15>.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/accelerate_cli.py", line 41, in main
+    args.func(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 469, in launch_command
+    multi_gpu_launcher(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 229, in multi_gpu_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-m', 'torch.distributed.launch', '--use_env', '--nproc_per_node', '8', 'src/main.py', '--model_dir', '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', '--tmp_dir', './tmp/xlm_80_simple']' returned non-zero exit status 1.
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (w context):  1000 / 18920  |time:  3602.8002 s |loss (u, t):  2.4685   2.8586
+progress (w context):  1000 / 18920  |time:  3603.1611 s |loss (u, t):  2.4568   2.8363
+progress (w context):  1000 / 18920  |time:  3603.2304 s |loss (u, t):  2.4682   2.8472
+progress (w context):  1000 / 18920  |time:  3603.5376 s |loss (u, t):  2.4664   2.8566
+progress (w context):  1000 / 18920  |time:  3604.1523 s |loss (u, t):  2.466   2.8451
+progress (w context):  1000 / 18920  |time:  3604.175 s |loss (u, t):  2.4734   2.8519
+progress (w context):  1000 / 18920  |time:  3604.1931 s |loss (u, t):  2.4623   2.8535
+progress (w context):  1000 / 18920  |time:  3604.1958 s |loss (u, t):  2.4678   2.8457
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 255, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-u', 'src/main.py', '--model_dir', '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', '--tmp_dir', './tmp/xlm_80_simple']' died with <Signals.SIGTERM: 15>.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/accelerate_cli.py", line 41, in main
+    args.func(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 469, in launch_command
+    multi_gpu_launcher(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 229, in multi_gpu_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-m', 'torch.distributed.launch', '--use_env', '--nproc_per_node', '8', 'src/main.py', '--model_dir', '/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', '--tmp_dir', './tmp/xlm_80_simple']' returned non-zero exit status 1.
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', neg_num=8, patience=10, tmp_dir='./tmp/xlm_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (w context):  1000 / 18920  |time:  3602.9743 s |loss (u, t):  2.4542   2.8463
+progress (w context):  1000 / 18920  |time:  3603.3178 s |loss (u, t):  2.4644   2.8597
+progress (w context):  1000 / 18920  |time:  3603.6922 s |loss (u, t):  2.4629   2.8556
+progress (w context):  1000 / 18920  |time:  3604.1117 s |loss (u, t):  2.4716   2.8411
+progress (w context):  1000 / 18920  |time:  3604.1785 s |loss (u, t):  2.4702   2.8588
+progress (w context):  1000 / 18920  |time:  3604.1818 s |loss (u, t):  2.4705   2.8591
+progress (w context):  1000 / 18920  |time:  3604.1851 s |loss (u, t):  2.4555   2.839
+progress (w context):  1000 / 18920  |time:  3604.2133 s |loss (u, t):  2.4624   2.8412
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************

@@ -1,0 +1,68 @@
+Namespace(adam_epsilon=1e-06, batch_num=50, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=7, epoch=10, lm_lr=1e-06, lr=1e-06, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/', model_name='XLM-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlm_80/final_v3.pt', neg_num=1, patience=2, tmp_dir='./tmp/checkpoints', weight_decay=0.005)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/ were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base/ were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+----KGC: loss:  1.3522 | val hit@1:  0.0509 hit@10:  0.1843
+KGC: [ el ] | test hit@1:  0.0629 hit@10:  0.3441
+KGC: [ en ] | test hit@1:  0.0757 hit@10:  0.2063
+KGC: [ es ] | test hit@1:  0.0842 hit@10:  0.2667
+KGC: [ fr ] | test hit@1:  0.1477 hit@10:  0.3011
+KGC: [ ja ] | test hit@1:  0.166 hit@10:  0.2979
+----KGC: loss:  0.9016 | val hit@1:  0.0367 hit@10:  0.2161
+KGC: [ el ] | test hit@1:  0.0521 hit@10:  0.3373
+KGC: [ en ] | test hit@1:  0.0789 hit@10:  0.2251
+KGC: [ es ] | test hit@1:  0.0424 hit@10:  0.28
+KGC: [ fr ] | test hit@1:  0.1443 hit@10:  0.304
+KGC: [ ja ] | test hit@1:  0.0967 hit@10:  0.2993
+----KGC: loss:  0.8564 | val hit@1:  0.058 hit@10:  0.2023
+KGC: [ el ] | test hit@1:  0.0728 hit@10:  0.3324
+KGC: [ en ] | test hit@1:  0.0805 hit@10:  0.2051
+KGC: [ es ] | test hit@1:  0.1239 hit@10:  0.2751
+KGC: [ fr ] | test hit@1:  0.1225 hit@10:  0.2894
+KGC: [ ja ] | test hit@1:  0.1628 hit@10:  0.2798
+----KGC: loss:  0.9126 | val hit@1:  0.049 hit@10:  0.2014
+KGC: [ el ] | test hit@1:  0.1298 hit@10:  0.3471
+KGC: [ en ] | test hit@1:  0.0693 hit@10:  0.224
+KGC: [ es ] | test hit@1:  0.0877 hit@10:  0.3069
+KGC: [ fr ] | test hit@1:  0.1237 hit@10:  0.3237
+KGC: [ ja ] | test hit@1:  0.1018 hit@10:  0.2761
+----KGC: loss:  0.8537 | val hit@1:  0.061 hit@10:  0.2097
+KGC: [ el ] | test hit@1:  0.0934 hit@10:  0.3953
+KGC: [ en ] | test hit@1:  0.0705 hit@10:  0.2499
+KGC: [ es ] | test hit@1:  0.1137 hit@10:  0.317
+KGC: [ fr ] | test hit@1:  0.146 hit@10:  0.3241
+KGC: [ ja ] | test hit@1:  0.1721 hit@10:  0.2923
+----KGC: loss:  0.8828 | val hit@1:  0.0533 hit@10:  0.2276
+KGC: [ el ] | test hit@1:  0.1495 hit@10:  0.3894
+KGC: [ en ] | test hit@1:  0.0674 hit@10:  0.257
+KGC: [ es ] | test hit@1:  0.0973 hit@10:  0.3316
+KGC: [ fr ] | test hit@1:  0.1561 hit@10:  0.3608
+KGC: [ ja ] | test hit@1:  0.154 hit@10:  0.3016
+----KGC: loss:  0.8522 | val hit@1:  0.0406 hit@10:  0.193
+KGC: [ el ] | test hit@1:  0.1495 hit@10:  0.3697
+KGC: [ en ] | test hit@1:  0.0513 hit@10:  0.2371
+KGC: [ es ] | test hit@1:  0.0401 hit@10:  0.2985
+KGC: [ fr ] | test hit@1:  0.1287 hit@10:  0.3186
+KGC: [ ja ] | test hit@1:  0.167 hit@10:  0.2909
+----KGC: loss:  1.0572 | val hit@1:  0.0478 hit@10:  0.1924
+KGC: [ el ] | test hit@1:  0.1131 hit@10:  0.3894
+KGC: [ en ] | test hit@1:  0.0602 hit@10:  0.216
+KGC: [ es ] | test hit@1:  0.1096 hit@10:  0.2719
+KGC: [ fr ] | test hit@1:  0.1278 hit@10:  0.2992
+KGC: [ ja ] | test hit@1:  0.1577 hit@10:  0.2808
+----KGC: loss:  1.4184 | val hit@1:  0.0 hit@10:  0.0009
+KGC: [ el ] | test hit@1:  0.0039 hit@10:  0.0206
+KGC: [ en ] | test hit@1:  0.0 hit@10:  0.0027
+KGC: [ es ] | test hit@1:  0.0012 hit@10:  0.0054
+KGC: [ fr ] | test hit@1:  0.0005 hit@10:  0.007
+KGC: [ ja ] | test hit@1:  0.0023 hit@10:  0.0106
+----KGC: loss:  3.614 | val hit@1:  0.0 hit@10:  0.0016
+KGC: [ el ] | test hit@1:  0.0029 hit@10:  0.0177
+KGC: [ en ] | test hit@1:  0.0004 hit@10:  0.0033
+KGC: [ es ] | test hit@1:  0.0008 hit@10:  0.0077
+KGC: [ fr ] | test hit@1:  0.001 hit@10:  0.0074
+KGC: [ ja ] | test hit@1:  0.0014 hit@10:  0.0134
+The performance (hit@1, hit@10) of language [ ja ] is:  [0.28084415584415584, 0.1561, 0.3608]

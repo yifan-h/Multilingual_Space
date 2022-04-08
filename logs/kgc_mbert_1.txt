@@ -1,0 +1,68 @@
+Namespace(adam_epsilon=1e-06, batch_num=50, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=1, epoch=10, lm_lr=1e-06, lr=1e-06, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', model_name='mBERT', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_80/final_v3.pt', neg_num=1, patience=2, tmp_dir='./tmp/checkpoints', weight_decay=0.005)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+----KGC: loss:  0.9225 | val hit@1:  0.084 hit@10:  0.2856
+KGC: [ el ] | test hit@1:  0.1622 hit@10:  0.4366
+KGC: [ en ] | test hit@1:  0.1172 hit@10:  0.3663
+KGC: [ es ] | test hit@1:  0.1445 hit@10:  0.4116
+KGC: [ fr ] | test hit@1:  0.1765 hit@10:  0.4342
+KGC: [ ja ] | test hit@1:  0.1693 hit@10:  0.3525
+----KGC: loss:  0.5523 | val hit@1:  0.0784 hit@10:  0.3142
+KGC: [ el ] | test hit@1:  0.1259 hit@10:  0.4789
+KGC: [ en ] | test hit@1:  0.1188 hit@10:  0.381
+KGC: [ es ] | test hit@1:  0.1555 hit@10:  0.4389
+KGC: [ fr ] | test hit@1:  0.1916 hit@10:  0.4757
+KGC: [ ja ] | test hit@1:  0.179 hit@10:  0.3908
+----KGC: loss:  0.4634 | val hit@1:  0.0801 hit@10:  0.3476
+KGC: [ el ] | test hit@1:  0.1386 hit@10:  0.4739
+KGC: [ en ] | test hit@1:  0.115 hit@10:  0.4268
+KGC: [ es ] | test hit@1:  0.1202 hit@10:  0.4769
+KGC: [ fr ] | test hit@1:  0.1458 hit@10:  0.5037
+KGC: [ ja ] | test hit@1:  0.1827 hit@10:  0.4061
+----KGC: loss:  0.4148 | val hit@1:  0.1032 hit@10:  0.3782
+KGC: [ el ] | test hit@1:  0.1622 hit@10:  0.5074
+KGC: [ en ] | test hit@1:  0.1365 hit@10:  0.4487
+KGC: [ es ] | test hit@1:  0.1738 hit@10:  0.4823
+KGC: [ fr ] | test hit@1:  0.2119 hit@10:  0.5318
+KGC: [ ja ] | test hit@1:  0.1762 hit@10:  0.4278
+----KGC: loss:  0.3762 | val hit@1:  0.0999 hit@10:  0.378
+KGC: [ el ] | test hit@1:  0.1475 hit@10:  0.5025
+KGC: [ en ] | test hit@1:  0.1405 hit@10:  0.4496
+KGC: [ es ] | test hit@1:  0.1746 hit@10:  0.4975
+KGC: [ fr ] | test hit@1:  0.2199 hit@10:  0.5387
+KGC: [ ja ] | test hit@1:  0.191 hit@10:  0.4366
+----KGC: loss:  0.3435 | val hit@1:  0.1021 hit@10:  0.3687
+KGC: [ el ] | test hit@1:  0.1377 hit@10:  0.5182
+KGC: [ en ] | test hit@1:  0.1446 hit@10:  0.4626
+KGC: [ es ] | test hit@1:  0.1784 hit@10:  0.506
+KGC: [ fr ] | test hit@1:  0.2115 hit@10:  0.5394
+KGC: [ ja ] | test hit@1:  0.1947 hit@10:  0.4436
+----KGC: loss:  0.3212 | val hit@1:  0.0984 hit@10:  0.3743
+KGC: [ el ] | test hit@1:  0.1681 hit@10:  0.5172
+KGC: [ en ] | test hit@1:  0.1279 hit@10:  0.4433
+KGC: [ es ] | test hit@1:  0.1734 hit@10:  0.5067
+KGC: [ fr ] | test hit@1:  0.2242 hit@10:  0.5464
+KGC: [ ja ] | test hit@1:  0.1915 hit@10:  0.4357
+----KGC: loss:  0.3217 | val hit@1:  0.1008 hit@10:  0.3793
+KGC: [ el ] | test hit@1:  0.1711 hit@10:  0.5044
+KGC: [ en ] | test hit@1:  0.1444 hit@10:  0.4535
+KGC: [ es ] | test hit@1:  0.1728 hit@10:  0.5058
+KGC: [ fr ] | test hit@1:  0.2155 hit@10:  0.544
+KGC: [ ja ] | test hit@1:  0.1859 hit@10:  0.4209
+----KGC: loss:  0.3076 | val hit@1:  0.0877 hit@10:  0.3582
+KGC: [ el ] | test hit@1:  0.1662 hit@10:  0.5172
+KGC: [ en ] | test hit@1:  0.1099 hit@10:  0.4417
+KGC: [ es ] | test hit@1:  0.1422 hit@10:  0.4985
+KGC: [ fr ] | test hit@1:  0.1932 hit@10:  0.5471
+KGC: [ ja ] | test hit@1:  0.1767 hit@10:  0.4052
+----KGC: loss:  0.3078 | val hit@1:  0.1036 hit@10:  0.3908
+KGC: [ el ] | test hit@1:  0.1701 hit@10:  0.529
+KGC: [ en ] | test hit@1:  0.1372 hit@10:  0.4677
+KGC: [ es ] | test hit@1:  0.1484 hit@10:  0.5208
+KGC: [ fr ] | test hit@1:  0.2151 hit@10:  0.5586
+KGC: [ ja ] | test hit@1:  0.1818 hit@10:  0.4339
+The performance (hit@1, hit@10) of language [ ja ] is:  [0.49439197166469895, 0.2151, 0.5586]

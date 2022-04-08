@@ -1,0 +1,1421 @@
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (w/o context):  1000 / 91990  |time:  823.9115 s |loss (u, t):  1.5602   2.5226
+progress (w/o context):  1000 / 91990  |time:  823.9269 s |loss (u, t):  1.5627   2.533
+progress (w/o context):  1000 / 91990  |time:  823.9502 s |loss (u, t):  1.5611   2.5157
+progress (w/o context):  1000 / 91990  |time:  823.955 s |loss (u, t):  1.5627   2.5241
+progress (w/o context):  1000 / 91990  |time:  823.9555 s |loss (u, t):  1.5653   2.5218
+progress (w/o context):  1000 / 91990  |time:  823.9542 s |loss (u, t):  1.5583   2.5125
+progress (w/o context):  1000 / 91990  |time:  823.9691 s |loss (u, t):  1.5614   2.5186
+progress (w/o context):  1000 / 91990  |time:  823.9821 s |loss (u, t):  1.5633   2.5231
+progress (w/o context):  2000 / 91990  |time:  822.5693 s |loss (u, t):  1.1107   1.6357
+progress (w/o context):  2000 / 91990  |time:  822.5872 s |loss (u, t):  1.113   1.6479
+progress (w/o context):  2000 / 91990  |time:  822.6389 s |loss (u, t):  1.1145   1.6531
+progress (w/o context):  2000 / 91990  |time:  822.6027 s |loss (u, t):  1.1102   1.6474
+progress (w/o context):  2000 / 91990  |time:  822.6331 s |loss (u, t):  1.1159   1.6396
+progress (w/o context):  2000 / 91990  |time:  822.6464 s |loss (u, t):  1.1167   1.634
+progress (w/o context):  2000 / 91990  |time:  822.6191 s |loss (u, t):  1.1172   1.6629
+progress (w/o context):  2000 / 91990  |time:  822.6629 s |loss (u, t):  1.1092   1.6494
+progress (w/o context):  3000 / 91990  |time:  822.6861 s |loss (u, t):  0.954   1.3456
+progress (w/o context):  3000 / 91990  |time:  822.8154 s |loss (u, t):  0.9502   1.3476
+progress (w/o context):  3000 / 91990  |time:  822.7972 s |loss (u, t):  0.9525   1.3482
+progress (w/o context):  3000 / 91990  |time:  822.7702 s |loss (u, t):  0.949   1.3493
+progress (w/o context):  3000 / 91990  |time:  822.8634 s |loss (u, t):  0.948   1.3473
+progress (w/o context):  3000 / 91990  |time:  822.8663 s |loss (u, t):  0.9503   1.344
+progress (w/o context):  3000 / 91990  |time:  822.8221 s |loss (u, t):  0.9515   1.3612
+progress (w/o context):  3000 / 91990  |time:  823.1642 s |loss (u, t):  0.9534   1.3563
+progress (w/o context):  4000 progress (w/o context): /  400091990   |time:  / 91990  |time: 819.4486  s |loss (u, t):  0.841819.5238   s |loss (u, t):   1.16410.8374
+   1.166
+progress (w/o context):  4000 / 91990  |time:  819.4244 s |loss (u, t):  0.8344   1.1619
+progress (w/o context):  4000 / 91990  |time:  819.5996 s |loss (u, t):  0.835   1.1595
+progress (w/o context):  4000 / 91990  |time:  819.5573 s |loss (u, t):  0.8398   1.171
+progress (w/o context):  4000 / 91990  |time:  819.1895 s |loss (u, t):  0.8341   1.1694
+progress (w/o context):  4000 / 91990  |time:  819.5559 s |loss (u, t):  0.8342   1.1608
+progress (w/o context):  4000 / 91990  |time:  819.656 s |loss (u, t):  0.8359   1.1696
+progress (w/o context):  5000 / 91990  |time:  818.5628 s |loss (u, t):  0.7471   1.0105
+progress (w/o context):  5000 / 91990  |time:  818.7464 s |loss (u, t):  0.7461   1.0111
+progress (w/o context):  5000 / 91990  |time:  818.7925 s |loss (u, t):  0.7455   1.0173
+progress (w/o context):  5000 / 91990  |time:  818.8469 s |loss (u, t):  0.7464   1.0179
+progress (w/o context):  5000 / 91990  |time:  818.9445 s |loss (u, t):  0.7475   1.0232
+progress (w/o context):  5000 / 91990  |time:  818.9743 s |loss (u, t):  0.7453   1.0214
+progress (w/o context):  5000 / 91990  |time:  818.9773 s |loss (u, t):  0.7445   1.023
+progress (w/o context):  5000 / 91990  |time:  818.9444 s |loss (u, t):  0.7459   1.0173
+progress (w/o context):  6000 / 91990  |time:  811.1417 s |loss (u, t):  0.6777   0.9044
+progress (w/o context):  6000 / 91990  |time:  811.1393 s |loss (u, t):  0.6758   0.904
+progress (w/o context):  6000 / 91990  |time:  811.1713 s |loss (u, t):  0.6781   0.9051
+progress (w/o context):  6000 / 91990  |time:  811.4522 s |loss (u, t):  0.6838   0.8982
+progress (w/o context):  6000 / 91990  |time:  811.4571 s |loss (u, t):  0.6855   0.9009
+progress (w/o context):  6000 / 91990  |time:  811.4487 s |loss (u, t):  0.6823   0.9015
+progress (w/o context):  6000 / 91990  |time:  811.507 s |loss (u, t):  0.6821   0.9
+progress (w/o context):  6000 / 91990  |time:  811.3776 s |loss (u, t):  0.6834   0.9018
+progress (w/o context):  7000 / 91990  |time:  808.84 s |loss (u, t):  0.6315   0.8139
+progress (w/o context):  7000 / 91990  |time:  808.7696 s |loss (u, t):  0.6336   0.8274
+progress (w/o context):  7000 / 91990  |time:  808.7139 s |loss (u, t):  0.6315   0.8234
+progress (w/o context):  7000 / 91990  |time:  808.8613 s |loss (u, t):  0.6279   0.8266
+progress (w/o context):  7000 / 91990  |time:  808.9445 s |loss (u, t):  0.6293   0.8175
+progress (w/o context):  7000 / 91990  |time:  808.8149 s |loss (u, t):  0.6295   0.8241
+progress (w/o context):  7000 / 91990  |time:  808.8754 s |loss (u, t):  0.6289   0.8239
+progress (w/o context):  7000 / 91990  |time:  808.9202 s |loss (u, t):  0.6338   0.824
+progress (w/o context):  8000 / 91990  |time:  814.3905 s |loss (u, t):  0.5999   0.7738
+progress (w/o context):  8000 / 91990  |time:  814.3817 s |loss (u, t):  0.601   0.7668
+progress (w/o context):  8000 / 91990  |time:  814.1174 s |loss (u, t):  0.5959   0.7616
+progress (w/o context):  8000 / 91990  |time:  814.3157 s |loss (u, t):  0.6014   0.768
+progress (w/o context):  8000 / 91990  |time:  814.4006 s |loss (u, t):  0.5994   0.7671
+progress (w/o context):  8000 / 91990  |time:  814.3194 s |loss (u, t):  0.5975   0.7738
+progress (w/o context): progress (w/o context):   80008000  //  9199091990   |time:  |time:   814.3385 814.443s |loss (u, t):   s |loss (u, t): 0.5987  0.6014    0.7688 
+0.767
+progress (w/o context):  9000 / 91990  |time:  809.7007 s |loss (u, t):  0.5745   0.7171
+progress (w/o context):  9000 / 91990  |time:  809.6654 s |loss (u, t):  0.5692   0.7243
+progress (w/o context):  9000 / 91990  |time:  809.7401 s |loss (u, t):  0.5678   0.7172
+progress (w/o context):  9000 / 91990  |time:  809.7099 s |loss (u, t):  0.5783   0.7161
+progress (w/o context):  9000 / 91990  |time:  809.6647 s |loss (u, t):  0.5695   0.7204
+progress (w/o context):  9000 / 91990  |time:  809.6698 s |loss (u, t):  0.5698   0.7243
+progress (w/o context):  9000 / 91990  |time:  809.7208 s |loss (u, t):  0.5736   0.7224
+progress (w/o context):  9000 / 91990  |time:  809.7294 s |loss (u, t):  0.5695   0.7191
+progress (w/o context):  10000 / 91990  |time:  909.3922 s |loss (u, t):  0.5469   0.6865
+progress (w/o context):  10000 / 91990  |time:  909.4508 s |loss (u, t):  0.5463   0.689
+progress (w/o context):  10000 / 91990  |time:  909.4511 s |loss (u, t):  0.5441   0.688
+progress (w/o context):  10000 / 91990  |time:  909.4458 s |loss (u, t):  0.5451   0.6896
+progress (w/o context):  10000 / 91990  |time:  909.4783 s |loss (u, t):  0.5451   0.6905
+progress (w/o context):  10000 / 91990  |time:  909.4462 s |loss (u, t):  0.5456   0.6921
+progress (w/o context):  10000 / 91990  |time:  909.4749 s |loss (u, t):  0.5484   0.6871
+progress (w/o context):  10000 / 91990  |time:  909.5222 s |loss (u, t):  0.545   0.6918
+progress (w/o context):  11000 / 91990  |time:  789.4013 s |loss (u, t):  0.5231   0.6557
+progress (w/o context):  11000 / 91990  |time:  789.4845 s |loss (u, t):  0.5246   0.6596
+progress (w/o context): progress (w/o context):   1100011000  / /91990  91990 |time:    |time:  789.4715 s |loss (u, t):  789.41050.5304  s |loss (u, t):    0.53130.6584   
+0.6568
+progress (w/o context):  11000 / 91990  |time:  789.551 s |loss (u, t):  0.5238   0.6548
+progress (w/o context):  11000 / 91990  |time:  789.6073 s |loss (u, t):  0.5278   0.6571
+progress (w/o context):  11000 / 91990  |time:  789.656 s |loss (u, t):  0.5328   0.6522
+progress (w/o context):  11000 / 91990  |time:  789.752 s |loss (u, t):  0.5272   0.656
+progress (w/o context):  12000 / 91990  |time:  799.5524 s |loss (u, t):  0.5118   0.637
+progress (w/o context):  12000 / 91990  |time:  799.3304 s |loss (u, t):  0.5132   0.6371
+progress (w/o context):  12000 / 91990  |time:  799.4684 s |loss (u, t):  0.5097   0.6358
+progress (w/o context):  12000 / 91990  |time:  799.5513 s |loss (u, t):  0.5087   0.6354
+progress (w/o context):  12000 / 91990  |time:  799.6521 s |loss (u, t):  0.5101   0.6385
+progress (w/o context):  12000 / 91990  |time:  799.7137 s |loss (u, t):  0.5092   0.6387
+progress (w/o context):  12000 / 91990  |time:  799.6823 s |loss (u, t):  0.5079   0.6379
+progress (w/o context):  12000 / 91990  |time:  799.6873 s |loss (u, t):  0.5154   0.6403
+progress (w/o context):  13000 / 91990  |time:  789.846 s |loss (u, t):  0.4937   0.607
+progress (w/o context):  13000 / 91990  |time:  789.8724 s |loss (u, t):  0.4948   0.6124
+progress (w/o context):  13000 / 91990  |time:  789.7075 s |loss (u, t):  0.4957   0.6077
+progress (w/o context):  13000 / 91990  |time:  789.8708 s |loss (u, t):  0.4958   0.6142
+progress (w/o context):  13000 / 91990  |time:  790.0051 s |loss (u, t):  0.4978   0.6164
+progress (w/o context):  13000 / 91990  |time:  789.9532 s |loss (u, t):  0.4968   0.6127
+progress (w/o context):  13000 / 91990  |time:  790.1234 s |loss (u, t):  0.4982   0.6126
+progress (w/o context):  13000 / 91990  |time:  790.0899 s |loss (u, t):  0.497   0.6147
+progress (w/o context):  14000 / 91990  |time:  786.88 s |loss (u, t):  0.4847   0.6028
+progress (w/o context):  14000 / 91990  |time:  786.8488 s |loss (u, t):  0.486   0.5994
+progress (w/o context):  14000 / 91990  |time:  786.8761 s |loss (u, t):  0.4845   0.6001
+progress (w/o context):  14000 / 91990  |time:  786.9297 s |loss (u, t):  0.4857   0.6028
+progress (w/o context):  14000 / 91990  |time:  786.8815 s |loss (u, t):  0.4858   0.5969
+progress (w/o context):  14000 / 91990  |time:  786.7992 s |loss (u, t):  0.4877   0.5993
+progress (w/o context):  14000 / 91990  |time:  787.0178 s |loss (u, t):  0.4867   0.5993
+progress (w/o context):  14000 / 91990  |time:  786.9452 s |loss (u, t):  0.4895   0.6005
+progress (w/o context):  15000 / 91990  |time:  790.1577 s |loss (u, t):  0.4752   0.5775
+progress (w/o context):  15000 / 91990  |time:  790.1595 s |loss (u, t):  0.4742   0.5765
+progress (w/o context):  15000 / 91990  |time:  790.0817 s |loss (u, t):  0.4695   0.5755
+progress (w/o context):  15000 / 91990  |time:  790.1931 s |loss (u, t):  0.4753   0.5756
+progress (w/o context):  15000 / 91990  |time:  790.098 s |loss (u, t):  0.4789   0.5746
+progress (w/o context):  15000 / 91990  |time:  790.2564 s |loss (u, t):  0.4749   0.5724
+progress (w/o context):  15000 / 91990  |time:  790.0776 s |loss (u, t):  0.4754   0.571
+progress (w/o context):  15000 / 91990  |time:  790.3364 s |loss (u, t):  0.4769   0.5703
+progress (w/o context):  16000 / 91990  |time:  791.0756 s |loss (u, t):  0.4599   0.5593
+progress (w/o context):  16000 / 91990  |time:  791.1344 s |loss (u, t):  0.4606   0.5618
+progress (w/o context):  16000 / 91990  |time:  791.1809 s |loss (u, t):  0.4638   0.556
+progress (w/o context):  16000 / 91990  |time:  791.2095 s |loss (u, t):  0.4619   0.5602
+progress (w/o context):  16000 / 91990  |time:  791.056 s |loss (u, t):  0.4594   0.5614
+progress (w/o context):  16000 / 91990  |time:  791.2154 s |loss (u, t):  0.4569   0.5618
+progress (w/o context):  16000 / 91990  |time:  791.1367 s |loss (u, t):  0.4552   0.5608
+progress (w/o context):  16000 / 91990  |time:  791.2824 s |loss (u, t):  0.4561   0.5635
+progress (w/o context):  17000 / 91990  |time:  801.1538 s |loss (u, t):  0.4554   0.5504
+progress (w/o context):  17000 / 91990  |time:  801.1497 s |loss (u, t):  0.4551   0.5434
+progress (w/o context):  17000 / 91990  |time:  801.2194 s |loss (u, t):  0.4586   0.5469
+progress (w/o context):  17000 / 91990  |time:  801.2154 s |loss (u, t):  0.4573   0.5501
+progress (w/o context):  17000 / 91990  |time:  801.2698 s |loss (u, t):  0.4569   0.5504
+progress (w/o context):  17000 / 91990  |time:  801.2716 s |loss (u, t):  0.4558   0.5494
+progress (w/o context):  17000 / 91990  |time:  801.2983 s |loss (u, t):  0.4563   0.5466
+progress (w/o context):  17000 / 91990  |time:  801.3239 s |loss (u, t):  0.4536   0.5498
+progress (w/o context):  18000 / 91990  |time:  791.1709 s |loss (u, t):  0.448   0.542
+progress (w/o context):  18000 / 91990  |time:  791.1441 s |loss (u, t):  0.4505   0.5399
+progress (w/o context):  18000 / 91990  |time:  791.0955 s |loss (u, t):  0.4476   0.5335
+progress (w/o context):  18000 / 91990  |time:  791.1976 s |loss (u, t):  0.4498   0.5376
+progress (w/o context):  18000 / 91990  |time:  791.206 s |loss (u, t):  0.4486   0.5346
+progress (w/o context):  18000 / 91990  |time:  791.2058 s |loss (u, t):  0.4461   0.5373
+progress (w/o context):  18000 / 91990  |time:  791.1849 s |loss (u, t):  0.4498   0.5367
+progress (w/o context):  18000 / 91990  |time:  791.3934 s |loss (u, t):  0.448   0.5404
+progress (w/o context):  19000 / 91990  |time:  900.1089 s |loss (u, t):  0.4342   0.5292
+progress (w/o context):  19000 / 91990  |time:  900.1121 s |loss (u, t):  0.4397   0.5325
+progress (w/o context):  19000 / 91990  |time:  900.0777 s |loss (u, t):  0.4372   0.5268
+progress (w/o context):  19000 / 91990  |time:  900.1195 s |loss (u, t):  0.4316   0.5273
+progress (w/o context):  19000 / 91990  |time:  900.0134 s |loss (u, t):  0.4358   0.5289
+progress (w/o context):  19000 / 91990  |time:  900.1755 s |loss (u, t):  0.4371   0.5276
+progress (w/o context):  19000 / 91990  |time:  900.1383 s |loss (u, t):  0.438   0.5264
+progress (w/o context):  19000 / 91990  |time:  900.1399 s |loss (u, t):  0.437   0.5252
+progress (w/o context):  20000 / 91990  |time:  780.6059 s |loss (u, t):  0.4302   0.5155
+progress (w/o context):  20000 / 91990  |time:  780.745 s |loss (u, t):  0.4285   0.5133
+progress (w/o context):  20000 / 91990  |time:  780.6546 s |loss (u, t):  0.4324   0.5149
+progress (w/o context):  20000 / 91990  |time:  780.7169 s |loss (u, t):  0.434   0.5045
+progress (w/o context):  20000 / 91990  |time:  780.7088 s |loss (u, t):  0.429   0.5109
+progress (w/o context):  20000 / 91990  |time:  780.6577 s |loss (u, t):  0.4313   0.5066
+progress (w/o context):  20000 / 91990  |time:  780.7184 s |loss (u, t):  0.4348   0.5149
+progress (w/o context):  20000 / 91990  |time:  780.7037 s |loss (u, t):  0.4305   0.5111
+progress (w/o context):  21000 progress (w/o context): /  9199021000   |time:  /774.4837  91990s |loss (u, t):    |time: 0.4242    0.5062774.4398
+ s |loss (u, t):  0.4225   0.5073
+progress (w/o context):  21000 / 91990  |time:  774.6074 s |loss (u, t):  0.4237   0.5083
+progress (w/o context):  21000 / 91990  |time:  774.5307 s |loss (u, t):  0.4271   0.5024
+progress (w/o context):  21000 / 91990  |time:  774.5382 s |loss (u, t):  0.4253   0.5062
+progress (w/o context):  21000 / 91990  |time:  774.5585 s |loss (u, t):  0.4258   0.5131
+progress (w/o context):  21000 / 91990  |time:  774.5937 s |loss (u, t):  0.427   0.5063
+progress (w/o context):  21000 / 91990  |time:  774.6704 s |loss (u, t):  0.4244   0.5082
+progress (w/o context):  22000 / 91990  |time:  780.0591 s |loss (u, t):  0.4189   0.4962
+progress (w/o context):  22000 / 91990  |time:  780.0771 s |loss (u, t):  0.4152   0.4917
+progress (w/o context):  22000 / 91990  |time:  779.9453 s |loss (u, t):  0.4136   0.4921
+progress (w/o context):  22000 / 91990  |time:  780.0276 s |loss (u, t):  0.4167   0.491
+progress (w/o context):  22000 / 91990  |time:  780.0591 s |loss (u, t):  0.4162   0.4931
+progress (w/o context):  22000 / 91990  |time:  780.1575 s |loss (u, t):  0.4207   0.4942
+progress (w/o context):  22000 / 91990  |time:  780.1897 s |loss (u, t):  0.4161   0.4941
+progress (w/o context):  22000 / 91990  |time:  780.1896 s |loss (u, t):  0.4139   0.4938
+progress (w/o context):  23000 / 91990  |time:  780.5183 s |loss (u, t):  0.415   0.4882
+progress (w/o context):  23000 / 91990  |time:  780.6204 s |loss (u, t):  0.4131   0.4927
+progress (w/o context):  23000 / 91990  |time:  780.6831 s |loss (u, t):  0.4112   0.4925
+progress (w/o context):  23000 / 91990  |time:  780.6589 s |loss (u, t):  0.4122   0.4932
+progress (w/o context):  23000 / 91990  |time:  780.6769 s |loss (u, t):  0.4156   0.4859
+progress (w/o context):  23000 / 91990  |time:  780.7356 s |loss (u, t):  0.4137   0.4885
+progress (w/o context):  23000 / 91990  |time:  780.7326 s |loss (u, t):  0.4134   0.4902
+progress (w/o context):  23000 / 91990  |time:  780.8123 s |loss (u, t):  0.4154   0.4936
+progress (w/o context):  24000 / 91990  |time:  776.5556 s |loss (u, t):  0.4078   0.4792
+progress (w/o context):  24000 / 91990  |time:  776.5626 s |loss (u, t):  0.4092   0.4765
+progress (w/o context):  24000 / 91990  |time:  776.5385 s |loss (u, t):  0.4094   0.4781
+progress (w/o context):  24000 / 91990  |time:  776.5902 s |loss (u, t):  0.4121   0.4754
+progress (w/o context):  24000 / 91990  |time:  776.4031 s |loss (u, t):  0.4108   0.4787
+progress (w/o context):  24000 / 91990  |time:  776.5961 s |loss (u, t):  0.4083   0.4776
+progress (w/o context):  24000 / 91990  |time:  776.7019 s |loss (u, t):  0.4122   0.4793
+progress (w/o context):  24000 / 91990  |time:  776.679 s |loss (u, t):  0.4151   0.476
+progress (w/o context):  25000 / 91990  |time:  774.9776 s |loss (u, t):  0.398   0.4591
+progress (w/o context):  25000 / 91990  |time:  774.8723 s |loss (u, t):  0.3994   0.4637
+progress (w/o context):  25000 / 91990  |time:  775.0282 s |loss (u, t):  0.4029   0.469
+progress (w/o context):  25000 / 91990  |time:  775.1145 s |loss (u, t):  0.3994   0.4676
+progress (w/o context):  25000 / 91990  |time:  774.9696 s |loss (u, t):  0.4007   0.4662
+progress (w/o context):  25000 / 91990  |time:  774.8833 s |loss (u, t):  0.3958   0.4624
+progress (w/o context):  25000 / 91990  |time:  775.0255 s |loss (u, t):  0.3981   0.4631
+progress (w/o context):  25000 / 91990  |time:  775.1105 s |loss (u, t):  0.397   0.4679
+progress (w/o context):  26000 / 91990  |time:  779.0478 s |loss (u, t):  0.3991   0.4615
+progress (w/o context):  26000 / 91990  |time:  779.0819 s |loss (u, t):  0.3997   0.4628
+progress (w/o context):  26000 / 91990  |time:  779.063 s |loss (u, t):  0.3942   0.4631
+progress (w/o context):  26000 / 91990  |time:  779.1742 s |loss (u, t):  0.402   0.4608
+progress (w/o context):  26000 / 91990  |time:  779.127 s |loss (u, t):  0.401   0.4618
+progress (w/o context):  26000 / 91990  |time:  779.1922 s |loss (u, t):  0.398   0.4607
+progress (w/o context):  26000 / 91990  |time:  779.25 s |loss (u, t):  0.3993   0.4652
+progress (w/o context):  26000 / 91990  |time:  779.2977 s |loss (u, t):  0.3956   0.4636
+progress (w/o context):  27000 / 91990  |time:  781.5549 s |loss (u, t):  0.3956   0.4598
+progress (w/o context):  27000 / 91990  |time:  781.8114 s |loss (u, t):  0.4002   0.4612
+progress (w/o context):  27000 / 91990  |time:  781.7074 s |loss (u, t):  0.3945   0.4601
+progress (w/o context):  27000 / 91990  |time:  781.8039 s |loss (u, t):  0.393   0.4578
+progress (w/o context):  27000 / 91990  |time:  781.8502 s |loss (u, t):  0.3953   0.4603
+progress (w/o context):  27000 / 91990  |time:  781.8669 s |loss (u, t):  0.3939   0.461
+progress (w/o context):  27000 / 91990  |time:  781.9987 s |loss (u, t):  0.3975   0.4623
+progress (w/o context):  27000 / 91990  |time:  782.0298 s |loss (u, t):  0.3968   0.459
+progress (w/o context):  28000 / 91990  |time:  876.6071 s |loss (u, t):  0.3907   0.452
+progress (w/o context):  28000 / 91990  |time:  876.7253 s |loss (u, t):  0.3884   0.4519
+progress (w/o context):  28000 / 91990  |time:  876.823 s |loss (u, t):  0.3895   0.452
+progress (w/o context):  28000 / 91990  |time:  876.9367 s |loss (u, t):  0.3895   0.4549
+progress (w/o context):  28000 / 91990  |time:  876.6312 s |loss (u, t):  0.3891   0.4551
+progress (w/o context):  28000 / 91990  |time:  876.9157 s |loss (u, t):  0.3883   0.4536
+progress (w/o context):  28000 / 91990  |time:  876.9647 s |loss (u, t):  0.3914   0.4481
+progress (w/o context):  28000 / 91990  |time:  877.1002 s |loss (u, t):  0.3922   0.452
+progress (w/o context):  29000 / 91990  |time:  776.8221 s |loss (u, t):  0.383   0.4421
+progress (w/o context):  29000 / 91990  |time:  777.0231 s |loss (u, t):  0.3882   0.4396
+progress (w/o context):  29000 / 91990  |time:  777.1206 s |loss (u, t):  0.3853   0.4396
+progress (w/o context):  29000 / 91990  |time:  777.1367 s |loss (u, t):  0.3888   0.446
+progress (w/o context):  29000 / 91990  |time:  777.0844 s |loss (u, t):  0.3864   0.4431
+progress (w/o context):  29000 / 91990  |time:  777.0672 s |loss (u, t):  0.3849   0.4423
+progress (w/o context):  29000 / 91990  |time:  777.094 s |loss (u, t):  0.385   0.447
+progress (w/o context):  29000 / 91990  |time:  777.2359 s |loss (u, t):  0.3856   0.4418
+progress (w/o context):  30000 / 91990  |time:  775.5064 s |loss (u, t):  0.3827   0.4413
+progress (w/o context):  30000 / 91990  |time:  775.6267 s |loss (u, t):  0.3804   0.4392
+progress (w/o context):  30000 / 91990  |time:  775.6677 s |loss (u, t):  0.3786   0.4388
+progress (w/o context):  30000 / 91990  |time:  775.6085 s |loss (u, t):  0.381   0.4347
+progress (w/o context):  30000 / 91990  |time:  775.6124 s |loss (u, t):  0.3814   0.4362
+progress (w/o context):  30000 / 91990  |time:  775.587 s |loss (u, t):  0.381   0.4401
+progress (w/o context):  30000 / 91990  |time:  775.6863 s |loss (u, t):  0.3792   0.4385
+progress (w/o context):  30000 / 91990  |time:  775.7072 s |loss (u, t):  0.3806   0.4369
+progress (w/o context): progress (w/o context):   3100031000  //  9199091990   |time:  |time:   780.5772780.467  s |loss (u, t): s |loss (u, t):   0.38010.3765      0.43280.4293
+
+progress (w/o context):  31000 / 91990  |time:  780.4527 s |loss (u, t):  0.3771   0.4286
+progress (w/o context):  31000 / 91990  |time:  780.5764 s |loss (u, t):  0.3798   0.4276
+progress (w/o context):  31000 / 91990  |time:  780.4752 s |loss (u, t):  0.3826   0.4315
+progress (w/o context):  31000 / 91990  |time:  780.5741 s |loss (u, t):  0.3823   0.4294
+progress (w/o context):  31000 / 91990  |time:  780.6375 s |loss (u, t):  0.3779   0.4267
+progress (w/o context):  31000 / 91990  |time:  780.5834 s |loss (u, t):  0.3765   0.4338
+progress (w/o context):  32000 / 91990  |time:  773.3521 s |loss (u, t):  0.3812   0.4315
+progress (w/o context):  32000 / 91990  |time:  773.515 s |loss (u, t):  0.3792   0.4324
+progress (w/o context):  32000 / 91990  |time:  773.4901 s |loss (u, t):  0.3802   0.4373
+progress (w/o context):  32000 / 91990  |time:  773.4698 s |loss (u, t):  0.3826   0.4321
+progress (w/o context):  32000 / 91990  |time:  773.426 s |loss (u, t):  0.3804   0.4315
+progress (w/o context):  32000 / 91990  |time:  773.5925 s |loss (u, t):  0.3778   0.4307
+progress (w/o context):  32000 / 91990  |time:  773.6001 s |loss (u, t):  0.3791   0.4328
+progress (w/o context):  32000 / 91990  |time:  773.6706 s |loss (u, t):  0.3798   0.4391
+progress (w/o context):  33000 / 91990  |time:  772.4448 s |loss (u, t):  0.3769   0.4262
+progress (w/o context):  33000 / 91990  |time:  772.5522 s |loss (u, t):  0.3771   0.4279
+progress (w/o context):  33000 / 91990  |time:  772.5463 s |loss (u, t):  0.3744   0.424
+progress (w/o context):  33000 / 91990  |time:  772.4978 s |loss (u, t):  0.3747   0.4222
+progress (w/o context):  33000 / 91990  |time:  772.5411 s |loss (u, t):  0.3735   0.4216
+progress (w/o context):  33000 / 91990  |time:  772.35 s |loss (u, t):  0.3755   0.4297
+progress (w/o context):  33000 / 91990  |time:  772.7875 s |loss (u, t):  0.3723   0.4268
+progress (w/o context):  33000 / 91990  |time:  772.7916 s |loss (u, t):  0.3766   0.4287
+progress (w/o context):  34000 progress (w/o context): /  3400091990   |time:  / 91990 778.9164 |time:   s |loss (u, t):  0.3705778.9791   s |loss (u, t):   0.41770.3671 
+  0.4151
+progress (w/o context):  34000 / 91990  |time:  778.7052 s |loss (u, t):  0.3706   0.4176
+progress (w/o context):  34000 / 91990  |time:  779.0152 s |loss (u, t):  0.3706   0.4176
+progress (w/o context):  34000 / 91990  |time:  779.0377 s |loss (u, t):  0.3696   0.416
+progress (w/o context):  34000 / 91990  |time:  778.7768 s |loss (u, t):  0.3714   0.4201
+progress (w/o context):  34000 / 91990  |time:  779.1456 s |loss (u, t):  0.3726   0.4146
+progress (w/o context):  34000 / 91990  |time:  779.1891 s |loss (u, t):  0.3754   0.4149
+progress (w/o context):  35000 / 91990  |time:  780.5637 s |loss (u, t):  0.3736   0.4208
+progress (w/o context): progress (w/o context):   3500035000  //  9199091990   |time:  |time:   780.7853 s |loss (u, t):  0.3696 780.7104   s |loss (u, t): 0.4174 
+0.3697   0.4175
+progress (w/o context):  35000 / 91990  |time:  780.7152 s |loss (u, t):  0.3715   0.4171
+progress (w/o context):  35000 / 91990  |time:  780.8545 s |loss (u, t):  0.3691   0.4148
+progress (w/o context):  35000 / 91990  |time:  780.6861 s |loss (u, t):  0.3709   0.4165
+progress (w/o context):  35000 / 91990  |time:  780.8725 s |loss (u, t):  0.3698   0.4188
+progress (w/o context):  35000 / 91990  |time:  780.7859 s |loss (u, t):  0.3709   0.4155
+progress (w/o context):  36000 / 91990  |time:  778.3822 s |loss (u, t):  0.3698   0.4189
+progress (w/o context):  36000 / 91990  |time:  778.4881 s |loss (u, t):  0.3719   0.4218
+progress (w/o context): progress (w/o context):   3600036000  //  9199091990   |time:  |time:   778.4926 s |loss (u, t): 778.4149  0.368s |loss (u, t):    0.3686  0.4178 
+ 0.4188
+progress (w/o context):  36000 / 91990  |time:  778.4826 s |loss (u, t):  0.371   0.4151
+progress (w/o context):  36000 / 91990  |time:  778.4643 s |loss (u, t):  0.369   0.4181
+progress (w/o context):  36000 / 91990  |time:  778.5458 s |loss (u, t):  0.3711   0.4141
+progress (w/o context):  36000 / 91990  |time:  778.6493 s |loss (u, t):  0.3676   0.4134
+progress (w/o context):  37000 / 91990  |time:  876.3027 s |loss (u, t):  0.3682   0.4171
+progress (w/o context):  37000 / 91990  |time:  876.2971 s |loss (u, t):  0.365   0.4114
+progress (w/o context):  37000 / 91990  |time:  876.4238 s |loss (u, t):  0.3683   0.4137
+progress (w/o context):  37000 / 91990  |time:  876.3744 s |loss (u, t):  0.3679   0.4128
+progress (w/o context):  37000 / 91990  |time:  876.2943 s |loss (u, t):  0.3677   0.4168
+progress (w/o context):  37000 / 91990  |time:  876.399 s |loss (u, t):  0.3711   0.4189
+progress (w/o context):  37000 / 91990  |time:  876.4023 s |loss (u, t):  0.3688   0.4143
+progress (w/o context):  37000 / 91990  |time:  876.2872 s |loss (u, t):  0.3673   0.415
+progress (w/o context):  38000 / 91990  |time:  770.615 s |loss (u, t):  0.3691   0.4111
+progress (w/o context):  38000 / 91990  |time:  770.5473 s |loss (u, t):  0.3681   0.4104
+progress (w/o context):  38000 / 91990  |time:  770.5238 s |loss (u, t):  0.3659   0.4133
+progress (w/o context):  38000 / 91990  |time:  770.5258 s |loss (u, t):  0.3687   0.4092
+progress (w/o context):  38000 / 91990  |time:  770.644 s |loss (u, t):  0.3671   0.4143
+progress (w/o context):  38000 / 91990  |time:  770.6483 s |loss (u, t):  0.3683   0.4079
+progress (w/o context):  38000 / 91990  |time:  770.6994 s |loss (u, t):  0.3641   0.409
+progress (w/o context):  38000 / 91990  |time:  770.705 s |loss (u, t):  0.3663   0.4118
+progress (w/o context):  39000 / 91990  |time:  774.2011 s |loss (u, t):  0.3703   0.4096
+progress (w/o context):  39000 / 91990  |time:  774.2517 s |loss (u, t):  0.3668   0.4096
+progress (w/o context):  39000 / 91990  |time:  774.128 s |loss (u, t):  0.3631   0.4021
+progress (w/o context):  39000 / 91990  |time:  774.3033 s |loss (u, t):  0.3662   0.4073
+progress (w/o context):  39000 / 91990  |time:  774.2801 s |loss (u, t):  0.3664   0.4084
+progress (w/o context):  39000 / 91990  |time:  774.2774 s |loss (u, t):  0.3669   0.4066
+progress (w/o context):  39000 / 91990  |time:  774.2062 s |loss (u, t):  0.3656   0.4101
+progress (w/o context):  39000 / 91990  |time:  774.4115 s |loss (u, t):  0.3682   0.4076
+progress (w/o context):  40000 / 91990  |time:  778.2901 s |loss (u, t):  0.3648   0.4082
+progress (w/o context):  40000 / 91990  |time:  778.3417 s |loss (u, t):  0.3646   0.4066
+progress (w/o context):  40000 / 91990  |time:  778.3184 s |loss (u, t):  0.3647   0.4059
+progress (w/o context):  40000 / 91990  |time:  778.4367 s |loss (u, t):  0.3662   0.403
+progress (w/o context):  40000 / 91990  |time:  778.3545 s |loss (u, t):  0.3641   0.4084
+progress (w/o context):  40000 / 91990  |time:  778.289 s |loss (u, t):  0.3659   0.4096
+progress (w/o context):  40000 / 91990  |time:  778.3171 s |loss (u, t):  0.365   0.4042
+progress (w/o context):  40000 / 91990  |time:  778.3499 s |loss (u, t):  0.3673   0.4069
+progress (w/o context):  41000 / 91990  |time:  789.1298 s |loss (u, t):  0.3694   0.4083
+progress (w/o context):  41000 / 91990  |time:  789.1124 s |loss (u, t):  0.3673   0.405
+progress (w/o context):  41000 / 91990  |time:  789.2586 s |loss (u, t):  0.369   0.4071
+progress (w/o context):  41000 / 91990  |time:  789.2042 s |loss (u, t):  0.3658   0.4063
+progress (w/o context):  41000 / 91990  |time:  789.2609 s |loss (u, t):  0.3665   0.4052
+progress (w/o context):  41000 / 91990  |time:  789.3192 s |loss (u, t):  0.3674   0.4087
+progress (w/o context):  41000 / 91990  |time:  789.3023 s |loss (u, t):  0.3684   0.4068
+progress (w/o context):  41000 / 91990  |time:  789.2668 s |loss (u, t):  0.3672   0.4085
+progress (w/o context):  42000 / 91990  |time:  784.1082 s |loss (u, t):  0.3973   0.4509
+progress (w/o context):  42000 / 91990  |time:  784.0968 s |loss (u, t):  0.3935   0.4548
+progress (w/o context):  42000 / 91990  |time:  784.1555 s |loss (u, t):  0.3925   0.4497
+progress (w/o context):  42000 / 91990  |time:  784.2186 s |loss (u, t):  0.3935   0.4505
+progress (w/o context):  42000 / 91990  |time:  784.2306 s |loss (u, t):  0.3909   0.4503
+progress (w/o context):  42000 / 91990  |time:  784.2686 s |loss (u, t):  0.3943   0.451
+progress (w/o context):  42000 / 91990  |time:  784.129 s |loss (u, t):  0.3886   0.4558
+progress (w/o context):  42000 / 91990  |time:  784.3851 s |loss (u, t):  0.3947   0.4522
+progress (w/o context):  43000 / 91990  |time:  785.4549 s |loss (u, t):  0.4076   0.4665
+progress (w/o context):  43000 / 91990  |time:  785.6083 s |loss (u, t):  0.4085   0.4644
+progress (w/o context):  43000 / 91990  |time:  785.3877 s |loss (u, t):  0.4052   0.4663
+progress (w/o context):  43000 / 91990  |time:  785.5126 s |loss (u, t):  0.4062   0.4667
+progress (w/o context):  43000 / 91990  |time:  785.5455 s |loss (u, t):  0.4041   0.4685
+progress (w/o context):  43000 / 91990  |time:  785.5297 s |loss (u, t):  0.4063   0.4666
+progress (w/o context):  43000 / 91990  |time:  785.6067 s |loss (u, t):  0.4073   0.4667
+progress (w/o context):  43000 / 91990  |time:  785.5555 s |loss (u, t):  0.4025   0.4675
+progress (w/o context):  44000 / 91990  |time:  782.0656 s |loss (u, t):  0.4044   0.4711
+progress (w/o context):  44000 / 91990  |time:  782.1971 s |loss (u, t):  0.4042   0.4705
+progress (w/o context):  44000 / 91990  |time:  782.1466 s |loss (u, t):  0.4041   0.4751
+progress (w/o context):  44000 / 91990  |time:  782.1942 s |loss (u, t):  0.4058   0.4732
+progress (w/o context):  44000 / 91990  |time:  782.2205 s |loss (u, t):  0.4049   0.4675
+progress (w/o context):  44000 / 91990  |time:  782.189 s |loss (u, t):  0.4026   0.4706
+progress (w/o context):  44000 / 91990  |time:  782.2202 s |loss (u, t):  0.4017   0.4725
+progress (w/o context):  44000 / 91990  |time:  782.1984 s |loss (u, t):  0.4036   0.4739
+progress (w/o context):  45000 / 91990  |time:  791.2162 s |loss (u, t):  0.4022   0.4668
+progress (w/o context):  45000 / 91990  |time:  791.2528 s |loss (u, t):  0.4021   0.4649
+progress (w/o context):  45000 / 91990  |time:  791.3545 s |loss (u, t):  0.4025   0.4679
+progress (w/o context):  45000 / 91990  |time:  791.3693 s |loss (u, t):  0.4044   0.4658
+progress (w/o context):  45000 / 91990  |time:  791.2679 s |loss (u, t):  0.4027   0.4649
+progress (w/o context):  45000 / 91990  |time:  791.3534 s |loss (u, t):  0.4066   0.4664
+progress (w/o context):  45000 / 91990  |time:  791.4459 s |loss (u, t):  0.4025   0.4689
+progress (w/o context):  45000 / 91990  |time:  791.5053 s |loss (u, t):  0.4013   0.4655
+progress (w/o context):  46000 / 91990  |time:  897.9097 s |loss (u, t):  0.3953   0.462
+progress (w/o context): progress (w/o context):   4600046000  / 91990 / |time:   91990  |time: 897.9224  s |loss (u, t):  0.3946897.9406   s |loss (u, t):   0.46410.3985  
+ 0.4689
+progress (w/o context):  46000 / 91990  |time:  897.9704 s |loss (u, t):  0.3975   0.4676
+progress (w/o context):  46000 / 91990  |time:  897.9732 s |loss (u, t):  0.3961   0.4679
+progress (w/o context):  46000 / 91990  |time:  897.7941 s |loss (u, t):  0.3995   0.4655
+progress (w/o context):  46000 / 91990  |time:  897.891 s |loss (u, t):  0.4   0.4637
+progress (w/o context):  46000 / 91990  |time:  897.9278 s |loss (u, t):  0.4001   0.4596
+progress (w/o context):  47000 / 91990  |time:  791.9629 s |loss (u, t):  0.3926   0.4602
+progress (w/o context):  47000 / 91990  |time:  791.9668 s |loss (u, t):  0.3963   0.4636
+progress (w/o context):  47000 / 91990  |time:  792.0405 s |loss (u, t):  0.3966   0.4616
+progress (w/o context):  47000 / 91990  |time:  792.072 s |loss (u, t):  0.3925   0.4617
+progress (w/o context):  47000 / 91990  |time:  792.1026 s |loss (u, t):  0.3939   0.4595
+progress (w/o context):  47000 / 91990  |time:  791.8873 s |loss (u, t):  0.39   0.4643
+progress (w/o context):  47000 / 91990  |time:  792.0626 s |loss (u, t):  0.3912   0.4615
+progress (w/o context):  47000 / 91990  |time:  792.0996 s |loss (u, t):  0.3966   0.4586
+progress (w/o context):  48000 / 91990  |time:  789.1935 s |loss (u, t):  0.3903   0.4541
+progress (w/o context):  48000 / 91990  |time:  789.2233 s |loss (u, t):  0.3909   0.4547
+progress (w/o context):  48000 / 91990  |time:  789.2451 s |loss (u, t):  0.3905   0.4553
+progress (w/o context):  48000 / 91990  |time:  789.2448 s |loss (u, t):  0.3908   0.4539
+progress (w/o context):  48000 / 91990  |time:  789.3219 s |loss (u, t):  0.3892   0.4558
+progress (w/o context):  48000 / 91990  |time:  789.3513 s |loss (u, t):  0.3935   0.4513
+progress (w/o context):  48000 / 91990  |time:  789.3751 s |loss (u, t):  0.3917   0.4541
+progress (w/o context):  48000 / 91990  |time:  789.3814 s |loss (u, t):  0.3907   0.4483
+progress (w/o context):  49000 / 91990  |time:  793.6266 s |loss (u, t):  0.3867   0.4415
+progress (w/o context):  49000 / 91990  |time:  793.6574 s |loss (u, t):  0.3849   0.4505
+progress (w/o context):  49000 / 91990  |time:  793.5465 s |loss (u, t):  0.3872   0.4489
+progress (w/o context):  49000 / 91990  |time:  793.6603 s |loss (u, t):  0.3847   0.4434
+progress (w/o context):  49000 / 91990  |time:  793.6905 s |loss (u, t):  0.3894   0.4443
+progress (w/o context):  49000 / 91990  |time:  793.7843 s |loss (u, t):  0.3855   0.4544
+progress (w/o context):  49000 / 91990  |time:  793.7165 s |loss (u, t):  0.388   0.4463
+progress (w/o context):  49000 / 91990  |time:  793.8638 s |loss (u, t):  0.3861   0.4411
+progress (w/o context):  50000 progress (w/o context): /  9199050000   |time:  /782.2964  91990s |loss (u, t):    |time: 0.387    0.4418782.3669
+ progress (w/o context): s |loss (u, t):   500000.3849    /0.4449 
+91990  |time:  782.2913 s |loss (u, t):  0.3845   0.4468
+progress (w/o context):  50000 / 91990  |time:  782.3385 s |loss (u, t):  0.3836   0.4469
+progress (w/o context):  50000 / 91990  |time:  782.4199 s |loss (u, t):  0.3835   0.4452
+progress (w/o context):  50000 / 91990  |time:  782.3057 s |loss (u, t):  0.385   0.4465
+progress (w/o context):  50000 / 91990  |time:  782.3037 s |loss (u, t):  0.3826   0.4475
+progress (w/o context):  50000 / 91990  |time:  782.5986 s |loss (u, t):  0.386   0.4446
+progress (w/o context):  51000 / 91990  |time:  787.3798 s |loss (u, t):  0.3786   0.4381
+progress (w/o context):  51000 / 91990  |time:  787.4298 s |loss (u, t):  0.3792   0.4369
+progress (w/o context):  51000 / 91990  |time:  787.4324 s |loss (u, t):  0.3777   0.4352
+progress (w/o context):  51000 / 91990  |time:  787.2424 s |loss (u, t):  0.3799   0.4343
+progress (w/o context):  51000 / 91990  |time:  787.4683 s |loss (u, t):  0.3809   0.4366
+progress (w/o context):  51000 / 91990  |time:  787.4849 s |loss (u, t):  0.3756   0.4372
+progress (w/o context):  51000 / 91990  |time:  787.5058 s |loss (u, t):  0.3799   0.4367
+progress (w/o context):  51000 / 91990  |time:  787.4353 s |loss (u, t):  0.3768   0.4333
+progress (w/o context):  52000 / 91990  |time:  789.1391 s |loss (u, t):  0.3776   0.4283
+progress (w/o context):  52000 / 91990  |time:  789.1942 s |loss (u, t):  0.3782   0.4253
+progress (w/o context):  52000 / 91990  |time:  789.1758 s |loss (u, t):  0.3764   0.4205
+progress (w/o context):  52000 / 91990  |time:  789.3285 s |loss (u, t):  0.3787   0.4236
+progress (w/o context):  52000 / 91990  |time:  789.2517 s |loss (u, t):  0.3773   0.4238
+progress (w/o context):  52000 / 91990  |time:  789.2492 s |loss (u, t):  0.3762   0.4245
+progress (w/o context):  52000 / 91990  |time:  789.2998 s |loss (u, t):  0.3759   0.4258
+progress (w/o context):  52000 / 91990  |time:  789.2296 s |loss (u, t):  0.3759   0.4261
+progress (w/o context):  53000 / 91990  |time:  785.6525 s |loss (u, t):  0.3698   0.4244
+progress (w/o context):  53000 / 91990  |time:  785.6941 s |loss (u, t):  0.3731   0.4247
+progress (w/o context):  53000 / 91990  |time:  785.7325 s |loss (u, t):  0.3733   0.4219
+progress (w/o context):  53000 / 91990  |time:  785.7732 s |loss (u, t):  0.3714   0.4194
+progress (w/o context):  53000 / 91990  |time:  785.8704 s |loss (u, t):  0.3725   0.4193
+progress (w/o context):  53000 / 91990  |time:  785.8334 s |loss (u, t):  0.3668   0.4223
+progress (w/o context):  53000 / 91990  |time:  785.8689 s |loss (u, t):  0.3725   0.4186
+progress (w/o context):  53000 / 91990  |time:  785.7605 s |loss (u, t):  0.3719   0.4229
+progress (w/o context):  54000 / 91990  |time:  792.731 s |loss (u, t):  0.3729   0.421
+progress (w/o context):  54000 / 91990  |time:  792.6952 s |loss (u, t):  0.3703   0.4213
+progress (w/o context):  54000 / 91990  |time:  792.7237 s |loss (u, t):  0.3708   0.4234
+progress (w/o context):  54000 / 91990  |time:  792.7259 s |loss (u, t):  0.3683   0.4194
+progress (w/o context):  54000 / 91990  |time:  792.7237 s |loss (u, t):  0.3711   0.4178
+progress (w/o context):  54000 / 91990  |time:  792.9256 s |loss (u, t):  0.3727   0.4191
+progress (w/o context):  54000 / 91990  |time:  792.9711 s |loss (u, t):  0.3686   0.4242
+progress (w/o context):  54000 / 91990  |time:  792.9425 s |loss (u, t):  0.3716   0.4173
+progress (w/o context):  55000 / 91990  |time:  783.3579 s |loss (u, t):  0.3644   0.4106
+progress (w/o context):  55000 / 91990  |time:  783.4761 s |loss (u, t):  0.3696   0.4128
+progress (w/o context):  55000 / 91990  |time:  783.5057 s |loss (u, t):  0.3682   0.4151
+progress (w/o context):  55000 / 91990  |time:  783.4671 s |loss (u, t):  0.3646   0.4156
+progress (w/o context):  55000 / 91990  |time:  783.4291 s |loss (u, t):  0.3672   0.409
+progress (w/o context):  55000 / 91990  |time:  783.3794 s |loss (u, t):  0.3671   0.4186
+progress (w/o context):  55000 / 91990  |time:  783.5774 s |loss (u, t):  0.368   0.4172
+progress (w/o context):  55000 / 91990  |time:  783.5786 s |loss (u, t):  0.3677   0.4125
+progress (w/o context):  56000 / 91990  |time:  903.955 s |loss (u, t):  0.3605   0.4079
+progress (w/o context):  56000 / 91990  |time:  904.1148 s |loss (u, t):  0.3602   0.409
+progress (w/o context):  56000 / 91990  |time:  903.9929 s |loss (u, t):  0.3586   0.4087
+progress (w/o context):  56000 / 91990  |time:  904.1341 s |loss (u, t):  0.3588   0.4077
+progress (w/o context):  56000 / 91990  |time:  904.1635 s |loss (u, t):  0.3583   0.4078
+progress (w/o context):  56000 / 91990  |time:  904.0944 s |loss (u, t):  0.3622   0.4107
+progress (w/o context):  56000 / 91990  |time:  904.1314 s |loss (u, t):  0.3622   0.4109
+progress (w/o context):  56000 / 91990  |time:  904.2558 s |loss (u, t):  0.3608   0.4072
+progress (w/o context):  57000 / 91990  |time:  790.4519 s |loss (u, t):  0.3622   0.4026
+progress (w/o context):  57000 / 91990  |time:  790.5198 s |loss (u, t):  0.3582   0.4013
+progress (w/o context):  57000 / 91990  |time:  790.5785 s |loss (u, t):  0.3615   0.3993
+progress (w/o context):  57000 / 91990  |time:  790.6542 s |loss (u, t):  0.3605   0.399
+progress (w/o context):  57000 / 91990  |time:  790.6738 s |loss (u, t):  0.3602   0.3999
+progress (w/o context):  57000 / 91990  |time:  790.598 s |loss (u, t):  0.3608   0.4
+progress (w/o context):  57000 / 91990  |time:  790.6164 s |loss (u, t):  0.36   0.401
+progress (w/o context):  57000 / 91990  |time:  790.6439 s |loss (u, t):  0.3601   0.4028
+progress (w/o context):  58000 / 91990  |time:  794.6097 s |loss (u, t):  0.3544   0.4007
+progress (w/o context):  58000 / 91990  |time:  794.6345 s |loss (u, t):  0.356   0.405
+progress (w/o context):  58000 / 91990  |time:  794.7166 s |loss (u, t):  0.3566   0.4021
+progress (w/o context):  58000 / 91990  |time:  794.645 s |loss (u, t):  0.3575   0.4054
+progress (w/o context):  58000 / 91990  |time:  794.7484 s |loss (u, t):  0.3551   0.4039
+progress (w/o context):  58000 / 91990  |time:  794.7728 s |loss (u, t):  0.3549   0.4017
+progress (w/o context):  58000 / 91990  |time:  794.6917 s |loss (u, t):  0.3574   0.4002
+progress (w/o context):  58000 / 91990  |time:  794.6006 s |loss (u, t):  0.3571   0.4026
+progress (w/o context):  59000 / 91990  |time:  789.9833 s |loss (u, t):  0.3553   0.4042
+progress (w/o context):  59000 / 91990  |time:  789.9019 s |loss (u, t):  0.3542   0.3978
+progress (w/o context):  59000 / 91990  |time:  789.9877 s |loss (u, t):  0.3541   0.3996
+progress (w/o context):  59000 / 91990  |time:  789.9097 s |loss (u, t):  0.3543   0.3951
+progress (w/o context):  59000 / 91990  |time:  790.0599 s |loss (u, t):  0.3565   0.3944
+progress (w/o context):  59000 / 91990  |time:  790.0611 s |loss (u, t):  0.3557   0.399
+progress (w/o context):  59000 / 91990  |time:  790.093 s |loss (u, t):  0.3539   0.3975
+progress (w/o context):  59000 / 91990  |time:  790.1226 s |loss (u, t):  0.3547   0.3949
+progress (w/o context):  60000 / 91990  |time:  787.9537 s |loss (u, t):  0.3535   0.3947
+progress (w/o context):  60000 / 91990  |time:  788.1338 s |loss (u, t):  0.3511   0.3932
+progress (w/o context):  60000 / 91990  |time:  787.9951 s |loss (u, t):  0.349   0.3975
+progress (w/o context):  60000 / 91990  |time:  788.0842 s |loss (u, t):  0.3523   0.394
+progress (w/o context):  60000 / 91990  |time:  788.0264 s |loss (u, t):  0.3502   0.3962
+progress (w/o context):  60000 / 91990  |time:  788.1801 s |loss (u, t):  0.3526   0.3913
+progress (w/o context):  60000 / 91990  |time:  788.1762 s |loss (u, t):  0.3522   0.3897
+progress (w/o context):  60000 / 91990  |time:  788.0592 s |loss (u, t):  0.3536   0.3918
+progress (w/o context):  61000 / 91990  |time:  787.8639 s |loss (u, t):  0.3524   0.3754
+progress (w/o context):  61000 / 91990  |time:  787.7971 s |loss (u, t):  0.3492   0.3763
+progress (w/o context):  61000 / 91990  |time:  787.8334 s |loss (u, t):  0.3488   0.3758
+progress (w/o context):  61000 / 91990  |time:  787.7916 s |loss (u, t):  0.3498   0.3804
+progress (w/o context):  61000 / 91990  |time:  787.8411 s |loss (u, t):  0.3527   0.3823
+progress (w/o context):  61000 / 91990  |time:  787.9418 s |loss (u, t):  0.3495   0.3784
+progress (w/o context):  61000 / 91990  |time:  787.9139 s |loss (u, t):  0.3501   0.3783
+progress (w/o context):  61000 / 91990  |time:  787.952 s |loss (u, t):  0.3515   0.3803
+progress (w/o context):  62000 / 91990  |time:  788.2906 s |loss (u, t):  0.3408   0.3748
+progress (w/o context):  62000 / 91990  |time:  788.3301 s |loss (u, t):  0.3441   0.3741
+progress (w/o context):  62000 / 91990  |time:  788.1915 s |loss (u, t):  0.343   0.3759
+progress (w/o context):  62000 / 91990  |time:  788.2577 s |loss (u, t):  0.3433   0.3771
+progress (w/o context):  62000 / 91990  |time:  788.352 s |loss (u, t):  0.344   0.3744
+progress (w/o context):  62000 / 91990  |time:  788.4623 s |loss (u, t):  0.3433   0.3775
+progress (w/o context):  62000 / 91990  |time:  788.4577 s |loss (u, t):  0.3441   0.3731
+progress (w/o context):  62000 / 91990  |time:  788.5338 s |loss (u, t):  0.3421   0.3744
+progress (w/o context):  63000 / 91990  |time:  790.0348 s |loss (u, t):  0.3455   0.3743
+progress (w/o context):  63000 / 91990  |time:  790.1398 s |loss (u, t):  0.3438   0.3737
+progress (w/o context):  63000 / 91990  |time:  790.3037 s |loss (u, t):  0.3426   0.3728
+progress (w/o context):  63000 / 91990  |time:  790.0823 s |loss (u, t):  0.3456   0.3742
+progress (w/o context):  63000 / 91990  |time:  790.2648 s |loss (u, t):  0.3424   0.3729
+progress (w/o context):  63000 / 91990  |time:  790.3389 s |loss (u, t):  0.3441   0.3779
+progress (w/o context):  63000 / 91990  |time:  790.3926 s |loss (u, t):  0.3438   0.3713
+progress (w/o context):  63000 / 91990  |time:  790.3024 s |loss (u, t):  0.3455   0.3749
+progress (w/o context):  64000 / 91990  |time:  799.4972 s |loss (u, t):  0.3431   0.3712
+progress (w/o context):  64000 / 91990  |time:  799.6828 s |loss (u, t):  0.3422   0.3757
+progress (w/o context):  64000 / 91990  |time:  799.7378 s |loss (u, t):  0.3442   0.3793
+progress (w/o context):  64000 / 91990  |time:  799.6612 s |loss (u, t):  0.3433   0.3682
+progress (w/o context):  64000 / 91990  |time:  799.7055 s |loss (u, t):  0.346   0.3724
+progress (w/o context):  64000 / 91990  |time:  799.7136 s |loss (u, t):  0.3422   0.3748
+progress (w/o context):  64000 / 91990  |time:  799.6652 s |loss (u, t):  0.3405   0.3713
+progress (w/o context):  64000 / 91990  |time:  799.8897 s |loss (u, t):  0.3446   0.3732
+progress (w/o context):  65000 / 91990  |time:  886.474 s |loss (u, t):  0.3338   0.3629
+progress (w/o context):  65000 / 91990  |time:  886.509 s |loss (u, t):  0.3372   0.3663
+progress (w/o context):  65000 / 91990  |time:  886.5379 s |loss (u, t):  0.3382   0.3663
+progress (w/o context):  65000 / 91990  |time:  886.5096 s |loss (u, t):  0.3391   0.3634
+progress (w/o context):  65000 / 91990  |time:  886.4761 s |loss (u, t):  0.334   0.3634
+progress (w/o context):  65000 / 91990  |time:  886.553 s |loss (u, t):  0.3354   0.36
+progress (w/o context):  65000 / 91990  |time:  886.3726 s |loss (u, t):  0.3337   0.3644
+progress (w/o context):  65000 / 91990  |time:  886.655 s |loss (u, t):  0.3385   0.3668
+progress (w/o context):  66000 / 91990  |time:  789.7511 s |loss (u, t):  0.3354   0.3628
+progress (w/o context):  66000 / 91990  |time:  789.7282 s |loss (u, t):  0.3367   0.3627
+progress (w/o context):  66000 / 91990  |time:  789.6711 s |loss (u, t):  0.3362   0.3602
+progress (w/o context):  66000 / 91990  |time:  789.909 s |loss (u, t):  0.336   0.3619
+progress (w/o context):  66000 / 91990  |time:  789.8993 s |loss (u, t):  0.339   0.3583
+progress (w/o context):  66000 / 91990  |time:  789.9291 s |loss (u, t):  0.3337   0.3535
+progress (w/o context):  66000 / 91990  |time:  789.8778 s |loss (u, t):  0.3364   0.36
+progress (w/o context):  66000 / 91990  |time:  789.8605 s |loss (u, t):  0.3391   0.3568
+progress (w/o context):  67000 / 91990  |time:  797.0082 s |loss (u, t):  0.3355   0.3603
+progress (w/o context):  67000 / 91990  |time:  797.0112 s |loss (u, t):  0.3355   0.3603
+progress (w/o context):  67000 / 91990  |time:  797.0111 s |loss (u, t):  0.3337   0.3584
+progress (w/o context):  67000 / 91990  |time:  797.0333 s |loss (u, t):  0.3355   0.3606
+progress (w/o context):  67000 / 91990  |time:  797.1954 s |loss (u, t):  0.3306   0.3637
+progress (w/o context):  67000 / 91990  |time:  797.191 s |loss (u, t):  0.3339   0.3616
+progress (w/o context):  67000 / 91990  |time:  797.0811 s |loss (u, t):  0.3318   0.3591
+progress (w/o context):  67000 / 91990  |time:  797.2255 s |loss (u, t):  0.334   0.3592
+progress (w/o context):  68000 / 91990  |time:  794.1117 s |loss (u, t):  0.3312   0.3533
+progress (w/o context):  68000 / 91990  |time:  794.1785 s |loss (u, t):  0.3268   0.3518
+progress (w/o context):  68000 / 91990  |time:  794.1782 s |loss (u, t):  0.3311   0.3525
+progress (w/o context):  68000 / 91990  |time:  794.1509 s |loss (u, t):  0.3323   0.35
+progress (w/o context):  68000 / 91990  |time:  794.2358 s |loss (u, t):  0.3267   0.357
+progress (w/o context):  68000 / 91990  |time:  794.2583 s |loss (u, t):  0.329   0.3545
+progress (w/o context):  68000 / 91990  |time:  794.1844 s |loss (u, t):  0.3338   0.3542
+progress (w/o context):  68000 / 91990  |time:  794.2365 s |loss (u, t):  0.332   0.3577
+progress (w/o context):  69000 / 91990  |time:  790.1069 s |loss (u, t):  0.3321   0.3534
+progress (w/o context):  69000 / 91990  |time:  790.2197 s |loss (u, t):  0.3332   0.3568
+progress (w/o context):  69000 / 91990  |time:  790.1341 s |loss (u, t):  0.3327   0.3639
+progress (w/o context):  69000 / 91990  |time:  790.1425 s |loss (u, t):  0.3348   0.3568
+progress (w/o context):  69000 / 91990  |time:  790.2588 s |loss (u, t):  0.3332   0.3559
+progress (w/o context):  69000 / 91990  |time:  790.238 s |loss (u, t):  0.332   0.3563
+progress (w/o context):  69000 / 91990  |time:  790.1795 s |loss (u, t):  0.3323   0.3597
+progress (w/o context):  69000 / 91990  |time:  790.1933 s |loss (u, t):  0.3332   0.3595
+progress (w/o context):  70000 / 91990  |time:  780.2008 s |loss (u, t):  0.3316   0.3507
+progress (w/o context):  70000 / 91990  |time:  780.2279 s |loss (u, t):  0.3298   0.3466
+progress (w/o context):  70000 / 91990  |time:  780.2552 s |loss (u, t):  0.3308   0.3451
+progress (w/o context):  70000 / 91990  |time:  780.2616 s |loss (u, t):  0.331   0.3473
+progress (w/o context):  70000 / 91990  |time:  780.3343 s |loss (u, t):  0.3329   0.3455
+progress (w/o context):  70000 / 91990  |time:  780.298 s |loss (u, t):  0.332   0.3453
+progress (w/o context):  70000 / 91990  |time:  780.318 s |loss (u, t):  0.3315   0.3462
+progress (w/o context):  70000 / 91990  |time:  780.3564 s |loss (u, t):  0.3339   0.3478
+progress (w/o context):  71000 / 91990  |time:  790.6333 s |loss (u, t):  0.3263   0.3407
+progress (w/o context):  71000 / 91990  |time:  790.6542 s |loss (u, t):  0.3269   0.3421
+progress (w/o context):  71000 / 91990  |time:  790.6391 s |loss (u, t):  0.3238   0.3375
+progress (w/o context):  71000 / 91990  |time:  790.7401 s |loss (u, t):  0.3243   0.3378
+progress (w/o context):  71000 / 91990  |time:  790.7381 s |loss (u, t):  0.3274   0.3385
+progress (w/o context):  71000 / 91990  |time:  790.6971 s |loss (u, t):  0.3251   0.3382
+progress (w/o context):  71000 / 91990  |time:  790.6183 s |loss (u, t):  0.3255   0.3366
+progress (w/o context):  71000 / 91990  |time:  790.6855 s |loss (u, t):  0.3261   0.3408
+progress (w/o context):  72000 / 91990  |time:  788.9358 s |loss (u, t):  0.3296   0.339
+progress (w/o context):  72000 / 91990  |time:  788.9271 s |loss (u, t):  0.3266   0.3428
+progress (w/o context):  72000 / 91990  |time:  788.9292 s |loss (u, t):  0.3287   0.3416
+progress (w/o context):  72000 / 91990  |time:  789.0339 s |loss (u, t):  0.3261   0.3411
+progress (w/o context):  72000 / 91990  |time:  788.9281 s |loss (u, t):  0.3262   0.3429
+progress (w/o context):  72000 / 91990  |time:  788.9574 s |loss (u, t):  0.327   0.3438
+progress (w/o context):  72000 / 91990  |time:  789.1466 s |loss (u, t):  0.3267   0.3393
+progress (w/o context):  72000 / 91990  |time:  789.1954 s |loss (u, t):  0.3304   0.3394
+progress (w/o context):  73000 / 91990  |time:  792.4093 s |loss (u, t):  0.3264   0.3448
+progress (w/o context):  73000 / 91990  |time:  792.4751 s |loss (u, t):  0.3331   0.3474
+progress (w/o context):  73000 / 91990  |time:  792.5261 s |loss (u, t):  0.3304   0.346
+progress (w/o context):  73000 / 91990  |time:  792.4903 s |loss (u, t):  0.3338   0.3427
+progress (w/o context):  73000 / 91990  |time:  792.5431 s |loss (u, t):  0.3282   0.3437
+progress (w/o context):  73000 / 91990  |time:  792.3846 s |loss (u, t):  0.3305   0.3437
+progress (w/o context):  73000 / 91990  |time:  792.8164 s |loss (u, t):  0.3288   0.3429
+progress (w/o context):  73000 / 91990  |time:  792.6707 s |loss (u, t):  0.3292   0.3437
+progress (w/o context):  74000 / 91990  |time:  882.3618 s |loss (u, t):  0.3262   0.3393
+progress (w/o context):  74000 / 91990  |time:  882.0796 s |loss (u, t):  0.323   0.3418
+progress (w/o context):  74000 / 91990  |time:  882.1596 s |loss (u, t):  0.3263   0.3398
+progress (w/o context):  74000 / 91990  |time:  882.4777 s |loss (u, t):  0.3265   0.3392
+progress (w/o context):  74000 / 91990  |time:  882.4923 s |loss (u, t):  0.3267   0.3433
+progress (w/o context):  74000 / 91990  |time:  882.4659 s |loss (u, t):  0.3264   0.3409
+progress (w/o context):  74000 / 91990  |time:  882.5629 s |loss (u, t):  0.3236   0.3401
+progress (w/o context):  74000 / 91990  |time:  882.5998 s |loss (u, t):  0.3237   0.3422
+progress (w/o context):  75000 / 91990  |time:  780.5556 s |loss (u, t):  0.3269   0.3351
+progress (w/o context):  75000 / 91990  |time:  780.5029 s |loss (u, t):  0.3249   0.3327
+progress (w/o context):  75000 / 91990  |time:  780.5342 s |loss (u, t):  0.3245   0.3369
+progress (w/o context):  75000 / 91990  |time:  780.4772 s |loss (u, t):  0.3248   0.3392
+progress (w/o context):  75000 / 91990  |time:  780.5548 s |loss (u, t):  0.3238   0.3329
+progress (w/o context):  75000 / 91990  |time:  780.6836 s |loss (u, t):  0.3224   0.3347
+progress (w/o context):  75000 / 91990  |time:  780.5265 s |loss (u, t):  0.3234   0.3385
+progress (w/o context):  75000 / 91990  |time:  780.6605 s |loss (u, t):  0.3266   0.3333
+progress (w/o context):  76000 / 91990  |time:  779.5209 s |loss (u, t):  0.3252   0.3384
+progress (w/o context):  76000 / 91990  |time:  779.5893 s |loss (u, t):  0.322   0.3398
+progress (w/o context):  76000 / 91990  |time:  779.5669 s |loss (u, t):  0.3253   0.3367
+progress (w/o context):  76000 / 91990  |time:  779.5399 s |loss (u, t):  0.3242   0.3421
+progress (w/o context):  76000 / 91990  |time:  779.6202 s |loss (u, t):  0.3238   0.337
+progress (w/o context):  76000 / 91990  |time:  779.5198 s |loss (u, t):  0.3246   0.3382
+progress (w/o context):  76000 / 91990  |time:  779.5633 s |loss (u, t):  0.3228   0.337
+progress (w/o context):  76000 / 91990  |time:  779.64 s |loss (u, t):  0.3235   0.3377
+progress (w/o context):  77000 / 91990  |time:  787.2978 s |loss (u, t):  0.3234   0.3351
+progress (w/o context):  77000 / 91990  |time:  787.3438 s |loss (u, t):  0.3241   0.3378
+progress (w/o context):  77000 / 91990  |time:  787.3006 s |loss (u, t):  0.3215   0.3373
+progress (w/o context):  77000 / 91990  |time:  787.3395 s |loss (u, t):  0.3249   0.335
+progress (w/o context):  77000 / 91990  |time:  787.307 s |loss (u, t):  0.3242   0.3365
+progress (w/o context):  77000 / 91990  |time:  787.4016 s |loss (u, t):  0.3237   0.337
+progress (w/o context):  77000 / 91990  |time:  787.3981 s |loss (u, t):  0.3241   0.3337
+progress (w/o context):  77000 / 91990  |time:  787.5501 s |loss (u, t):  0.3272   0.3349
+progress (w/o context):  78000 / 91990  |time:  783.6489 s |loss (u, t):  0.3384   0.3607
+progress (w/o context):  78000 / 91990  |time:  783.9133 s |loss (u, t):  0.3416   0.3614
+progress (w/o context):  78000 / 91990  |time:  783.8691 s |loss (u, t):  0.3394   0.3616
+progress (w/o context):  78000 / 91990  |time:  783.8706 s |loss (u, t):  0.3407   0.3623
+progress (w/o context):  78000 / 91990  |time:  783.8823 s |loss (u, t):  0.3391   0.3561
+progress (w/o context):  78000 / 91990  |time:  783.8762 s |loss (u, t):  0.3381   0.3609
+progress (w/o context):  78000 / 91990  |time:  783.9229 s |loss (u, t):  0.3393   0.3542
+progress (w/o context):  78000 / 91990  |time:  784.0746 s |loss (u, t):  0.3406   0.3613
+progress (w/o context):  79000 / 91990  |time:  780.1572 s |loss (u, t):  0.362   0.3958
+progress (w/o context):  79000 / 91990  |time:  780.2172 s |loss (u, t):  0.3593   0.392
+progress (w/o context):  79000 / 91990  |time:  780.2003 s |loss (u, t):  0.3634   0.3908
+progress (w/o context):  79000 / 91990  |time:  779.9449 s |loss (u, t):  0.3597   0.3895
+progress (w/o context):  79000 / 91990  |time:  780.1874 s |loss (u, t):  0.3615   0.3886
+progress (w/o context):  79000 / 91990  |time:  780.205 s |loss (u, t):  0.36   0.393
+progress (w/o context):  79000 / 91990  |time:  780.1187 s |loss (u, t):  0.3589   0.395
+progress (w/o context):  79000 / 91990  |time:  780.2689 s |loss (u, t):  0.361   0.3891
+progress (w/o context):  80000 / 91990  |time:  782.9468 s |loss (u, t):  0.3593   0.3842
+progress (w/o context):  80000 / 91990  |time:  782.9989 s |loss (u, t):  0.3625   0.3899
+progress (w/o context):  80000 / 91990  |time:  782.9978 s |loss (u, t):  0.3582   0.3948
+progress (w/o context):  80000 / 91990  |time:  783.0735 s |loss (u, t):  0.3595   0.3907
+progress (w/o context):  80000 / 91990  |time:  783.047 s |loss (u, t):  0.3596   0.3924
+progress (w/o context):  80000 / 91990  |time:  782.9808 s |loss (u, t):  0.356   0.3963
+progress (w/o context):  80000 / 91990  |time:  783.0446 s |loss (u, t):  0.3584   0.3937
+progress (w/o context):  80000 / 91990  |time:  782.9653 s |loss (u, t):  0.3605   0.3933
+progress (w/o context):  81000 / 91990  |time:  785.6013 s |loss (u, t):  0.3578   0.3911
+progress (w/o context):  81000 / 91990  |time:  785.6607 s |loss (u, t):  0.3606   0.3933
+progress (w/o context):  81000 / 91990  |time:  785.6341 s |loss (u, t):  0.3602   0.3985
+progress (w/o context):  81000 / 91990  |time:  785.6607 s |loss (u, t):  0.3579   0.3965
+progress (w/o context):  81000 / 91990  |time:  785.7041 s |loss (u, t):  0.3602   0.3953
+progress (w/o context):  81000 / 91990  |time:  785.6591 s |loss (u, t):  0.3632   0.3945
+progress (w/o context):  81000 / 91990  |time:  785.7891 s |loss (u, t):  0.3606   0.3956
+progress (w/o context):  81000 / 91990  |time:  785.7137 s |loss (u, t):  0.3594   0.4002
+progress (w/o context):  82000 / 91990  |time:  781.5498 s |loss (u, t):  0.3577   0.402
+progress (w/o context):  82000 / 91990  |time:  781.5404 s |loss (u, t):  0.3611   0.4001
+progress (w/o context):  82000 / 91990  |time:  781.5226 s |loss (u, t):  0.3613   0.3955
+progress (w/o context):  82000 / 91990  |time:  781.6081 s |loss (u, t):  0.3585   0.3965
+progress (w/o context):  82000 / 91990  |time:  781.6372 s |loss (u, t):  0.3594   0.3965
+progress (w/o context):  82000 / 91990  |time:  781.6304 s |loss (u, t):  0.3588   0.4009
+progress (w/o context):  82000 / 91990  |time:  782.0079 s |loss (u, t):  0.3582   0.3956
+progress (w/o context):  82000 / 91990  |time:  781.9628 s |loss (u, t):  0.3597   0.4009
+progress (w/o context):  83000 / 91990  |time:  878.023 s |loss (u, t):  0.3587   0.4006
+progress (w/o context):  83000 / 91990  |time:  877.726 s |loss (u, t):  0.3556   0.3983
+progress (w/o context):  83000 / 91990  |time:  878.0994 s |loss (u, t):  0.355   0.3928
+progress (w/o context):  83000 / 91990  |time:  877.994 s |loss (u, t):  0.3585   0.397
+progress (w/o context):  83000 / 91990  |time:  878.1181 s |loss (u, t):  0.3585   0.4022
+progress (w/o context):  83000 / 91990  |time:  877.7727 s |loss (u, t):  0.3564   0.3986
+progress (w/o context):  83000 / 91990  |time:  878.0912 s |loss (u, t):  0.354   0.3995
+progress (w/o context):  83000 / 91990  |time:  878.2819 s |loss (u, t):  0.3581   0.403
+progress (w/o context):  84000 / 91990  |time:  767.1015 s |loss (u, t):  0.356   0.3933
+progress (w/o context):  84000 / 91990  |time:  767.1366 s |loss (u, t):  0.3551   0.3939
+progress (w/o context):  84000 / 91990  |time:  767.0867 s |loss (u, t):  0.3547   0.3979
+progress (w/o context):  84000 / 91990  |time:  767.1601 s |loss (u, t):  0.354   0.3921
+progress (w/o context):  84000 / 91990  |time:  767.002 s |loss (u, t):  0.3553   0.3869
+progress (w/o context):  84000 / 91990  |time:  767.1258 s |loss (u, t):  0.3562   0.3952
+progress (w/o context):  84000 / 91990  |time:  767.1813 s |loss (u, t):  0.3545   0.3952
+progress (w/o context):  84000 / 91990  |time:  767.3096 s |loss (u, t):  0.3559   0.3938
+progress (w/o context):  85000 / 91990  |time:  769.4914 s |loss (u, t):  0.3541   0.3895
+progress (w/o context):  85000 / 91990  |time:  769.5599 s |loss (u, t):  0.3538   0.3948
+progress (w/o context):  85000 / 91990  |time:  769.5927 s |loss (u, t):  0.3514   0.3913
+progress (w/o context):  85000 / 91990  |time:  769.6759 s |loss (u, t):  0.3518   0.3947
+progress (w/o context):  85000 / 91990  |time:  769.6202 s |loss (u, t):  0.353   0.3915
+progress (w/o context):  85000 / 91990  |time:  769.6431 s |loss (u, t):  0.354   0.3958
+progress (w/o context):  85000 / 91990  |time:  769.6181 s |loss (u, t):  0.3533   0.3951
+progress (w/o context):  85000 / 91990  |time:  769.5947 s |loss (u, t):  0.3497   0.398
+progress (w/o context):  86000 / 91990  |time:  772.412 s |loss (u, t):  0.3515   0.3872
+progress (w/o context):  86000 / 91990  |time:  772.4635 s |loss (u, t):  0.3518   0.3896
+progress (w/o context):  86000 / 91990  |time:  772.4673 s |loss (u, t):  0.35   0.391
+progress (w/o context):  86000 / 91990  |time:  772.4714 s |loss (u, t):  0.3496   0.3899
+progress (w/o context):  86000 / 91990  |time:  772.5286 s |loss (u, t):  0.3496   0.3886
+progress (w/o context):  86000 / 91990  |time:  772.5637 s |loss (u, t):  0.3509   0.3897
+progress (w/o context):  86000 / 91990  |time:  772.5619 s |loss (u, t):  0.3512   0.3849
+progress (w/o context):  86000 / 91990  |time:  772.6136 s |loss (u, t):  0.3511   0.3871
+progress (w/o context):  87000 / 91990  |time:  766.0791 s |loss (u, t):  0.3503   0.3903
+progress (w/o context):  87000 / 91990  |time:  766.1094 s |loss (u, t):  0.3516   0.3855
+progress (w/o context):  87000 / 91990  |time:  766.0647 s |loss (u, t):  0.3498   0.3809
+progress (w/o context):  87000 / 91990  |time:  765.9909 s |loss (u, t):  0.3546   0.3853
+progress (w/o context):  87000 / 91990  |time:  766.195 s |loss (u, t):  0.349   0.3906
+progress (w/o context):  87000 / 91990  |time:  766.109 s |loss (u, t):  0.3523   0.3838
+progress (w/o context):  87000 / 91990  |time:  766.0967 s |loss (u, t):  0.3533   0.3877
+progress (w/o context):  87000 / 91990  |time:  766.1609 s |loss (u, t):  0.3501   0.3897
+progress (w/o context):  88000 / 91990  |time:  766.2062 s |loss (u, t):  0.3453   0.3798
+progress (w/o context):  88000 / 91990  |time:  766.1815 s |loss (u, t):  0.3457   0.3734
+progress (w/o context):  88000 / 91990  |time:  766.1854 s |loss (u, t):  0.345   0.3784
+progress (w/o context):  88000 / 91990  |time:  766.2124 s |loss (u, t):  0.3432   0.3788
+progress (w/o context):  88000 / 91990  |time:  766.2289 s |loss (u, t):  0.3457   0.3764
+progress (w/o context):  88000 / 91990  |time:  766.2257 s |loss (u, t):  0.3472   0.3732
+progress (w/o context):  88000 / 91990  |time:  766.2401 s |loss (u, t):  0.3477   0.3762
+progress (w/o context):  88000 / 91990  |time:  766.3386 s |loss (u, t):  0.3441   0.378
+progress (w/o context):  89000 / 91990  |time:  766.2667 s |loss (u, t):  0.3432   0.3688
+progress (w/o context):  89000 / 91990  |time:  766.2903 s |loss (u, t):  0.3455   0.3702
+progress (w/o context):  89000 / 91990  |time:  766.3659 s |loss (u, t):  0.3467   0.3627
+progress (w/o context):  89000 / 91990  |time:  766.4244 s |loss (u, t):  0.3429   0.3661
+progress (w/o context):  89000 / 91990  |time:  766.4172 s |loss (u, t):  0.3453   0.3668
+progress (w/o context):  89000 / 91990  |time:  766.4612 s |loss (u, t):  0.3455   0.3633
+progress (w/o context):  89000 / 91990  |time:  766.3831 s |loss (u, t):  0.3434   0.3639
+progress (w/o context):  89000 / 91990  |time:  766.3646 s |loss (u, t):  0.347   0.3661
+progress (w/o context):  90000 / 91990  |time:  771.8464 s |loss (u, t):  0.3408   0.3676
+progress (w/o context):  90000 / 91990  |time:  771.7429 s |loss (u, t):  0.341   0.3694
+progress (w/o context):  90000 / 91990  |time:  771.7817 s |loss (u, t):  0.3431   0.3688
+progress (w/o context):  90000 / 91990  |time:  771.9287 s |loss (u, t):  0.3406   0.368
+progress (w/o context):  90000 / 91990  |time:  771.8379 s |loss (u, t):  0.3432   0.3674
+progress (w/o context):  90000 / 91990  |time:  771.8538 s |loss (u, t):  0.3399   0.367
+progress (w/o context):  90000 / 91990  |time:  771.9303 s |loss (u, t):  0.3421   0.3707
+progress (w/o context):  90000 / 91990  |time:  772.0546 s |loss (u, t):  0.3389   0.368
+progress (w/o context):  91000 / 91990  |time:  769.9144 s |loss (u, t):  0.3397   0.3667
+progress (w/o context):  91000 / 91990  |time:  769.9892 s |loss (u, t):  0.344   0.3651
+progress (w/o context):  91000 / 91990  |time:  770.1028 s |loss (u, t):  0.3438   0.3686
+progress (w/o context):  91000 / 91990  |time:  770.0853 s |loss (u, t):  0.343   0.3672
+progress (w/o context):  91000 / 91990  |time:  770.0951 s |loss (u, t):  0.345   0.3651
+progress (w/o context):  91000 / 91990  |time:  770.0191 s |loss (u, t):  0.3451   0.3663
+progress (w/o context):  91000 / 91990  |time:  770.2802 s |loss (u, t):  0.3411   0.367
+progress (w/o context):  91000 / 91990  |time:  770.3402 s |loss (u, t):  0.3382   0.3664
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 445, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 387, in train_wcontext
+    outputs, lm_emb = model_mlkg(**encoded_inputs_e)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 619, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/models.py", line 60, in forward
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 445, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 387, in train_wcontext
+    outputs, lm_emb = model_mlkg(**encoded_inputs_e)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 619, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/models.py", line 60, in forward
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 445, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 387, in train_wcontext
+    outputs, lm_emb = model_mlkg(**encoded_inputs_e)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 619, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/models.py", line 60, in forward
+    outputs_MLLM = self.MLLM(**inputs).hidden_states
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    outputs_MLLM = self.MLLM(**inputs).hidden_states
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    outputs_MLLM = self.MLLM(**inputs).hidden_states
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1026, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1026, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1026, in forward
+        encoder_outputs = self.encoder(encoder_outputs = self.encoder(
+    
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+encoder_outputs = self.encoder(  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 602, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 602, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 602, in forward
+    layer_outputs = layer_module(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    layer_outputs = layer_module(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    layer_outputs = layer_module(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 487, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 487, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 487, in forward
+    self_attention_outputs = self.attention(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    self_attention_outputs = self.attention(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    self_attention_outputs = self.attention(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 413, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 413, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 413, in forward
+    self_outputs = self.self(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    self_outputs = self.self(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    self_outputs = self.self(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 331, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 331, in forward
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 331, in forward
+    attention_scores = attention_scores / math.sqrt(self.attention_head_size)
+RuntimeError: CUDA out of memory. Tried to allocate 4.29 GiB (GPU 2; 23.65 GiB total capacity; 14.19 GiB already allocated; 1.41 GiB free; 21.05 GiB reserved in total by PyTorch)
+    attention_scores = attention_scores / math.sqrt(self.attention_head_size)
+RuntimeError: CUDA out of memory. Tried to allocate 4.29 GiB (GPU 7; 23.65 GiB total capacity; 14.19 GiB already allocated; 886.31 MiB free; 21.61 GiB reserved in total by PyTorch)
+    attention_scores = attention_scores / math.sqrt(self.attention_head_size)
+RuntimeError: CUDA out of memory. Tried to allocate 4.29 GiB (GPU 4; 23.65 GiB total capacity; 14.19 GiB already allocated; 1.16 GiB free; 21.29 GiB reserved in total by PyTorch)
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 445, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 387, in train_wcontext
+    outputs, lm_emb = model_mlkg(**encoded_inputs_e)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 619, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/models.py", line 60, in forward
+    outputs_MLLM = self.MLLM(**inputs).hidden_states
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1026, in forward
+    encoder_outputs = self.encoder(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 602, in forward
+    layer_outputs = layer_module(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 487, in forward
+    self_attention_outputs = self.attention(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 413, in forward
+    self_outputs = self.self(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 331, in forward
+    attention_scores = attention_scores / math.sqrt(self.attention_head_size)
+RuntimeError: CUDA out of memory. Tried to allocate 4.29 GiB (GPU 6; 23.65 GiB total capacity; 12.54 GiB already allocated; 3.40 GiB free; 19.05 GiB reserved in total by PyTorch)
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 445, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 387, in train_wcontext
+    outputs, lm_emb = model_mlkg(**encoded_inputs_e)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 619, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/models.py", line 60, in forward
+    outputs_MLLM = self.MLLM(**inputs).hidden_states
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1026, in forward
+    encoder_outputs = self.encoder(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 602, in forward
+    layer_outputs = layer_module(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 487, in forward
+    self_attention_outputs = self.attention(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 413, in forward
+    self_outputs = self.self(
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 331, in forward
+    attention_scores = attention_scores / math.sqrt(self.attention_head_size)
+RuntimeError: CUDA out of memory. Tried to allocate 4.29 GiB (GPU 3; 23.65 GiB total capacity; 12.54 GiB already allocated; 3.40 GiB free; 19.05 GiB reserved in total by PyTorch)
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 255, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-u', 'src/main.py']' died with <Signals.SIGTERM: 15>.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/accelerate_cli.py", line 41, in main
+    args.func(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 469, in launch_command
+    multi_gpu_launcher(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 229, in multi_gpu_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-m', 'torch.distributed.launch', '--use_env', '--nproc_per_node', '8', 'src/main.py']' returned non-zero exit status 1.
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=20, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=20, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=20, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=20, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=20, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=20, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=20, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=20, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 446, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 352, in train_wcontext
+    args.batch_size = int(args.batch_size / 2)
+AttributeError: 'Namespace' object has no attribute 'batch_size'
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 446, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 352, in train_wcontext
+    args.batch_size = int(args.batch_size / 2)
+AttributeError: 'Namespace' object has no attribute 'batch_size'
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 446, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 352, in train_wcontext
+    args.batch_size = int(args.batch_size / 2)
+AttributeError: 'Namespace' object has no attribute 'batch_size'
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 446, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 352, in train_wcontext
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+    args.batch_size = int(args.batch_size / 2)
+AttributeError: 'Namespace' object has no attribute 'batch_size'
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 446, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 352, in train_wcontext
+    args.batch_size = int(args.batch_size / 2)
+AttributeError: 'Namespace' object has no attribute 'batch_size'
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 446, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 352, in train_wcontext
+    args.batch_size = int(args.batch_size / 2)
+AttributeError: 'Namespace' object has no attribute 'batch_size'
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 446, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 352, in train_wcontext
+    args.batch_size = int(args.batch_size / 2)
+AttributeError: 'Namespace' object has no attribute 'batch_size'
+Traceback (most recent call last):
+  File "src/main.py", line 44, in <module>
+    main_func(args)
+  File "src/main.py", line 6, in main_func
+    ki_mlkg(args)  # MLKG integration (pretraining)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 446, in ki_mlkg
+    train_wcontext(args, model_mlkg)
+  File "/cluster/scratch/yifhou/Multilingual_Space/src/tasks.py", line 352, in train_wcontext
+    args.batch_size = int(args.batch_size / 2)
+AttributeError: 'Namespace' object has no attribute 'batch_size'
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 255, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-u', 'src/main.py']' returned non-zero exit status 1.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/accelerate_cli.py", line 41, in main
+    args.func(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 469, in launch_command
+    multi_gpu_launcher(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 229, in multi_gpu_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-m', 'torch.distributed.launch', '--use_env', '--nproc_per_node', '8', 'src/main.py']' returned non-zero exit status 1.
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (w context):  1000 / 18920  |time:  3934.2593 s |loss (u, t):  1.1718   1.6431
+progress (w context):  1000 / 18920  |time:  3934.472 s |loss (u, t):  1.179   1.6445
+progress (w context):  1000 / 18920  |time:  3934.7751 s |loss (u, t):  1.1738   1.6318
+progress (w context):  1000 / 18920  |time:  3934.9572 s |loss (u, t):  1.1795   1.6465
+progress (w context):  1000 / 18920  |time:  3935.2588 s |loss (u, t):  1.1711   1.6478
+progress (w context):  1000 / 18920  |time:  3935.2992 s |loss (u, t):  1.1781   1.6484
+progress (w context):  1000 / 18920  |time:  3935.3353 s |loss (u, t):  1.1772   1.6369
+progress (w context):  1000 / 18920  |time:  3935.3654 s |loss (u, t):  1.1844   1.6473
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 255, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-u', 'src/main.py']' died with <Signals.SIGTERM: 15>.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/accelerate_cli.py", line 41, in main
+    args.func(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 469, in launch_command
+    multi_gpu_launcher(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 229, in multi_gpu_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-m', 'torch.distributed.launch', '--use_env', '--nproc_per_node', '8', 'src/main.py']' returned non-zero exit status 1.
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (w context):  1000 / 18920  |time:  3931.8784 s |loss (u, t):  1.1831   1.6424
+progress (w context):  1000 / 18920  |time:  3932.0931 s |loss (u, t):  1.1735   1.6484
+progress (w context):  1000 / 18920  |time:  3932.2962 s |loss (u, t):  1.1772   1.6374
+progress (w context):  1000 / 18920  |time:  3932.9395 s |loss (u, t):  1.1758   1.6506
+progress (w context):  1000 / 18920  |time:  3932.9507 s |loss (u, t):  1.1803   1.6419
+progress (w context):  1000 / 18920  |time:  3932.9533 s |loss (u, t):  1.1793   1.6428
+progress (w context):  1000 / 18920  |time:  3932.9553 s |loss (u, t):  1.1703   1.6408
+progress (w context):  1000 / 18920  |time:  3932.9969 s |loss (u, t):  1.1855   1.6386
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/torch/distributed/launch.py", line 255, in main
+    raise subprocess.CalledProcessError(returncode=process.returncode,
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-u', 'src/main.py']' died with <Signals.SIGTERM: 15>.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Traceback (most recent call last):
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/accelerate_cli.py", line 41, in main
+    args.func(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 469, in launch_command
+    multi_gpu_launcher(args)
+  File "/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/lib/python3.8/site-packages/accelerate/commands/launch.py", line 229, in multi_gpu_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/cluster/project/sachan/yifan/softwares/anaconda/anaconda3/envs/yf_torch/bin/python', '-m', 'torch.distributed.launch', '--use_env', '--nproc_per_node', '8', 'src/main.py']' returned non-zero exit status 1.
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_pad_token_id=0, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', neg_num=8, patience=10, tmp_dir='./tmp/mbert_80_simple', triple_epoch=10, warmup_steps=10000.0)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+progress (w context):  1000 / 18920  |time:  3931.379 s |loss (u, t):  1.1821   1.6462
+progress (w context):  1000 / 18920  |time:  3931.877 s |loss (u, t):  1.1858   1.6331
+progress (w context):  1000 / 18920  |time:  3932.0403 s |loss (u, t):  1.1769   1.6347
+progress (w context):  1000 / 18920  |time:  3932.4051 s |loss (u, t):  1.1689   1.6486
+progress (w context):  1000 / 18920  |time:  3932.4207 s |loss (u, t):  1.1802   1.6389
+progress (w context):  1000 / 18920  |time:  3932.4289 s |loss (u, t):  1.1793   1.6422
+progress (w context):  1000 / 18920  |time:  3932.4678 s |loss (u, t):  1.1735   1.6458
+progress (w context):  1000 / 18920  |time:  3932.473 s |loss (u, t):  1.1757   1.6589
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************

@@ -14,7 +14,7 @@ if __name__ == "__main__":
                         help="the input data directory.")
     parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased",
                         help="The stored model directory.")
-    parser.add_argument("--tmp_dir", type=str, default="./tmp/mbert_80_simple",
+    parser.add_argument("--tmp_dir", type=str, default="./tmp/mbert_80_final",
                         help="The stored model directory.")
 
     # model
@@ -28,7 +28,7 @@ if __name__ == "__main__":
                         help="number of training epochs.")
     parser.add_argument("--entity_epoch", type=int, default=1,
                         help="number of training epochs.")
-    parser.add_argument("--triple_epoch", type=int, default=10,
+    parser.add_argument("--triple_epoch", type=int, default=20,
                         help="number of training epochs.")
     parser.add_argument("--patience", type=int, default=10,
                         help="used for early stop")

@@ -293,7 +293,7 @@ def train_wocontext(args, model_mlkg):
     # set model and optimizer
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
     optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=1e-4)
-    scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=10,
+    scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=5,
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*len(wocontext_data))
     # model_mlkg = model_mlkg.to(args.device)
