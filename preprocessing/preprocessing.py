@@ -156,13 +156,22 @@ def extend_kgdataset(args):
                     en_test_triple.append(t)
                     entity_align_en_test.add(entity_dict_en[s])
                     entity_align_en_test.add(entity_dict_en[o])
+        with open(os.path.join(kg_path, "en-val.tsv"), "r") as f:
+            for line in f:
+                s, r, o = line[:-1].split("\t")
+                s, r, o = int(s), int(r), int(o)
+                if entity_dict_en[s] in entity_align_en and entity_dict_en[o] in entity_align_en:
+                    t = "\t".join([entity_dict_en[s], relation_dict_en[r], entity_dict_en[o]])
+                    en_test_triple.append(t)
+                    entity_align_en_test.add(entity_dict_en[s])
+                    entity_align_en_test.add(entity_dict_en[o])
         print(len(entity_align_en_test))
+        # 0-5984 test + 5985-25238 val
         with open(os.path.join(args.kg_dir, "extended/en-test.tsv"), "w") as f:
             for t in en_test_triple:
                 f.write(t)
                 f.write("\n")
         # other languages
-        '''
         lang_set = {}
         with open(data_path, "r") as f:
             for line in tqdm(f):
@@ -174,11 +183,7 @@ def extend_kgdataset(args):
                                 lang_set[k] = 1
                             else:
                                 lang_set[k] += 1
-        print(lang_set)
-        '''
-        lang_set = {'pl': 12186, 'fr': 17161, 'ru': 11401, 'de': 15229, 'it': 14272, 'ja': 10936, \
-                    'es': 15449, 'ar': 10048, 'ast': 10154, 'ca': 11979, 'fa': 10396, 'hu': 10103, \
-                    'nl': 16133, 'pt': 12309, 'sv': 11642, 'zh': 11368}  # 17 languages (> 10000, 'en': 21426)
+        # en: 25238, only keep when # num > 10000
         entity_dict_wiki = {}
         with open(data_path, "r") as f:
             for line in tqdm(f):
@@ -189,17 +194,24 @@ def extend_kgdataset(args):
                         for k, _ in lang_set.items():
                             if k in tmp_data["labels"]:
                                 tmp_labels[k] = tmp_data["labels"][k]["value"]
-                        entity_dict_wiki["en"] = tmp_labels
+                        entity_dict_wiki[tmp_data["labels"]["en"]["value"]] = tmp_labels
+        triple_dict = {}
         for k, _ in lang_set.items():
-            data_path_test = os.path.join(args.kg_dir, "extended", k+"-test.tsv")
-            with open(data_path_test, "w") as f_test:
-                for t_text in en_test_triple:
-                    s_text, r_text, o_text = t_text.split("\t")
-                    if s_text in entity_dict_wiki and o_text in entity_dict_wiki:
-                        if k in entity_dict_wiki[s_text] and k in entity_dict_wiki[o_text]:
-                            t = "\t".join([entity_dict_wiki[s_text][k], r_text, entity_dict_wiki[o_text][k]])
-                            f_test.write(t)
-                            f_test.write("\n")
+            tmp_triple = []
+            for t_text in en_test_triple:
+                s_text, r_text, o_text = t_text.split("\t")
+                if s_text in entity_dict_wiki and o_text in entity_dict_wiki:
+                    if k in entity_dict_wiki[s_text] and k in entity_dict_wiki[o_text]:
+                        t = "\t".join([entity_dict_wiki[s_text][k], r_text, entity_dict_wiki[o_text][k]])
+                        tmp_triple.append(t)
+            triple_dict[k] = tmp_triple
+        for k, v in triple_dict.items():
+            if len(v) > 10000:
+                data_path_test = os.path.join(args.kg_dir, "extended", k+"-test.tsv")
+                with open(data_path_test, "w") as f_test:
+                    for t in v:
+                        f_test.write(t)
+                        f_test.write("\n")
 
     return
 
