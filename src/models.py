@@ -151,7 +151,7 @@ def loss_wocontext(args, outputs, input_ids=None, lm_emb=None, el2=True):
     # l2-norm loss
     loss_el2 = 0
     if el2 == True:
-        loss_el2 = lossfcn_el2(outputs_query, outputs_pos) - lossfcn_el2(outputs_query, outputs_neg)
+        loss_el2 = lossfcn_el2(outputs_query, outputs_pos) / (lossfcn_el2(outputs_query, outputs_pos) + lossfcn_el2(outputs_query, outputs_neg))
     # reconstruction loss
     loss_re = 0
     if lm_emb is not None:
