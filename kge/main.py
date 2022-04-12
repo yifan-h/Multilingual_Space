@@ -3,8 +3,8 @@ import argparse
 from tasks import test_dbp5l, test_wk3l60
 
 def main_func(args):
-    test_dbp5l(args)
-    # test_wk3l60(args)
+    # test_dbp5l(args)
+    test_wk3l60(args)
 
 
 if __name__ == "__main__":
@@ -15,7 +15,7 @@ if __name__ == "__main__":
                         help="the input data directory.")
     parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased",
                         help="The stored model directory.")
-    parser.add_argument("--modelkg_dir", type=str, default="/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_80/final_v3.pt",
+    parser.add_argument("--modelkg_dir", type=str, default="/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_80_final/pytorch_model.bin",
                         help="The stored model directory.")
     parser.add_argument("--model_name", type=str, default="mBERT",
                         help="The model to test: [mBERT, XLM, mBERT-KG, XLM-KG].")
@@ -35,7 +35,7 @@ if __name__ == "__main__":
                         help="Adam epsilon")
     parser.add_argument("--epoch", type=int, default=10,
                         help="number of training epochs.")
-    parser.add_argument("--batch_num", type=int, default=50,
+    parser.add_argument("--batch_num", type=int, default=128,
                         help="number of triple samples per 1 batch")
     parser.add_argument("--neg_num", type=float, default=1,
                         help="number of negative samples")

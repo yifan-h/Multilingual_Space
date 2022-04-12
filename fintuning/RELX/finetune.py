@@ -24,20 +24,20 @@ adapter model:...
 '''
 class MLKGLM(nn.Module):
     """docstring for ClassName"""
-    def __init__(self, args):
+    def __init__(self, model_path):
         super(MLKGLM, self).__init__()
         # load pretrained MLLM
-        self.MLLM = AutoModel.from_pretrained(args.model_dir, 
+        self.MLLM = AutoModel.from_pretrained(model_path, 
                                                 return_dict=True,
                                                 output_hidden_states=True)
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
         self.training = False
-        self.lm_pad_token_id = args.lm_pad_token_id
+        # self.lm_pad_token_id = args.lm_pad_token_id
         # set three extra modules
-        self.knowledge_mapping = nn.Sequential(nn.Linear(hidden_num, int(hidden_num / 4)),
+        self.knowledge_mapping = nn.Sequential(nn.Linear(hidden_num, int(hidden_num / 2)),
                                                 nn.ELU(),
                                                 nn.Dropout(0.1),  # project down
-                                                nn.Linear(int(hidden_num / 4), hidden_num),
+                                                nn.Linear(int(hidden_num / 2), hidden_num),
                                                 nn.ELU(),
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1),  # project up
@@ -49,7 +49,8 @@ class MLKGLM(nn.Module):
                                                 nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1),  # project down
                                                 nn.Linear(hidden_num, hidden_num),
-                                                nn.Tanh(),
+                                                nn.ELU(),
+                                                nn.LayerNorm(hidden_num, eps=1e-12),
                                                 nn.Dropout(0.1))
         if not self.training:
             # for testing
@@ -69,19 +70,19 @@ class MLKGLM(nn.Module):
         outputs_MLLM = outputs_MLLM[-1]
         # add adversarial noise
         if self.training:
-            outputs_MLLM = outputs_MLLM + 0.05*torch.randn_like(outputs_MLLM)
+            outputs_MLLM = outputs_MLLM + 0.1*torch.abs(outputs_MLLM).mean()*torch.randn_like(outputs_MLLM)
         outputs_both = self.knowledge_mapping(outputs_MLLM)
         if self.training:
             return (outputs_both + outputs_MLLM) / 2, outputs_MLLM.clone()
         else:
-            outputs_both = self.all_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
+            outputs_both = self.all_aggregator(torch.cat((outputs_MLLM, outputs_both), dim=-1))
             return outputs_both
 
 
 #pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
-#adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_80/final_v3.pt"
+#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/mbert_80_final/pytorch_model_wocontext.bin"
 pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
-adapter_path = "/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlm_80/final_v2.pt"
+adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlm_80_final/pytorch_model_wocontext.bin"
 dataset_training = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/kbp37"
 dataset_relxt = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/RELX"
 max_seq_length = 256
@@ -92,7 +93,7 @@ elif base_model == "mtmb":
     tokenizer = AutoTokenizer.from_pretrained("akoksal/MTMB")
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device("cuda:7")
+device = torch.device("cuda:0")
 print(device)
 print(torch.cuda.device_count())
 print(torch.cuda.is_available())

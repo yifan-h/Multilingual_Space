@@ -68,7 +68,7 @@ class MLKGLM(nn.Module):
         if self.training:
             return (outputs_both + outputs_MLLM) / 2, outputs_MLLM.clone()
         else:
-            outputs_both = self.all_aggregator(torch.cat((outputs_MLLM, outputs_MLKGLM), dim=-1))
+            outputs_both = self.all_aggregator(torch.cat((outputs_MLLM, outputs_both), dim=-1))
             return outputs_both
 
 

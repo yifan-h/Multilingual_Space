@@ -4,6 +4,13 @@ import random
 import torch
 from tqdm import tqdm
 
+seed = 123
+random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+
 def load_data(args, data_name):
     data_path = os.path.join(args.data_dir, data_name)
     if data_name == "dbp5l":
@@ -27,37 +34,34 @@ def load_data(args, data_name):
             with open(entity_path, "r") as f:
                 for line in f:
                     tmp_elabel = line[:-1].split("/")[-1]
-                    tmp_edict[count] = tmp_elabel
+                    tmp_edict[count] = tmp_elabel.replace("_", " ").replace("(", "").replace(")", "")
                     count += 1
             entities[l] = tmp_edict
         # load KG
-        kgs_path = os.path.join(data_path, "kg")
-        langs = ["el", "en", "es", "fr", "ja"]
+        kgs_path = os.path.join(data_path, "extended")
+        langs = ["el", "en", "es", "fr", "ja", "ast", "ca", "da", "de", "fa", "fi", "hu", "it", "nb", "nl", "pl", "pt", "ru", "sv", "zh"]
         kgs = {}
         for l in langs:
             tmp_kgdict = {}
             kg_path_train = os.path.join(kgs_path, l+"-train.tsv")
-            kg_path_val = os.path.join(kgs_path, l+"-val.tsv")
             kg_path_test = os.path.join(kgs_path, l+"-test.tsv")
             tmp_list = []
-            with open(kg_path_train, "r") as f:
-                for line in f:
-                    tmp_list.append(line[:-1])
-            tmp_kgdict["train"] = tmp_list
-            tmp_list = []
-            with open(kg_path_val, "r") as f:
-                for line in f:
-                    tmp_list.append(line[:-1])
-            tmp_kgdict["val"] = tmp_list
-            tmp_list = []
-            with open(kg_path_test, "r") as f:
-                for line in f:
-                    tmp_list.append(line[:-1])
-            tmp_kgdict["test"] = tmp_list
+            if os.path.exists(kg_path_train):
+                with open(kg_path_train, "r") as f:
+                    for line in f:
+                        tmp_list.append(line[:-1])
+                tmp_kgdict["train"] = tmp_list
+            if os.path.exists(kg_path_test):
+                tmp_list = []
+                with open(kg_path_test, "r") as f:
+                    for line in f:
+                        tmp_list.append(line[:-1])
+                tmp_kgdict["test"] = tmp_list
             kgs[l] = tmp_kgdict
         # load alignment
         align_path = os.path.join(data_path, "seed_alignlinks")
         aligns = {}
+        '''
         files = ["el-en.tsv", "el-es.tsv", "el-fr.tsv", "el-ja.tsv", "en-fr.tsv", \
                     "es-en.tsv", "es-fr.tsv", "ja-en.tsv", "ja-es.tsv", "ja-fr.tsv"]
         for file in files:
@@ -68,11 +72,13 @@ def load_data(args, data_name):
                     s, t = line[:-1].split("\t")
                     align_list.append(str(int(float(s)))+"\t"+str(int(float(t))))
             aligns[file[:-4]] = align_list
+        '''
         return entities, relation_dict, kgs, aligns
     else:  # wk3l60
         data_path = os.path.join(args.data_dir, "wk3l60")
         # load alignments
-        files = ["en_de_60k_test75.csv", "en_de_60k_train25.csv", "en_fr_60k_test75.csv", "en_fr_60k_train25.csv"]
+        for i, j, k in os.walk(os.path.join(data_path, "alignment")): files = k
+        # files = ["en_de_60k_test75.csv", "en_de_60k_train25.csv", "en_fr_60k_test75.csv", "en_fr_60k_train25.csv"]
         aligns = {}
         for file in files:
             tmp_align = []
@@ -80,10 +86,7 @@ def load_data(args, data_name):
                 for line in f:
                     tmp_align.append(line[:-1])
             # get language
-            if "en_de" in file:
-                k = "en_de"
-            else:
-                k = "en_fr"
+            k = file.split("_60k_")[0]
             if k not in aligns:
                 aligns[k]={}
             # get train/test
