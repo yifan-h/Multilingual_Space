@@ -104,16 +104,18 @@ def test_dbp5l(args):
             for i in range(0, len(obj_list_test), args.batch_num):
                 inputs = tokenizer(obj_list_test[i:i+args.batch_num], padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
                 obj_emb = torch.cat((obj_emb, model(**inputs).cpu()), dim=0)
-            for t in test_list:
-                e_src = t.split("\t")[0] + " " + t.split("\t")[1]
-                e_dst = t.split("\t")[-1]
+            for i in tqdm(range(0, len(test_list), args.batch_num*5)):
+                e_src = [t.split("\t")[0] + " " + t.split("\t")[1] for t in test_list[i,i+args.batch_num*5]]
+                e_dst = [t.split("\t")[-1] for t in test_list[i,i+args.batch_num*5]]
                 input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
                 output_src = model(**input_src).cpu()
-                score = torch.squeeze(cos_sim(output_src, obj_emb)).numpy()  # for FT setting
-                # score = torch.squeeze(torch.mm(output_src, torch.t(obj_emb))).numpy()  # for ZS setting
-                ranks = np.argsort(np.argsort(-score))
-                rank = ranks[obj_list_test.index(e_dst)]
-                rank_list.append(rank)
+                for j in range(output_src.shape[0]):
+                    tmp_output = torch.unsqueeze(output_src[j], 0)
+                    score = torch.squeeze(cos_sim(tmp_output, obj_emb)).numpy()  # for FT setting
+                    # score = torch.squeeze(torch.mm(output_src, torch.t(obj_emb))).numpy()  # for ZS setting
+                    ranks = np.argsort(np.argsort(-score))
+                    rank = ranks[obj_list_test.index(e_dst[j])]
+                    rank_list.append(rank)
             count_1, count_10, mrr = 0, 0, 0 
             for r in rank_list:
                 if r < 1: count_1 += 1
@@ -308,10 +310,10 @@ def test_wk3l60(args):
             # backward
             loss.backward()
             optimizer.step()
-        # testing
+    # testing
+    grad_parameters(model, False)
     for k, v in aligns.items():
         if "test" not in v: continue
-        grad_parameters(model, False)
         rank_list = []
         entity_pool_test = set()
         for e in test_list:
@@ -319,20 +321,23 @@ def test_wk3l60(args):
         entity_list = list(entity_pool_test)
         print("The number of objects [", k, "] is: ", len(entity_list))
         test_emb = torch.Tensor()
-        for i in range(0, len(entity_list), args.batch_num*5):
+        for i in tqdm(range(0, len(entity_list), args.batch_num*5)):
             inputs = tokenizer(entity_list[i: i+args.batch_num*5], padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
             outputs_emb = model(**inputs).cpu()
             test_emb = torch.cat((test_emb, outputs_emb), dim=0)
-        for e in test_list:
-            e_src = e.split("@@@")[0]
-            e_dst = e.split("@@@")[1]
+        for i in tqdm(range(0, len(test_list), args.batch_num*5)):
+            e_src = [e.split("@@@")[0] for e in test_list[i:i+args.batch_num*5]]
+            e_dst = [e.split("@@@")[1] for e in test_list[i:i+args.batch_num*5]]
             input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
             output_src = model(**input_src).cpu()
-            score = torch.squeeze(cos_sim(output_src, test_emb)).numpy()
-            # score = torch.squeeze(torch.mm(output_src, torch.t(test_emb))).numpy()
-            ranks = np.argsort(np.argsort(-score))
-            rank = ranks[entity_list.index(e_dst)]
-            rank_list.append(rank)
+            # for each entity
+            for j in range(output_src.shape[0]):
+                tmp_output = torch.unsqueeze(output_src[j], 0)
+                score = torch.squeeze(cos_sim(tmp_output, test_emb)).numpy()
+                # score = torch.squeeze(torch.mm(output_src, torch.t(test_emb))).numpy()
+                ranks = np.argsort(np.argsort(-score))
+                rank = ranks[entity_list.index(e_dst[j])]
+                rank_list.append(rank)
         count_1, count_5, mrr = 0, 0, 0
         for r in rank_list:
             if r < 1: count_1 += 1
