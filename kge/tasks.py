@@ -47,13 +47,14 @@ def test_dbp5l(args):
     base_params = list(filter(lambda kv: kv[0] not in param_list, model.named_parameters()))
     aggregator_params = [i[1] for i in aggregator_params]
     base_params = [i[1] for i in base_params]
-    optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=1e-6, weight_decay=args.weight_decay)
+    # optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=1e-6, weight_decay=args.weight_decay)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     # training and testing KG for all languages
     # dataset (id to text)
     train_list_text = []
     obj_list_train, obj_list_val = [], []
     for k, v in kgs.items():
-        if "train" in v and k=="en":
+        if "train" in v:
             for t in v["train"]:
                 s, r, o = t.split("\t")
                 s, r, o = int(s), int(r), int(o)
@@ -65,7 +66,7 @@ def test_dbp5l(args):
     # training, validation, testing
     results = []
     # epoch loop
-    for e in range(1):
+    for e in range(args.epoch):
         # training
         random.shuffle(train_list_text)
         grad_parameters(model, True)
@@ -73,7 +74,7 @@ def test_dbp5l(args):
         for i in range(0, len(train_list_text), args.batch_num):
             # get text
             e_src = [" ".join(a.split("\t")[:2]) for a in train_list_text[i:i+args.batch_num]]
-            e_dst = [a.split("\t")[-1] for a in train_list_text[i: i+args.batch_num]]
+            e_dst = [a.split("\t")[-1] for a in train_list_text[i:i+args.batch_num]]
             e_neg = random.sample(obj_list_train, int(len(e_dst)*args.neg_num))
             # get tokens
             input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
@@ -104,22 +105,22 @@ def test_dbp5l(args):
             for i in range(0, len(obj_list_test), args.batch_num):
                 inputs = tokenizer(obj_list_test[i:i+args.batch_num], padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
                 obj_emb = torch.cat((obj_emb, model(**inputs).cpu()), dim=0)
-            for i in tqdm(range(0, len(test_list), args.batch_num*5)):
-                e_src = [t.split("\t")[0] + " " + t.split("\t")[1] for t in test_list[i,i+args.batch_num*5]]
-                e_dst = [t.split("\t")[-1] for t in test_list[i,i+args.batch_num*5]]
+            for i in range(0, len(test_list), args.batch_num*5):
+                e_src = [t.split("\t")[0] + " " + t.split("\t")[1] for t in test_list[i:i+args.batch_num*5]]
+                e_dst = [t.split("\t")[-1] for t in test_list[i:i+args.batch_num*5]]
                 input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
                 output_src = model(**input_src).cpu()
                 for j in range(output_src.shape[0]):
                     tmp_output = torch.unsqueeze(output_src[j], 0)
-                    score = torch.squeeze(cos_sim(tmp_output, obj_emb)).numpy()  # for FT setting
-                    # score = torch.squeeze(torch.mm(output_src, torch.t(obj_emb))).numpy()  # for ZS setting
+                    # score = torch.squeeze(cos_sim(tmp_output, obj_emb)).numpy()  # for FT setting
+                    score = torch.squeeze(torch.mm(tmp_output, torch.t(obj_emb))).numpy()  # for ZS setting
                     ranks = np.argsort(np.argsort(-score))
-                    rank = ranks[obj_list_test.index(e_dst[j])]
+                    rank = round(ranks[obj_list_test.index(e_dst[j])], 4)
                     rank_list.append(rank)
             count_1, count_10, mrr = 0, 0, 0 
             for r in rank_list:
-                if r < 1: count_1 += 1
-                if r < 10: count_10 += 1
+                if r <= 1: count_1 += 1
+                if r <= 10: count_10 += 1
                 mrr += 1/(r+1)
             # result = [(count_1_val+count_10_val)/len(val_list_text_sample), round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4)]
             # results.append(result)
@@ -268,6 +269,7 @@ def test_wk3l60(args):
         if "new_all_aggregator" in name:
             param_list.append(name)
     # training and testing KG for all languages
+    grad_parameters(model, True)
     for k, v in aligns.items():
         if "train" not in v: continue
         # set model and optimizer
@@ -275,8 +277,8 @@ def test_wk3l60(args):
         base_params = list(filter(lambda kv: kv[0] not in param_list, model.named_parameters()))
         aggregator_params = [i[1]for i in aggregator_params]
         base_params = [i[1]for i in base_params]
-        optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=args.lm_lr, weight_decay=args.weight_decay)
-        # optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
+        # optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=args.lm_lr, weight_decay=args.weight_decay)
+        optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
         # dataset
         train_list, test_list = v["train"], v["test"]
         # get object pool
@@ -288,7 +290,6 @@ def test_wk3l60(args):
         results = []
         # training： 1 epoch
         random.shuffle(train_list)
-        grad_parameters(model, True)
         loss_list = []
         for i in range(0, len(train_list), args.batch_num):
             # get text
@@ -314,18 +315,19 @@ def test_wk3l60(args):
     grad_parameters(model, False)
     for k, v in aligns.items():
         if "test" not in v: continue
+        test_list = v["test"]
         rank_list = []
         entity_pool_test = set()
         for e in test_list:
             entity_pool_test.add(e.split("@@@")[-1])
         entity_list = list(entity_pool_test)
-        print("The number of objects [", k, "] is: ", len(entity_list))
+        # print("The number of objects [", k, "] is: ", len(entity_list))
         test_emb = torch.Tensor()
-        for i in tqdm(range(0, len(entity_list), args.batch_num*5)):
+        for i in range(0, len(entity_list), args.batch_num*5):
             inputs = tokenizer(entity_list[i: i+args.batch_num*5], padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
             outputs_emb = model(**inputs).cpu()
             test_emb = torch.cat((test_emb, outputs_emb), dim=0)
-        for i in tqdm(range(0, len(test_list), args.batch_num*5)):
+        for i in range(0, len(test_list), args.batch_num*5):
             e_src = [e.split("@@@")[0] for e in test_list[i:i+args.batch_num*5]]
             e_dst = [e.split("@@@")[1] for e in test_list[i:i+args.batch_num*5]]
             input_src = tokenizer(e_src, padding=True, truncation=True, max_length=500, return_tensors="pt").to(args.device)
@@ -333,15 +335,15 @@ def test_wk3l60(args):
             # for each entity
             for j in range(output_src.shape[0]):
                 tmp_output = torch.unsqueeze(output_src[j], 0)
-                score = torch.squeeze(cos_sim(tmp_output, test_emb)).numpy()
-                # score = torch.squeeze(torch.mm(output_src, torch.t(test_emb))).numpy()
+                # score = torch.squeeze(cos_sim(tmp_output, test_emb)).numpy()
+                score = torch.squeeze(torch.mm(tmp_output, torch.t(test_emb))).numpy()
                 ranks = np.argsort(np.argsort(-score))
-                rank = ranks[entity_list.index(e_dst[j])]
+                rank = round(ranks[entity_list.index(e_dst[j])], 4)
                 rank_list.append(rank)
         count_1, count_5, mrr = 0, 0, 0
         for r in rank_list:
-            if r < 1: count_1 += 1
-            if r < 5: count_5 += 1
+            if r <= 1: count_1 += 1
+            if r <= 5: count_5 += 1
             mrr += 1/(r+1)
         result = [round(count_1/len(rank_list), 4), round(count_5/len(rank_list), 4), round(mrr/len(rank_list), 4)]
         results.append(result)

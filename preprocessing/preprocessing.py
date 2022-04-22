@@ -140,10 +140,12 @@ def extend_kgdataset(args):
                 if entity_dict_en[s] in entity_align_en and entity_dict_en[o] in entity_align_en:
                     t = "\t".join([entity_dict_en[s], relation_dict_en[r], entity_dict_en[o]])
                     en_train_triple.append(t)
+        '''
         with open(os.path.join(args.kg_dir, "extended/en-train.tsv"), "w") as f:
             for t in en_train_triple:
                 f.write(t)
                 f.write("\n")
+        '''
         # process test
         en_test_triple = []
         entity_align_en_test = set()
@@ -156,6 +158,7 @@ def extend_kgdataset(args):
                     en_test_triple.append(t)
                     entity_align_en_test.add(entity_dict_en[s])
                     entity_align_en_test.add(entity_dict_en[o])
+        '''
         with open(os.path.join(kg_path, "en-val.tsv"), "r") as f:
             for line in f:
                 s, r, o = line[:-1].split("\t")
@@ -165,6 +168,7 @@ def extend_kgdataset(args):
                     en_test_triple.append(t)
                     entity_align_en_test.add(entity_dict_en[s])
                     entity_align_en_test.add(entity_dict_en[o])
+        '''
         print(len(entity_align_en_test))
         # 0-5984 test + 5985-25238 val
         with open(os.path.join(args.kg_dir, "extended/en-test.tsv"), "w") as f:
@@ -206,7 +210,7 @@ def extend_kgdataset(args):
                         tmp_triple.append(t)
             triple_dict[k] = tmp_triple
         for k, v in triple_dict.items():
-            if len(v) > 10000:
+            if len(v) > 1000:
                 data_path_test = os.path.join(args.kg_dir, "extended", k+"-test.tsv")
                 with open(data_path_test, "w") as f_test:
                     for t in v:

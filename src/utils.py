@@ -34,8 +34,8 @@ class EntityLoader(Data.Dataset):
         self.fopen = open(os.path.join(args.data_dir, "entity.json"), "r")
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
-        self.lm_pad_token = self.tokenizer.pad_token
-        self.lm_pad_token_id = self.tokenizer.pad_token_id
+        self.lm_mask_token = self.tokenizer.mask_token
+        self.lm_mask_token_id = self.tokenizer.mask_token_id
 
     def __len__(self):
         return self.num_e
@@ -85,8 +85,8 @@ class TripleLoader(Data.Dataset):
         self.fopen = open(os.path.join(args.data_dir, "triple.txt"), "r")
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
-        self.lm_pad_token = self.tokenizer.pad_token
-        self.lm_pad_token_id = self.tokenizer.pad_token_id
+        self.lm_mask_token = self.tokenizer.mask_token
+        self.lm_mask_token_id = self.tokenizer.mask_token_id
 
     def __len__(self):
         return int(self.num_t/self.triple_batch)
@@ -158,8 +158,8 @@ class MixLoader(Data.Dataset):
         self.entity_pool = set(entity_dict.keys())
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
-        self.lm_pad_token = self.tokenizer.pad_token
-        self.lm_pad_token_id = self.tokenizer.pad_token_id
+        self.lm_mask_token = self.tokenizer.mask_token
+        self.lm_mask_token_id = self.tokenizer.mask_token_id
         # set context: triple context or sentence context
         self.triple_context = triple_context
 
@@ -182,14 +182,14 @@ class MixLoader(Data.Dataset):
             p_text += random.choice(self.entity_dict[random.sample(self.entity_pool, 1)[0]])
             # get context
             if self.triple_context:  # triple as context
-                c_list.append(random.choice(self.entity_dict[s])+" "+self.lm_pad_token+" "+p_text)
+                c_list.append(random.choice(self.entity_dict[s])+" "+self.lm_mask_token+" "+p_text)
             else:  # sentence as context
                 tmp_lang = random.choice([k for k,v in self.des_dict[s]["descriptions"].items()])
                 tmp_sent = self.des_dict[s]["descriptions"][tmp_lang]
                 tmp_label = self.des_dict[s]["labels"][tmp_lang]
                 tmp_idx = tmp_sent.find(tmp_label)
-                c_list.append(tmp_sent[:tmp_idx]+" "+self.lm_pad_token+" "+tmp_sent[tmp_idx:tmp_idx+len(tmp_label)]\
-                                +" "+self.lm_pad_token+" "+tmp_sent[tmp_idx+len(tmp_label):])
+                c_list.append(tmp_sent[:tmp_idx]+" "+self.lm_mask_token+" "+tmp_sent[tmp_idx:tmp_idx+len(tmp_label)]\
+                                +" "+self.lm_mask_token+" "+tmp_sent[tmp_idx+len(tmp_label):])
             cl_list.append(random.choice(self.entity_dict[s]))
             o_list.append(random.choice(self.entity_dict[o]))
         return self.cleaning(c_list, cl_list, o_list)
@@ -203,13 +203,13 @@ class MixLoader(Data.Dataset):
         inputs_neg = self.negative_sampler(len(cl_list))
         input_tokens_e = self.tokenizer(c_list+cl_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
-        tmp_attn_mask = torch.where(input_tokens_e["input_ids"]==self.lm_pad_token_id, 0, input_tokens_e["attention_mask"])
+        tmp_attn_mask = torch.where(input_tokens_e["input_ids"]==self.lm_mask_token_id, 0, input_tokens_e["attention_mask"])
         input_tokens_e["attention_mask"] = tmp_attn_mask
         # triple
         inputs_neg = self.negative_sampler(len(c_list))
         input_tokens_t = self.tokenizer(c_list+o_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
-        tmp_attn_mask = torch.where(input_tokens_t["input_ids"]==self.lm_pad_token_id, 0, input_tokens_t["attention_mask"])
+        tmp_attn_mask = torch.where(input_tokens_t["input_ids"]==self.lm_mask_token_id, 0, input_tokens_t["attention_mask"])
         input_tokens_t["attention_mask"] = tmp_attn_mask
         return input_tokens_e, input_tokens_t
 
@@ -249,8 +249,8 @@ class WOCLoader(Data.Dataset):
         self.fopen = open(os.path.join(args.data_dir, "triple.txt"), "r")
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
-        self.lm_pad_token = self.tokenizer.pad_token
-        self.lm_pad_token_id = self.tokenizer.pad_token_id
+        self.lm_mask_token = self.tokenizer.mask_token
+        self.lm_mask_token_id = self.tokenizer.mask_token_id
 
     def __len__(self):
         return int(self.num_triple / self.triple_batch)
@@ -286,11 +286,11 @@ class WOCLoader(Data.Dataset):
     def cleaning(self, c_list, o_list, e1_list, e2_list):
         # entity
         inputs_neg = self.negative_sampler(len(e1_list))
-        input_tokens_e = self.tokenizer(e1_list+e2_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
+        input_e = self.tokenizer(e1_list+e2_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
         # triple
         inputs_neg = self.negative_sampler(len(c_list))
-        input_tokens_t = self.tokenizer(c_list+o_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
-        return input_tokens_e, input_tokens_t
+        input_t = self.tokenizer(c_list+o_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
+        return input_e, input_t
 
 
 class WCLoader(Data.Dataset):
@@ -326,7 +326,7 @@ class WCLoader(Data.Dataset):
                 if len(tmp_data): num_triple += 1
         self.num_triple = num_triple
         self.fopen = open(os.path.join(args.data_dir, "triple_en_des.json"), "r")
-        self.triple_batch = args.batch_num
+        self.triple_batch = int(args.batch_num/8)
         self.relation_dict = relation_dict
         self.entity_dict = entity_dict
         self.des_dict = des_dict
@@ -334,8 +334,8 @@ class WCLoader(Data.Dataset):
         self.entity_pool = set(des_dict.keys())
         # set tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
-        self.lm_pad_token = self.tokenizer.pad_token
-        self.lm_pad_token_id = self.tokenizer.pad_token_id
+        self.lm_mask_token = self.tokenizer.mask_token
+        self.lm_mask_token_id = self.tokenizer.mask_token_id
 
     def __len__(self):
         return int(self.num_triple / self.triple_batch)
@@ -348,8 +348,9 @@ class WCLoader(Data.Dataset):
             tmp_data = json.loads(line)
             s, o = tmp_data["subj_label"], tmp_data["obj_label"]
             # get triple data
-            s_text = " ".join(tmp_data["token"][tmp_data["subj_start"]:tmp_data["subj_end"]+1])
-            tmp_sent = " ".join(tmp_data["token"]).replace(s_text, self.lm_pad_token+" "+s_text+" "+self.lm_pad_token)
+            tmp_sl = tmp_data["token"]
+            s_text = " ".join(tmp_sl[tmp_data["subj_start"]:tmp_data["subj_end"]+1])
+            tmp_sent = " ".join(tmp_sl[:tmp_data["obj_start"]]+tmp_sl[tmp_data["obj_end"]:])
             o_text = random.choice(self.entity_dict[o])
             st_list.append(tmp_sent)
             o_list.append(o_text)
@@ -357,7 +358,7 @@ class WCLoader(Data.Dataset):
             tmp_lang = random.choice([k for k,v in self.des_dict[s]["descriptions"].items()])
             tmp_label = self.des_dict[s]["labels"][tmp_lang]
             tmp_sent = self.des_dict[s]["descriptions"][tmp_lang].replace(tmp_label, \
-                                                                    self.lm_pad_token+" "+tmp_label+" "+self.lm_pad_token)
+                                                                    self.lm_mask_token+" "+tmp_label+" "+self.lm_mask_token)
             c_list.append(tmp_sent)
             e_list.append(random.choice(self.entity_dict[s]))
         return self.cleaning(c_list, e_list, st_list, o_list)
@@ -369,23 +370,33 @@ class WCLoader(Data.Dataset):
     def cleaning(self, c_list, e_list, st_list, o_list):
         # entity
         inputs_neg = self.negative_sampler(len(c_list))
-        input_tokens_e = self.tokenizer(c_list+e_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
+        input_e = self.tokenizer(c_list+e_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
-        tmp_attn_mask = torch.where(input_tokens_e["input_ids"]==self.lm_pad_token_id, 0, input_tokens_e["attention_mask"])
-        input_tokens_e["attention_mask"] = tmp_attn_mask
+        tmp_attn_mask = torch.where(input_e["input_ids"]==self.lm_mask_token_id, 0, input_e["attention_mask"])
+        input_e["attention_mask"] = tmp_attn_mask
         # triple
         inputs_neg = self.negative_sampler(len(st_list))
-        input_tokens_s = self.tokenizer(st_list+o_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
+        input_t = self.tokenizer(st_list+o_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
-        tmp_attn_mask = torch.where(input_tokens_s["input_ids"]==self.lm_pad_token_id, 0, input_tokens_s["attention_mask"])
-        input_tokens_s["attention_mask"] = tmp_attn_mask
-        return input_tokens_e, input_tokens_s
+        tmp_attn_mask = torch.where(input_t["input_ids"]==self.lm_mask_token_id, 0, input_t["attention_mask"])
+        input_t["attention_mask"] = tmp_attn_mask
+        return input_e, input_t
 
 
-def grad_parameters(model, free=True):
+def grad_parameters(model, stage, fuse, free=True):
+    # freeze all parameters
+    for name, param in model.named_parameters(): param.requires_grad = False
+    # set adapter parameters
+    if fuse: 
+        model.module.MLLM.train_adapter_fusion(model.module.MLLM.active_adapters)
+    else:
+        model.module.MLLM.train_adapter(stage)
+    # set linear mapping
     for name, param in model.named_parameters():
-        param.requires_grad = free
+        if "M"+model.module.stage in name:
+            param.requires_grad = True
     return
+
 
 def grad_universal(model, free=True):
     for name, param in model.named_parameters():
@@ -407,9 +418,16 @@ def grad_kgencoder(model, free=True):
 
 def save_model(model, accelerator, path):
     model = accelerator.unwrap_model(model)
-    accelerator.save(model.state_dict(), path)
+    if accelerator.state.local_process_index == 0:
+        model.MLLM.save_all_adapters(path)
+        model.MLLM.save_adapter_fusion(path, "ep,tp,es,ts")
+    # accelerator.save(model.state_dict(), path)
     return
 
 def load_model(model, path):
-    model.load_state_dict(torch.load(path, map_location='cpu'))
+    model.MLLM.load_adapter(os.path.join(path, "ep"))
+    model.MLLM.load_adapter(os.path.join(path, "tp"))
+    model.MLLM.load_adapter(os.path.join(path, "es"))
+    model.MLLM.load_adapter(os.path.join(path, "ts"))
+    model.MLLM.load_adapter_fusion(path, "ep,tp,es,ts")
     return
