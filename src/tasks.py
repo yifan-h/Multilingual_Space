@@ -1,6 +1,7 @@
 import os
 import torch
 import time
+import random
 from tqdm import tqdm
 import torch.utils.data as Data
 from transformers import AdamW, get_cosine_with_hard_restarts_schedule_with_warmup
@@ -12,6 +13,7 @@ from utils import EntityLoader, TripleLoader, MixLoader, WOCLoader, WCLoader, gr
 from models import MLKGLM, loss_universal, loss_triple, loss_wocontext, fusion_adapter
 
 seed = 123
+random.seed(seed)
 torch.manual_seed(seed)
 torch.cuda.manual_seed(seed)
 torch.backends.cudnn.deterministic = True
@@ -437,8 +439,8 @@ def train_adapter_phrase(args, model_mlkg):
             #### triple
             model_mlkg.module.stage = "tp"
             grad_parameters(model_mlkg, stage=model_mlkg.module.stage, fuse=False)
-            outputs_lp, outputs = model_mlkg(**input_t)
-            loss = loss_wocontext(args, outputs_lp, outputs)
+            outputs = model_mlkg(**input_t)
+            loss = loss_wocontext(args, outputs)
             loss_list2.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -447,9 +449,9 @@ def train_adapter_phrase(args, model_mlkg):
             #### entity
             model_mlkg.module.stage = "ep"
             grad_parameters(model_mlkg, stage=model_mlkg.module.stage, fuse=False)
-            outputs_lp, outputs = model_mlkg(**input_e)
+            outputs = model_mlkg(**input_e)
             # backpropogation: entity
-            loss = loss_wocontext(args, outputs_lp, outputs)
+            loss = loss_wocontext(args, outputs)
             loss_list1.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -499,8 +501,8 @@ def train_adapter_sentence(args, model_mlkg):
             #### triple
             model_mlkg.module.stage = "ts"
             grad_parameters(model_mlkg, stage=model_mlkg.module.stage, fuse=False)
-            outputs_lp, outputs = model_mlkg(**input_t)
-            loss = loss_wocontext(args, outputs_lp, outputs)
+            outputs = model_mlkg(**input_t)
+            loss = loss_wocontext(args, outputs)
             loss_list2.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -509,8 +511,8 @@ def train_adapter_sentence(args, model_mlkg):
             #### entity
             model_mlkg.module.stage = "es"
             grad_parameters(model_mlkg, stage=model_mlkg.module.stage, fuse=False)
-            outputs_lp, outputs = model_mlkg(**input_e)
-            loss = loss_wocontext(args, outputs_lp, outputs, input_e["input_ids"])
+            outputs = model_mlkg(**input_e)
+            loss = loss_wocontext(args, outputs, input_e["input_ids"])
             loss_list1.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -554,6 +556,7 @@ def train_fuse_phrase(args, model_mlkg):
     loss_list1, loss_list2 = [], []
     for e in range(args.triple_epoch):
         for encoded_inputs in wocontext_data:
+            if random.random() > 0.2: continue
             input_e, input_t = encoded_inputs
             input_e = {k:torch.squeeze(v) for k, v in input_e.items()}
             input_t = {k:torch.squeeze(v) for k, v in input_t.items()}
@@ -561,8 +564,8 @@ def train_fuse_phrase(args, model_mlkg):
             #### triple
             model_mlkg.module.stage = "tp"
             grad_parameters(model_mlkg, stage=model_mlkg.module.stage, fuse=True)
-            outputs_lp, outputs = model_mlkg(**input_t)
-            loss = loss_wocontext(args, outputs_lp, outputs)
+            outputs = model_mlkg(**input_t)
+            loss = loss_wocontext(args, outputs)
             loss_list2.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -571,9 +574,9 @@ def train_fuse_phrase(args, model_mlkg):
             #### entity
             model_mlkg.module.stage = "ep"
             grad_parameters(model_mlkg, stage=model_mlkg.module.stage, fuse=True)
-            outputs_lp, outputs = model_mlkg(**input_e)
+            outputs = model_mlkg(**input_e)
             # backpropogation: entity
-            loss = loss_wocontext(args, outputs_lp, outputs)
+            loss = loss_wocontext(args, outputs)
             loss_list1.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -595,7 +598,7 @@ def train_fuse_phrase(args, model_mlkg):
         wocontext_data = Data.DataLoader(dataset=wocontext_dataset, batch_size=1, num_workers=1)
         wocontext_data = accelerator.prepare(wocontext_data)
     # save
-    save_model(model_mlkg, accelerator, args.tmp_dir)
+    save_model(model_mlkg, accelerator, args.tmp_dir, True)
     del model_mlkg
     return
 
@@ -618,6 +621,7 @@ def train_fuse_sentence(args, model_mlkg):
     loss_list1, loss_list2 = [], []
     for e in range(args.triple_epoch):
         for encoded_inputs in wcontext_data:
+            if random.random() > 0.2: continue
             input_e, input_t = encoded_inputs
             input_e = {k:torch.squeeze(v) for k, v in input_e.items()}
             input_t = {k:torch.squeeze(v) for k, v in input_t.items()}
@@ -625,8 +629,8 @@ def train_fuse_sentence(args, model_mlkg):
             #### triple
             model_mlkg.module.stage = "ts"
             grad_parameters(model_mlkg, stage=model_mlkg.module.stage, fuse=True)
-            outputs_lp, outputs = model_mlkg(**input_t)
-            loss = loss_wocontext(args, outputs_lp, outputs)
+            outputs = model_mlkg(**input_t)
+            loss = loss_wocontext(args, outputs)
             loss_list2.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -635,8 +639,8 @@ def train_fuse_sentence(args, model_mlkg):
             #### entity
             model_mlkg.module.stage = "es"
             grad_parameters(model_mlkg, stage=model_mlkg.module.stage, fuse=True)
-            outputs_lp, outputs = model_mlkg(**input_e)
-            loss = loss_wocontext(args, outputs_lp, outputs, input_e["input_ids"])
+            outputs = model_mlkg(**input_e)
+            loss = loss_wocontext(args, outputs, input_e["input_ids"])
             loss_list1.append(float(loss.data))
             accelerator.backward(loss)
             # zero grad
@@ -652,12 +656,12 @@ def train_fuse_sentence(args, model_mlkg):
                 loss_avg1 = round(sum(loss_list1) / len(loss_list1), 4)
                 loss_avg2 = round(sum(loss_list2) / len(loss_list2), 4)
                 loss_list1, loss_list2 = [], []
-                print("progress (w context) -- fusion: ", count_save, "/", len(wocontext_data)*args.triple_epoch, " |time: ", time_length, "s |loss (u, t): ",loss_avg1, " ", loss_avg2)
+                print("progress (w context) -- fusion: ", count_save, "/", len(wcontext_data)*args.triple_epoch, " |time: ", time_length, "s |loss (u, t): ",loss_avg1, " ", loss_avg2)
         # load data
         wcontext_dataset = WCLoader(args)
         wcontext_data = Data.DataLoader(dataset=wcontext_dataset, batch_size=1, num_workers=1)
         wcontext_data = accelerator.prepare(wcontext_data)
-    save_model(model_mlkg, accelerator, args.tmp_dir)
+    save_model(model_mlkg, accelerator, args.tmp_dir, True)
     del model_mlkg
     return
 
@@ -712,12 +716,14 @@ def ki_mlkg(args):
     load_model(model_mlkg, args.tmp_dir)
     train_adapter_sentence(args, model_mlkg)
     # train fusion
-    # args.batch_num = int(args.batch_num/2)
-    print("====> Fusion: phrase <====")
-    model_mlkg = fusion_adapter(args)
-    load_model(model_mlkg, args.tmp_dir)
-    train_fuse_phrase(args, model_mlkg)
-    print("====> Fusion: sentence <====")
-    model_mlkg = fusion_adapter(args)
-    load_model(model_mlkg, args.tmp_dir)
-    train_fuse_sentence(args, model_mlkg)
+    args.batch_num = int(args.batch_num/2)
+    args.triple_epoch = 1
+    for i in range(10):
+        print("====> Fusion: phrase <====")
+        model_mlkg = fusion_adapter(args)
+        load_model(model_mlkg, args.tmp_dir)
+        train_fuse_phrase(args, model_mlkg)
+        print("====> Fusion: sentence <====")
+        model_mlkg = fusion_adapter(args)
+        load_model(model_mlkg, args.tmp_dir)
+        train_fuse_sentence(args, model_mlkg)

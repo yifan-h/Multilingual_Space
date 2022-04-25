@@ -92,10 +92,10 @@ class fusion_adapter(nn.Module):
             self.MLLM.add_adapter_fusion(["ep", "tp", "es", "ts"])
             self.MLLM.active_adapters = ac.Fuse("ep", "tp", "es", "ts")
             # linear mapping
-            self.Mep = nn.Linear(hidden_num, hidden_num)
-            self.Mtp = nn.Linear(hidden_num, hidden_num)
-            self.Mes = nn.Linear(hidden_num, hidden_num)
-            self.Mts = nn.Linear(hidden_num, hidden_num)
+            #self.Mep = nn.Linear(hidden_num, hidden_num, bias=False)
+            #self.Mtp = nn.Linear(hidden_num, hidden_num, bias=False)
+            #self.Mes = nn.Linear(hidden_num, hidden_num, bias=False)
+            #self.Mts = nn.Linear(hidden_num, hidden_num, bias=False)
 
     def forward(self, **inputs):
         # self.checking()
@@ -103,21 +103,22 @@ class fusion_adapter(nn.Module):
         outputs_MLLM = self.MLLM(**inputs).hidden_states
         outputs_MLLM = outputs_MLLM[-1]
         # add adversarial noise
+        '''
         if self.training:
             outputs_MLLM = outputs_MLLM + 0.05*torch.abs(outputs_MLLM).mean()*torch.randn_like(outputs_MLLM)
+
         # output
         if self.stage == "ep":
-            outputs_MLLM_lp = self.Mep(outputs_MLLM)
+            outputs_MLLM = self.Mep(outputs_MLLM)
         elif self.stage == "tp":
-            outputs_MLLM_lp = self.Mtp(outputs_MLLM)
+            outputs_MLLM = self.Mtp(outputs_MLLM)
         elif self.stage == "es":
-            outputs_MLLM_lp = self.Mes(outputs_MLLM)
+            outputs_MLLM = self.Mes(outputs_MLLM)
         elif self.stage == "ts":
-            outputs_MLLM_lp = self.Mts(outputs_MLLM)
-        if self.training:
-            return outputs_MLLM_lp, outputs_MLLM
-        else:
-            return outputs_MLLM
+            outputs_MLLM = self.Mts(outputs_MLLM)
+        '''
+
+        return outputs_MLLM
 
     def checking(self):
         print(self.stage)
@@ -176,18 +177,21 @@ def loss_triple(args, outputs, lossfcn, input_ids=None, el2=True):
         return loss_dp
 
 
-def loss_wocontext(args, outputs_lp, outputs, input_ids=None, lm_emb=None, el2=True):
-    lossfcn = InfoNCE(negative_mode='unpaired')
-    lossfcn_el2 = nn.MSELoss()
-    lossfcn_re = nn.MSELoss()
-    outputs_query = outputs_lp[:int(outputs.shape[0]/3)]
-    outputs_pos = outputs[int(outputs.shape[0]/3):int(outputs.shape[0]/3*2)]
-    outputs_neg = outputs[int(outputs.shape[0]/3*2):]
+def loss_wocontext(args, outputs, input_ids=None, lm_emb=None, el2=True):
+    # lossfcn = InfoNCE(negative_mode='unpaired')
+    lossfcn = InfoNCE()
+    # lossfcn_el2 = nn.MSELoss()
+    # lossfcn_re = nn.MSELoss()
+    # outputs_query = outputs[:int(outputs.shape[0]/3)]
+    # outputs_pos = outputs[int(outputs.shape[0]/3):int(outputs.shape[0]/3*2)]
+    # outputs_neg = outputs[int(outputs.shape[0]/3*2):]
+    outputs_query = outputs[:int(outputs.shape[0]/2)]
+    outputs_pos = outputs[int(outputs.shape[0]/2):]
     # remove mask token
     if input_ids is not None:
         outputs_query = get_mask(outputs_query, input_ids[:int(input_ids.shape[0]/3)], args.lm_mask_token_id)
         outputs_pos = get_mask(outputs_pos, input_ids[int(input_ids.shape[0]/3):int(input_ids.shape[0]/3*2)], args.lm_mask_token_id)
-        outputs_neg = get_mask(outputs_neg, input_ids[int(input_ids.shape[0]/3*2):], args.lm_mask_token_id)
+        # outputs_neg = get_mask(outputs_neg, input_ids[int(input_ids.shape[0]/3*2):], args.lm_mask_token_id)
     '''
     # remove entity token
     if lm_emb is not None:
@@ -198,9 +202,9 @@ def loss_wocontext(args, outputs_lp, outputs, input_ids=None, lm_emb=None, el2=T
     # average
     outputs_query = torch.mean(outputs_query, dim=1)
     outputs_pos = torch.mean(outputs_pos, dim=1)
-    outputs_neg = torch.mean(outputs_neg, dim=1)
+    # outputs_neg = torch.mean(outputs_neg, dim=1)
     # cosine loss
-    loss_dp = lossfcn(outputs_query, outputs_pos, outputs_neg)
+    loss_dp = lossfcn(outputs_query, outputs_pos)
     '''
     # l2-norm loss
     loss_el2 = 0

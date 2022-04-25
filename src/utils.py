@@ -285,11 +285,13 @@ class WOCLoader(Data.Dataset):
 
     def cleaning(self, c_list, o_list, e1_list, e2_list):
         # entity
-        inputs_neg = self.negative_sampler(len(e1_list))
-        input_e = self.tokenizer(e1_list+e2_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
+        # inputs_neg = self.negative_sampler(len(e1_list))
+        # input_e = self.tokenizer(e1_list+e2_list+inputs_neg, padding=True, truncation=True, max_length=128, return_tensors="pt")
+        input_e = self.tokenizer(e1_list+e2_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
         # triple
-        inputs_neg = self.negative_sampler(len(c_list))
-        input_t = self.tokenizer(c_list+o_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
+        # inputs_neg = self.negative_sampler(len(c_list))
+        # input_t = self.tokenizer(c_list+o_list+inputs_neg, padding=True, truncation=True, max_length=128, return_tensors="pt")
+        input_t = self.tokenizer(c_list+o_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
         return input_e, input_t
 
 
@@ -369,14 +371,16 @@ class WCLoader(Data.Dataset):
 
     def cleaning(self, c_list, e_list, st_list, o_list):
         # entity
-        inputs_neg = self.negative_sampler(len(c_list))
-        input_e = self.tokenizer(c_list+e_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
+        # inputs_neg = self.negative_sampler(len(c_list))
+        # input_e = self.tokenizer(c_list+e_list+inputs_neg, padding=True, truncation=True, max_length=256, return_tensors="pt")
+        input_e = self.tokenizer(c_list+e_list, padding=True, truncation=True, max_length=256, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
         tmp_attn_mask = torch.where(input_e["input_ids"]==self.lm_mask_token_id, 0, input_e["attention_mask"])
         input_e["attention_mask"] = tmp_attn_mask
         # triple
-        inputs_neg = self.negative_sampler(len(st_list))
-        input_t = self.tokenizer(st_list+o_list+inputs_neg, padding=True, truncation=True, max_length=500, return_tensors="pt")
+        # inputs_neg = self.negative_sampler(len(st_list))
+        # input_t = self.tokenizer(st_list+o_list+inputs_neg, padding=True, truncation=True, max_length=256, return_tensors="pt")
+        input_t = self.tokenizer(st_list+o_list, padding=True, truncation=True, max_length=256, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
         tmp_attn_mask = torch.where(input_t["input_ids"]==self.lm_mask_token_id, 0, input_t["attention_mask"])
         input_t["attention_mask"] = tmp_attn_mask
@@ -391,6 +395,7 @@ def grad_parameters(model, stage, fuse, free=True):
         model.module.MLLM.train_adapter_fusion(model.module.MLLM.active_adapters)
     else:
         model.module.MLLM.train_adapter(stage)
+    return
     # set linear mapping
     for name, param in model.named_parameters():
         if "M"+model.module.stage in name:
@@ -416,11 +421,13 @@ def grad_kgencoder(model, free=True):
             param.requires_grad = free
     return
 
-def save_model(model, accelerator, path):
+def save_model(model, accelerator, path, fusion=False):
     model = accelerator.unwrap_model(model)
     if accelerator.state.local_process_index == 0:
-        model.MLLM.save_all_adapters(path)
-        model.MLLM.save_adapter_fusion(path, "ep,tp,es,ts")
+        if fusion:
+            model.MLLM.save_adapter_fusion(path, "ep,tp,es,ts")
+        else:
+            model.MLLM.save_all_adapters(path)
     # accelerator.save(model.state_dict(), path)
     return
 

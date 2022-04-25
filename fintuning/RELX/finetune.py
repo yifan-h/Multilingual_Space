@@ -19,70 +19,14 @@ from transformers import AutoModel, Conv1D
 import transformers.adapters.composition as ac
 
 
-'''
-adapter model:...
-'''
-class MLKGLM(nn.Module):
-    """docstring for ClassName"""
-    def __init__(self, model_path):
-        super(MLKGLM, self).__init__()
-        # load pretrained MLLM
-        self.MLLM = AutoModel.from_pretrained(model_path, 
-                                                return_dict=True,
-                                                output_hidden_states=True)
-        hidden_num = self.MLLM.get_input_embeddings().embedding_dim
-        self.training = False
-        # self.lm_pad_token_id = args.lm_pad_token_id
-        # set three extra modules
-        self.knowledge_mapping = nn.Sequential(nn.Linear(hidden_num, int(hidden_num / 2)),
-                                                nn.ELU(),
-                                                nn.Dropout(0.1),  # project down
-                                                nn.Linear(int(hidden_num / 2), hidden_num),
-                                                nn.ELU(),
-                                                nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Dropout(0.1),  # project up
-                                                nn.Linear(hidden_num, 4*hidden_num),
-                                                nn.ELU(),
-                                                nn.Dropout(0.1),  # project up
-                                                nn.Linear(4*hidden_num, hidden_num),
-                                                nn.ELU(),
-                                                nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Dropout(0.1),  # project down
-                                                nn.Linear(hidden_num, hidden_num),
-                                                nn.ELU(),
-                                                nn.LayerNorm(hidden_num, eps=1e-12),
-                                                nn.Dropout(0.1))
-        if not self.training:
-            # for testing
-            self.all_aggregator = nn.Linear(2*hidden_num, hidden_num, bias=False)
-            self.all_aggregator.weight.data = self.weight_init_sum(self.all_aggregator.weight.data)
+use_adapter = True
+pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
+adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/mbert_adapter"
+#pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
+#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlm_adapter"
+#pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large"
+#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlmr_adapter"
 
-    def weight_init_sum(self, t):
-        hidden_num = int(t.shape[-1]/2)
-        nn.init.xavier_normal_(t)
-        return t*0.05 + torch.cat((0.5*torch.eye(hidden_num,hidden_num),
-                                    0.5*torch.eye(hidden_num,hidden_num)),dim=1)
-
-    def forward(self, **inputs):
-        # get MLLM output
-        outputs_MLLM = self.MLLM(**inputs).hidden_states
-        # take last layer hidden state: (batch_size, sequence_length, hidden_size)
-        outputs_MLLM = outputs_MLLM[-1]
-        # add adversarial noise
-        if self.training:
-            outputs_MLLM = outputs_MLLM + 0.1*torch.abs(outputs_MLLM).mean()*torch.randn_like(outputs_MLLM)
-        outputs_both = self.knowledge_mapping(outputs_MLLM)
-        if self.training:
-            return (outputs_both + outputs_MLLM) / 2, outputs_MLLM.clone()
-        else:
-            outputs_both = self.all_aggregator(torch.cat((outputs_MLLM, outputs_both), dim=-1))
-            return outputs_both
-
-
-#pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
-#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/mbert_80_final/pytorch_model_wocontext.bin"
-pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
-adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlm_80_final/pytorch_model_wocontext.bin"
 dataset_training = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/kbp37"
 dataset_relxt = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/RELX"
 max_seq_length = 256
@@ -93,19 +37,35 @@ elif base_model == "mtmb":
     tokenizer = AutoTokenizer.from_pretrained("akoksal/MTMB")
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device("cuda:0")
+device = torch.device("cuda:4")
 print(device)
 print(torch.cuda.device_count())
 print(torch.cuda.is_available())
+
+
+
 
 class Model(nn.Module):
     def __init__(self, is_embedding_layer_free = True, last_free_layer=0, no_classes=37, has_layer_norm=False, has_dropout=True):
         super(Model, self).__init__()
         if base_model == "mbert":
-            # self.net_bert = BertModel.from_pretrained(pre_trained)  # mbert
-            # self.net_bert = AutoModel.from_pretrained(pre_trained)
-            self.net_bert = MLKGLM(pre_trained)
-            self.net_bert.load_state_dict(torch.load(adapter_path, map_location='cpu'), strict=False)
+            #self.net_bert = BertModel.from_pretrained(pre_trained)  # mbert
+            self.net_bert = AutoModel.from_pretrained(pre_trained)
+            if use_adapter:
+                # adapters
+                self.net_bert.add_adapter("ep")
+                self.net_bert.add_adapter("tp")
+                self.net_bert.add_adapter("es")
+                self.net_bert.add_adapter("ts")
+                self.net_bert.add_adapter_fusion(["ep", "tp", "es", "ts"])
+                self.net_bert.active_adapters = ac.Fuse("ep", "tp", "es", "ts")
+                self.net_bert.load_adapter(os.path.join(adapter_path, "ep"))
+                self.net_bert.load_adapter(os.path.join(adapter_path, "tp"))
+                self.net_bert.load_adapter(os.path.join(adapter_path, "es"))
+                self.net_bert.load_adapter(os.path.join(adapter_path, "ts"))
+                self.net_bert.load_adapter_fusion(adapter_path, "ep,tp,es,ts")
+            #self.net_bert = MLKGLM(pre_trained)
+            #self.net_bert.load_state_dict(torch.load(adapter_path, map_location='cpu'), strict=False)
         elif base_model == "mtmb":
             self.net_bert = AutoModel.from_pretrained("akoksal/MTMB")
         self.has_layer_norm = has_layer_norm
@@ -114,13 +74,17 @@ class Model(nn.Module):
         unfrozen_layers = ["classifier", "pooler"]
         if is_embedding_layer_free:
             unfrozen_layers.append('embedding')
-        
-        last_layer = 12
-        hidden_size = 768
-        
+
+        if pre_trained == "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large":
+            last_layer = 24
+            hidden_size = 1024
+        else:
+            last_layer = 12
+            hidden_size = 768
+
         for idx in range(last_free_layer, last_layer):
             unfrozen_layers.append('encoder.layer.'+str(idx))
-        '''
+
         for name, param in self.net_bert.named_parameters():
             if not any([layer in name for layer in unfrozen_layers]):
                 print("[FROZE]: %s" % name)
@@ -136,6 +100,7 @@ class Model(nn.Module):
             else:
                 print("[FREE]: %s" % name)
                 param.requires_grad = True
+        '''
         if self.has_layer_norm:
             self.fc1 = nn.LayerNorm(hidden_size)
         if self.has_dropout:
@@ -145,12 +110,8 @@ class Model(nn.Module):
     def forward(self, x, attention):
         #print("ori.========: {}".format(x))
         #x, _ = self.net_bert(x, attention_mask=attention)
-        '''
         x = self.net_bert(x, attention_mask=attention)
         x = x['last_hidden_state']
-        '''
-        x = self.net_bert(input_ids=x, attention_mask=attention)
-        
         #Getting head
         #print("typeof xxxx========: {}".format(type(x)))
         #print("xxxx========: {}".format(x))

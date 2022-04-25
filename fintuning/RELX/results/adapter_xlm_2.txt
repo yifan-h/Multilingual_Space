@@ -1,0 +1,2992 @@
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+cuda:3
+8
+True
+[FREE]: embeddings.word_embeddings.weight
+[FREE]: embeddings.position_embeddings.weight
+[FREE]: embeddings.token_type_embeddings.weight
+[FREE]: embeddings.LayerNorm.weight
+[FREE]: embeddings.LayerNorm.bias
+[FREE]: encoder.layer.0.attention.self.query.weight
+[FREE]: encoder.layer.0.attention.self.query.bias
+[FREE]: encoder.layer.0.attention.self.key.weight
+[FREE]: encoder.layer.0.attention.self.key.bias
+[FREE]: encoder.layer.0.attention.self.value.weight
+[FREE]: encoder.layer.0.attention.self.value.bias
+[FREE]: encoder.layer.0.attention.output.dense.weight
+[FREE]: encoder.layer.0.attention.output.dense.bias
+[FREE]: encoder.layer.0.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.0.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.0.intermediate.dense.weight
+[FREE]: encoder.layer.0.intermediate.dense.bias
+[FREE]: encoder.layer.0.output.dense.weight
+[FREE]: encoder.layer.0.output.dense.bias
+[FREE]: encoder.layer.0.output.LayerNorm.weight
+[FREE]: encoder.layer.0.output.LayerNorm.bias
+[FREE]: encoder.layer.0.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.0.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.0.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.0.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.0.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.0.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.0.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.0.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.0.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.0.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.0.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.0.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.0.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.0.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.0.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.0.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.0.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.0.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.0.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.0.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.0.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.1.attention.self.query.weight
+[FREE]: encoder.layer.1.attention.self.query.bias
+[FREE]: encoder.layer.1.attention.self.key.weight
+[FREE]: encoder.layer.1.attention.self.key.bias
+[FREE]: encoder.layer.1.attention.self.value.weight
+[FREE]: encoder.layer.1.attention.self.value.bias
+[FREE]: encoder.layer.1.attention.output.dense.weight
+[FREE]: encoder.layer.1.attention.output.dense.bias
+[FREE]: encoder.layer.1.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.1.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.1.intermediate.dense.weight
+[FREE]: encoder.layer.1.intermediate.dense.bias
+[FREE]: encoder.layer.1.output.dense.weight
+[FREE]: encoder.layer.1.output.dense.bias
+[FREE]: encoder.layer.1.output.LayerNorm.weight
+[FREE]: encoder.layer.1.output.LayerNorm.bias
+[FREE]: encoder.layer.1.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.1.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.1.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.1.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.1.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.1.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.1.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.1.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.1.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.1.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.1.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.1.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.1.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.1.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.1.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.1.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.1.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.1.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.1.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.1.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.1.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.2.attention.self.query.weight
+[FREE]: encoder.layer.2.attention.self.query.bias
+[FREE]: encoder.layer.2.attention.self.key.weight
+[FREE]: encoder.layer.2.attention.self.key.bias
+[FREE]: encoder.layer.2.attention.self.value.weight
+[FREE]: encoder.layer.2.attention.self.value.bias
+[FREE]: encoder.layer.2.attention.output.dense.weight
+[FREE]: encoder.layer.2.attention.output.dense.bias
+[FREE]: encoder.layer.2.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.2.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.2.intermediate.dense.weight
+[FREE]: encoder.layer.2.intermediate.dense.bias
+[FREE]: encoder.layer.2.output.dense.weight
+[FREE]: encoder.layer.2.output.dense.bias
+[FREE]: encoder.layer.2.output.LayerNorm.weight
+[FREE]: encoder.layer.2.output.LayerNorm.bias
+[FREE]: encoder.layer.2.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.2.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.2.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.2.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.2.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.2.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.2.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.2.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.2.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.2.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.2.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.2.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.2.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.2.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.2.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.2.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.2.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.2.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.2.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.2.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.2.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.3.attention.self.query.weight
+[FREE]: encoder.layer.3.attention.self.query.bias
+[FREE]: encoder.layer.3.attention.self.key.weight
+[FREE]: encoder.layer.3.attention.self.key.bias
+[FREE]: encoder.layer.3.attention.self.value.weight
+[FREE]: encoder.layer.3.attention.self.value.bias
+[FREE]: encoder.layer.3.attention.output.dense.weight
+[FREE]: encoder.layer.3.attention.output.dense.bias
+[FREE]: encoder.layer.3.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.3.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.3.intermediate.dense.weight
+[FREE]: encoder.layer.3.intermediate.dense.bias
+[FREE]: encoder.layer.3.output.dense.weight
+[FREE]: encoder.layer.3.output.dense.bias
+[FREE]: encoder.layer.3.output.LayerNorm.weight
+[FREE]: encoder.layer.3.output.LayerNorm.bias
+[FREE]: encoder.layer.3.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.3.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.3.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.3.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.3.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.3.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.3.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.3.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.3.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.3.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.3.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.3.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.3.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.3.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.3.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.3.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.3.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.3.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.3.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.3.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.3.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.4.attention.self.query.weight
+[FREE]: encoder.layer.4.attention.self.query.bias
+[FREE]: encoder.layer.4.attention.self.key.weight
+[FREE]: encoder.layer.4.attention.self.key.bias
+[FREE]: encoder.layer.4.attention.self.value.weight
+[FREE]: encoder.layer.4.attention.self.value.bias
+[FREE]: encoder.layer.4.attention.output.dense.weight
+[FREE]: encoder.layer.4.attention.output.dense.bias
+[FREE]: encoder.layer.4.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.4.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.4.intermediate.dense.weight
+[FREE]: encoder.layer.4.intermediate.dense.bias
+[FREE]: encoder.layer.4.output.dense.weight
+[FREE]: encoder.layer.4.output.dense.bias
+[FREE]: encoder.layer.4.output.LayerNorm.weight
+[FREE]: encoder.layer.4.output.LayerNorm.bias
+[FREE]: encoder.layer.4.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.4.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.4.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.4.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.4.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.4.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.4.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.4.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.4.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.4.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.4.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.4.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.4.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.4.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.4.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.4.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.4.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.4.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.4.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.4.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.4.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.5.attention.self.query.weight
+[FREE]: encoder.layer.5.attention.self.query.bias
+[FREE]: encoder.layer.5.attention.self.key.weight
+[FREE]: encoder.layer.5.attention.self.key.bias
+[FREE]: encoder.layer.5.attention.self.value.weight
+[FREE]: encoder.layer.5.attention.self.value.bias
+[FREE]: encoder.layer.5.attention.output.dense.weight
+[FREE]: encoder.layer.5.attention.output.dense.bias
+[FREE]: encoder.layer.5.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.5.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.5.intermediate.dense.weight
+[FREE]: encoder.layer.5.intermediate.dense.bias
+[FREE]: encoder.layer.5.output.dense.weight
+[FREE]: encoder.layer.5.output.dense.bias
+[FREE]: encoder.layer.5.output.LayerNorm.weight
+[FREE]: encoder.layer.5.output.LayerNorm.bias
+[FREE]: encoder.layer.5.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.5.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.5.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.5.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.5.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.5.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.5.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.5.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.5.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.5.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.5.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.5.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.5.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.5.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.5.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.5.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.5.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.5.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.5.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.5.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.5.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.6.attention.self.query.weight
+[FREE]: encoder.layer.6.attention.self.query.bias
+[FREE]: encoder.layer.6.attention.self.key.weight
+[FREE]: encoder.layer.6.attention.self.key.bias
+[FREE]: encoder.layer.6.attention.self.value.weight
+[FREE]: encoder.layer.6.attention.self.value.bias
+[FREE]: encoder.layer.6.attention.output.dense.weight
+[FREE]: encoder.layer.6.attention.output.dense.bias
+[FREE]: encoder.layer.6.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.6.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.6.intermediate.dense.weight
+[FREE]: encoder.layer.6.intermediate.dense.bias
+[FREE]: encoder.layer.6.output.dense.weight
+[FREE]: encoder.layer.6.output.dense.bias
+[FREE]: encoder.layer.6.output.LayerNorm.weight
+[FREE]: encoder.layer.6.output.LayerNorm.bias
+[FREE]: encoder.layer.6.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.6.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.6.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.6.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.6.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.6.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.6.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.6.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.6.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.6.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.6.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.6.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.6.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.6.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.6.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.6.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.6.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.6.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.6.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.6.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.6.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.7.attention.self.query.weight
+[FREE]: encoder.layer.7.attention.self.query.bias
+[FREE]: encoder.layer.7.attention.self.key.weight
+[FREE]: encoder.layer.7.attention.self.key.bias
+[FREE]: encoder.layer.7.attention.self.value.weight
+[FREE]: encoder.layer.7.attention.self.value.bias
+[FREE]: encoder.layer.7.attention.output.dense.weight
+[FREE]: encoder.layer.7.attention.output.dense.bias
+[FREE]: encoder.layer.7.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.7.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.7.intermediate.dense.weight
+[FREE]: encoder.layer.7.intermediate.dense.bias
+[FREE]: encoder.layer.7.output.dense.weight
+[FREE]: encoder.layer.7.output.dense.bias
+[FREE]: encoder.layer.7.output.LayerNorm.weight
+[FREE]: encoder.layer.7.output.LayerNorm.bias
+[FREE]: encoder.layer.7.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.7.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.7.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.7.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.7.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.7.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.7.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.7.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.7.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.7.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.7.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.7.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.7.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.7.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.7.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.7.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.7.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.7.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.7.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.7.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.7.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.8.attention.self.query.weight
+[FREE]: encoder.layer.8.attention.self.query.bias
+[FREE]: encoder.layer.8.attention.self.key.weight
+[FREE]: encoder.layer.8.attention.self.key.bias
+[FREE]: encoder.layer.8.attention.self.value.weight
+[FREE]: encoder.layer.8.attention.self.value.bias
+[FREE]: encoder.layer.8.attention.output.dense.weight
+[FREE]: encoder.layer.8.attention.output.dense.bias
+[FREE]: encoder.layer.8.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.8.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.8.intermediate.dense.weight
+[FREE]: encoder.layer.8.intermediate.dense.bias
+[FREE]: encoder.layer.8.output.dense.weight
+[FREE]: encoder.layer.8.output.dense.bias
+[FREE]: encoder.layer.8.output.LayerNorm.weight
+[FREE]: encoder.layer.8.output.LayerNorm.bias
+[FREE]: encoder.layer.8.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.8.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.8.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.8.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.8.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.8.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.8.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.8.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.8.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.8.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.8.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.8.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.8.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.8.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.8.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.8.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.8.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.8.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.8.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.8.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.8.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.9.attention.self.query.weight
+[FREE]: encoder.layer.9.attention.self.query.bias
+[FREE]: encoder.layer.9.attention.self.key.weight
+[FREE]: encoder.layer.9.attention.self.key.bias
+[FREE]: encoder.layer.9.attention.self.value.weight
+[FREE]: encoder.layer.9.attention.self.value.bias
+[FREE]: encoder.layer.9.attention.output.dense.weight
+[FREE]: encoder.layer.9.attention.output.dense.bias
+[FREE]: encoder.layer.9.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.9.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.9.intermediate.dense.weight
+[FREE]: encoder.layer.9.intermediate.dense.bias
+[FREE]: encoder.layer.9.output.dense.weight
+[FREE]: encoder.layer.9.output.dense.bias
+[FREE]: encoder.layer.9.output.LayerNorm.weight
+[FREE]: encoder.layer.9.output.LayerNorm.bias
+[FREE]: encoder.layer.9.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.9.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.9.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.9.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.9.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.9.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.9.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.9.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.9.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.9.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.9.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.9.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.9.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.9.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.9.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.9.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.9.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.9.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.9.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.9.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.9.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.10.attention.self.query.weight
+[FREE]: encoder.layer.10.attention.self.query.bias
+[FREE]: encoder.layer.10.attention.self.key.weight
+[FREE]: encoder.layer.10.attention.self.key.bias
+[FREE]: encoder.layer.10.attention.self.value.weight
+[FREE]: encoder.layer.10.attention.self.value.bias
+[FREE]: encoder.layer.10.attention.output.dense.weight
+[FREE]: encoder.layer.10.attention.output.dense.bias
+[FREE]: encoder.layer.10.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.10.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.10.intermediate.dense.weight
+[FREE]: encoder.layer.10.intermediate.dense.bias
+[FREE]: encoder.layer.10.output.dense.weight
+[FREE]: encoder.layer.10.output.dense.bias
+[FREE]: encoder.layer.10.output.LayerNorm.weight
+[FREE]: encoder.layer.10.output.LayerNorm.bias
+[FREE]: encoder.layer.10.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.10.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.10.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.10.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.10.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.10.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.10.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.10.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.10.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.10.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.10.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.10.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.10.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.10.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.10.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.10.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.10.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.10.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.10.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.10.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.10.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: encoder.layer.11.attention.self.query.weight
+[FREE]: encoder.layer.11.attention.self.query.bias
+[FREE]: encoder.layer.11.attention.self.key.weight
+[FREE]: encoder.layer.11.attention.self.key.bias
+[FREE]: encoder.layer.11.attention.self.value.weight
+[FREE]: encoder.layer.11.attention.self.value.bias
+[FREE]: encoder.layer.11.attention.output.dense.weight
+[FREE]: encoder.layer.11.attention.output.dense.bias
+[FREE]: encoder.layer.11.attention.output.LayerNorm.weight
+[FREE]: encoder.layer.11.attention.output.LayerNorm.bias
+[FREE]: encoder.layer.11.intermediate.dense.weight
+[FREE]: encoder.layer.11.intermediate.dense.bias
+[FREE]: encoder.layer.11.output.dense.weight
+[FREE]: encoder.layer.11.output.dense.bias
+[FREE]: encoder.layer.11.output.LayerNorm.weight
+[FREE]: encoder.layer.11.output.LayerNorm.bias
+[FREE]: encoder.layer.11.output.adapters.ep.adapter_down.0.weight
+[FREE]: encoder.layer.11.output.adapters.ep.adapter_down.0.bias
+[FREE]: encoder.layer.11.output.adapters.ep.adapter_up.weight
+[FREE]: encoder.layer.11.output.adapters.ep.adapter_up.bias
+[FREE]: encoder.layer.11.output.adapters.tp.adapter_down.0.weight
+[FREE]: encoder.layer.11.output.adapters.tp.adapter_down.0.bias
+[FREE]: encoder.layer.11.output.adapters.tp.adapter_up.weight
+[FREE]: encoder.layer.11.output.adapters.tp.adapter_up.bias
+[FREE]: encoder.layer.11.output.adapters.es.adapter_down.0.weight
+[FREE]: encoder.layer.11.output.adapters.es.adapter_down.0.bias
+[FREE]: encoder.layer.11.output.adapters.es.adapter_up.weight
+[FREE]: encoder.layer.11.output.adapters.es.adapter_up.bias
+[FREE]: encoder.layer.11.output.adapters.ts.adapter_down.0.weight
+[FREE]: encoder.layer.11.output.adapters.ts.adapter_down.0.bias
+[FREE]: encoder.layer.11.output.adapters.ts.adapter_up.weight
+[FREE]: encoder.layer.11.output.adapters.ts.adapter_up.bias
+[FREE]: encoder.layer.11.output.adapter_fusion_layer.ep,tp,es,ts.query.weight
+[FREE]: encoder.layer.11.output.adapter_fusion_layer.ep,tp,es,ts.query.bias
+[FREE]: encoder.layer.11.output.adapter_fusion_layer.ep,tp,es,ts.key.weight
+[FREE]: encoder.layer.11.output.adapter_fusion_layer.ep,tp,es,ts.key.bias
+[FREE]: encoder.layer.11.output.adapter_fusion_layer.ep,tp,es,ts.value.weight
+[FREE]: pooler.dense.weight
+[FREE]: pooler.dense.bias
+  0%|          | 0/15917 [00:00<?, ?it/s]
+  0%|          | 0/1724 [00:00<?, ?it/s]
+  0%|          | 0/3405 [00:00<?, ?it/s]
+  0%|          | 0/501 [00:00<?, ?it/s]
+  0%|          | 0/501 [00:00<?, ?it/s]
+  0%|          | 0/501 [00:00<?, ?it/s]
+  0%|          | 0/501 [00:00<?, ?it/s]
+  0%|          | 0/502 [00:00<?, ?it/s]
+[1_0,     4/994] loss: 3.645 accuracy: 0.078
+[1_0,     8/994] loss: 3.721 accuracy: 0.070
+[1_0,    12/994] loss: 3.489 accuracy: 0.068
+[1_0,    16/994] loss: 3.505 accuracy: 0.066
+[1_0,    20/994] loss: 3.731 accuracy: 0.059
+[1_0,    24/994] loss: 3.353 accuracy: 0.076
+[1_0,    28/994] loss: 3.648 accuracy: 0.069
+[1_0,    32/994] loss: 3.544 accuracy: 0.062
+[1_0,    36/994] loss: 3.567 accuracy: 0.064
+[1_0,    40/994] loss: 3.420 accuracy: 0.066
+[1_0,    44/994] loss: 3.412 accuracy: 0.070
+[1_0,    48/994] loss: 3.558 accuracy: 0.070
+[1_0,    52/994] loss: 3.255 accuracy: 0.073
+[1_0,    56/994] loss: 3.344 accuracy: 0.074
+[1_0,    60/994] loss: 3.316 accuracy: 0.072
+[1_0,    64/994] loss: 3.119 accuracy: 0.072
+[1_0,    68/994] loss: 3.070 accuracy: 0.075
+[1_0,    72/994] loss: 3.333 accuracy: 0.076
+[1_0,    76/994] loss: 3.214 accuracy: 0.076
+[1_0,    80/994] loss: 2.997 accuracy: 0.079
+[1_0,    84/994] loss: 3.277 accuracy: 0.079
+[1_0,    88/994] loss: 3.107 accuracy: 0.080
+[1_0,    92/994] loss: 3.495 accuracy: 0.079
+[1_0,    96/994] loss: 3.299 accuracy: 0.077
+[1_0,   100/994] loss: 3.232 accuracy: 0.079
+[1_0,   104/994] loss: 3.188 accuracy: 0.079
+[1_0,   108/994] loss: 3.234 accuracy: 0.080
+[1_0,   112/994] loss: 3.425 accuracy: 0.080
+[1_0,   116/994] loss: 3.242 accuracy: 0.080
+[1_0,   120/994] loss: 3.234 accuracy: 0.079
+[1_0,   124/994] loss: 3.321 accuracy: 0.080
+[1_0,   128/994] loss: 3.184 accuracy: 0.080
+[1_0,   132/994] loss: 3.237 accuracy: 0.080
+[1_0,   136/994] loss: 3.502 accuracy: 0.080
+[1_0,   140/994] loss: 3.447 accuracy: 0.079
+[1_0,   144/994] loss: 3.312 accuracy: 0.080
+[1_0,   148/994] loss: 3.141 accuracy: 0.080
+[1_0,   152/994] loss: 3.154 accuracy: 0.081
+[1_0,   156/994] loss: 3.220 accuracy: 0.081
+[1_0,   160/994] loss: 3.364 accuracy: 0.082
+[1_0,   164/994] loss: 3.154 accuracy: 0.082
+[1_0,   168/994] loss: 3.080 accuracy: 0.082
+[1_0,   172/994] loss: 3.302 accuracy: 0.081
+[1_0,   176/994] loss: 3.314 accuracy: 0.081
+[1_0,   180/994] loss: 3.118 accuracy: 0.082
+[1_0,   184/994] loss: 3.183 accuracy: 0.083
+[1_0,   188/994] loss: 3.291 accuracy: 0.084
+[1_0,   192/994] loss: 3.035 accuracy: 0.083
+[1_0,   196/994] loss: 3.022 accuracy: 0.085
+[1_0,   200/994] loss: 3.204 accuracy: 0.085
+[1_0,   204/994] loss: 3.399 accuracy: 0.085
+[1_0,   208/994] loss: 3.080 accuracy: 0.085
+[1_0,   212/994] loss: 3.433 accuracy: 0.084
+[1_0,   216/994] loss: 3.261 accuracy: 0.085
+[1_0,   220/994] loss: 3.304 accuracy: 0.084
+[1_0,   224/994] loss: 3.185 accuracy: 0.084
+[1_0,   228/994] loss: 3.072 accuracy: 0.085
+[1_0,   232/994] loss: 3.166 accuracy: 0.086
+[1_0,   236/994] loss: 3.294 accuracy: 0.086
+[1_0,   240/994] loss: 2.929 accuracy: 0.087
+[1_0,   244/994] loss: 3.343 accuracy: 0.087
+[1_0,   248/994] loss: 3.241 accuracy: 0.087
+[1_0,   252/994] loss: 3.336 accuracy: 0.088
+[1_0,   256/994] loss: 3.314 accuracy: 0.087
+[1_0,   260/994] loss: 3.006 accuracy: 0.088
+[1_0,   264/994] loss: 3.089 accuracy: 0.089
+[1_0,   268/994] loss: 2.974 accuracy: 0.089
+[1_0,   272/994] loss: 3.558 accuracy: 0.089
+[1_0,   276/994] loss: 3.213 accuracy: 0.089
+[1_0,   280/994] loss: 3.102 accuracy: 0.089
+[1_0,   284/994] loss: 3.185 accuracy: 0.089
+[1_0,   288/994] loss: 3.059 accuracy: 0.089
+[1_0,   292/994] loss: 3.143 accuracy: 0.090
+[1_0,   296/994] loss: 3.301 accuracy: 0.090
+[1_0,   300/994] loss: 3.247 accuracy: 0.090
+[1_0,   304/994] loss: 3.398 accuracy: 0.090
+[1_0,   308/994] loss: 3.173 accuracy: 0.090
+[1_0,   312/994] loss: 3.055 accuracy: 0.091
+[1_0,   316/994] loss: 2.977 accuracy: 0.092
+[1_0,   320/994] loss: 2.797 accuracy: 0.093
+[1_0,   324/994] loss: 3.116 accuracy: 0.094
+[1_0,   328/994] loss: 3.188 accuracy: 0.094
+[1_0,   332/994] loss: 3.375 accuracy: 0.093
+[1_0,   336/994] loss: 3.158 accuracy: 0.093
+[1_0,   340/994] loss: 3.369 accuracy: 0.093
+[1_0,   344/994] loss: 3.126 accuracy: 0.093
+[1_0,   348/994] loss: 3.309 accuracy: 0.093
+[1_0,   352/994] loss: 3.621 accuracy: 0.093
+[1_0,   356/994] loss: 3.021 accuracy: 0.093
+[1_0,   360/994] loss: 3.060 accuracy: 0.093
+[1_0,   364/994] loss: 3.189 accuracy: 0.093
+[1_0,   368/994] loss: 3.347 accuracy: 0.092
+[1_0,   372/994] loss: 3.179 accuracy: 0.092
+[1_0,   376/994] loss: 3.183 accuracy: 0.092
+[1_0,   380/994] loss: 3.097 accuracy: 0.091
+[1_0,   384/994] loss: 3.322 accuracy: 0.091
+[1_0,   388/994] loss: 3.365 accuracy: 0.091
+[1_0,   392/994] loss: 3.088 accuracy: 0.092
+[1_0,   396/994] loss: 3.101 accuracy: 0.092
+[1_0,   400/994] loss: 3.343 accuracy: 0.092
+[1_0,   404/994] loss: 3.380 accuracy: 0.092
+[1_0,   408/994] loss: 2.980 accuracy: 0.093
+[1_0,   412/994] loss: 3.267 accuracy: 0.093
+[1_0,   416/994] loss: 3.219 accuracy: 0.093
+[1_0,   420/994] loss: 3.047 accuracy: 0.094
+[1_0,   424/994] loss: 3.053 accuracy: 0.094
+[1_0,   428/994] loss: 2.937 accuracy: 0.094
+[1_0,   432/994] loss: 3.104 accuracy: 0.094
+[1_0,   436/994] loss: 3.180 accuracy: 0.094
+[1_0,   440/994] loss: 3.075 accuracy: 0.094
+[1_0,   444/994] loss: 3.113 accuracy: 0.095
+[1_0,   448/994] loss: 3.029 accuracy: 0.095
+[1_0,   452/994] loss: 3.004 accuracy: 0.096
+[1_0,   456/994] loss: 3.113 accuracy: 0.096
+[1_0,   460/994] loss: 3.220 accuracy: 0.096
+[1_0,   464/994] loss: 3.334 accuracy: 0.096
+[1_0,   468/994] loss: 3.176 accuracy: 0.096
+[1_0,   472/994] loss: 3.235 accuracy: 0.096
+[1_0,   476/994] loss: 3.181 accuracy: 0.096
+[1_0,   480/994] loss: 3.417 accuracy: 0.096
+[1_0,   484/994] loss: 3.184 accuracy: 0.096
+[1_0,   488/994] loss: 3.107 accuracy: 0.096
+[1_0,   492/994] loss: 3.098 accuracy: 0.096
+[1_0,   496/994] loss: 3.091 accuracy: 0.096
+[1_0,   500/994] loss: 3.096 accuracy: 0.096
+[1_0,   504/994] loss: 3.300 accuracy: 0.096
+[1_0,   508/994] loss: 3.184 accuracy: 0.096
+[1_0,   512/994] loss: 3.135 accuracy: 0.096
+[1_0,   516/994] loss: 3.135 accuracy: 0.096
+[1_0,   520/994] loss: 3.207 accuracy: 0.096
+[1_0,   524/994] loss: 3.279 accuracy: 0.096
+[1_0,   528/994] loss: 3.250 accuracy: 0.096
+[1_0,   532/994] loss: 3.136 accuracy: 0.097
+[1_0,   536/994] loss: 3.465 accuracy: 0.096
+[1_0,   540/994] loss: 3.342 accuracy: 0.096
+[1_0,   544/994] loss: 3.174 accuracy: 0.096
+[1_0,   548/994] loss: 3.209 accuracy: 0.096
+[1_0,   552/994] loss: 3.280 accuracy: 0.097
+[1_0,   556/994] loss: 3.166 accuracy: 0.097
+[1_0,   560/994] loss: 3.187 accuracy: 0.097
+[1_0,   564/994] loss: 3.244 accuracy: 0.097
+[1_0,   568/994] loss: 3.278 accuracy: 0.097
+[1_0,   572/994] loss: 3.162 accuracy: 0.097
+[1_0,   576/994] loss: 3.345 accuracy: 0.097
+[1_0,   580/994] loss: 3.072 accuracy: 0.097
+[1_0,   584/994] loss: 3.380 accuracy: 0.097
+[1_0,   588/994] loss: 3.147 accuracy: 0.097
+[1_0,   592/994] loss: 3.188 accuracy: 0.096
+[1_0,   596/994] loss: 3.493 accuracy: 0.096
+[1_0,   600/994] loss: 3.018 accuracy: 0.097
+[1_0,   604/994] loss: 2.923 accuracy: 0.097
+[1_0,   608/994] loss: 3.483 accuracy: 0.097
+[1_0,   612/994] loss: 2.919 accuracy: 0.097
+[1_0,   616/994] loss: 3.322 accuracy: 0.097
+[1_0,   620/994] loss: 3.304 accuracy: 0.097
+[1_0,   624/994] loss: 3.202 accuracy: 0.097
+[1_0,   628/994] loss: 3.151 accuracy: 0.097
+[1_0,   632/994] loss: 2.898 accuracy: 0.097
+[1_0,   636/994] loss: 3.200 accuracy: 0.097
+[1_0,   640/994] loss: 3.221 accuracy: 0.097
+[1_0,   644/994] loss: 3.197 accuracy: 0.097
+[1_0,   648/994] loss: 2.942 accuracy: 0.097
+[1_0,   652/994] loss: 3.374 accuracy: 0.097
+[1_0,   656/994] loss: 3.298 accuracy: 0.097
+[1_0,   660/994] loss: 3.227 accuracy: 0.097
+[1_0,   664/994] loss: 3.330 accuracy: 0.097
+[1_0,   668/994] loss: 3.381 accuracy: 0.097
+[1_0,   672/994] loss: 3.110 accuracy: 0.097
+[1_0,   676/994] loss: 3.277 accuracy: 0.097
+[1_0,   680/994] loss: 2.989 accuracy: 0.097
+[1_0,   684/994] loss: 3.164 accuracy: 0.097
+[1_0,   688/994] loss: 3.151 accuracy: 0.097
+[1_0,   692/994] loss: 3.109 accuracy: 0.097
+[1_0,   696/994] loss: 3.053 accuracy: 0.097
+[1_0,   700/994] loss: 3.084 accuracy: 0.098
+[1_0,   704/994] loss: 3.434 accuracy: 0.097
+[1_0,   708/994] loss: 3.175 accuracy: 0.097
+[1_0,   712/994] loss: 3.135 accuracy: 0.097
+[1_0,   716/994] loss: 3.109 accuracy: 0.098
+[1_0,   720/994] loss: 3.334 accuracy: 0.098
+[1_0,   724/994] loss: 3.048 accuracy: 0.098
+[1_0,   728/994] loss: 3.307 accuracy: 0.098
+[1_0,   732/994] loss: 3.153 accuracy: 0.097
+[1_0,   736/994] loss: 2.940 accuracy: 0.098
+[1_0,   740/994] loss: 3.196 accuracy: 0.097
+[1_0,   744/994] loss: 3.306 accuracy: 0.097
+[1_0,   748/994] loss: 3.101 accuracy: 0.098
+[1_0,   752/994] loss: 3.286 accuracy: 0.097
+[1_0,   756/994] loss: 3.038 accuracy: 0.097
+[1_0,   760/994] loss: 3.177 accuracy: 0.097
+[1_0,   764/994] loss: 3.236 accuracy: 0.097
+[1_0,   768/994] loss: 3.409 accuracy: 0.097
+[1_0,   772/994] loss: 3.164 accuracy: 0.097
+[1_0,   776/994] loss: 3.121 accuracy: 0.097
+[1_0,   780/994] loss: 3.258 accuracy: 0.097
+[1_0,   784/994] loss: 3.244 accuracy: 0.097
+[1_0,   788/994] loss: 3.406 accuracy: 0.097
+[1_0,   792/994] loss: 3.274 accuracy: 0.096
+[1_0,   796/994] loss: 2.818 accuracy: 0.097
+[1_0,   800/994] loss: 2.928 accuracy: 0.097
+[1_0,   804/994] loss: 2.963 accuracy: 0.097
+[1_0,   808/994] loss: 3.103 accuracy: 0.097
+[1_0,   812/994] loss: 3.250 accuracy: 0.097
+[1_0,   816/994] loss: 3.147 accuracy: 0.097
+[1_0,   820/994] loss: 3.038 accuracy: 0.097
+[1_0,   824/994] loss: 3.303 accuracy: 0.097
+[1_0,   828/994] loss: 3.160 accuracy: 0.097
+[1_0,   832/994] loss: 3.209 accuracy: 0.097
+[1_0,   836/994] loss: 3.263 accuracy: 0.097
+[1_0,   840/994] loss: 2.974 accuracy: 0.098
+[1_0,   844/994] loss: 3.161 accuracy: 0.098
+[1_0,   848/994] loss: 3.156 accuracy: 0.098
+[1_0,   852/994] loss: 3.036 accuracy: 0.098
+[1_0,   856/994] loss: 3.322 accuracy: 0.097
+[1_0,   860/994] loss: 3.031 accuracy: 0.098
+[1_0,   864/994] loss: 3.232 accuracy: 0.098
+[1_0,   868/994] loss: 3.202 accuracy: 0.098
+[1_0,   872/994] loss: 3.472 accuracy: 0.098
+[1_0,   876/994] loss: 3.056 accuracy: 0.098
+[1_0,   880/994] loss: 3.243 accuracy: 0.098
+[1_0,   884/994] loss: 2.942 accuracy: 0.098
+[1_0,   888/994] loss: 3.344 accuracy: 0.098
+[1_0,   892/994] loss: 3.257 accuracy: 0.098
+[1_0,   896/994] loss: 3.262 accuracy: 0.098
+[1_0,   900/994] loss: 3.048 accuracy: 0.098
+[1_0,   904/994] loss: 2.989 accuracy: 0.098
+[1_0,   908/994] loss: 3.413 accuracy: 0.098
+[1_0,   912/994] loss: 3.319 accuracy: 0.098
+[1_0,   916/994] loss: 3.275 accuracy: 0.098
+[1_0,   920/994] loss: 3.247 accuracy: 0.097
+[1_0,   924/994] loss: 3.232 accuracy: 0.097
+[1_0,   928/994] loss: 3.169 accuracy: 0.098
+[1_0,   932/994] loss: 3.299 accuracy: 0.097
+[1_0,   936/994] loss: 3.052 accuracy: 0.097
+[1_0,   940/994] loss: 3.157 accuracy: 0.097
+[1_0,   944/994] loss: 3.101 accuracy: 0.098
+[1_0,   948/994] loss: 3.316 accuracy: 0.097
+[1_0,   952/994] loss: 3.263 accuracy: 0.097
+[1_0,   956/994] loss: 2.886 accuracy: 0.098
+[1_0,   960/994] loss: 3.324 accuracy: 0.098
+[1_0,   964/994] loss: 3.156 accuracy: 0.098
+[1_0,   968/994] loss: 3.059 accuracy: 0.098
+[1_0,   972/994] loss: 3.219 accuracy: 0.098
+[1_0,   976/994] loss: 3.261 accuracy: 0.098
+[1_0,   980/994] loss: 3.228 accuracy: 0.098
+[1_0,   984/994] loss: 3.166 accuracy: 0.098
+[1_0,   988/994] loss: 3.319 accuracy: 0.098
+[1_0,   992/994] loss: 3.213 accuracy: 0.098
+2022-04-24 18:29:13.309874  :  0.010948959907833119 is higher than the best(0). Saving the model at ../Models/KBP37/bert_multilingual_adam_finetune_kbp37_1_0.010362514930743638_sigmoid_long2.pt
+Epoch:  1
+Training Loss: 796.9033, Val Loss: 3.1640, Test Loss: 3.1686
+Training accuracy:0.0973, Training F1:0.0148, Validation accuracy:0.1160, Validation F1:0.0109, Test accuracy:0.1160, Test F1:0.0104
+German F1: 0.0069, English F1: 0.0120, Spanish F1: 0.0068, French F1: 0.0082, Turkish F1: 0.0044
+[2_0,     4/994] loss: 3.316 accuracy: 0.078
+[2_0,     8/994] loss: 3.385 accuracy: 0.062
+[2_0,    12/994] loss: 3.298 accuracy: 0.062
+[2_0,    16/994] loss: 3.343 accuracy: 0.066
+[2_0,    20/994] loss: 3.110 accuracy: 0.078
+[2_0,    24/994] loss: 3.299 accuracy: 0.081
+[2_0,    28/994] loss: 3.250 accuracy: 0.074
+[2_0,    32/994] loss: 3.296 accuracy: 0.068
+[2_0,    36/994] loss: 2.957 accuracy: 0.076
+[2_0,    40/994] loss: 3.043 accuracy: 0.081
+[2_0,    44/994] loss: 3.230 accuracy: 0.081
+[2_0,    48/994] loss: 3.104 accuracy: 0.082
+[2_0,    52/994] loss: 3.243 accuracy: 0.083
+[2_0,    56/994] loss: 3.125 accuracy: 0.087
+[2_0,    60/994] loss: 3.138 accuracy: 0.089
+[2_0,    64/994] loss: 3.092 accuracy: 0.091
+[2_0,    68/994] loss: 3.221 accuracy: 0.093
+[2_0,    72/994] loss: 2.887 accuracy: 0.097
+[2_0,    76/994] loss: 3.167 accuracy: 0.096
+[2_0,    80/994] loss: 3.188 accuracy: 0.097
+[2_0,    84/994] loss: 3.062 accuracy: 0.099
+[2_0,    88/994] loss: 3.232 accuracy: 0.100
+[2_0,    92/994] loss: 3.094 accuracy: 0.101
+[2_0,    96/994] loss: 3.079 accuracy: 0.101
+[2_0,   100/994] loss: 3.230 accuracy: 0.099
+[2_0,   104/994] loss: 3.196 accuracy: 0.099
+[2_0,   108/994] loss: 3.123 accuracy: 0.099
+[2_0,   112/994] loss: 3.301 accuracy: 0.097
+[2_0,   116/994] loss: 3.282 accuracy: 0.097
+[2_0,   120/994] loss: 3.164 accuracy: 0.097
+[2_0,   124/994] loss: 3.062 accuracy: 0.098
+[2_0,   128/994] loss: 3.499 accuracy: 0.096
+[2_0,   132/994] loss: 3.393 accuracy: 0.095
+[2_0,   136/994] loss: 3.188 accuracy: 0.096
+[2_0,   140/994] loss: 3.205 accuracy: 0.095
+[2_0,   144/994] loss: 3.009 accuracy: 0.095
+[2_0,   148/994] loss: 3.222 accuracy: 0.095
+[2_0,   152/994] loss: 3.137 accuracy: 0.096
+[2_0,   156/994] loss: 3.281 accuracy: 0.094
+[2_0,   160/994] loss: 3.426 accuracy: 0.093
+[2_0,   164/994] loss: 3.236 accuracy: 0.093
+[2_0,   168/994] loss: 3.102 accuracy: 0.093
+[2_0,   172/994] loss: 3.261 accuracy: 0.093
+[2_0,   176/994] loss: 3.248 accuracy: 0.093
+[2_0,   180/994] loss: 3.482 accuracy: 0.092
+[2_0,   184/994] loss: 3.001 accuracy: 0.092
+[2_0,   188/994] loss: 3.184 accuracy: 0.092
+[2_0,   192/994] loss: 3.134 accuracy: 0.092
+[2_0,   196/994] loss: 3.280 accuracy: 0.091
+[2_0,   200/994] loss: 3.099 accuracy: 0.091
+[2_0,   204/994] loss: 3.214 accuracy: 0.091
+[2_0,   208/994] loss: 3.273 accuracy: 0.090
+[2_0,   212/994] loss: 3.211 accuracy: 0.090
+[2_0,   216/994] loss: 3.102 accuracy: 0.090
+[2_0,   220/994] loss: 3.094 accuracy: 0.090
+[2_0,   224/994] loss: 3.146 accuracy: 0.091
+[2_0,   228/994] loss: 3.142 accuracy: 0.090
+[2_0,   232/994] loss: 3.204 accuracy: 0.091
+[2_0,   236/994] loss: 3.377 accuracy: 0.090
+[2_0,   240/994] loss: 3.258 accuracy: 0.091
+[2_0,   244/994] loss: 2.981 accuracy: 0.091
+[2_0,   248/994] loss: 3.260 accuracy: 0.091
+[2_0,   252/994] loss: 3.322 accuracy: 0.091
+[2_0,   256/994] loss: 3.066 accuracy: 0.092
+[2_0,   260/994] loss: 3.142 accuracy: 0.092
+[2_0,   264/994] loss: 3.285 accuracy: 0.092
+[2_0,   268/994] loss: 3.358 accuracy: 0.091
+[2_0,   272/994] loss: 2.993 accuracy: 0.091
+[2_0,   276/994] loss: 3.216 accuracy: 0.091
+[2_0,   280/994] loss: 3.106 accuracy: 0.091
+[2_0,   284/994] loss: 3.130 accuracy: 0.091
+[2_0,   288/994] loss: 3.022 accuracy: 0.091
+[2_0,   292/994] loss: 3.037 accuracy: 0.091
+[2_0,   296/994] loss: 3.035 accuracy: 0.092
+[2_0,   300/994] loss: 3.025 accuracy: 0.093
+[2_0,   304/994] loss: 3.471 accuracy: 0.093
+[2_0,   308/994] loss: 3.321 accuracy: 0.093
+[2_0,   312/994] loss: 3.066 accuracy: 0.094
+[2_0,   316/994] loss: 3.131 accuracy: 0.094
+[2_0,   320/994] loss: 3.118 accuracy: 0.094
+[2_0,   324/994] loss: 3.133 accuracy: 0.094
+[2_0,   328/994] loss: 3.213 accuracy: 0.093
+[2_0,   332/994] loss: 3.235 accuracy: 0.094
+[2_0,   336/994] loss: 2.968 accuracy: 0.095
+[2_0,   340/994] loss: 3.045 accuracy: 0.095
+[2_0,   344/994] loss: 3.043 accuracy: 0.096
+[2_0,   348/994] loss: 3.037 accuracy: 0.096
+[2_0,   352/994] loss: 3.325 accuracy: 0.096
+[2_0,   356/994] loss: 3.233 accuracy: 0.096
+[2_0,   360/994] loss: 3.318 accuracy: 0.095
+[2_0,   364/994] loss: 3.327 accuracy: 0.095
+[2_0,   368/994] loss: 3.238 accuracy: 0.095
+[2_0,   372/994] loss: 3.259 accuracy: 0.095
+[2_0,   376/994] loss: 3.164 accuracy: 0.095
+[2_0,   380/994] loss: 3.153 accuracy: 0.096
+[2_0,   384/994] loss: 3.016 accuracy: 0.096
+[2_0,   388/994] loss: 3.269 accuracy: 0.096
+[2_0,   392/994] loss: 3.196 accuracy: 0.095
+[2_0,   396/994] loss: 2.894 accuracy: 0.096
+[2_0,   400/994] loss: 3.124 accuracy: 0.096
+[2_0,   404/994] loss: 3.042 accuracy: 0.097
+[2_0,   408/994] loss: 3.171 accuracy: 0.097
+[2_0,   412/994] loss: 3.288 accuracy: 0.098
+[2_0,   416/994] loss: 3.071 accuracy: 0.098
+[2_0,   420/994] loss: 3.207 accuracy: 0.098
+[2_0,   424/994] loss: 3.354 accuracy: 0.097
+[2_0,   428/994] loss: 3.093 accuracy: 0.098
+[2_0,   432/994] loss: 3.031 accuracy: 0.098
+[2_0,   436/994] loss: 3.358 accuracy: 0.097
+[2_0,   440/994] loss: 3.104 accuracy: 0.098
+[2_0,   444/994] loss: 2.902 accuracy: 0.098
+[2_0,   448/994] loss: 3.363 accuracy: 0.098
+[2_0,   452/994] loss: 3.245 accuracy: 0.098
+[2_0,   456/994] loss: 3.584 accuracy: 0.097
+[2_0,   460/994] loss: 3.054 accuracy: 0.097
+[2_0,   464/994] loss: 3.578 accuracy: 0.097
+[2_0,   468/994] loss: 3.189 accuracy: 0.097
+[2_0,   472/994] loss: 2.881 accuracy: 0.098
+[2_0,   476/994] loss: 2.991 accuracy: 0.098
+[2_0,   480/994] loss: 3.172 accuracy: 0.098
+[2_0,   484/994] loss: 3.196 accuracy: 0.098
+[2_0,   488/994] loss: 3.028 accuracy: 0.098
+[2_0,   492/994] loss: 3.021 accuracy: 0.098
+[2_0,   496/994] loss: 3.184 accuracy: 0.098
+[2_0,   500/994] loss: 3.092 accuracy: 0.098
+[2_0,   504/994] loss: 2.961 accuracy: 0.098
+[2_0,   508/994] loss: 3.007 accuracy: 0.098
+[2_0,   512/994] loss: 3.176 accuracy: 0.098
+[2_0,   516/994] loss: 3.385 accuracy: 0.098
+[2_0,   520/994] loss: 3.039 accuracy: 0.099
+[2_0,   524/994] loss: 3.121 accuracy: 0.099
+[2_0,   528/994] loss: 3.075 accuracy: 0.099
+[2_0,   532/994] loss: 3.482 accuracy: 0.098
+[2_0,   536/994] loss: 3.129 accuracy: 0.099
+[2_0,   540/994] loss: 3.097 accuracy: 0.099
+[2_0,   544/994] loss: 3.337 accuracy: 0.099
+[2_0,   548/994] loss: 3.219 accuracy: 0.098
+[2_0,   552/994] loss: 3.121 accuracy: 0.099
+[2_0,   556/994] loss: 3.239 accuracy: 0.098
+[2_0,   560/994] loss: 3.088 accuracy: 0.098
+[2_0,   564/994] loss: 3.229 accuracy: 0.098
+[2_0,   568/994] loss: 3.169 accuracy: 0.098
+[2_0,   572/994] loss: 3.112 accuracy: 0.098
+[2_0,   576/994] loss: 3.220 accuracy: 0.098
+[2_0,   580/994] loss: 3.017 accuracy: 0.098
+[2_0,   584/994] loss: 3.298 accuracy: 0.098
+[2_0,   588/994] loss: 2.995 accuracy: 0.098
+[2_0,   592/994] loss: 3.091 accuracy: 0.099
+[2_0,   596/994] loss: 3.260 accuracy: 0.098
+[2_0,   600/994] loss: 3.158 accuracy: 0.098
+[2_0,   604/994] loss: 3.249 accuracy: 0.098
+[2_0,   608/994] loss: 3.060 accuracy: 0.098
+[2_0,   612/994] loss: 3.141 accuracy: 0.098
+[2_0,   616/994] loss: 3.074 accuracy: 0.098
+[2_0,   620/994] loss: 3.062 accuracy: 0.098
+[2_0,   624/994] loss: 3.172 accuracy: 0.098
+[2_0,   628/994] loss: 3.213 accuracy: 0.098
+[2_0,   632/994] loss: 3.386 accuracy: 0.097
+[2_0,   636/994] loss: 3.322 accuracy: 0.097
+[2_0,   640/994] loss: 3.121 accuracy: 0.097
+[2_0,   644/994] loss: 3.269 accuracy: 0.097
+[2_0,   648/994] loss: 3.216 accuracy: 0.097
+[2_0,   652/994] loss: 3.186 accuracy: 0.097
+[2_0,   656/994] loss: 3.262 accuracy: 0.097
+[2_0,   660/994] loss: 3.239 accuracy: 0.096
+[2_0,   664/994] loss: 2.992 accuracy: 0.097
+[2_0,   668/994] loss: 3.315 accuracy: 0.096
+[2_0,   672/994] loss: 3.354 accuracy: 0.096
+[2_0,   676/994] loss: 3.287 accuracy: 0.096
+[2_0,   680/994] loss: 3.060 accuracy: 0.096
+[2_0,   684/994] loss: 3.294 accuracy: 0.096
+[2_0,   688/994] loss: 3.260 accuracy: 0.096
+[2_0,   692/994] loss: 3.066 accuracy: 0.096
+[2_0,   696/994] loss: 3.377 accuracy: 0.095
+[2_0,   700/994] loss: 3.028 accuracy: 0.095
+[2_0,   704/994] loss: 3.146 accuracy: 0.096
+[2_0,   708/994] loss: 3.210 accuracy: 0.096
+[2_0,   712/994] loss: 3.147 accuracy: 0.096
+[2_0,   716/994] loss: 2.991 accuracy: 0.096
+[2_0,   720/994] loss: 3.005 accuracy: 0.096
+[2_0,   724/994] loss: 3.081 accuracy: 0.096
+[2_0,   728/994] loss: 3.397 accuracy: 0.096
+[2_0,   732/994] loss: 3.305 accuracy: 0.096
+[2_0,   736/994] loss: 3.058 accuracy: 0.096
+[2_0,   740/994] loss: 3.416 accuracy: 0.096
+[2_0,   744/994] loss: 3.128 accuracy: 0.096
+[2_0,   748/994] loss: 3.006 accuracy: 0.096
+[2_0,   752/994] loss: 2.917 accuracy: 0.096
+[2_0,   756/994] loss: 3.524 accuracy: 0.096
+[2_0,   760/994] loss: 3.112 accuracy: 0.096
+[2_0,   764/994] loss: 3.214 accuracy: 0.096
+[2_0,   768/994] loss: 2.974 accuracy: 0.096
+[2_0,   772/994] loss: 3.412 accuracy: 0.096
+[2_0,   776/994] loss: 3.087 accuracy: 0.096
+[2_0,   780/994] loss: 3.175 accuracy: 0.096
+[2_0,   784/994] loss: 3.127 accuracy: 0.096
+[2_0,   788/994] loss: 3.244 accuracy: 0.096
+[2_0,   792/994] loss: 3.278 accuracy: 0.096
+[2_0,   796/994] loss: 3.137 accuracy: 0.096
+[2_0,   800/994] loss: 3.214 accuracy: 0.096
+[2_0,   804/994] loss: 3.231 accuracy: 0.096
+[2_0,   808/994] loss: 3.225 accuracy: 0.096
+[2_0,   812/994] loss: 3.067 accuracy: 0.096
+[2_0,   816/994] loss: 3.392 accuracy: 0.096
+[2_0,   820/994] loss: 3.015 accuracy: 0.096
+[2_0,   824/994] loss: 3.070 accuracy: 0.096
+[2_0,   828/994] loss: 3.297 accuracy: 0.096
+[2_0,   832/994] loss: 3.049 accuracy: 0.096
+[2_0,   836/994] loss: 3.225 accuracy: 0.096
+[2_0,   840/994] loss: 3.107 accuracy: 0.096
+[2_0,   844/994] loss: 3.318 accuracy: 0.096
+[2_0,   848/994] loss: 3.308 accuracy: 0.096
+[2_0,   852/994] loss: 3.215 accuracy: 0.096
+[2_0,   856/994] loss: 3.326 accuracy: 0.096
+[2_0,   860/994] loss: 3.112 accuracy: 0.097
+[2_0,   864/994] loss: 3.090 accuracy: 0.096
+[2_0,   868/994] loss: 3.048 accuracy: 0.097
+[2_0,   872/994] loss: 2.953 accuracy: 0.097
+[2_0,   876/994] loss: 3.153 accuracy: 0.097
+[2_0,   880/994] loss: 3.028 accuracy: 0.097
+[2_0,   884/994] loss: 3.074 accuracy: 0.097
+[2_0,   888/994] loss: 3.225 accuracy: 0.097
+[2_0,   892/994] loss: 3.334 accuracy: 0.097
+[2_0,   896/994] loss: 3.321 accuracy: 0.097
+[2_0,   900/994] loss: 3.327 accuracy: 0.097
+[2_0,   904/994] loss: 3.052 accuracy: 0.097
+[2_0,   908/994] loss: 3.484 accuracy: 0.097
+[2_0,   912/994] loss: 3.013 accuracy: 0.097
+[2_0,   916/994] loss: 3.341 accuracy: 0.097
+[2_0,   920/994] loss: 3.007 accuracy: 0.097
+[2_0,   924/994] loss: 3.158 accuracy: 0.097
+[2_0,   928/994] loss: 2.885 accuracy: 0.098
+[2_0,   932/994] loss: 2.935 accuracy: 0.098
+[2_0,   936/994] loss: 3.165 accuracy: 0.098
+[2_0,   940/994] loss: 2.976 accuracy: 0.098
+[2_0,   944/994] loss: 3.217 accuracy: 0.098
+[2_0,   948/994] loss: 3.164 accuracy: 0.098
+[2_0,   952/994] loss: 3.205 accuracy: 0.098
+[2_0,   956/994] loss: 3.126 accuracy: 0.098
+[2_0,   960/994] loss: 2.995 accuracy: 0.098
+[2_0,   964/994] loss: 3.478 accuracy: 0.098
+[2_0,   968/994] loss: 3.336 accuracy: 0.097
+[2_0,   972/994] loss: 3.203 accuracy: 0.097
+[2_0,   976/994] loss: 3.204 accuracy: 0.097
+[2_0,   980/994] loss: 3.054 accuracy: 0.098
+[2_0,   984/994] loss: 3.187 accuracy: 0.098
+[2_0,   988/994] loss: 3.408 accuracy: 0.097
+[2_0,   992/994] loss: 3.066 accuracy: 0.098
+Epoch:  2
+Training Loss: 787.9015, Val Loss: 3.1814, Test Loss: 3.1693
+Training accuracy:0.0976, Training F1:0.0101, Validation accuracy:0.1032, Validation F1:0.0090, Test accuracy:0.1131, Test F1:0.0099
+German F1: 0.0069, English F1: 0.0071, Spanish F1: 0.0124, French F1: 0.0137, Turkish F1: 0.0144
+[3_0,     4/994] loss: 3.307 accuracy: 0.078
+[3_0,     8/994] loss: 3.304 accuracy: 0.062
+[3_0,    12/994] loss: 2.968 accuracy: 0.115
+[3_0,    16/994] loss: 3.386 accuracy: 0.105
+[3_0,    20/994] loss: 3.075 accuracy: 0.109
+[3_0,    24/994] loss: 3.206 accuracy: 0.107
+[3_0,    28/994] loss: 3.170 accuracy: 0.107
+[3_0,    32/994] loss: 3.119 accuracy: 0.109
+[3_0,    36/994] loss: 3.198 accuracy: 0.113
+[3_0,    40/994] loss: 3.088 accuracy: 0.108
+[3_0,    44/994] loss: 3.097 accuracy: 0.107
+[3_0,    48/994] loss: 3.344 accuracy: 0.103
+[3_0,    52/994] loss: 3.063 accuracy: 0.101
+[3_0,    56/994] loss: 3.107 accuracy: 0.099
+[3_0,    60/994] loss: 3.113 accuracy: 0.101
+[3_0,    64/994] loss: 3.008 accuracy: 0.101
+[3_0,    68/994] loss: 3.222 accuracy: 0.099
+[3_0,    72/994] loss: 3.228 accuracy: 0.101
+[3_0,    76/994] loss: 2.977 accuracy: 0.100
+[3_0,    80/994] loss: 3.004 accuracy: 0.101
+[3_0,    84/994] loss: 3.076 accuracy: 0.102
+[3_0,    88/994] loss: 3.126 accuracy: 0.102
+[3_0,    92/994] loss: 3.376 accuracy: 0.101
+[3_0,    96/994] loss: 3.170 accuracy: 0.100
+[3_0,   100/994] loss: 3.276 accuracy: 0.101
+[3_0,   104/994] loss: 3.125 accuracy: 0.102
+[3_0,   108/994] loss: 3.057 accuracy: 0.104
+[3_0,   112/994] loss: 3.230 accuracy: 0.105
+[3_0,   116/994] loss: 3.408 accuracy: 0.103
+[3_0,   120/994] loss: 3.212 accuracy: 0.104
+[3_0,   124/994] loss: 3.249 accuracy: 0.105
+[3_0,   128/994] loss: 3.188 accuracy: 0.103
+[3_0,   132/994] loss: 3.300 accuracy: 0.103
+[3_0,   136/994] loss: 3.184 accuracy: 0.102
+[3_0,   140/994] loss: 3.080 accuracy: 0.102
+[3_0,   144/994] loss: 3.013 accuracy: 0.103
+[3_0,   148/994] loss: 3.058 accuracy: 0.103
+[3_0,   152/994] loss: 3.222 accuracy: 0.102
+[3_0,   156/994] loss: 3.288 accuracy: 0.102
+[3_0,   160/994] loss: 3.082 accuracy: 0.102
+[3_0,   164/994] loss: 3.151 accuracy: 0.101
+[3_0,   168/994] loss: 3.318 accuracy: 0.101
+[3_0,   172/994] loss: 3.231 accuracy: 0.100
+[3_0,   176/994] loss: 3.291 accuracy: 0.100
+[3_0,   180/994] loss: 3.184 accuracy: 0.099
+[3_0,   184/994] loss: 3.263 accuracy: 0.098
+[3_0,   188/994] loss: 3.415 accuracy: 0.097
+[3_0,   192/994] loss: 3.182 accuracy: 0.096
+[3_0,   196/994] loss: 3.265 accuracy: 0.096
+[3_0,   200/994] loss: 3.218 accuracy: 0.096
+[3_0,   204/994] loss: 3.110 accuracy: 0.096
+[3_0,   208/994] loss: 3.090 accuracy: 0.097
+[3_0,   212/994] loss: 3.133 accuracy: 0.097
+[3_0,   216/994] loss: 3.112 accuracy: 0.097
+[3_0,   220/994] loss: 3.241 accuracy: 0.097
+[3_0,   224/994] loss: 3.645 accuracy: 0.096
+[3_0,   228/994] loss: 3.037 accuracy: 0.096
+[3_0,   232/994] loss: 3.211 accuracy: 0.097
+[3_0,   236/994] loss: 3.268 accuracy: 0.097
+[3_0,   240/994] loss: 3.246 accuracy: 0.097
+[3_0,   244/994] loss: 3.119 accuracy: 0.096
+[3_0,   248/994] loss: 3.075 accuracy: 0.097
+[3_0,   252/994] loss: 3.188 accuracy: 0.096
+[3_0,   256/994] loss: 3.083 accuracy: 0.097
+[3_0,   260/994] loss: 3.228 accuracy: 0.096
+[3_0,   264/994] loss: 3.218 accuracy: 0.096
+[3_0,   268/994] loss: 2.934 accuracy: 0.098
+[3_0,   272/994] loss: 3.031 accuracy: 0.100
+[3_0,   276/994] loss: 3.035 accuracy: 0.100
+[3_0,   280/994] loss: 3.113 accuracy: 0.100
+[3_0,   284/994] loss: 3.125 accuracy: 0.101
+[3_0,   288/994] loss: 3.223 accuracy: 0.101
+[3_0,   292/994] loss: 3.031 accuracy: 0.101
+[3_0,   296/994] loss: 3.138 accuracy: 0.102
+[3_0,   300/994] loss: 3.094 accuracy: 0.102
+[3_0,   304/994] loss: 3.294 accuracy: 0.101
+[3_0,   308/994] loss: 3.037 accuracy: 0.102
+[3_0,   312/994] loss: 3.051 accuracy: 0.102
+[3_0,   316/994] loss: 3.308 accuracy: 0.102
+[3_0,   320/994] loss: 2.918 accuracy: 0.104
+[3_0,   324/994] loss: 3.061 accuracy: 0.104
+[3_0,   328/994] loss: 3.291 accuracy: 0.103
+[3_0,   332/994] loss: 3.429 accuracy: 0.102
+[3_0,   336/994] loss: 3.174 accuracy: 0.102
+[3_0,   340/994] loss: 3.194 accuracy: 0.102
+[3_0,   344/994] loss: 3.298 accuracy: 0.101
+[3_0,   348/994] loss: 3.196 accuracy: 0.101
+[3_0,   352/994] loss: 3.010 accuracy: 0.102
+[3_0,   356/994] loss: 3.370 accuracy: 0.101
+[3_0,   360/994] loss: 3.034 accuracy: 0.101
+[3_0,   364/994] loss: 2.987 accuracy: 0.101
+[3_0,   368/994] loss: 3.329 accuracy: 0.101
+[3_0,   372/994] loss: 3.047 accuracy: 0.100
+[3_0,   376/994] loss: 2.990 accuracy: 0.100
+[3_0,   380/994] loss: 3.052 accuracy: 0.100
+[3_0,   384/994] loss: 3.164 accuracy: 0.101
+[3_0,   388/994] loss: 3.253 accuracy: 0.101
+[3_0,   392/994] loss: 3.163 accuracy: 0.101
+[3_0,   396/994] loss: 2.991 accuracy: 0.101
+[3_0,   400/994] loss: 3.208 accuracy: 0.101
+[3_0,   404/994] loss: 2.990 accuracy: 0.101
+[3_0,   408/994] loss: 3.205 accuracy: 0.100
+[3_0,   412/994] loss: 3.062 accuracy: 0.101
+[3_0,   416/994] loss: 3.242 accuracy: 0.101
+[3_0,   420/994] loss: 3.038 accuracy: 0.102
+[3_0,   424/994] loss: 3.488 accuracy: 0.101
+[3_0,   428/994] loss: 3.181 accuracy: 0.101
+[3_0,   432/994] loss: 2.985 accuracy: 0.101
+[3_0,   436/994] loss: 3.198 accuracy: 0.101
+[3_0,   440/994] loss: 3.258 accuracy: 0.101
+[3_0,   444/994] loss: 3.099 accuracy: 0.101
+[3_0,   448/994] loss: 3.107 accuracy: 0.100
+[3_0,   452/994] loss: 3.383 accuracy: 0.100
+[3_0,   456/994] loss: 2.942 accuracy: 0.101
+[3_0,   460/994] loss: 3.272 accuracy: 0.100
+[3_0,   464/994] loss: 3.368 accuracy: 0.100
+[3_0,   468/994] loss: 3.226 accuracy: 0.099
+[3_0,   472/994] loss: 3.104 accuracy: 0.099
+[3_0,   476/994] loss: 3.249 accuracy: 0.099
+[3_0,   480/994] loss: 3.110 accuracy: 0.099
+[3_0,   484/994] loss: 3.341 accuracy: 0.099
+[3_0,   488/994] loss: 3.143 accuracy: 0.098
+[3_0,   492/994] loss: 3.163 accuracy: 0.099
+[3_0,   496/994] loss: 2.996 accuracy: 0.099
+[3_0,   500/994] loss: 3.106 accuracy: 0.099
+[3_0,   504/994] loss: 3.014 accuracy: 0.098
+[3_0,   508/994] loss: 3.077 accuracy: 0.098
+[3_0,   512/994] loss: 3.177 accuracy: 0.098
+[3_0,   516/994] loss: 3.059 accuracy: 0.099
+[3_0,   520/994] loss: 3.271 accuracy: 0.099
+[3_0,   524/994] loss: 3.335 accuracy: 0.098
+[3_0,   528/994] loss: 3.261 accuracy: 0.098
+[3_0,   532/994] loss: 3.266 accuracy: 0.098
+[3_0,   536/994] loss: 3.138 accuracy: 0.098
+[3_0,   540/994] loss: 3.215 accuracy: 0.098
+[3_0,   544/994] loss: 2.974 accuracy: 0.098
+[3_0,   548/994] loss: 3.334 accuracy: 0.098
+[3_0,   552/994] loss: 3.116 accuracy: 0.098
+[3_0,   556/994] loss: 3.022 accuracy: 0.098
+[3_0,   560/994] loss: 3.310 accuracy: 0.098
+[3_0,   564/994] loss: 3.138 accuracy: 0.098
+[3_0,   568/994] loss: 3.123 accuracy: 0.098
+[3_0,   572/994] loss: 2.941 accuracy: 0.099
+[3_0,   576/994] loss: 3.394 accuracy: 0.098
+[3_0,   580/994] loss: 3.126 accuracy: 0.098
+[3_0,   584/994] loss: 3.310 accuracy: 0.098
+[3_0,   588/994] loss: 3.273 accuracy: 0.098
+[3_0,   592/994] loss: 3.032 accuracy: 0.098
+[3_0,   596/994] loss: 3.363 accuracy: 0.098
+[3_0,   600/994] loss: 3.051 accuracy: 0.098
+[3_0,   604/994] loss: 3.242 accuracy: 0.098
+[3_0,   608/994] loss: 3.083 accuracy: 0.098
+[3_0,   612/994] loss: 3.041 accuracy: 0.099
+[3_0,   616/994] loss: 3.177 accuracy: 0.099
+[3_0,   620/994] loss: 3.056 accuracy: 0.098
+[3_0,   624/994] loss: 3.207 accuracy: 0.098
+[3_0,   628/994] loss: 3.143 accuracy: 0.098
+[3_0,   632/994] loss: 3.146 accuracy: 0.098
+[3_0,   636/994] loss: 3.267 accuracy: 0.098
+[3_0,   640/994] loss: 3.258 accuracy: 0.098
+[3_0,   644/994] loss: 3.385 accuracy: 0.098
+[3_0,   648/994] loss: 3.121 accuracy: 0.098
+[3_0,   652/994] loss: 3.069 accuracy: 0.098
+[3_0,   656/994] loss: 3.114 accuracy: 0.098
+[3_0,   660/994] loss: 3.132 accuracy: 0.098
+[3_0,   664/994] loss: 3.265 accuracy: 0.098
+[3_0,   668/994] loss: 3.186 accuracy: 0.098
+[3_0,   672/994] loss: 3.072 accuracy: 0.098
+[3_0,   676/994] loss: 3.000 accuracy: 0.098
+[3_0,   680/994] loss: 3.333 accuracy: 0.098
+[3_0,   684/994] loss: 3.446 accuracy: 0.097
+[3_0,   688/994] loss: 3.058 accuracy: 0.098
+[3_0,   692/994] loss: 3.064 accuracy: 0.098
+[3_0,   696/994] loss: 3.097 accuracy: 0.098
+[3_0,   700/994] loss: 3.444 accuracy: 0.098
+[3_0,   704/994] loss: 3.185 accuracy: 0.098
+[3_0,   708/994] loss: 3.264 accuracy: 0.098
+[3_0,   712/994] loss: 3.145 accuracy: 0.098
+[3_0,   716/994] loss: 3.006 accuracy: 0.098
+[3_0,   720/994] loss: 2.929 accuracy: 0.098
+[3_0,   724/994] loss: 3.065 accuracy: 0.098
+[3_0,   728/994] loss: 3.124 accuracy: 0.099
+[3_0,   732/994] loss: 3.176 accuracy: 0.099
+[3_0,   736/994] loss: 2.956 accuracy: 0.099
+[3_0,   740/994] loss: 3.049 accuracy: 0.099
+[3_0,   744/994] loss: 3.197 accuracy: 0.099
+[3_0,   748/994] loss: 3.485 accuracy: 0.098
+[3_0,   752/994] loss: 2.935 accuracy: 0.099
+[3_0,   756/994] loss: 3.288 accuracy: 0.098
+[3_0,   760/994] loss: 3.319 accuracy: 0.098
+[3_0,   764/994] loss: 3.236 accuracy: 0.098
+[3_0,   768/994] loss: 3.110 accuracy: 0.098
+[3_0,   772/994] loss: 3.489 accuracy: 0.098
+[3_0,   776/994] loss: 2.889 accuracy: 0.098
+[3_0,   780/994] loss: 2.959 accuracy: 0.099
+[3_0,   784/994] loss: 3.150 accuracy: 0.099
+[3_0,   788/994] loss: 3.386 accuracy: 0.098
+[3_0,   792/994] loss: 2.859 accuracy: 0.099
+[3_0,   796/994] loss: 3.448 accuracy: 0.099
+[3_0,   800/994] loss: 3.059 accuracy: 0.099
+[3_0,   804/994] loss: 3.150 accuracy: 0.099
+[3_0,   808/994] loss: 2.991 accuracy: 0.099
+[3_0,   812/994] loss: 2.803 accuracy: 0.100
+[3_0,   816/994] loss: 3.065 accuracy: 0.100
+[3_0,   820/994] loss: 3.107 accuracy: 0.100
+[3_0,   824/994] loss: 3.168 accuracy: 0.100
+[3_0,   828/994] loss: 3.034 accuracy: 0.100
+[3_0,   832/994] loss: 3.147 accuracy: 0.099
+[3_0,   836/994] loss: 3.273 accuracy: 0.099
+[3_0,   840/994] loss: 3.342 accuracy: 0.099
+[3_0,   844/994] loss: 3.071 accuracy: 0.099
+[3_0,   848/994] loss: 3.427 accuracy: 0.099
+[3_0,   852/994] loss: 3.312 accuracy: 0.099
+[3_0,   856/994] loss: 3.183 accuracy: 0.099
+[3_0,   860/994] loss: 3.231 accuracy: 0.099
+[3_0,   864/994] loss: 2.964 accuracy: 0.099
+[3_0,   868/994] loss: 3.053 accuracy: 0.099
+[3_0,   872/994] loss: 3.230 accuracy: 0.099
+[3_0,   876/994] loss: 3.146 accuracy: 0.099
+[3_0,   880/994] loss: 2.979 accuracy: 0.099
+[3_0,   884/994] loss: 3.181 accuracy: 0.100
+[3_0,   888/994] loss: 2.908 accuracy: 0.100
+[3_0,   892/994] loss: 3.402 accuracy: 0.099
+[3_0,   896/994] loss: 3.162 accuracy: 0.099
+[3_0,   900/994] loss: 3.149 accuracy: 0.099
+[3_0,   904/994] loss: 3.188 accuracy: 0.099
+[3_0,   908/994] loss: 3.134 accuracy: 0.100
+[3_0,   912/994] loss: 3.340 accuracy: 0.100
+[3_0,   916/994] loss: 2.937 accuracy: 0.100
+[3_0,   920/994] loss: 3.122 accuracy: 0.100
+[3_0,   924/994] loss: 3.208 accuracy: 0.100
+[3_0,   928/994] loss: 3.163 accuracy: 0.100
+[3_0,   932/994] loss: 3.227 accuracy: 0.100
+[3_0,   936/994] loss: 3.311 accuracy: 0.100
+[3_0,   940/994] loss: 3.309 accuracy: 0.100
+[3_0,   944/994] loss: 2.855 accuracy: 0.100
+[3_0,   948/994] loss: 3.167 accuracy: 0.100
+[3_0,   952/994] loss: 3.394 accuracy: 0.100
+[3_0,   956/994] loss: 2.950 accuracy: 0.100
+[3_0,   960/994] loss: 3.089 accuracy: 0.100
+[3_0,   964/994] loss: 3.281 accuracy: 0.100
+[3_0,   968/994] loss: 3.237 accuracy: 0.100
+[3_0,   972/994] loss: 3.196 accuracy: 0.100
+[3_0,   976/994] loss: 3.246 accuracy: 0.100
+[3_0,   980/994] loss: 3.205 accuracy: 0.100
+[3_0,   984/994] loss: 3.091 accuracy: 0.100
+[3_0,   988/994] loss: 2.982 accuracy: 0.100
+[3_0,   992/994] loss: 3.072 accuracy: 0.100
+Epoch:  3
+Training Loss: 784.6673, Val Loss: 3.1706, Test Loss: 3.1548
+Training accuracy:0.0999, Training F1:0.0097, Validation accuracy:0.1131, Validation F1:0.0073, Test accuracy:0.1134, Test F1:0.0097
+German F1: 0.0075, English F1: 0.0050, Spanish F1: 0.0096, French F1: 0.0119, Turkish F1: 0.0039
+[4_0,     4/994] loss: 3.172 accuracy: 0.109
+[4_0,     8/994] loss: 3.289 accuracy: 0.094
+[4_0,    12/994] loss: 3.142 accuracy: 0.094
+[4_0,    16/994] loss: 3.248 accuracy: 0.086
+[4_0,    20/994] loss: 3.045 accuracy: 0.094
+[4_0,    24/994] loss: 3.210 accuracy: 0.091
+[4_0,    28/994] loss: 3.245 accuracy: 0.087
+[4_0,    32/994] loss: 3.226 accuracy: 0.088
+[4_0,    36/994] loss: 3.129 accuracy: 0.092
+[4_0,    40/994] loss: 3.108 accuracy: 0.095
+[4_0,    44/994] loss: 2.993 accuracy: 0.098
+[4_0,    48/994] loss: 3.316 accuracy: 0.096
+[4_0,    52/994] loss: 3.382 accuracy: 0.097
+[4_0,    56/994] loss: 2.978 accuracy: 0.099
+[4_0,    60/994] loss: 3.129 accuracy: 0.101
+[4_0,    64/994] loss: 3.073 accuracy: 0.100
+[4_0,    68/994] loss: 3.211 accuracy: 0.101
+[4_0,    72/994] loss: 3.124 accuracy: 0.100
+[4_0,    76/994] loss: 3.015 accuracy: 0.100
+[4_0,    80/994] loss: 3.093 accuracy: 0.103
+[4_0,    84/994] loss: 3.239 accuracy: 0.105
+[4_0,    88/994] loss: 3.131 accuracy: 0.104
+[4_0,    92/994] loss: 3.163 accuracy: 0.103
+[4_0,    96/994] loss: 3.206 accuracy: 0.103
+[4_0,   100/994] loss: 3.316 accuracy: 0.103
+[4_0,   104/994] loss: 3.314 accuracy: 0.102
+[4_0,   108/994] loss: 2.988 accuracy: 0.104
+[4_0,   112/994] loss: 3.128 accuracy: 0.104
+[4_0,   116/994] loss: 3.054 accuracy: 0.104
+[4_0,   120/994] loss: 2.868 accuracy: 0.105
+[4_0,   124/994] loss: 3.051 accuracy: 0.106
+[4_0,   128/994] loss: 2.974 accuracy: 0.107
+[4_0,   132/994] loss: 3.193 accuracy: 0.106
+[4_0,   136/994] loss: 3.142 accuracy: 0.105
+[4_0,   140/994] loss: 2.930 accuracy: 0.105
+[4_0,   144/994] loss: 3.224 accuracy: 0.103
+[4_0,   148/994] loss: 3.160 accuracy: 0.102
+[4_0,   152/994] loss: 3.306 accuracy: 0.102
+[4_0,   156/994] loss: 3.173 accuracy: 0.102
+[4_0,   160/994] loss: 3.196 accuracy: 0.102
+[4_0,   164/994] loss: 3.239 accuracy: 0.101
+[4_0,   168/994] loss: 3.154 accuracy: 0.101
+[4_0,   172/994] loss: 3.251 accuracy: 0.101
+[4_0,   176/994] loss: 3.156 accuracy: 0.102
+[4_0,   180/994] loss: 2.971 accuracy: 0.102
+[4_0,   184/994] loss: 3.473 accuracy: 0.102
+[4_0,   188/994] loss: 3.120 accuracy: 0.101
+[4_0,   192/994] loss: 3.241 accuracy: 0.100
+[4_0,   196/994] loss: 2.997 accuracy: 0.100
+[4_0,   200/994] loss: 3.243 accuracy: 0.100
+[4_0,   204/994] loss: 3.051 accuracy: 0.100
+[4_0,   208/994] loss: 3.441 accuracy: 0.099
+[4_0,   212/994] loss: 3.103 accuracy: 0.099
+[4_0,   216/994] loss: 3.231 accuracy: 0.098
+[4_0,   220/994] loss: 3.151 accuracy: 0.098
+[4_0,   224/994] loss: 3.104 accuracy: 0.098
+[4_0,   228/994] loss: 3.407 accuracy: 0.097
+[4_0,   232/994] loss: 2.996 accuracy: 0.098
+[4_0,   236/994] loss: 3.288 accuracy: 0.098
+[4_0,   240/994] loss: 3.118 accuracy: 0.098
+[4_0,   244/994] loss: 3.257 accuracy: 0.098
+[4_0,   248/994] loss: 3.210 accuracy: 0.098
+[4_0,   252/994] loss: 3.179 accuracy: 0.097
+[4_0,   256/994] loss: 3.289 accuracy: 0.097
+[4_0,   260/994] loss: 3.140 accuracy: 0.097
+[4_0,   264/994] loss: 3.039 accuracy: 0.097
+[4_0,   268/994] loss: 3.160 accuracy: 0.097
+[4_0,   272/994] loss: 3.217 accuracy: 0.095
+[4_0,   276/994] loss: 3.147 accuracy: 0.095
+[4_0,   280/994] loss: 3.351 accuracy: 0.094
+[4_0,   284/994] loss: 3.251 accuracy: 0.094
+[4_0,   288/994] loss: 3.079 accuracy: 0.093
+[4_0,   292/994] loss: 3.171 accuracy: 0.094
+[4_0,   296/994] loss: 3.118 accuracy: 0.094
+[4_0,   300/994] loss: 3.106 accuracy: 0.095
+[4_0,   304/994] loss: 2.918 accuracy: 0.095
+[4_0,   308/994] loss: 3.033 accuracy: 0.096
+[4_0,   312/994] loss: 3.039 accuracy: 0.097
+[4_0,   316/994] loss: 3.352 accuracy: 0.097
+[4_0,   320/994] loss: 3.178 accuracy: 0.097
+[4_0,   324/994] loss: 3.074 accuracy: 0.098
+[4_0,   328/994] loss: 3.246 accuracy: 0.098
+[4_0,   332/994] loss: 3.115 accuracy: 0.098
+[4_0,   336/994] loss: 3.027 accuracy: 0.098
+[4_0,   340/994] loss: 3.111 accuracy: 0.098
+[4_0,   344/994] loss: 3.321 accuracy: 0.098
+[4_0,   348/994] loss: 3.257 accuracy: 0.098
+[4_0,   352/994] loss: 3.468 accuracy: 0.097
+[4_0,   356/994] loss: 3.253 accuracy: 0.097
+[4_0,   360/994] loss: 3.134 accuracy: 0.097
+[4_0,   364/994] loss: 3.225 accuracy: 0.097
+[4_0,   368/994] loss: 3.137 accuracy: 0.097
+[4_0,   372/994] loss: 2.940 accuracy: 0.096
+[4_0,   376/994] loss: 3.074 accuracy: 0.097
+[4_0,   380/994] loss: 3.191 accuracy: 0.097
+[4_0,   384/994] loss: 3.005 accuracy: 0.097
+[4_0,   388/994] loss: 3.341 accuracy: 0.096
+[4_0,   392/994] loss: 3.410 accuracy: 0.096
+[4_0,   396/994] loss: 2.963 accuracy: 0.097
+[4_0,   400/994] loss: 3.046 accuracy: 0.097
+[4_0,   404/994] loss: 3.249 accuracy: 0.097
+[4_0,   408/994] loss: 3.212 accuracy: 0.097
+[4_0,   412/994] loss: 3.382 accuracy: 0.096
+[4_0,   416/994] loss: 3.174 accuracy: 0.096
+[4_0,   420/994] loss: 3.139 accuracy: 0.096
+[4_0,   424/994] loss: 3.276 accuracy: 0.096
+[4_0,   428/994] loss: 3.198 accuracy: 0.096
+[4_0,   432/994] loss: 3.024 accuracy: 0.096
+[4_0,   436/994] loss: 3.231 accuracy: 0.096
+[4_0,   440/994] loss: 3.095 accuracy: 0.097
+[4_0,   444/994] loss: 3.074 accuracy: 0.097
+[4_0,   448/994] loss: 3.263 accuracy: 0.097
+[4_0,   452/994] loss: 3.397 accuracy: 0.097
+[4_0,   456/994] loss: 3.169 accuracy: 0.096
+[4_0,   460/994] loss: 3.192 accuracy: 0.096
+[4_0,   464/994] loss: 3.332 accuracy: 0.096
+[4_0,   468/994] loss: 3.249 accuracy: 0.096
+[4_0,   472/994] loss: 3.315 accuracy: 0.096
+[4_0,   476/994] loss: 3.082 accuracy: 0.096
+[4_0,   480/994] loss: 3.304 accuracy: 0.096
+[4_0,   484/994] loss: 2.850 accuracy: 0.097
+[4_0,   488/994] loss: 3.148 accuracy: 0.096
+[4_0,   492/994] loss: 3.203 accuracy: 0.096
+[4_0,   496/994] loss: 3.172 accuracy: 0.096
+[4_0,   500/994] loss: 3.055 accuracy: 0.096
+[4_0,   504/994] loss: 3.304 accuracy: 0.096
+[4_0,   508/994] loss: 3.078 accuracy: 0.096
+[4_0,   512/994] loss: 3.027 accuracy: 0.096
+[4_0,   516/994] loss: 3.177 accuracy: 0.096
+[4_0,   520/994] loss: 3.109 accuracy: 0.096
+[4_0,   524/994] loss: 3.187 accuracy: 0.096
+[4_0,   528/994] loss: 3.273 accuracy: 0.096
+[4_0,   532/994] loss: 3.202 accuracy: 0.095
+[4_0,   536/994] loss: 3.066 accuracy: 0.095
+[4_0,   540/994] loss: 3.253 accuracy: 0.095
+[4_0,   544/994] loss: 3.111 accuracy: 0.096
+[4_0,   548/994] loss: 3.127 accuracy: 0.096
+[4_0,   552/994] loss: 3.212 accuracy: 0.095
+[4_0,   556/994] loss: 3.274 accuracy: 0.095
+[4_0,   560/994] loss: 2.939 accuracy: 0.096
+[4_0,   564/994] loss: 3.394 accuracy: 0.095
+[4_0,   568/994] loss: 3.231 accuracy: 0.095
+[4_0,   572/994] loss: 2.880 accuracy: 0.095
+[4_0,   576/994] loss: 3.219 accuracy: 0.095
+[4_0,   580/994] loss: 3.349 accuracy: 0.095
+[4_0,   584/994] loss: 3.212 accuracy: 0.095
+[4_0,   588/994] loss: 3.106 accuracy: 0.095
+[4_0,   592/994] loss: 3.037 accuracy: 0.095
+[4_0,   596/994] loss: 3.267 accuracy: 0.095
+[4_0,   600/994] loss: 3.179 accuracy: 0.095
+[4_0,   604/994] loss: 3.221 accuracy: 0.095
+[4_0,   608/994] loss: 3.068 accuracy: 0.095
+[4_0,   612/994] loss: 3.120 accuracy: 0.095
+[4_0,   616/994] loss: 3.082 accuracy: 0.095
+[4_0,   620/994] loss: 3.068 accuracy: 0.095
+[4_0,   624/994] loss: 3.228 accuracy: 0.095
+[4_0,   628/994] loss: 3.083 accuracy: 0.095
+[4_0,   632/994] loss: 3.035 accuracy: 0.095
+[4_0,   636/994] loss: 3.011 accuracy: 0.096
+[4_0,   640/994] loss: 3.260 accuracy: 0.095
+[4_0,   644/994] loss: 3.071 accuracy: 0.095
+[4_0,   648/994] loss: 3.012 accuracy: 0.096
+[4_0,   652/994] loss: 3.051 accuracy: 0.096
+[4_0,   656/994] loss: 3.170 accuracy: 0.096
+[4_0,   660/994] loss: 2.971 accuracy: 0.096
+[4_0,   664/994] loss: 3.244 accuracy: 0.096
+[4_0,   668/994] loss: 3.093 accuracy: 0.096
+[4_0,   672/994] loss: 3.163 accuracy: 0.096
+[4_0,   676/994] loss: 3.229 accuracy: 0.096
+[4_0,   680/994] loss: 3.071 accuracy: 0.096
+[4_0,   684/994] loss: 3.013 accuracy: 0.096
+[4_0,   688/994] loss: 3.193 accuracy: 0.096
+[4_0,   692/994] loss: 3.161 accuracy: 0.097
+[4_0,   696/994] loss: 3.277 accuracy: 0.096
+[4_0,   700/994] loss: 3.279 accuracy: 0.096
+[4_0,   704/994] loss: 3.037 accuracy: 0.096
+[4_0,   708/994] loss: 3.199 accuracy: 0.096
+[4_0,   712/994] loss: 3.229 accuracy: 0.096
+[4_0,   716/994] loss: 3.383 accuracy: 0.096
+[4_0,   720/994] loss: 3.043 accuracy: 0.096
+[4_0,   724/994] loss: 3.255 accuracy: 0.096
+[4_0,   728/994] loss: 3.142 accuracy: 0.096
+[4_0,   732/994] loss: 3.072 accuracy: 0.096
+[4_0,   736/994] loss: 3.124 accuracy: 0.096
+[4_0,   740/994] loss: 3.137 accuracy: 0.096
+[4_0,   744/994] loss: 3.086 accuracy: 0.097
+[4_0,   748/994] loss: 3.173 accuracy: 0.097
+[4_0,   752/994] loss: 3.228 accuracy: 0.097
+[4_0,   756/994] loss: 3.207 accuracy: 0.097
+[4_0,   760/994] loss: 3.503 accuracy: 0.097
+[4_0,   764/994] loss: 3.037 accuracy: 0.097
+[4_0,   768/994] loss: 2.936 accuracy: 0.097
+[4_0,   772/994] loss: 3.010 accuracy: 0.097
+[4_0,   776/994] loss: 3.032 accuracy: 0.097
+[4_0,   780/994] loss: 3.151 accuracy: 0.097
+[4_0,   784/994] loss: 3.032 accuracy: 0.097
+[4_0,   788/994] loss: 2.999 accuracy: 0.097
+[4_0,   792/994] loss: 3.220 accuracy: 0.097
+[4_0,   796/994] loss: 3.279 accuracy: 0.097
+[4_0,   800/994] loss: 3.110 accuracy: 0.098
+[4_0,   804/994] loss: 3.265 accuracy: 0.097
+[4_0,   808/994] loss: 3.142 accuracy: 0.097
+[4_0,   812/994] loss: 3.157 accuracy: 0.097
+[4_0,   816/994] loss: 2.970 accuracy: 0.097
+[4_0,   820/994] loss: 3.056 accuracy: 0.097
+[4_0,   824/994] loss: 3.197 accuracy: 0.097
+[4_0,   828/994] loss: 3.336 accuracy: 0.097
+[4_0,   832/994] loss: 3.158 accuracy: 0.097
+[4_0,   836/994] loss: 3.147 accuracy: 0.097
+[4_0,   840/994] loss: 3.363 accuracy: 0.097
+[4_0,   844/994] loss: 2.965 accuracy: 0.097
+[4_0,   848/994] loss: 2.942 accuracy: 0.097
+[4_0,   852/994] loss: 2.976 accuracy: 0.097
+[4_0,   856/994] loss: 3.285 accuracy: 0.097
+[4_0,   860/994] loss: 3.139 accuracy: 0.098
+[4_0,   864/994] loss: 2.969 accuracy: 0.098
+[4_0,   868/994] loss: 3.096 accuracy: 0.097
+[4_0,   872/994] loss: 2.935 accuracy: 0.097
+[4_0,   876/994] loss: 3.159 accuracy: 0.097
+[4_0,   880/994] loss: 2.947 accuracy: 0.098
+[4_0,   884/994] loss: 3.155 accuracy: 0.098
+[4_0,   888/994] loss: 3.131 accuracy: 0.098
+[4_0,   892/994] loss: 3.210 accuracy: 0.098
+[4_0,   896/994] loss: 2.980 accuracy: 0.098
+[4_0,   900/994] loss: 3.225 accuracy: 0.098
+[4_0,   904/994] loss: 3.286 accuracy: 0.098
+[4_0,   908/994] loss: 3.310 accuracy: 0.098
+[4_0,   912/994] loss: 3.104 accuracy: 0.098
+[4_0,   916/994] loss: 3.149 accuracy: 0.098
+[4_0,   920/994] loss: 2.923 accuracy: 0.099
+[4_0,   924/994] loss: 3.261 accuracy: 0.098
+[4_0,   928/994] loss: 2.988 accuracy: 0.098
+[4_0,   932/994] loss: 3.246 accuracy: 0.098
+[4_0,   936/994] loss: 3.126 accuracy: 0.098
+[4_0,   940/994] loss: 2.974 accuracy: 0.099
+[4_0,   944/994] loss: 3.172 accuracy: 0.098
+[4_0,   948/994] loss: 3.411 accuracy: 0.098
+[4_0,   952/994] loss: 3.180 accuracy: 0.098
+[4_0,   956/994] loss: 3.250 accuracy: 0.098
+[4_0,   960/994] loss: 3.058 accuracy: 0.098
+[4_0,   964/994] loss: 3.040 accuracy: 0.098
+[4_0,   968/994] loss: 3.202 accuracy: 0.098
+[4_0,   972/994] loss: 3.218 accuracy: 0.098
+[4_0,   976/994] loss: 3.237 accuracy: 0.098
+[4_0,   980/994] loss: 3.168 accuracy: 0.098
+[4_0,   984/994] loss: 3.234 accuracy: 0.098
+[4_0,   988/994] loss: 3.318 accuracy: 0.098
+[4_0,   992/994] loss: 3.204 accuracy: 0.098
+Epoch:  4
+Training Loss: 782.9533, Val Loss: 3.1774, Test Loss: 3.1565
+Training accuracy:0.0981, Training F1:0.0098, Validation accuracy:0.1154, Validation F1:0.0090, Test accuracy:0.1163, Test F1:0.0054
+German F1: 0.0070, English F1: 0.0064, Spanish F1: 0.0134, French F1: 0.0044, Turkish F1: 0.0044
+[5_0,     4/994] loss: 3.053 accuracy: 0.109
+[5_0,     8/994] loss: 3.249 accuracy: 0.109
+[5_0,    12/994] loss: 3.135 accuracy: 0.094
+[5_0,    16/994] loss: 2.992 accuracy: 0.094
+[5_0,    20/994] loss: 3.085 accuracy: 0.100
+[5_0,    24/994] loss: 3.249 accuracy: 0.096
+[5_0,    28/994] loss: 2.976 accuracy: 0.107
+[5_0,    32/994] loss: 3.033 accuracy: 0.105
+[5_0,    36/994] loss: 2.955 accuracy: 0.109
+[5_0,    40/994] loss: 3.114 accuracy: 0.106
+[5_0,    44/994] loss: 3.158 accuracy: 0.105
+[5_0,    48/994] loss: 3.294 accuracy: 0.103
+[5_0,    52/994] loss: 2.957 accuracy: 0.106
+[5_0,    56/994] loss: 3.016 accuracy: 0.104
+[5_0,    60/994] loss: 3.000 accuracy: 0.105
+[5_0,    64/994] loss: 2.903 accuracy: 0.108
+[5_0,    68/994] loss: 3.164 accuracy: 0.108
+[5_0,    72/994] loss: 3.135 accuracy: 0.109
+[5_0,    76/994] loss: 3.271 accuracy: 0.109
+[5_0,    80/994] loss: 3.104 accuracy: 0.110
+[5_0,    84/994] loss: 3.069 accuracy: 0.109
+[5_0,    88/994] loss: 3.288 accuracy: 0.107
+[5_0,    92/994] loss: 3.084 accuracy: 0.109
+[5_0,    96/994] loss: 3.314 accuracy: 0.109
+[5_0,   100/994] loss: 3.017 accuracy: 0.111
+[5_0,   104/994] loss: 2.920 accuracy: 0.111
+[5_0,   108/994] loss: 2.941 accuracy: 0.113
+[5_0,   112/994] loss: 3.041 accuracy: 0.113
+[5_0,   116/994] loss: 3.357 accuracy: 0.112
+[5_0,   120/994] loss: 3.236 accuracy: 0.109
+[5_0,   124/994] loss: 3.570 accuracy: 0.106
+[5_0,   128/994] loss: 3.131 accuracy: 0.106
+[5_0,   132/994] loss: 3.300 accuracy: 0.106
+[5_0,   136/994] loss: 3.158 accuracy: 0.105
+[5_0,   140/994] loss: 3.158 accuracy: 0.105
+[5_0,   144/994] loss: 3.236 accuracy: 0.106
+[5_0,   148/994] loss: 3.339 accuracy: 0.104
+[5_0,   152/994] loss: 3.106 accuracy: 0.104
+[5_0,   156/994] loss: 3.208 accuracy: 0.103
+[5_0,   160/994] loss: 3.372 accuracy: 0.102
+[5_0,   164/994] loss: 3.328 accuracy: 0.104
+[5_0,   168/994] loss: 3.208 accuracy: 0.103
+[5_0,   172/994] loss: 3.171 accuracy: 0.102
+[5_0,   176/994] loss: 3.127 accuracy: 0.102
+[5_0,   180/994] loss: 3.187 accuracy: 0.102
+[5_0,   184/994] loss: 3.130 accuracy: 0.102
+[5_0,   188/994] loss: 3.281 accuracy: 0.101
+[5_0,   192/994] loss: 3.337 accuracy: 0.100
+[5_0,   196/994] loss: 3.205 accuracy: 0.099
+[5_0,   200/994] loss: 3.142 accuracy: 0.098
+[5_0,   204/994] loss: 3.056 accuracy: 0.098
+[5_0,   208/994] loss: 3.169 accuracy: 0.098
+[5_0,   212/994] loss: 3.097 accuracy: 0.098
+[5_0,   216/994] loss: 3.133 accuracy: 0.098
+[5_0,   220/994] loss: 2.985 accuracy: 0.099
+[5_0,   224/994] loss: 3.309 accuracy: 0.099
+[5_0,   228/994] loss: 2.967 accuracy: 0.100
+[5_0,   232/994] loss: 3.242 accuracy: 0.099
+[5_0,   236/994] loss: 2.853 accuracy: 0.100
+[5_0,   240/994] loss: 3.205 accuracy: 0.101
+[5_0,   244/994] loss: 3.009 accuracy: 0.101
+[5_0,   248/994] loss: 3.159 accuracy: 0.101
+[5_0,   252/994] loss: 3.075 accuracy: 0.102
+[5_0,   256/994] loss: 3.103 accuracy: 0.102
+[5_0,   260/994] loss: 3.187 accuracy: 0.102
+[5_0,   264/994] loss: 2.923 accuracy: 0.103
+[5_0,   268/994] loss: 2.963 accuracy: 0.103
+[5_0,   272/994] loss: 3.252 accuracy: 0.103
+[5_0,   276/994] loss: 3.103 accuracy: 0.103
+[5_0,   280/994] loss: 3.170 accuracy: 0.103
+[5_0,   284/994] loss: 3.099 accuracy: 0.103
+[5_0,   288/994] loss: 3.057 accuracy: 0.103
+[5_0,   292/994] loss: 3.221 accuracy: 0.103
+[5_0,   296/994] loss: 2.940 accuracy: 0.102
+[5_0,   300/994] loss: 3.254 accuracy: 0.103
+[5_0,   304/994] loss: 3.090 accuracy: 0.103
+[5_0,   308/994] loss: 3.163 accuracy: 0.103
+[5_0,   312/994] loss: 3.050 accuracy: 0.104
+[5_0,   316/994] loss: 3.013 accuracy: 0.103
+[5_0,   320/994] loss: 3.123 accuracy: 0.104
+[5_0,   324/994] loss: 3.282 accuracy: 0.103
+[5_0,   328/994] loss: 2.920 accuracy: 0.104
+[5_0,   332/994] loss: 3.170 accuracy: 0.104
+[5_0,   336/994] loss: 3.293 accuracy: 0.103
+[5_0,   340/994] loss: 3.164 accuracy: 0.103
+[5_0,   344/994] loss: 3.152 accuracy: 0.103
+[5_0,   348/994] loss: 3.108 accuracy: 0.103
+[5_0,   352/994] loss: 3.108 accuracy: 0.103
+[5_0,   356/994] loss: 2.965 accuracy: 0.103
+[5_0,   360/994] loss: 3.090 accuracy: 0.103
+[5_0,   364/994] loss: 3.411 accuracy: 0.103
+[5_0,   368/994] loss: 3.275 accuracy: 0.103
+[5_0,   372/994] loss: 3.071 accuracy: 0.103
+[5_0,   376/994] loss: 2.995 accuracy: 0.102
+[5_0,   380/994] loss: 3.042 accuracy: 0.103
+[5_0,   384/994] loss: 3.084 accuracy: 0.103
+[5_0,   388/994] loss: 2.983 accuracy: 0.103
+[5_0,   392/994] loss: 3.258 accuracy: 0.102
+[5_0,   396/994] loss: 3.023 accuracy: 0.102
+[5_0,   400/994] loss: 3.181 accuracy: 0.102
+[5_0,   404/994] loss: 3.138 accuracy: 0.102
+[5_0,   408/994] loss: 3.382 accuracy: 0.102
+[5_0,   412/994] loss: 3.150 accuracy: 0.102
+[5_0,   416/994] loss: 3.135 accuracy: 0.102
+[5_0,   420/994] loss: 3.179 accuracy: 0.102
+[5_0,   424/994] loss: 3.263 accuracy: 0.102
+[5_0,   428/994] loss: 3.209 accuracy: 0.101
+[5_0,   432/994] loss: 3.223 accuracy: 0.101
+[5_0,   436/994] loss: 3.152 accuracy: 0.100
+[5_0,   440/994] loss: 3.133 accuracy: 0.100
+[5_0,   444/994] loss: 3.330 accuracy: 0.100
+[5_0,   448/994] loss: 3.092 accuracy: 0.100
+[5_0,   452/994] loss: 3.199 accuracy: 0.100
+[5_0,   456/994] loss: 3.247 accuracy: 0.100
+[5_0,   460/994] loss: 3.196 accuracy: 0.099
+[5_0,   464/994] loss: 3.262 accuracy: 0.099
+[5_0,   468/994] loss: 3.345 accuracy: 0.099
+[5_0,   472/994] loss: 3.180 accuracy: 0.099
+[5_0,   476/994] loss: 3.209 accuracy: 0.099
+[5_0,   480/994] loss: 3.292 accuracy: 0.099
+[5_0,   484/994] loss: 3.218 accuracy: 0.099
+[5_0,   488/994] loss: 3.178 accuracy: 0.098
+[5_0,   492/994] loss: 3.170 accuracy: 0.098
+[5_0,   496/994] loss: 3.317 accuracy: 0.098
+[5_0,   500/994] loss: 3.046 accuracy: 0.099
+[5_0,   504/994] loss: 3.239 accuracy: 0.098
+[5_0,   508/994] loss: 3.249 accuracy: 0.098
+[5_0,   512/994] loss: 3.295 accuracy: 0.098
+[5_0,   516/994] loss: 3.006 accuracy: 0.098
+[5_0,   520/994] loss: 3.052 accuracy: 0.098
+[5_0,   524/994] loss: 3.351 accuracy: 0.098
+[5_0,   528/994] loss: 3.055 accuracy: 0.097
+[5_0,   532/994] loss: 2.966 accuracy: 0.098
+[5_0,   536/994] loss: 3.321 accuracy: 0.097
+[5_0,   540/994] loss: 3.236 accuracy: 0.097
+[5_0,   544/994] loss: 3.277 accuracy: 0.097
+[5_0,   548/994] loss: 3.285 accuracy: 0.097
+[5_0,   552/994] loss: 3.071 accuracy: 0.097
+[5_0,   556/994] loss: 3.032 accuracy: 0.097
+[5_0,   560/994] loss: 3.025 accuracy: 0.097
+[5_0,   564/994] loss: 3.264 accuracy: 0.097
+[5_0,   568/994] loss: 3.137 accuracy: 0.097
+[5_0,   572/994] loss: 3.253 accuracy: 0.097
+[5_0,   576/994] loss: 3.148 accuracy: 0.097
+[5_0,   580/994] loss: 3.137 accuracy: 0.097
+[5_0,   584/994] loss: 3.017 accuracy: 0.097
+[5_0,   588/994] loss: 3.193 accuracy: 0.097
+[5_0,   592/994] loss: 3.078 accuracy: 0.097
+[5_0,   596/994] loss: 2.999 accuracy: 0.098
+[5_0,   600/994] loss: 3.112 accuracy: 0.098
+[5_0,   604/994] loss: 2.978 accuracy: 0.098
+[5_0,   608/994] loss: 3.116 accuracy: 0.098
+[5_0,   612/994] loss: 3.246 accuracy: 0.098
+[5_0,   616/994] loss: 3.141 accuracy: 0.098
+[5_0,   620/994] loss: 3.401 accuracy: 0.097
+[5_0,   624/994] loss: 3.089 accuracy: 0.097
+[5_0,   628/994] loss: 3.267 accuracy: 0.097
+[5_0,   632/994] loss: 3.469 accuracy: 0.097
+[5_0,   636/994] loss: 3.308 accuracy: 0.097
+[5_0,   640/994] loss: 3.008 accuracy: 0.097
+[5_0,   644/994] loss: 2.880 accuracy: 0.098
+[5_0,   648/994] loss: 3.290 accuracy: 0.098
+[5_0,   652/994] loss: 3.382 accuracy: 0.097
+[5_0,   656/994] loss: 3.012 accuracy: 0.097
+[5_0,   660/994] loss: 3.040 accuracy: 0.098
+[5_0,   664/994] loss: 3.155 accuracy: 0.097
+[5_0,   668/994] loss: 3.143 accuracy: 0.097
+[5_0,   672/994] loss: 3.045 accuracy: 0.098
+[5_0,   676/994] loss: 3.073 accuracy: 0.098
+[5_0,   680/994] loss: 3.069 accuracy: 0.098
+[5_0,   684/994] loss: 3.144 accuracy: 0.097
+[5_0,   688/994] loss: 3.331 accuracy: 0.097
+[5_0,   692/994] loss: 3.029 accuracy: 0.098
+[5_0,   696/994] loss: 3.222 accuracy: 0.098
+[5_0,   700/994] loss: 3.284 accuracy: 0.098
+[5_0,   704/994] loss: 3.068 accuracy: 0.098
+[5_0,   708/994] loss: 3.304 accuracy: 0.098
+[5_0,   712/994] loss: 3.102 accuracy: 0.098
+[5_0,   716/994] loss: 3.155 accuracy: 0.098
+[5_0,   720/994] loss: 3.058 accuracy: 0.097
+[5_0,   724/994] loss: 3.120 accuracy: 0.097
+[5_0,   728/994] loss: 3.276 accuracy: 0.097
+[5_0,   732/994] loss: 3.077 accuracy: 0.097
+[5_0,   736/994] loss: 2.911 accuracy: 0.098
+[5_0,   740/994] loss: 3.428 accuracy: 0.097
+[5_0,   744/994] loss: 3.026 accuracy: 0.097
+[5_0,   748/994] loss: 2.971 accuracy: 0.097
+[5_0,   752/994] loss: 2.909 accuracy: 0.098
+[5_0,   756/994] loss: 2.987 accuracy: 0.098
+[5_0,   760/994] loss: 3.199 accuracy: 0.098
+[5_0,   764/994] loss: 3.183 accuracy: 0.098
+[5_0,   768/994] loss: 3.161 accuracy: 0.097
+[5_0,   772/994] loss: 3.194 accuracy: 0.098
+[5_0,   776/994] loss: 3.213 accuracy: 0.098
+[5_0,   780/994] loss: 3.073 accuracy: 0.098
+[5_0,   784/994] loss: 3.135 accuracy: 0.098
+[5_0,   788/994] loss: 3.278 accuracy: 0.098
+[5_0,   792/994] loss: 3.201 accuracy: 0.098
+[5_0,   796/994] loss: 3.134 accuracy: 0.098
+[5_0,   800/994] loss: 3.231 accuracy: 0.098
+[5_0,   804/994] loss: 3.031 accuracy: 0.098
+[5_0,   808/994] loss: 3.099 accuracy: 0.098
+[5_0,   812/994] loss: 3.154 accuracy: 0.098
+[5_0,   816/994] loss: 3.389 accuracy: 0.098
+[5_0,   820/994] loss: 3.077 accuracy: 0.098
+[5_0,   824/994] loss: 3.288 accuracy: 0.098
+[5_0,   828/994] loss: 3.207 accuracy: 0.098
+[5_0,   832/994] loss: 3.199 accuracy: 0.098
+[5_0,   836/994] loss: 2.886 accuracy: 0.098
+[5_0,   840/994] loss: 3.117 accuracy: 0.098
+[5_0,   844/994] loss: 2.819 accuracy: 0.098
+[5_0,   848/994] loss: 3.356 accuracy: 0.098
+[5_0,   852/994] loss: 3.090 accuracy: 0.098
+[5_0,   856/994] loss: 3.181 accuracy: 0.098
+[5_0,   860/994] loss: 3.026 accuracy: 0.099
+[5_0,   864/994] loss: 3.158 accuracy: 0.099
+[5_0,   868/994] loss: 3.119 accuracy: 0.099
+[5_0,   872/994] loss: 3.191 accuracy: 0.099
+[5_0,   876/994] loss: 3.200 accuracy: 0.099
+[5_0,   880/994] loss: 3.099 accuracy: 0.099
+[5_0,   884/994] loss: 3.123 accuracy: 0.099
+[5_0,   888/994] loss: 3.208 accuracy: 0.099
+[5_0,   892/994] loss: 3.109 accuracy: 0.099
+[5_0,   896/994] loss: 3.155 accuracy: 0.099
+[5_0,   900/994] loss: 3.171 accuracy: 0.099
+[5_0,   904/994] loss: 2.986 accuracy: 0.099
+[5_0,   908/994] loss: 2.969 accuracy: 0.099
+[5_0,   912/994] loss: 3.008 accuracy: 0.100
+[5_0,   916/994] loss: 3.326 accuracy: 0.099
+[5_0,   920/994] loss: 3.384 accuracy: 0.099
+[5_0,   924/994] loss: 3.293 accuracy: 0.099
+[5_0,   928/994] loss: 3.384 accuracy: 0.099
+[5_0,   932/994] loss: 3.385 accuracy: 0.099
+[5_0,   936/994] loss: 3.212 accuracy: 0.099
+[5_0,   940/994] loss: 3.079 accuracy: 0.099
+[5_0,   944/994] loss: 3.002 accuracy: 0.099
+[5_0,   948/994] loss: 3.106 accuracy: 0.099
+[5_0,   952/994] loss: 3.098 accuracy: 0.099
+[5_0,   956/994] loss: 3.058 accuracy: 0.099
+[5_0,   960/994] loss: 3.273 accuracy: 0.099
+[5_0,   964/994] loss: 3.511 accuracy: 0.098
+[5_0,   968/994] loss: 3.161 accuracy: 0.098
+[5_0,   972/994] loss: 3.195 accuracy: 0.098
+[5_0,   976/994] loss: 3.274 accuracy: 0.098
+[5_0,   980/994] loss: 3.073 accuracy: 0.098
+[5_0,   984/994] loss: 3.119 accuracy: 0.098
+[5_0,   988/994] loss: 3.097 accuracy: 0.098
+[5_0,   992/994] loss: 3.099 accuracy: 0.098
+Epoch:  5
+Training Loss: 781.4517, Val Loss: 3.1690, Test Loss: 3.1527
+Training accuracy:0.0981, Training F1:0.0086, Validation accuracy:0.1090, Validation F1:0.0105, Test accuracy:0.1087, Test F1:0.0095
+German F1: 0.0097, English F1: 0.0124, Spanish F1: 0.0083, French F1: 0.0102, Turkish F1: 0.0061
+[6_0,     4/994] loss: 2.978 accuracy: 0.141
+[6_0,     8/994] loss: 3.028 accuracy: 0.117
+[6_0,    12/994] loss: 3.274 accuracy: 0.099
+[6_0,    16/994] loss: 3.039 accuracy: 0.113
+[6_0,    20/994] loss: 3.008 accuracy: 0.116
+[6_0,    24/994] loss: 3.208 accuracy: 0.120
+[6_0,    28/994] loss: 3.176 accuracy: 0.114
+[6_0,    32/994] loss: 3.229 accuracy: 0.111
+[6_0,    36/994] loss: 3.145 accuracy: 0.106
+[6_0,    40/994] loss: 3.178 accuracy: 0.108
+[6_0,    44/994] loss: 3.145 accuracy: 0.111
+[6_0,    48/994] loss: 3.093 accuracy: 0.111
+[6_0,    52/994] loss: 3.212 accuracy: 0.108
+[6_0,    56/994] loss: 3.017 accuracy: 0.113
+[6_0,    60/994] loss: 3.100 accuracy: 0.117
+[6_0,    64/994] loss: 3.093 accuracy: 0.115
+[6_0,    68/994] loss: 3.224 accuracy: 0.112
+[6_0,    72/994] loss: 2.952 accuracy: 0.113
+[6_0,    76/994] loss: 3.389 accuracy: 0.108
+[6_0,    80/994] loss: 3.211 accuracy: 0.107
+[6_0,    84/994] loss: 3.124 accuracy: 0.108
+[6_0,    88/994] loss: 2.961 accuracy: 0.108
+[6_0,    92/994] loss: 3.060 accuracy: 0.109
+[6_0,    96/994] loss: 3.196 accuracy: 0.108
+[6_0,   100/994] loss: 3.267 accuracy: 0.107
+[6_0,   104/994] loss: 3.103 accuracy: 0.108
+[6_0,   108/994] loss: 2.984 accuracy: 0.109
+[6_0,   112/994] loss: 3.254 accuracy: 0.107
+[6_0,   116/994] loss: 3.069 accuracy: 0.108
+[6_0,   120/994] loss: 3.035 accuracy: 0.109
+[6_0,   124/994] loss: 3.291 accuracy: 0.107
+[6_0,   128/994] loss: 3.347 accuracy: 0.105
+[6_0,   132/994] loss: 3.332 accuracy: 0.103
+[6_0,   136/994] loss: 3.024 accuracy: 0.103
+[6_0,   140/994] loss: 2.965 accuracy: 0.105
+[6_0,   144/994] loss: 3.088 accuracy: 0.105
+[6_0,   148/994] loss: 3.421 accuracy: 0.103
+[6_0,   152/994] loss: 2.929 accuracy: 0.104
+[6_0,   156/994] loss: 3.175 accuracy: 0.104
+[6_0,   160/994] loss: 3.320 accuracy: 0.103
+[6_0,   164/994] loss: 2.895 accuracy: 0.104
+[6_0,   168/994] loss: 3.302 accuracy: 0.105
+[6_0,   172/994] loss: 2.966 accuracy: 0.104
+[6_0,   176/994] loss: 3.342 accuracy: 0.103
+[6_0,   180/994] loss: 3.022 accuracy: 0.103
+[6_0,   184/994] loss: 3.184 accuracy: 0.103
+[6_0,   188/994] loss: 2.883 accuracy: 0.105
+[6_0,   192/994] loss: 3.244 accuracy: 0.105
+[6_0,   196/994] loss: 3.364 accuracy: 0.104
+[6_0,   200/994] loss: 2.950 accuracy: 0.104
+[6_0,   204/994] loss: 2.955 accuracy: 0.105
+[6_0,   208/994] loss: 3.176 accuracy: 0.105
+[6_0,   212/994] loss: 3.139 accuracy: 0.105
+[6_0,   216/994] loss: 3.231 accuracy: 0.104
+[6_0,   220/994] loss: 3.224 accuracy: 0.105
+[6_0,   224/994] loss: 3.036 accuracy: 0.105
+[6_0,   228/994] loss: 3.193 accuracy: 0.104
+[6_0,   232/994] loss: 3.200 accuracy: 0.104
+[6_0,   236/994] loss: 3.007 accuracy: 0.105
+[6_0,   240/994] loss: 2.868 accuracy: 0.105
+[6_0,   244/994] loss: 3.215 accuracy: 0.105
+[6_0,   248/994] loss: 3.187 accuracy: 0.105
+[6_0,   252/994] loss: 3.134 accuracy: 0.104
+[6_0,   256/994] loss: 3.267 accuracy: 0.104
+[6_0,   260/994] loss: 2.891 accuracy: 0.105
+[6_0,   264/994] loss: 3.316 accuracy: 0.104
+[6_0,   268/994] loss: 3.181 accuracy: 0.104
+[6_0,   272/994] loss: 3.360 accuracy: 0.104
+[6_0,   276/994] loss: 3.342 accuracy: 0.104
+[6_0,   280/994] loss: 2.843 accuracy: 0.104
+[6_0,   284/994] loss: 3.361 accuracy: 0.103
+[6_0,   288/994] loss: 3.182 accuracy: 0.103
+[6_0,   292/994] loss: 3.312 accuracy: 0.102
+[6_0,   296/994] loss: 3.211 accuracy: 0.102
+[6_0,   300/994] loss: 3.106 accuracy: 0.101
+[6_0,   304/994] loss: 3.102 accuracy: 0.101
+[6_0,   308/994] loss: 3.308 accuracy: 0.100
+[6_0,   312/994] loss: 3.383 accuracy: 0.100
+[6_0,   316/994] loss: 3.242 accuracy: 0.099
+[6_0,   320/994] loss: 3.077 accuracy: 0.099
+[6_0,   324/994] loss: 3.232 accuracy: 0.099
+[6_0,   328/994] loss: 3.318 accuracy: 0.099
+[6_0,   332/994] loss: 3.358 accuracy: 0.098
+[6_0,   336/994] loss: 3.209 accuracy: 0.099
+[6_0,   340/994] loss: 3.136 accuracy: 0.099
+[6_0,   344/994] loss: 3.378 accuracy: 0.098
+[6_0,   348/994] loss: 2.970 accuracy: 0.099
+[6_0,   352/994] loss: 3.216 accuracy: 0.099
+[6_0,   356/994] loss: 3.374 accuracy: 0.099
+[6_0,   360/994] loss: 2.996 accuracy: 0.099
+[6_0,   364/994] loss: 3.158 accuracy: 0.099
+[6_0,   368/994] loss: 2.782 accuracy: 0.100
+[6_0,   372/994] loss: 3.094 accuracy: 0.100
+[6_0,   376/994] loss: 3.292 accuracy: 0.100
+[6_0,   380/994] loss: 3.299 accuracy: 0.099
+[6_0,   384/994] loss: 3.149 accuracy: 0.099
+[6_0,   388/994] loss: 3.030 accuracy: 0.099
+[6_0,   392/994] loss: 3.294 accuracy: 0.099
+[6_0,   396/994] loss: 3.168 accuracy: 0.098
+[6_0,   400/994] loss: 3.048 accuracy: 0.099
+[6_0,   404/994] loss: 3.015 accuracy: 0.099
+[6_0,   408/994] loss: 3.185 accuracy: 0.098
+[6_0,   412/994] loss: 3.132 accuracy: 0.098
+[6_0,   416/994] loss: 2.928 accuracy: 0.100
+[6_0,   420/994] loss: 3.026 accuracy: 0.099
+[6_0,   424/994] loss: 3.063 accuracy: 0.099
+[6_0,   428/994] loss: 3.113 accuracy: 0.099
+[6_0,   432/994] loss: 3.147 accuracy: 0.099
+[6_0,   436/994] loss: 3.364 accuracy: 0.098
+[6_0,   440/994] loss: 3.315 accuracy: 0.099
+[6_0,   444/994] loss: 3.186 accuracy: 0.099
+[6_0,   448/994] loss: 3.261 accuracy: 0.098
+[6_0,   452/994] loss: 3.377 accuracy: 0.098
+[6_0,   456/994] loss: 3.193 accuracy: 0.098
+[6_0,   460/994] loss: 3.071 accuracy: 0.098
+[6_0,   464/994] loss: 3.040 accuracy: 0.098
+[6_0,   468/994] loss: 3.195 accuracy: 0.098
+[6_0,   472/994] loss: 3.287 accuracy: 0.098
+[6_0,   476/994] loss: 3.008 accuracy: 0.098
+[6_0,   480/994] loss: 3.300 accuracy: 0.097
+[6_0,   484/994] loss: 3.164 accuracy: 0.097
+[6_0,   488/994] loss: 3.257 accuracy: 0.097
+[6_0,   492/994] loss: 3.056 accuracy: 0.097
+[6_0,   496/994] loss: 3.266 accuracy: 0.097
+[6_0,   500/994] loss: 3.218 accuracy: 0.097
+[6_0,   504/994] loss: 2.957 accuracy: 0.097
+[6_0,   508/994] loss: 3.126 accuracy: 0.097
+[6_0,   512/994] loss: 3.218 accuracy: 0.096
+[6_0,   516/994] loss: 3.174 accuracy: 0.096
+[6_0,   520/994] loss: 3.109 accuracy: 0.096
+[6_0,   524/994] loss: 3.204 accuracy: 0.097
+[6_0,   528/994] loss: 3.080 accuracy: 0.097
+[6_0,   532/994] loss: 3.358 accuracy: 0.097
+[6_0,   536/994] loss: 3.144 accuracy: 0.097
+[6_0,   540/994] loss: 3.087 accuracy: 0.097
+[6_0,   544/994] loss: 3.271 accuracy: 0.097
+[6_0,   548/994] loss: 3.030 accuracy: 0.097
+[6_0,   552/994] loss: 3.182 accuracy: 0.097
+[6_0,   556/994] loss: 3.268 accuracy: 0.097
+[6_0,   560/994] loss: 3.163 accuracy: 0.096
+[6_0,   564/994] loss: 3.016 accuracy: 0.096
+[6_0,   568/994] loss: 3.236 accuracy: 0.096
+[6_0,   572/994] loss: 3.151 accuracy: 0.096
+[6_0,   576/994] loss: 3.340 accuracy: 0.096
+[6_0,   580/994] loss: 3.238 accuracy: 0.096
+[6_0,   584/994] loss: 3.311 accuracy: 0.095
+[6_0,   588/994] loss: 3.264 accuracy: 0.095
+[6_0,   592/994] loss: 3.058 accuracy: 0.095
+[6_0,   596/994] loss: 3.106 accuracy: 0.095
+[6_0,   600/994] loss: 2.990 accuracy: 0.096
+[6_0,   604/994] loss: 3.021 accuracy: 0.096
+[6_0,   608/994] loss: 3.243 accuracy: 0.095
+[6_0,   612/994] loss: 3.075 accuracy: 0.095
+[6_0,   616/994] loss: 3.317 accuracy: 0.095
+[6_0,   620/994] loss: 3.102 accuracy: 0.096
+[6_0,   624/994] loss: 3.338 accuracy: 0.095
+[6_0,   628/994] loss: 3.285 accuracy: 0.095
+[6_0,   632/994] loss: 3.201 accuracy: 0.095
+[6_0,   636/994] loss: 3.142 accuracy: 0.095
+[6_0,   640/994] loss: 3.253 accuracy: 0.095
+[6_0,   644/994] loss: 3.271 accuracy: 0.095
+[6_0,   648/994] loss: 3.015 accuracy: 0.095
+[6_0,   652/994] loss: 3.062 accuracy: 0.095
+[6_0,   656/994] loss: 2.896 accuracy: 0.095
+[6_0,   660/994] loss: 3.127 accuracy: 0.095
+[6_0,   664/994] loss: 3.204 accuracy: 0.095
+[6_0,   668/994] loss: 2.933 accuracy: 0.096
+[6_0,   672/994] loss: 3.307 accuracy: 0.096
+[6_0,   676/994] loss: 3.259 accuracy: 0.096
+[6_0,   680/994] loss: 3.388 accuracy: 0.095
+[6_0,   684/994] loss: 3.041 accuracy: 0.095
+[6_0,   688/994] loss: 3.127 accuracy: 0.096
+[6_0,   692/994] loss: 2.934 accuracy: 0.096
+[6_0,   696/994] loss: 3.020 accuracy: 0.096
+[6_0,   700/994] loss: 3.162 accuracy: 0.096
+[6_0,   704/994] loss: 3.053 accuracy: 0.096
+[6_0,   708/994] loss: 3.106 accuracy: 0.097
+[6_0,   712/994] loss: 3.185 accuracy: 0.096
+[6_0,   716/994] loss: 3.131 accuracy: 0.096
+[6_0,   720/994] loss: 3.079 accuracy: 0.096
+[6_0,   724/994] loss: 3.300 accuracy: 0.096
+[6_0,   728/994] loss: 3.288 accuracy: 0.096
+[6_0,   732/994] loss: 3.176 accuracy: 0.096
+[6_0,   736/994] loss: 3.082 accuracy: 0.096
+[6_0,   740/994] loss: 3.273 accuracy: 0.096
+[6_0,   744/994] loss: 3.203 accuracy: 0.095
+[6_0,   748/994] loss: 3.051 accuracy: 0.095
+[6_0,   752/994] loss: 3.134 accuracy: 0.095
+[6_0,   756/994] loss: 3.050 accuracy: 0.095
+[6_0,   760/994] loss: 3.259 accuracy: 0.095
+[6_0,   764/994] loss: 2.975 accuracy: 0.096
+[6_0,   768/994] loss: 2.990 accuracy: 0.096
+[6_0,   772/994] loss: 3.277 accuracy: 0.096
+[6_0,   776/994] loss: 3.072 accuracy: 0.096
+[6_0,   780/994] loss: 3.194 accuracy: 0.096
+[6_0,   784/994] loss: 2.985 accuracy: 0.096
+[6_0,   788/994] loss: 3.241 accuracy: 0.096
+[6_0,   792/994] loss: 3.044 accuracy: 0.096
+[6_0,   796/994] loss: 2.978 accuracy: 0.096
+[6_0,   800/994] loss: 3.265 accuracy: 0.096
+[6_0,   804/994] loss: 3.026 accuracy: 0.096
+[6_0,   808/994] loss: 3.130 accuracy: 0.096
+[6_0,   812/994] loss: 3.041 accuracy: 0.096
+[6_0,   816/994] loss: 3.035 accuracy: 0.096
+[6_0,   820/994] loss: 2.933 accuracy: 0.096
+[6_0,   824/994] loss: 3.157 accuracy: 0.096
+[6_0,   828/994] loss: 3.190 accuracy: 0.096
+[6_0,   832/994] loss: 3.148 accuracy: 0.096
+[6_0,   836/994] loss: 3.229 accuracy: 0.096
+[6_0,   840/994] loss: 3.034 accuracy: 0.096
+[6_0,   844/994] loss: 2.911 accuracy: 0.097
+[6_0,   848/994] loss: 3.194 accuracy: 0.096
+[6_0,   852/994] loss: 3.120 accuracy: 0.097
+[6_0,   856/994] loss: 3.244 accuracy: 0.096
+[6_0,   860/994] loss: 3.132 accuracy: 0.096
+[6_0,   864/994] loss: 3.290 accuracy: 0.096
+[6_0,   868/994] loss: 2.984 accuracy: 0.096
+[6_0,   872/994] loss: 3.206 accuracy: 0.096
+[6_0,   876/994] loss: 3.227 accuracy: 0.096
+[6_0,   880/994] loss: 3.503 accuracy: 0.096
+[6_0,   884/994] loss: 3.177 accuracy: 0.096
+[6_0,   888/994] loss: 3.107 accuracy: 0.096
+[6_0,   892/994] loss: 2.845 accuracy: 0.096
+[6_0,   896/994] loss: 3.352 accuracy: 0.096
+[6_0,   900/994] loss: 3.297 accuracy: 0.096
+[6_0,   904/994] loss: 3.091 accuracy: 0.096
+[6_0,   908/994] loss: 2.969 accuracy: 0.096
+[6_0,   912/994] loss: 3.285 accuracy: 0.096
+[6_0,   916/994] loss: 3.211 accuracy: 0.096
+[6_0,   920/994] loss: 2.879 accuracy: 0.096
+[6_0,   924/994] loss: 3.048 accuracy: 0.096
+[6_0,   928/994] loss: 3.161 accuracy: 0.096
+[6_0,   932/994] loss: 3.147 accuracy: 0.096
+[6_0,   936/994] loss: 3.087 accuracy: 0.096
+[6_0,   940/994] loss: 3.082 accuracy: 0.096
+[6_0,   944/994] loss: 3.084 accuracy: 0.096
+[6_0,   948/994] loss: 3.185 accuracy: 0.096
+[6_0,   952/994] loss: 3.394 accuracy: 0.096
+[6_0,   956/994] loss: 2.931 accuracy: 0.096
+[6_0,   960/994] loss: 3.179 accuracy: 0.096
+[6_0,   964/994] loss: 3.113 accuracy: 0.096
+[6_0,   968/994] loss: 3.182 accuracy: 0.096
+[6_0,   972/994] loss: 3.012 accuracy: 0.097
+[6_0,   976/994] loss: 2.992 accuracy: 0.097
+[6_0,   980/994] loss: 3.207 accuracy: 0.096
+[6_0,   984/994] loss: 2.904 accuracy: 0.097
+[6_0,   988/994] loss: 3.060 accuracy: 0.097
+[6_0,   992/994] loss: 3.183 accuracy: 0.097
+Epoch:  6
+Training Loss: 780.6099, Val Loss: 3.1249, Test Loss: 3.1433
+Training accuracy:0.0968, Training F1:0.0079, Validation accuracy:0.1189, Validation F1:0.0053, Test accuracy:0.1178, Test F1:0.0067
+German F1: 0.0101, English F1: 0.0057, Spanish F1: 0.0065, French F1: 0.0073, Turkish F1: 0.0027
+[7_0,     4/994] loss: 2.994 accuracy: 0.078
+[7_0,     8/994] loss: 3.193 accuracy: 0.086
+[7_0,    12/994] loss: 3.035 accuracy: 0.099
+[7_0,    16/994] loss: 3.395 accuracy: 0.090
+[7_0,    20/994] loss: 3.349 accuracy: 0.084
+[7_0,    24/994] loss: 3.176 accuracy: 0.089
+[7_0,    28/994] loss: 2.897 accuracy: 0.098
+[7_0,    32/994] loss: 3.172 accuracy: 0.100
+[7_0,    36/994] loss: 3.194 accuracy: 0.097
+[7_0,    40/994] loss: 3.117 accuracy: 0.097
+[7_0,    44/994] loss: 2.945 accuracy: 0.099
+[7_0,    48/994] loss: 3.071 accuracy: 0.095
+[7_0,    52/994] loss: 3.202 accuracy: 0.094
+[7_0,    56/994] loss: 3.182 accuracy: 0.094
+[7_0,    60/994] loss: 3.089 accuracy: 0.094
+[7_0,    64/994] loss: 3.041 accuracy: 0.095
+[7_0,    68/994] loss: 2.927 accuracy: 0.099
+[7_0,    72/994] loss: 3.312 accuracy: 0.098
+[7_0,    76/994] loss: 3.319 accuracy: 0.097
+[7_0,    80/994] loss: 3.144 accuracy: 0.101
+[7_0,    84/994] loss: 3.046 accuracy: 0.100
+[7_0,    88/994] loss: 3.048 accuracy: 0.099
+[7_0,    92/994] loss: 3.056 accuracy: 0.101
+[7_0,    96/994] loss: 2.984 accuracy: 0.104
+[7_0,   100/994] loss: 3.400 accuracy: 0.104
+[7_0,   104/994] loss: 3.262 accuracy: 0.105
+[7_0,   108/994] loss: 3.023 accuracy: 0.106
+[7_0,   112/994] loss: 2.994 accuracy: 0.109
+[7_0,   116/994] loss: 3.147 accuracy: 0.110
+[7_0,   120/994] loss: 3.214 accuracy: 0.109
+[7_0,   124/994] loss: 3.072 accuracy: 0.108
+[7_0,   128/994] loss: 3.050 accuracy: 0.107
+[7_0,   132/994] loss: 3.353 accuracy: 0.107
+[7_0,   136/994] loss: 3.200 accuracy: 0.106
+[7_0,   140/994] loss: 3.041 accuracy: 0.106
+[7_0,   144/994] loss: 2.966 accuracy: 0.106
+[7_0,   148/994] loss: 2.986 accuracy: 0.106
+[7_0,   152/994] loss: 3.193 accuracy: 0.105
+[7_0,   156/994] loss: 2.938 accuracy: 0.106
+[7_0,   160/994] loss: 3.081 accuracy: 0.105
+[7_0,   164/994] loss: 3.112 accuracy: 0.104
+[7_0,   168/994] loss: 2.992 accuracy: 0.105
+[7_0,   172/994] loss: 3.082 accuracy: 0.105
+[7_0,   176/994] loss: 3.050 accuracy: 0.105
+[7_0,   180/994] loss: 3.284 accuracy: 0.103
+[7_0,   184/994] loss: 3.081 accuracy: 0.104
+[7_0,   188/994] loss: 3.218 accuracy: 0.103
+[7_0,   192/994] loss: 3.341 accuracy: 0.103
+[7_0,   196/994] loss: 3.234 accuracy: 0.103
+[7_0,   200/994] loss: 2.909 accuracy: 0.105
+[7_0,   204/994] loss: 3.280 accuracy: 0.104
+[7_0,   208/994] loss: 3.301 accuracy: 0.104
+[7_0,   212/994] loss: 2.966 accuracy: 0.103
+[7_0,   216/994] loss: 3.003 accuracy: 0.103
+[7_0,   220/994] loss: 3.147 accuracy: 0.103
+[7_0,   224/994] loss: 3.230 accuracy: 0.103
+[7_0,   228/994] loss: 3.243 accuracy: 0.103
+[7_0,   232/994] loss: 2.940 accuracy: 0.104
+[7_0,   236/994] loss: 3.179 accuracy: 0.103
+[7_0,   240/994] loss: 3.263 accuracy: 0.102
+[7_0,   244/994] loss: 3.017 accuracy: 0.102
+[7_0,   248/994] loss: 3.133 accuracy: 0.103
+[7_0,   252/994] loss: 3.133 accuracy: 0.103
+[7_0,   256/994] loss: 3.064 accuracy: 0.104
+[7_0,   260/994] loss: 2.985 accuracy: 0.104
+[7_0,   264/994] loss: 3.272 accuracy: 0.104
+[7_0,   268/994] loss: 2.945 accuracy: 0.104
+[7_0,   272/994] loss: 3.166 accuracy: 0.105
+[7_0,   276/994] loss: 3.062 accuracy: 0.105
+[7_0,   280/994] loss: 2.840 accuracy: 0.106
+[7_0,   284/994] loss: 2.852 accuracy: 0.107
+[7_0,   288/994] loss: 2.899 accuracy: 0.107
+[7_0,   292/994] loss: 3.237 accuracy: 0.106
+[7_0,   296/994] loss: 3.122 accuracy: 0.106
+[7_0,   300/994] loss: 2.989 accuracy: 0.106
+[7_0,   304/994] loss: 3.038 accuracy: 0.106
+[7_0,   308/994] loss: 2.900 accuracy: 0.107
+[7_0,   312/994] loss: 3.398 accuracy: 0.106
+[7_0,   316/994] loss: 3.424 accuracy: 0.106
+[7_0,   320/994] loss: 3.168 accuracy: 0.106
+[7_0,   324/994] loss: 2.996 accuracy: 0.106
+[7_0,   328/994] loss: 2.950 accuracy: 0.106
+[7_0,   332/994] loss: 2.938 accuracy: 0.106
+[7_0,   336/994] loss: 3.051 accuracy: 0.106
+[7_0,   340/994] loss: 3.292 accuracy: 0.106
+[7_0,   344/994] loss: 3.270 accuracy: 0.105
+[7_0,   348/994] loss: 3.137 accuracy: 0.105
+[7_0,   352/994] loss: 3.100 accuracy: 0.106
+[7_0,   356/994] loss: 3.321 accuracy: 0.105
+[7_0,   360/994] loss: 3.076 accuracy: 0.106
+[7_0,   364/994] loss: 3.303 accuracy: 0.105
+[7_0,   368/994] loss: 3.265 accuracy: 0.105
+[7_0,   372/994] loss: 3.097 accuracy: 0.105
+[7_0,   376/994] loss: 2.773 accuracy: 0.106
+[7_0,   380/994] loss: 3.104 accuracy: 0.106
+[7_0,   384/994] loss: 3.213 accuracy: 0.106
+[7_0,   388/994] loss: 3.093 accuracy: 0.106
+[7_0,   392/994] loss: 2.994 accuracy: 0.106
+[7_0,   396/994] loss: 3.120 accuracy: 0.106
+[7_0,   400/994] loss: 3.298 accuracy: 0.105
+[7_0,   404/994] loss: 3.042 accuracy: 0.105
+[7_0,   408/994] loss: 3.348 accuracy: 0.104
+[7_0,   412/994] loss: 3.222 accuracy: 0.105
+[7_0,   416/994] loss: 3.232 accuracy: 0.104
+[7_0,   420/994] loss: 3.166 accuracy: 0.104
+[7_0,   424/994] loss: 3.255 accuracy: 0.104
+[7_0,   428/994] loss: 2.908 accuracy: 0.105
+[7_0,   432/994] loss: 3.247 accuracy: 0.105
+[7_0,   436/994] loss: 3.155 accuracy: 0.105
+[7_0,   440/994] loss: 3.209 accuracy: 0.105
+[7_0,   444/994] loss: 3.321 accuracy: 0.105
+[7_0,   448/994] loss: 3.209 accuracy: 0.104
+[7_0,   452/994] loss: 3.156 accuracy: 0.104
+[7_0,   456/994] loss: 3.056 accuracy: 0.105
+[7_0,   460/994] loss: 3.203 accuracy: 0.105
+[7_0,   464/994] loss: 3.220 accuracy: 0.104
+[7_0,   468/994] loss: 3.106 accuracy: 0.104
+[7_0,   472/994] loss: 3.214 accuracy: 0.104
+[7_0,   476/994] loss: 3.137 accuracy: 0.104
+[7_0,   480/994] loss: 3.199 accuracy: 0.104
+[7_0,   484/994] loss: 3.119 accuracy: 0.104
+[7_0,   488/994] loss: 3.061 accuracy: 0.104
+[7_0,   492/994] loss: 3.050 accuracy: 0.104
+[7_0,   496/994] loss: 3.082 accuracy: 0.105
+[7_0,   500/994] loss: 3.219 accuracy: 0.104
+[7_0,   504/994] loss: 3.388 accuracy: 0.104
+[7_0,   508/994] loss: 3.074 accuracy: 0.104
+[7_0,   512/994] loss: 3.111 accuracy: 0.104
+[7_0,   516/994] loss: 3.175 accuracy: 0.104
+[7_0,   520/994] loss: 3.030 accuracy: 0.104
+[7_0,   524/994] loss: 3.123 accuracy: 0.104
+[7_0,   528/994] loss: 3.221 accuracy: 0.104
+[7_0,   532/994] loss: 3.318 accuracy: 0.104
+[7_0,   536/994] loss: 3.073 accuracy: 0.104
+[7_0,   540/994] loss: 3.157 accuracy: 0.104
+[7_0,   544/994] loss: 3.023 accuracy: 0.105
+[7_0,   548/994] loss: 3.358 accuracy: 0.104
+[7_0,   552/994] loss: 3.297 accuracy: 0.104
+[7_0,   556/994] loss: 3.072 accuracy: 0.104
+[7_0,   560/994] loss: 3.256 accuracy: 0.104
+[7_0,   564/994] loss: 3.336 accuracy: 0.104
+[7_0,   568/994] loss: 3.254 accuracy: 0.104
+[7_0,   572/994] loss: 3.222 accuracy: 0.104
+[7_0,   576/994] loss: 2.986 accuracy: 0.104
+[7_0,   580/994] loss: 3.191 accuracy: 0.104
+[7_0,   584/994] loss: 3.268 accuracy: 0.104
+[7_0,   588/994] loss: 3.273 accuracy: 0.104
+[7_0,   592/994] loss: 3.182 accuracy: 0.103
+[7_0,   596/994] loss: 3.218 accuracy: 0.103
+[7_0,   600/994] loss: 3.018 accuracy: 0.103
+[7_0,   604/994] loss: 3.136 accuracy: 0.103
+[7_0,   608/994] loss: 3.159 accuracy: 0.103
+[7_0,   612/994] loss: 3.286 accuracy: 0.102
+[7_0,   616/994] loss: 3.194 accuracy: 0.103
+[7_0,   620/994] loss: 3.240 accuracy: 0.102
+[7_0,   624/994] loss: 3.055 accuracy: 0.103
+[7_0,   628/994] loss: 3.224 accuracy: 0.102
+[7_0,   632/994] loss: 3.190 accuracy: 0.102
+[7_0,   636/994] loss: 3.173 accuracy: 0.102
+[7_0,   640/994] loss: 3.286 accuracy: 0.102
+[7_0,   644/994] loss: 3.114 accuracy: 0.102
+[7_0,   648/994] loss: 3.189 accuracy: 0.102
+[7_0,   652/994] loss: 3.132 accuracy: 0.102
+[7_0,   656/994] loss: 2.960 accuracy: 0.102
+[7_0,   660/994] loss: 3.111 accuracy: 0.102
+[7_0,   664/994] loss: 3.008 accuracy: 0.102
+[7_0,   668/994] loss: 3.213 accuracy: 0.101
+[7_0,   672/994] loss: 3.122 accuracy: 0.101
+[7_0,   676/994] loss: 3.289 accuracy: 0.101
+[7_0,   680/994] loss: 3.017 accuracy: 0.101
+[7_0,   684/994] loss: 3.443 accuracy: 0.101
+[7_0,   688/994] loss: 3.168 accuracy: 0.101
+[7_0,   692/994] loss: 3.148 accuracy: 0.101
+[7_0,   696/994] loss: 3.347 accuracy: 0.100
+[7_0,   700/994] loss: 3.048 accuracy: 0.100
+[7_0,   704/994] loss: 3.214 accuracy: 0.100
+[7_0,   708/994] loss: 3.240 accuracy: 0.100
+[7_0,   712/994] loss: 2.863 accuracy: 0.101
+[7_0,   716/994] loss: 3.104 accuracy: 0.100
+[7_0,   720/994] loss: 3.195 accuracy: 0.100
+[7_0,   724/994] loss: 3.045 accuracy: 0.100
+[7_0,   728/994] loss: 3.077 accuracy: 0.100
+[7_0,   732/994] loss: 3.038 accuracy: 0.101
+[7_0,   736/994] loss: 3.011 accuracy: 0.101
+[7_0,   740/994] loss: 3.164 accuracy: 0.101
+[7_0,   744/994] loss: 3.096 accuracy: 0.101
+[7_0,   748/994] loss: 3.380 accuracy: 0.101
+[7_0,   752/994] loss: 3.270 accuracy: 0.100
+[7_0,   756/994] loss: 3.324 accuracy: 0.100
+[7_0,   760/994] loss: 3.258 accuracy: 0.100
+[7_0,   764/994] loss: 2.980 accuracy: 0.100
+[7_0,   768/994] loss: 3.318 accuracy: 0.100
+[7_0,   772/994] loss: 3.084 accuracy: 0.099
+[7_0,   776/994] loss: 3.075 accuracy: 0.099
+[7_0,   780/994] loss: 3.146 accuracy: 0.099
+[7_0,   784/994] loss: 3.182 accuracy: 0.099
+[7_0,   788/994] loss: 3.022 accuracy: 0.099
+[7_0,   792/994] loss: 3.301 accuracy: 0.099
+[7_0,   796/994] loss: 3.090 accuracy: 0.099
+[7_0,   800/994] loss: 3.318 accuracy: 0.099
+[7_0,   804/994] loss: 3.133 accuracy: 0.098
+[7_0,   808/994] loss: 3.207 accuracy: 0.098
+[7_0,   812/994] loss: 3.275 accuracy: 0.098
+[7_0,   816/994] loss: 3.193 accuracy: 0.098
+[7_0,   820/994] loss: 3.118 accuracy: 0.098
+[7_0,   824/994] loss: 3.153 accuracy: 0.098
+[7_0,   828/994] loss: 3.068 accuracy: 0.098
+[7_0,   832/994] loss: 3.177 accuracy: 0.098
+[7_0,   836/994] loss: 3.325 accuracy: 0.098
+[7_0,   840/994] loss: 3.394 accuracy: 0.098
+[7_0,   844/994] loss: 3.456 accuracy: 0.098
+[7_0,   848/994] loss: 3.236 accuracy: 0.098
+[7_0,   852/994] loss: 3.086 accuracy: 0.098
+[7_0,   856/994] loss: 3.204 accuracy: 0.097
+[7_0,   860/994] loss: 3.054 accuracy: 0.097
+[7_0,   864/994] loss: 2.910 accuracy: 0.098
+[7_0,   868/994] loss: 3.199 accuracy: 0.097
+[7_0,   872/994] loss: 2.984 accuracy: 0.098
+[7_0,   876/994] loss: 3.095 accuracy: 0.098
+[7_0,   880/994] loss: 2.947 accuracy: 0.098
+[7_0,   884/994] loss: 3.272 accuracy: 0.098
+[7_0,   888/994] loss: 3.323 accuracy: 0.098
+[7_0,   892/994] loss: 3.169 accuracy: 0.098
+[7_0,   896/994] loss: 3.088 accuracy: 0.098
+[7_0,   900/994] loss: 3.221 accuracy: 0.098
+[7_0,   904/994] loss: 3.049 accuracy: 0.098
+[7_0,   908/994] loss: 3.091 accuracy: 0.098
+[7_0,   912/994] loss: 3.207 accuracy: 0.098
+[7_0,   916/994] loss: 3.017 accuracy: 0.098
+[7_0,   920/994] loss: 3.078 accuracy: 0.098
+[7_0,   924/994] loss: 3.222 accuracy: 0.098
+[7_0,   928/994] loss: 3.056 accuracy: 0.098
+[7_0,   932/994] loss: 3.165 accuracy: 0.097
+[7_0,   936/994] loss: 2.908 accuracy: 0.097
+[7_0,   940/994] loss: 3.225 accuracy: 0.097
+[7_0,   944/994] loss: 2.910 accuracy: 0.098
+[7_0,   948/994] loss: 3.070 accuracy: 0.098
+[7_0,   952/994] loss: 3.187 accuracy: 0.098
+[7_0,   956/994] loss: 3.399 accuracy: 0.097
+[7_0,   960/994] loss: 2.843 accuracy: 0.097
+[7_0,   964/994] loss: 3.143 accuracy: 0.097
+[7_0,   968/994] loss: 3.257 accuracy: 0.097
+[7_0,   972/994] loss: 3.025 accuracy: 0.097
+[7_0,   976/994] loss: 3.033 accuracy: 0.097
+[7_0,   980/994] loss: 3.210 accuracy: 0.097
+[7_0,   984/994] loss: 3.001 accuracy: 0.097
+[7_0,   988/994] loss: 3.429 accuracy: 0.097
+[7_0,   992/994] loss: 3.388 accuracy: 0.097
+2022-04-24 19:18:56.260143  :  0.01269237987987988 is higher than the best(0.010948959907833119). Saving the model at ../Models/KBP37/bert_multilingual_adam_finetune_kbp37_7_0.011533968681637098_sigmoid_long2.pt
+Epoch:  7
+Training Loss: 779.7064, Val Loss: 3.1636, Test Loss: 3.1715
+Training accuracy:0.0973, Training F1:0.0063, Validation accuracy:0.1090, Validation F1:0.0127, Test accuracy:0.1090, Test F1:0.0115
+German F1: 0.0096, English F1: 0.0131, Spanish F1: 0.0087, French F1: 0.0145, Turkish F1: 0.0091
+[8_0,     4/994] loss: 3.012 accuracy: 0.109
+[8_0,     8/994] loss: 3.133 accuracy: 0.102
+[8_0,    12/994] loss: 3.091 accuracy: 0.115
+[8_0,    16/994] loss: 3.208 accuracy: 0.109
+[8_0,    20/994] loss: 3.069 accuracy: 0.109
+[8_0,    24/994] loss: 3.320 accuracy: 0.109
+[8_0,    28/994] loss: 3.081 accuracy: 0.103
+[8_0,    32/994] loss: 3.182 accuracy: 0.100
+[8_0,    36/994] loss: 3.208 accuracy: 0.101
+[8_0,    40/994] loss: 2.941 accuracy: 0.097
+[8_0,    44/994] loss: 3.146 accuracy: 0.094
+[8_0,    48/994] loss: 3.003 accuracy: 0.095
+[8_0,    52/994] loss: 3.052 accuracy: 0.099
+[8_0,    56/994] loss: 2.998 accuracy: 0.099
+[8_0,    60/994] loss: 3.021 accuracy: 0.101
+[8_0,    64/994] loss: 3.155 accuracy: 0.104
+[8_0,    68/994] loss: 3.023 accuracy: 0.108
+[8_0,    72/994] loss: 3.226 accuracy: 0.104
+[8_0,    76/994] loss: 2.951 accuracy: 0.106
+[8_0,    80/994] loss: 3.114 accuracy: 0.105
+[8_0,    84/994] loss: 3.085 accuracy: 0.103
+[8_0,    88/994] loss: 3.274 accuracy: 0.101
+[8_0,    92/994] loss: 3.325 accuracy: 0.099
+[8_0,    96/994] loss: 3.246 accuracy: 0.098
+[8_0,   100/994] loss: 3.253 accuracy: 0.097
+[8_0,   104/994] loss: 3.108 accuracy: 0.097
+[8_0,   108/994] loss: 3.204 accuracy: 0.097
+[8_0,   112/994] loss: 3.402 accuracy: 0.096
+[8_0,   116/994] loss: 3.114 accuracy: 0.095
+[8_0,   120/994] loss: 2.996 accuracy: 0.095
+[8_0,   124/994] loss: 3.137 accuracy: 0.096
+[8_0,   128/994] loss: 3.087 accuracy: 0.099
+[8_0,   132/994] loss: 3.391 accuracy: 0.097
+[8_0,   136/994] loss: 3.015 accuracy: 0.097
+[8_0,   140/994] loss: 3.215 accuracy: 0.097
+[8_0,   144/994] loss: 3.439 accuracy: 0.095
+[8_0,   148/994] loss: 3.033 accuracy: 0.094
+[8_0,   152/994] loss: 3.193 accuracy: 0.096
+[8_0,   156/994] loss: 3.040 accuracy: 0.095
+[8_0,   160/994] loss: 3.329 accuracy: 0.095
+[8_0,   164/994] loss: 3.293 accuracy: 0.095
+[8_0,   168/994] loss: 3.153 accuracy: 0.094
+[8_0,   172/994] loss: 3.128 accuracy: 0.095
+[8_0,   176/994] loss: 3.120 accuracy: 0.095
+[8_0,   180/994] loss: 3.243 accuracy: 0.095
+[8_0,   184/994] loss: 3.124 accuracy: 0.095
+[8_0,   188/994] loss: 3.288 accuracy: 0.095
+[8_0,   192/994] loss: 3.052 accuracy: 0.096
+[8_0,   196/994] loss: 3.008 accuracy: 0.095
+[8_0,   200/994] loss: 3.265 accuracy: 0.095
+[8_0,   204/994] loss: 3.182 accuracy: 0.096
+[8_0,   208/994] loss: 3.058 accuracy: 0.096
+[8_0,   212/994] loss: 3.003 accuracy: 0.096
+[8_0,   216/994] loss: 3.307 accuracy: 0.095
+[8_0,   220/994] loss: 3.132 accuracy: 0.096
+[8_0,   224/994] loss: 3.184 accuracy: 0.095
+[8_0,   228/994] loss: 3.083 accuracy: 0.095
+[8_0,   232/994] loss: 3.181 accuracy: 0.095
+[8_0,   236/994] loss: 3.277 accuracy: 0.094
+[8_0,   240/994] loss: 3.118 accuracy: 0.095
+[8_0,   244/994] loss: 2.975 accuracy: 0.095
+[8_0,   248/994] loss: 3.141 accuracy: 0.095
+[8_0,   252/994] loss: 3.120 accuracy: 0.095
+[8_0,   256/994] loss: 3.185 accuracy: 0.095
+[8_0,   260/994] loss: 3.174 accuracy: 0.094
+[8_0,   264/994] loss: 3.349 accuracy: 0.094
+[8_0,   268/994] loss: 3.342 accuracy: 0.094
+[8_0,   272/994] loss: 3.043 accuracy: 0.095
+[8_0,   276/994] loss: 3.045 accuracy: 0.096
+[8_0,   280/994] loss: 3.382 accuracy: 0.095
+[8_0,   284/994] loss: 3.383 accuracy: 0.095
+[8_0,   288/994] loss: 2.858 accuracy: 0.095
+[8_0,   292/994] loss: 3.073 accuracy: 0.096
+[8_0,   296/994] loss: 3.129 accuracy: 0.096
+[8_0,   300/994] loss: 3.034 accuracy: 0.096
+[8_0,   304/994] loss: 3.350 accuracy: 0.095
+[8_0,   308/994] loss: 3.196 accuracy: 0.095
+[8_0,   312/994] loss: 3.019 accuracy: 0.096
+[8_0,   316/994] loss: 3.359 accuracy: 0.096
+[8_0,   320/994] loss: 3.244 accuracy: 0.096
+[8_0,   324/994] loss: 3.254 accuracy: 0.096
+[8_0,   328/994] loss: 3.066 accuracy: 0.096
+[8_0,   332/994] loss: 3.176 accuracy: 0.096
+[8_0,   336/994] loss: 3.319 accuracy: 0.096
+[8_0,   340/994] loss: 2.928 accuracy: 0.097
+[8_0,   344/994] loss: 3.126 accuracy: 0.097
+[8_0,   348/994] loss: 3.350 accuracy: 0.096
+[8_0,   352/994] loss: 3.240 accuracy: 0.096
+[8_0,   356/994] loss: 3.222 accuracy: 0.096
+[8_0,   360/994] loss: 3.173 accuracy: 0.096
+[8_0,   364/994] loss: 3.153 accuracy: 0.096
+[8_0,   368/994] loss: 2.787 accuracy: 0.097
+[8_0,   372/994] loss: 3.123 accuracy: 0.097
+[8_0,   376/994] loss: 3.170 accuracy: 0.097
+[8_0,   380/994] loss: 3.058 accuracy: 0.097
+[8_0,   384/994] loss: 3.060 accuracy: 0.097
+[8_0,   388/994] loss: 3.142 accuracy: 0.097
+[8_0,   392/994] loss: 3.117 accuracy: 0.097
+[8_0,   396/994] loss: 3.342 accuracy: 0.096
+[8_0,   400/994] loss: 3.195 accuracy: 0.096
+[8_0,   404/994] loss: 3.430 accuracy: 0.095
+[8_0,   408/994] loss: 3.070 accuracy: 0.095
+[8_0,   412/994] loss: 3.390 accuracy: 0.095
+[8_0,   416/994] loss: 3.093 accuracy: 0.095
+[8_0,   420/994] loss: 3.250 accuracy: 0.095
+[8_0,   424/994] loss: 3.080 accuracy: 0.094
+[8_0,   428/994] loss: 3.046 accuracy: 0.095
+[8_0,   432/994] loss: 3.110 accuracy: 0.095
+[8_0,   436/994] loss: 3.250 accuracy: 0.095
+[8_0,   440/994] loss: 3.180 accuracy: 0.095
+[8_0,   444/994] loss: 3.112 accuracy: 0.095
+[8_0,   448/994] loss: 3.155 accuracy: 0.094
+[8_0,   452/994] loss: 3.187 accuracy: 0.094
+[8_0,   456/994] loss: 3.168 accuracy: 0.095
+[8_0,   460/994] loss: 3.073 accuracy: 0.095
+[8_0,   464/994] loss: 3.096 accuracy: 0.095
+[8_0,   468/994] loss: 3.235 accuracy: 0.094
+[8_0,   472/994] loss: 3.322 accuracy: 0.094
+[8_0,   476/994] loss: 3.175 accuracy: 0.094
+[8_0,   480/994] loss: 3.140 accuracy: 0.094
+[8_0,   484/994] loss: 2.957 accuracy: 0.095
+[8_0,   488/994] loss: 3.025 accuracy: 0.095
+[8_0,   492/994] loss: 2.989 accuracy: 0.095
+[8_0,   496/994] loss: 3.011 accuracy: 0.095
+[8_0,   500/994] loss: 2.921 accuracy: 0.095
+[8_0,   504/994] loss: 3.143 accuracy: 0.095
+[8_0,   508/994] loss: 3.318 accuracy: 0.095
+[8_0,   512/994] loss: 2.970 accuracy: 0.095
+[8_0,   516/994] loss: 2.983 accuracy: 0.095
+[8_0,   520/994] loss: 3.270 accuracy: 0.095
+[8_0,   524/994] loss: 3.039 accuracy: 0.095
+[8_0,   528/994] loss: 3.099 accuracy: 0.095
+[8_0,   532/994] loss: 3.105 accuracy: 0.095
+[8_0,   536/994] loss: 3.321 accuracy: 0.095
+[8_0,   540/994] loss: 3.118 accuracy: 0.095
+[8_0,   544/994] loss: 3.081 accuracy: 0.095
+[8_0,   548/994] loss: 3.109 accuracy: 0.095
+[8_0,   552/994] loss: 3.131 accuracy: 0.095
+[8_0,   556/994] loss: 3.276 accuracy: 0.095
+[8_0,   560/994] loss: 3.174 accuracy: 0.095
+[8_0,   564/994] loss: 2.922 accuracy: 0.095
+[8_0,   568/994] loss: 3.261 accuracy: 0.095
+[8_0,   572/994] loss: 3.224 accuracy: 0.095
+[8_0,   576/994] loss: 2.982 accuracy: 0.095
+[8_0,   580/994] loss: 3.169 accuracy: 0.095
+[8_0,   584/994] loss: 3.110 accuracy: 0.095
+[8_0,   588/994] loss: 3.012 accuracy: 0.095
+[8_0,   592/994] loss: 2.930 accuracy: 0.095
+[8_0,   596/994] loss: 3.181 accuracy: 0.095
+[8_0,   600/994] loss: 3.078 accuracy: 0.095
+[8_0,   604/994] loss: 3.184 accuracy: 0.095
+[8_0,   608/994] loss: 3.421 accuracy: 0.095
+[8_0,   612/994] loss: 2.984 accuracy: 0.095
+[8_0,   616/994] loss: 3.334 accuracy: 0.095
+[8_0,   620/994] loss: 3.091 accuracy: 0.095
+[8_0,   624/994] loss: 3.066 accuracy: 0.095
+[8_0,   628/994] loss: 3.212 accuracy: 0.095
+[8_0,   632/994] loss: 3.288 accuracy: 0.095
+[8_0,   636/994] loss: 3.165 accuracy: 0.095
+[8_0,   640/994] loss: 2.993 accuracy: 0.095
+[8_0,   644/994] loss: 3.188 accuracy: 0.095
+[8_0,   648/994] loss: 3.356 accuracy: 0.095
+[8_0,   652/994] loss: 3.112 accuracy: 0.095
+[8_0,   656/994] loss: 2.956 accuracy: 0.095
+[8_0,   660/994] loss: 3.100 accuracy: 0.095
+[8_0,   664/994] loss: 3.043 accuracy: 0.095
+[8_0,   668/994] loss: 3.250 accuracy: 0.095
+[8_0,   672/994] loss: 3.182 accuracy: 0.095
+[8_0,   676/994] loss: 3.142 accuracy: 0.095
+[8_0,   680/994] loss: 2.906 accuracy: 0.095
+[8_0,   684/994] loss: 3.031 accuracy: 0.095
+[8_0,   688/994] loss: 2.912 accuracy: 0.096
+[8_0,   692/994] loss: 3.152 accuracy: 0.096
+[8_0,   696/994] loss: 3.015 accuracy: 0.096
+[8_0,   700/994] loss: 3.356 accuracy: 0.096
+[8_0,   704/994] loss: 2.929 accuracy: 0.096
+[8_0,   708/994] loss: 3.078 accuracy: 0.096
+[8_0,   712/994] loss: 3.169 accuracy: 0.096
+[8_0,   716/994] loss: 3.177 accuracy: 0.095
+[8_0,   720/994] loss: 3.149 accuracy: 0.095
+[8_0,   724/994] loss: 3.134 accuracy: 0.096
+[8_0,   728/994] loss: 3.172 accuracy: 0.096
+[8_0,   732/994] loss: 3.169 accuracy: 0.096
+[8_0,   736/994] loss: 2.905 accuracy: 0.096
+[8_0,   740/994] loss: 3.212 accuracy: 0.096
+[8_0,   744/994] loss: 2.916 accuracy: 0.096
+[8_0,   748/994] loss: 3.137 accuracy: 0.096
+[8_0,   752/994] loss: 3.102 accuracy: 0.096
+[8_0,   756/994] loss: 3.138 accuracy: 0.096
+[8_0,   760/994] loss: 3.082 accuracy: 0.096
+[8_0,   764/994] loss: 3.212 accuracy: 0.096
+[8_0,   768/994] loss: 3.032 accuracy: 0.096
+[8_0,   772/994] loss: 3.183 accuracy: 0.096
+[8_0,   776/994] loss: 3.036 accuracy: 0.096
+[8_0,   780/994] loss: 3.112 accuracy: 0.096
+[8_0,   784/994] loss: 3.066 accuracy: 0.096
+[8_0,   788/994] loss: 3.257 accuracy: 0.096
+[8_0,   792/994] loss: 3.216 accuracy: 0.096
+[8_0,   796/994] loss: 3.015 accuracy: 0.096
+[8_0,   800/994] loss: 3.057 accuracy: 0.096
+[8_0,   804/994] loss: 3.194 accuracy: 0.096
+[8_0,   808/994] loss: 3.029 accuracy: 0.096
+[8_0,   812/994] loss: 3.044 accuracy: 0.096
+[8_0,   816/994] loss: 3.300 accuracy: 0.096
+[8_0,   820/994] loss: 3.282 accuracy: 0.096
+[8_0,   824/994] loss: 3.241 accuracy: 0.096
+[8_0,   828/994] loss: 3.084 accuracy: 0.097
+[8_0,   832/994] loss: 3.298 accuracy: 0.096
+[8_0,   836/994] loss: 3.571 accuracy: 0.096
+[8_0,   840/994] loss: 2.958 accuracy: 0.096
+[8_0,   844/994] loss: 3.090 accuracy: 0.096
+[8_0,   848/994] loss: 3.212 accuracy: 0.096
+[8_0,   852/994] loss: 3.237 accuracy: 0.096
+[8_0,   856/994] loss: 3.058 accuracy: 0.096
+[8_0,   860/994] loss: 3.162 accuracy: 0.096
+[8_0,   864/994] loss: 3.019 accuracy: 0.096
+[8_0,   868/994] loss: 3.216 accuracy: 0.096
+[8_0,   872/994] loss: 3.133 accuracy: 0.096
+[8_0,   876/994] loss: 3.016 accuracy: 0.096
+[8_0,   880/994] loss: 3.351 accuracy: 0.096
+[8_0,   884/994] loss: 3.179 accuracy: 0.096
+[8_0,   888/994] loss: 3.060 accuracy: 0.096
+[8_0,   892/994] loss: 3.136 accuracy: 0.096
+[8_0,   896/994] loss: 3.282 accuracy: 0.096
+[8_0,   900/994] loss: 3.032 accuracy: 0.096
+[8_0,   904/994] loss: 3.108 accuracy: 0.096
+[8_0,   908/994] loss: 3.146 accuracy: 0.097
+[8_0,   912/994] loss: 3.133 accuracy: 0.096
+[8_0,   916/994] loss: 2.947 accuracy: 0.097
+[8_0,   920/994] loss: 3.003 accuracy: 0.097
+[8_0,   924/994] loss: 3.116 accuracy: 0.096
+[8_0,   928/994] loss: 3.148 accuracy: 0.096
+[8_0,   932/994] loss: 3.230 accuracy: 0.096
+[8_0,   936/994] loss: 2.992 accuracy: 0.097
+[8_0,   940/994] loss: 3.428 accuracy: 0.096
+[8_0,   944/994] loss: 3.044 accuracy: 0.096
+[8_0,   948/994] loss: 3.205 accuracy: 0.096
+[8_0,   952/994] loss: 2.957 accuracy: 0.096
+[8_0,   956/994] loss: 3.059 accuracy: 0.097
+[8_0,   960/994] loss: 2.990 accuracy: 0.097
+[8_0,   964/994] loss: 2.893 accuracy: 0.097
+[8_0,   968/994] loss: 3.096 accuracy: 0.097
+[8_0,   972/994] loss: 3.308 accuracy: 0.097
+[8_0,   976/994] loss: 3.217 accuracy: 0.097
+[8_0,   980/994] loss: 3.044 accuracy: 0.097
+[8_0,   984/994] loss: 2.982 accuracy: 0.097
+[8_0,   988/994] loss: 3.413 accuracy: 0.097
+[8_0,   992/994] loss: 2.949 accuracy: 0.097
+Epoch:  8
+Training Loss: 778.5773, Val Loss: 3.1375, Test Loss: 3.1363
+Training accuracy:0.0973, Training F1:0.0066, Validation accuracy:0.1212, Validation F1:0.0044, Test accuracy:0.1186, Test F1:0.0036
+German F1: 0.0029, English F1: 0.0064, Spanish F1: 0.0058, French F1: 0.0059, Turkish F1: 0.0040
+[9_0,     4/994] loss: 3.044 accuracy: 0.125
+[9_0,     8/994] loss: 3.304 accuracy: 0.078
+[9_0,    12/994] loss: 3.200 accuracy: 0.068
+[9_0,    16/994] loss: 3.248 accuracy: 0.055
+[9_0,    20/994] loss: 3.126 accuracy: 0.066
+[9_0,    24/994] loss: 2.903 accuracy: 0.086
+[9_0,    28/994] loss: 3.376 accuracy: 0.078
+[9_0,    32/994] loss: 3.026 accuracy: 0.082
+[9_0,    36/994] loss: 2.906 accuracy: 0.090
+[9_0,    40/994] loss: 3.074 accuracy: 0.092
+[9_0,    44/994] loss: 3.344 accuracy: 0.089
+[9_0,    48/994] loss: 3.282 accuracy: 0.089
+[9_0,    52/994] loss: 3.278 accuracy: 0.087
+[9_0,    56/994] loss: 3.351 accuracy: 0.086
+[9_0,    60/994] loss: 3.144 accuracy: 0.083
+[9_0,    64/994] loss: 3.117 accuracy: 0.085
+[9_0,    68/994] loss: 2.864 accuracy: 0.085
+[9_0,    72/994] loss: 2.999 accuracy: 0.085
+[9_0,    76/994] loss: 3.087 accuracy: 0.084
+[9_0,    80/994] loss: 3.154 accuracy: 0.084
+[9_0,    84/994] loss: 3.161 accuracy: 0.084
+[9_0,    88/994] loss: 2.982 accuracy: 0.086
+[9_0,    92/994] loss: 3.082 accuracy: 0.091
+[9_0,    96/994] loss: 3.068 accuracy: 0.093
+[9_0,   100/994] loss: 2.989 accuracy: 0.094
+[9_0,   104/994] loss: 3.273 accuracy: 0.094
+[9_0,   108/994] loss: 3.156 accuracy: 0.094
+[9_0,   112/994] loss: 3.385 accuracy: 0.092
+[9_0,   116/994] loss: 3.194 accuracy: 0.092
+[9_0,   120/994] loss: 3.054 accuracy: 0.092
+[9_0,   124/994] loss: 3.121 accuracy: 0.090
+[9_0,   128/994] loss: 3.502 accuracy: 0.088
+[9_0,   132/994] loss: 3.414 accuracy: 0.087
+[9_0,   136/994] loss: 3.141 accuracy: 0.087
+[9_0,   140/994] loss: 3.286 accuracy: 0.087
+[9_0,   144/994] loss: 3.135 accuracy: 0.089
+[9_0,   148/994] loss: 3.351 accuracy: 0.090
+[9_0,   152/994] loss: 3.419 accuracy: 0.089
+[9_0,   156/994] loss: 3.217 accuracy: 0.089
+[9_0,   160/994] loss: 2.960 accuracy: 0.091
+[9_0,   164/994] loss: 3.089 accuracy: 0.091
+[9_0,   168/994] loss: 3.118 accuracy: 0.092
+[9_0,   172/994] loss: 3.128 accuracy: 0.093
+[9_0,   176/994] loss: 3.114 accuracy: 0.094
+[9_0,   180/994] loss: 3.018 accuracy: 0.093
+[9_0,   184/994] loss: 3.103 accuracy: 0.093
+[9_0,   188/994] loss: 3.135 accuracy: 0.093
+[9_0,   192/994] loss: 3.102 accuracy: 0.094
+[9_0,   196/994] loss: 3.072 accuracy: 0.094
+[9_0,   200/994] loss: 3.246 accuracy: 0.094
+[9_0,   204/994] loss: 3.136 accuracy: 0.094
+[9_0,   208/994] loss: 3.210 accuracy: 0.093
+[9_0,   212/994] loss: 3.016 accuracy: 0.094
+[9_0,   216/994] loss: 3.186 accuracy: 0.094
+[9_0,   220/994] loss: 3.225 accuracy: 0.093
+[9_0,   224/994] loss: 3.235 accuracy: 0.092
+[9_0,   228/994] loss: 3.238 accuracy: 0.092
+[9_0,   232/994] loss: 3.105 accuracy: 0.092
+[9_0,   236/994] loss: 3.097 accuracy: 0.092
+[9_0,   240/994] loss: 3.254 accuracy: 0.092
+[9_0,   244/994] loss: 2.997 accuracy: 0.092
+[9_0,   248/994] loss: 3.278 accuracy: 0.091
+[9_0,   252/994] loss: 3.075 accuracy: 0.092
+[9_0,   256/994] loss: 3.242 accuracy: 0.092
+[9_0,   260/994] loss: 3.074 accuracy: 0.093
+[9_0,   264/994] loss: 3.030 accuracy: 0.093
+[9_0,   268/994] loss: 3.212 accuracy: 0.094
+[9_0,   272/994] loss: 3.223 accuracy: 0.094
+[9_0,   276/994] loss: 3.174 accuracy: 0.094
+[9_0,   280/994] loss: 3.076 accuracy: 0.094
+[9_0,   284/994] loss: 2.921 accuracy: 0.095
+[9_0,   288/994] loss: 3.322 accuracy: 0.094
+[9_0,   292/994] loss: 3.179 accuracy: 0.094
+[9_0,   296/994] loss: 3.350 accuracy: 0.093
+[9_0,   300/994] loss: 3.062 accuracy: 0.094
+[9_0,   304/994] loss: 3.157 accuracy: 0.094
+[9_0,   308/994] loss: 3.046 accuracy: 0.094
+[9_0,   312/994] loss: 3.086 accuracy: 0.094
+[9_0,   316/994] loss: 3.126 accuracy: 0.094
+[9_0,   320/994] loss: 2.937 accuracy: 0.095
+[9_0,   324/994] loss: 2.905 accuracy: 0.095
+[9_0,   328/994] loss: 3.072 accuracy: 0.095
+[9_0,   332/994] loss: 3.370 accuracy: 0.095
+[9_0,   336/994] loss: 3.160 accuracy: 0.095
+[9_0,   340/994] loss: 3.203 accuracy: 0.094
+[9_0,   344/994] loss: 3.161 accuracy: 0.095
+[9_0,   348/994] loss: 3.113 accuracy: 0.095
+[9_0,   352/994] loss: 3.426 accuracy: 0.095
+[9_0,   356/994] loss: 3.162 accuracy: 0.094
+[9_0,   360/994] loss: 3.004 accuracy: 0.095
+[9_0,   364/994] loss: 3.031 accuracy: 0.095
+[9_0,   368/994] loss: 2.814 accuracy: 0.096
+[9_0,   372/994] loss: 3.443 accuracy: 0.096
+[9_0,   376/994] loss: 3.150 accuracy: 0.096
+[9_0,   380/994] loss: 2.972 accuracy: 0.096
+[9_0,   384/994] loss: 3.012 accuracy: 0.097
+[9_0,   388/994] loss: 3.136 accuracy: 0.097
+[9_0,   392/994] loss: 3.132 accuracy: 0.098
+[9_0,   396/994] loss: 3.147 accuracy: 0.098
+[9_0,   400/994] loss: 3.426 accuracy: 0.097
+[9_0,   404/994] loss: 3.211 accuracy: 0.097
+[9_0,   408/994] loss: 3.123 accuracy: 0.098
+[9_0,   412/994] loss: 3.241 accuracy: 0.097
+[9_0,   416/994] loss: 3.379 accuracy: 0.096
+[9_0,   420/994] loss: 3.055 accuracy: 0.096
+[9_0,   424/994] loss: 2.911 accuracy: 0.097
+[9_0,   428/994] loss: 3.105 accuracy: 0.097
+[9_0,   432/994] loss: 3.137 accuracy: 0.097
+[9_0,   436/994] loss: 3.224 accuracy: 0.097
+[9_0,   440/994] loss: 3.367 accuracy: 0.096
+[9_0,   444/994] loss: 3.098 accuracy: 0.096
+[9_0,   448/994] loss: 3.182 accuracy: 0.095
+[9_0,   452/994] loss: 3.192 accuracy: 0.096
+[9_0,   456/994] loss: 3.278 accuracy: 0.096
+[9_0,   460/994] loss: 2.880 accuracy: 0.096
+[9_0,   464/994] loss: 3.066 accuracy: 0.096
+[9_0,   468/994] loss: 3.136 accuracy: 0.096
+[9_0,   472/994] loss: 3.120 accuracy: 0.097
+[9_0,   476/994] loss: 3.042 accuracy: 0.096
+[9_0,   480/994] loss: 3.123 accuracy: 0.096
+[9_0,   484/994] loss: 3.303 accuracy: 0.096
+[9_0,   488/994] loss: 3.057 accuracy: 0.096
+[9_0,   492/994] loss: 3.295 accuracy: 0.096
+[9_0,   496/994] loss: 3.173 accuracy: 0.096
+[9_0,   500/994] loss: 3.169 accuracy: 0.096
+[9_0,   504/994] loss: 3.161 accuracy: 0.096
+[9_0,   508/994] loss: 3.014 accuracy: 0.096
+[9_0,   512/994] loss: 3.147 accuracy: 0.096
+[9_0,   516/994] loss: 3.152 accuracy: 0.095
+[9_0,   520/994] loss: 2.956 accuracy: 0.096
+[9_0,   524/994] loss: 3.053 accuracy: 0.096
+[9_0,   528/994] loss: 3.278 accuracy: 0.096
+[9_0,   532/994] loss: 3.375 accuracy: 0.095
+[9_0,   536/994] loss: 3.114 accuracy: 0.095
+[9_0,   540/994] loss: 3.295 accuracy: 0.095
+[9_0,   544/994] loss: 3.288 accuracy: 0.095
+[9_0,   548/994] loss: 3.198 accuracy: 0.094
+[9_0,   552/994] loss: 3.120 accuracy: 0.094
+[9_0,   556/994] loss: 3.300 accuracy: 0.094
+[9_0,   560/994] loss: 3.234 accuracy: 0.094
+[9_0,   564/994] loss: 3.207 accuracy: 0.093
+[9_0,   568/994] loss: 2.920 accuracy: 0.093
+[9_0,   572/994] loss: 3.128 accuracy: 0.094
+[9_0,   576/994] loss: 3.075 accuracy: 0.094
+[9_0,   580/994] loss: 2.827 accuracy: 0.094
+[9_0,   584/994] loss: 3.177 accuracy: 0.094
+[9_0,   588/994] loss: 3.118 accuracy: 0.095
+[9_0,   592/994] loss: 3.091 accuracy: 0.095
+[9_0,   596/994] loss: 3.273 accuracy: 0.095
+[9_0,   600/994] loss: 3.334 accuracy: 0.094
+[9_0,   604/994] loss: 3.311 accuracy: 0.094
+[9_0,   608/994] loss: 3.024 accuracy: 0.094
+[9_0,   612/994] loss: 3.090 accuracy: 0.094
+[9_0,   616/994] loss: 3.275 accuracy: 0.094
+[9_0,   620/994] loss: 3.071 accuracy: 0.094
+[9_0,   624/994] loss: 3.303 accuracy: 0.094
+[9_0,   628/994] loss: 3.094 accuracy: 0.093
+[9_0,   632/994] loss: 3.146 accuracy: 0.094
+[9_0,   636/994] loss: 3.224 accuracy: 0.093
+[9_0,   640/994] loss: 3.095 accuracy: 0.093
+[9_0,   644/994] loss: 2.855 accuracy: 0.094
+[9_0,   648/994] loss: 3.060 accuracy: 0.094
+[9_0,   652/994] loss: 3.058 accuracy: 0.094
+[9_0,   656/994] loss: 3.423 accuracy: 0.094
+[9_0,   660/994] loss: 3.195 accuracy: 0.094
+[9_0,   664/994] loss: 3.011 accuracy: 0.094
+[9_0,   668/994] loss: 3.156 accuracy: 0.094
+[9_0,   672/994] loss: 3.244 accuracy: 0.094
+[9_0,   676/994] loss: 3.181 accuracy: 0.094
+[9_0,   680/994] loss: 3.227 accuracy: 0.093
+[9_0,   684/994] loss: 3.009 accuracy: 0.093
+[9_0,   688/994] loss: 3.242 accuracy: 0.093
+[9_0,   692/994] loss: 3.309 accuracy: 0.093
+[9_0,   696/994] loss: 3.192 accuracy: 0.093
+[9_0,   700/994] loss: 3.339 accuracy: 0.093
+[9_0,   704/994] loss: 3.220 accuracy: 0.093
+[9_0,   708/994] loss: 2.997 accuracy: 0.093
+[9_0,   712/994] loss: 3.165 accuracy: 0.093
+[9_0,   716/994] loss: 3.099 accuracy: 0.093
+[9_0,   720/994] loss: 3.316 accuracy: 0.093
+[9_0,   724/994] loss: 3.117 accuracy: 0.093
+[9_0,   728/994] loss: 2.912 accuracy: 0.093
+[9_0,   732/994] loss: 3.256 accuracy: 0.093
+[9_0,   736/994] loss: 3.171 accuracy: 0.093
+[9_0,   740/994] loss: 3.058 accuracy: 0.093
+[9_0,   744/994] loss: 3.228 accuracy: 0.093
+[9_0,   748/994] loss: 2.993 accuracy: 0.093
+[9_0,   752/994] loss: 3.211 accuracy: 0.093
+[9_0,   756/994] loss: 3.261 accuracy: 0.093
+[9_0,   760/994] loss: 3.144 accuracy: 0.093
+[9_0,   764/994] loss: 3.069 accuracy: 0.093
+[9_0,   768/994] loss: 3.255 accuracy: 0.093
+[9_0,   772/994] loss: 3.293 accuracy: 0.093
+[9_0,   776/994] loss: 3.134 accuracy: 0.093
+[9_0,   780/994] loss: 3.111 accuracy: 0.092
+[9_0,   784/994] loss: 3.138 accuracy: 0.092
+[9_0,   788/994] loss: 3.305 accuracy: 0.092
+[9_0,   792/994] loss: 2.971 accuracy: 0.093
+[9_0,   796/994] loss: 3.220 accuracy: 0.092
+[9_0,   800/994] loss: 3.134 accuracy: 0.092
+[9_0,   804/994] loss: 3.168 accuracy: 0.092
+[9_0,   808/994] loss: 3.096 accuracy: 0.092
+[9_0,   812/994] loss: 3.215 accuracy: 0.092
+[9_0,   816/994] loss: 3.429 accuracy: 0.092
+[9_0,   820/994] loss: 3.024 accuracy: 0.092
+[9_0,   824/994] loss: 2.967 accuracy: 0.092
+[9_0,   828/994] loss: 3.346 accuracy: 0.092
+[9_0,   832/994] loss: 3.107 accuracy: 0.092
+[9_0,   836/994] loss: 2.998 accuracy: 0.092
+[9_0,   840/994] loss: 2.989 accuracy: 0.093
+[9_0,   844/994] loss: 3.041 accuracy: 0.093
+[9_0,   848/994] loss: 2.950 accuracy: 0.093
+[9_0,   852/994] loss: 3.040 accuracy: 0.093
+[9_0,   856/994] loss: 3.344 accuracy: 0.093
+[9_0,   860/994] loss: 3.077 accuracy: 0.093
+[9_0,   864/994] loss: 2.945 accuracy: 0.093
+[9_0,   868/994] loss: 3.125 accuracy: 0.093
+[9_0,   872/994] loss: 3.241 accuracy: 0.093
+[9_0,   876/994] loss: 3.039 accuracy: 0.093
+[9_0,   880/994] loss: 3.091 accuracy: 0.093
+[9_0,   884/994] loss: 3.136 accuracy: 0.093
+[9_0,   888/994] loss: 3.296 accuracy: 0.093
+[9_0,   892/994] loss: 3.172 accuracy: 0.093
+[9_0,   896/994] loss: 2.948 accuracy: 0.094
+[9_0,   900/994] loss: 2.957 accuracy: 0.094
+[9_0,   904/994] loss: 3.173 accuracy: 0.094
+[9_0,   908/994] loss: 2.919 accuracy: 0.094
+[9_0,   912/994] loss: 3.027 accuracy: 0.094
+[9_0,   916/994] loss: 3.088 accuracy: 0.094
+[9_0,   920/994] loss: 2.842 accuracy: 0.094
+[9_0,   924/994] loss: 3.131 accuracy: 0.094
+[9_0,   928/994] loss: 3.110 accuracy: 0.094
+[9_0,   932/994] loss: 3.029 accuracy: 0.094
+[9_0,   936/994] loss: 3.094 accuracy: 0.095
+[9_0,   940/994] loss: 2.977 accuracy: 0.095
+[9_0,   944/994] loss: 3.011 accuracy: 0.095
+[9_0,   948/994] loss: 3.026 accuracy: 0.095
+[9_0,   952/994] loss: 3.111 accuracy: 0.095
+[9_0,   956/994] loss: 3.279 accuracy: 0.095
+[9_0,   960/994] loss: 3.051 accuracy: 0.095
+[9_0,   964/994] loss: 3.354 accuracy: 0.095
+[9_0,   968/994] loss: 3.017 accuracy: 0.095
+[9_0,   972/994] loss: 3.250 accuracy: 0.095
+[9_0,   976/994] loss: 3.327 accuracy: 0.095
+[9_0,   980/994] loss: 2.783 accuracy: 0.095
+[9_0,   984/994] loss: 3.279 accuracy: 0.095
+[9_0,   988/994] loss: 3.048 accuracy: 0.095
+[9_0,   992/994] loss: 3.086 accuracy: 0.096
+Epoch:  9
+Training Loss: 779.3141, Val Loss: 3.1394, Test Loss: 3.1277
+Training accuracy:0.0957, Training F1:0.0050, Validation accuracy:0.1201, Validation F1:0.0033, Test accuracy:0.1186, Test F1:0.0028
+German F1: 0.0031, English F1: 0.0041, Spanish F1: 0.0010, French F1: 0.0020, Turkish F1: 0.0022
+[10_0,     4/994] loss: 3.011 accuracy: 0.141
+[10_0,     8/994] loss: 3.171 accuracy: 0.102
+[10_0,    12/994] loss: 3.139 accuracy: 0.099
+[10_0,    16/994] loss: 3.191 accuracy: 0.102
+[10_0,    20/994] loss: 3.441 accuracy: 0.091
+[10_0,    24/994] loss: 3.195 accuracy: 0.099
+[10_0,    28/994] loss: 2.912 accuracy: 0.103
+[10_0,    32/994] loss: 3.159 accuracy: 0.096
+[10_0,    36/994] loss: 2.867 accuracy: 0.099
+[10_0,    40/994] loss: 3.175 accuracy: 0.095
+[10_0,    44/994] loss: 3.144 accuracy: 0.097
+[10_0,    48/994] loss: 3.359 accuracy: 0.096
+[10_0,    52/994] loss: 2.977 accuracy: 0.100
+[10_0,    56/994] loss: 3.125 accuracy: 0.100
+[10_0,    60/994] loss: 3.087 accuracy: 0.106
+[10_0,    64/994] loss: 3.145 accuracy: 0.104
+[10_0,    68/994] loss: 3.002 accuracy: 0.105
+[10_0,    72/994] loss: 3.020 accuracy: 0.106
+[10_0,    76/994] loss: 3.319 accuracy: 0.104
+[10_0,    80/994] loss: 3.200 accuracy: 0.104
+[10_0,    84/994] loss: 3.053 accuracy: 0.104
+[10_0,    88/994] loss: 3.181 accuracy: 0.104
+[10_0,    92/994] loss: 3.338 accuracy: 0.103
+[10_0,    96/994] loss: 3.354 accuracy: 0.101
+[10_0,   100/994] loss: 3.258 accuracy: 0.099
+[10_0,   104/994] loss: 3.123 accuracy: 0.097
+[10_0,   108/994] loss: 3.109 accuracy: 0.099
+[10_0,   112/994] loss: 3.132 accuracy: 0.100
+[10_0,   116/994] loss: 3.044 accuracy: 0.100
+[10_0,   120/994] loss: 3.096 accuracy: 0.098
+[10_0,   124/994] loss: 2.803 accuracy: 0.099
+[10_0,   128/994] loss: 3.163 accuracy: 0.100
+[10_0,   132/994] loss: 3.069 accuracy: 0.100
+[10_0,   136/994] loss: 3.263 accuracy: 0.099
+[10_0,   140/994] loss: 3.521 accuracy: 0.097
+[10_0,   144/994] loss: 3.040 accuracy: 0.097
+[10_0,   148/994] loss: 3.408 accuracy: 0.095
+[10_0,   152/994] loss: 3.094 accuracy: 0.097
+[10_0,   156/994] loss: 2.929 accuracy: 0.097
+[10_0,   160/994] loss: 3.166 accuracy: 0.097
+[10_0,   164/994] loss: 3.134 accuracy: 0.096
+[10_0,   168/994] loss: 3.197 accuracy: 0.096
+[10_0,   172/994] loss: 3.368 accuracy: 0.094
+[10_0,   176/994] loss: 3.128 accuracy: 0.094
+[10_0,   180/994] loss: 2.851 accuracy: 0.095
+[10_0,   184/994] loss: 3.174 accuracy: 0.096
+[10_0,   188/994] loss: 3.105 accuracy: 0.097
+[10_0,   192/994] loss: 3.126 accuracy: 0.097
+[10_0,   196/994] loss: 3.074 accuracy: 0.097
+[10_0,   200/994] loss: 3.259 accuracy: 0.097
+[10_0,   204/994] loss: 3.008 accuracy: 0.098
+[10_0,   208/994] loss: 3.048 accuracy: 0.099
+[10_0,   212/994] loss: 3.209 accuracy: 0.099
+[10_0,   216/994] loss: 3.279 accuracy: 0.098
+[10_0,   220/994] loss: 3.274 accuracy: 0.098
+[10_0,   224/994] loss: 3.099 accuracy: 0.098
+[10_0,   228/994] loss: 3.280 accuracy: 0.098
+[10_0,   232/994] loss: 3.188 accuracy: 0.097
+[10_0,   236/994] loss: 2.991 accuracy: 0.098
+[10_0,   240/994] loss: 3.138 accuracy: 0.099
+[10_0,   244/994] loss: 3.091 accuracy: 0.099
+[10_0,   248/994] loss: 3.098 accuracy: 0.099
+[10_0,   252/994] loss: 2.987 accuracy: 0.100
+[10_0,   256/994] loss: 3.347 accuracy: 0.099
+[10_0,   260/994] loss: 3.203 accuracy: 0.099
+[10_0,   264/994] loss: 3.022 accuracy: 0.100
+[10_0,   268/994] loss: 3.012 accuracy: 0.101
+[10_0,   272/994] loss: 3.286 accuracy: 0.100
+[10_0,   276/994] loss: 3.149 accuracy: 0.100
+[10_0,   280/994] loss: 3.282 accuracy: 0.099
+[10_0,   284/994] loss: 3.342 accuracy: 0.098
+[10_0,   288/994] loss: 3.257 accuracy: 0.098
+[10_0,   292/994] loss: 3.237 accuracy: 0.098
+[10_0,   296/994] loss: 3.459 accuracy: 0.096
+[10_0,   300/994] loss: 3.051 accuracy: 0.096
+[10_0,   304/994] loss: 3.158 accuracy: 0.096
+[10_0,   308/994] loss: 3.220 accuracy: 0.096
+[10_0,   312/994] loss: 3.225 accuracy: 0.095
+[10_0,   316/994] loss: 2.861 accuracy: 0.096
+[10_0,   320/994] loss: 3.079 accuracy: 0.096
+[10_0,   324/994] loss: 3.391 accuracy: 0.095
+[10_0,   328/994] loss: 3.092 accuracy: 0.096
+[10_0,   332/994] loss: 3.089 accuracy: 0.096
+[10_0,   336/994] loss: 2.933 accuracy: 0.096
+[10_0,   340/994] loss: 3.072 accuracy: 0.097
+[10_0,   344/994] loss: 3.144 accuracy: 0.097
+[10_0,   348/994] loss: 3.104 accuracy: 0.098
+[10_0,   352/994] loss: 3.267 accuracy: 0.098
+[10_0,   356/994] loss: 3.044 accuracy: 0.098
+[10_0,   360/994] loss: 3.188 accuracy: 0.099
+[10_0,   364/994] loss: 2.971 accuracy: 0.100
+[10_0,   368/994] loss: 3.130 accuracy: 0.100
+[10_0,   372/994] loss: 2.997 accuracy: 0.101
+[10_0,   376/994] loss: 2.968 accuracy: 0.101
+[10_0,   380/994] loss: 3.027 accuracy: 0.101
+[10_0,   384/994] loss: 3.192 accuracy: 0.101
+[10_0,   388/994] loss: 3.099 accuracy: 0.101
+[10_0,   392/994] loss: 3.118 accuracy: 0.101
+[10_0,   396/994] loss: 3.119 accuracy: 0.101
+[10_0,   400/994] loss: 3.063 accuracy: 0.101
+[10_0,   404/994] loss: 3.220 accuracy: 0.101
+[10_0,   408/994] loss: 3.419 accuracy: 0.100
+[10_0,   412/994] loss: 3.021 accuracy: 0.100
+[10_0,   416/994] loss: 3.242 accuracy: 0.101
+[10_0,   420/994] loss: 3.087 accuracy: 0.101
+[10_0,   424/994] loss: 3.013 accuracy: 0.101
+[10_0,   428/994] loss: 3.111 accuracy: 0.101
+[10_0,   432/994] loss: 3.272 accuracy: 0.101
+[10_0,   436/994] loss: 3.065 accuracy: 0.101
+[10_0,   440/994] loss: 3.306 accuracy: 0.101
+[10_0,   444/994] loss: 3.068 accuracy: 0.101
+[10_0,   448/994] loss: 3.240 accuracy: 0.100
+[10_0,   452/994] loss: 2.994 accuracy: 0.100
+[10_0,   456/994] loss: 3.042 accuracy: 0.101
+[10_0,   460/994] loss: 2.932 accuracy: 0.101
+[10_0,   464/994] loss: 3.083 accuracy: 0.102
+[10_0,   468/994] loss: 3.288 accuracy: 0.101
+[10_0,   472/994] loss: 3.003 accuracy: 0.102
+[10_0,   476/994] loss: 2.950 accuracy: 0.102
+[10_0,   480/994] loss: 2.965 accuracy: 0.102
+[10_0,   484/994] loss: 3.116 accuracy: 0.102
+[10_0,   488/994] loss: 3.053 accuracy: 0.103
+[10_0,   492/994] loss: 3.171 accuracy: 0.102
+[10_0,   496/994] loss: 3.341 accuracy: 0.102
+[10_0,   500/994] loss: 2.984 accuracy: 0.102
+[10_0,   504/994] loss: 3.168 accuracy: 0.101
+[10_0,   508/994] loss: 3.020 accuracy: 0.101
+[10_0,   512/994] loss: 3.312 accuracy: 0.101
+[10_0,   516/994] loss: 3.079 accuracy: 0.101
+[10_0,   520/994] loss: 3.112 accuracy: 0.101
+[10_0,   524/994] loss: 3.148 accuracy: 0.101
+[10_0,   528/994] loss: 3.187 accuracy: 0.101
+[10_0,   532/994] loss: 3.070 accuracy: 0.101
+[10_0,   536/994] loss: 3.162 accuracy: 0.101
+[10_0,   540/994] loss: 3.037 accuracy: 0.101
+[10_0,   544/994] loss: 2.993 accuracy: 0.102
+[10_0,   548/994] loss: 3.487 accuracy: 0.101
+[10_0,   552/994] loss: 3.071 accuracy: 0.101
+[10_0,   556/994] loss: 3.054 accuracy: 0.101
+[10_0,   560/994] loss: 3.191 accuracy: 0.100
+[10_0,   564/994] loss: 3.130 accuracy: 0.101
+[10_0,   568/994] loss: 3.167 accuracy: 0.101
+[10_0,   572/994] loss: 3.379 accuracy: 0.101
+[10_0,   576/994] loss: 3.329 accuracy: 0.100
+[10_0,   580/994] loss: 2.899 accuracy: 0.100
+[10_0,   584/994] loss: 3.005 accuracy: 0.101
+[10_0,   588/994] loss: 2.879 accuracy: 0.101
+[10_0,   592/994] loss: 3.254 accuracy: 0.101
+[10_0,   596/994] loss: 3.022 accuracy: 0.101
+[10_0,   600/994] loss: 3.194 accuracy: 0.101
+[10_0,   604/994] loss: 3.097 accuracy: 0.101
+[10_0,   608/994] loss: 3.131 accuracy: 0.101
+[10_0,   612/994] loss: 3.085 accuracy: 0.101
+[10_0,   616/994] loss: 3.294 accuracy: 0.101
+[10_0,   620/994] loss: 2.997 accuracy: 0.101
+[10_0,   624/994] loss: 3.126 accuracy: 0.101
+[10_0,   628/994] loss: 2.986 accuracy: 0.101
+[10_0,   632/994] loss: 3.343 accuracy: 0.101
+[10_0,   636/994] loss: 3.188 accuracy: 0.101
+[10_0,   640/994] loss: 2.934 accuracy: 0.101
+[10_0,   644/994] loss: 2.993 accuracy: 0.101
+[10_0,   648/994] loss: 3.154 accuracy: 0.101
+[10_0,   652/994] loss: 3.189 accuracy: 0.101
+[10_0,   656/994] loss: 3.210 accuracy: 0.101
+[10_0,   660/994] loss: 3.161 accuracy: 0.101
+[10_0,   664/994] loss: 3.154 accuracy: 0.101
+[10_0,   668/994] loss: 3.111 accuracy: 0.101
+[10_0,   672/994] loss: 3.058 accuracy: 0.101
+[10_0,   676/994] loss: 3.158 accuracy: 0.100
+[10_0,   680/994] loss: 2.968 accuracy: 0.101
+[10_0,   684/994] loss: 3.258 accuracy: 0.101
+[10_0,   688/994] loss: 3.113 accuracy: 0.101
+[10_0,   692/994] loss: 3.146 accuracy: 0.100
+[10_0,   696/994] loss: 3.191 accuracy: 0.100
+[10_0,   700/994] loss: 3.235 accuracy: 0.100
+[10_0,   704/994] loss: 3.040 accuracy: 0.100
+[10_0,   708/994] loss: 3.161 accuracy: 0.100
+[10_0,   712/994] loss: 3.382 accuracy: 0.101
+[10_0,   716/994] loss: 3.055 accuracy: 0.101
+[10_0,   720/994] loss: 3.198 accuracy: 0.101
+[10_0,   724/994] loss: 3.033 accuracy: 0.101
+[10_0,   728/994] loss: 3.250 accuracy: 0.100
+[10_0,   732/994] loss: 3.223 accuracy: 0.100
+[10_0,   736/994] loss: 3.275 accuracy: 0.100
+[10_0,   740/994] loss: 3.270 accuracy: 0.100
+[10_0,   744/994] loss: 3.114 accuracy: 0.100
+[10_0,   748/994] loss: 3.222 accuracy: 0.100
+[10_0,   752/994] loss: 3.184 accuracy: 0.100
+[10_0,   756/994] loss: 3.249 accuracy: 0.100
+[10_0,   760/994] loss: 3.079 accuracy: 0.099
+[10_0,   764/994] loss: 3.582 accuracy: 0.099
+[10_0,   768/994] loss: 3.019 accuracy: 0.099
+[10_0,   772/994] loss: 3.391 accuracy: 0.099
+[10_0,   776/994] loss: 2.958 accuracy: 0.099
+[10_0,   780/994] loss: 3.003 accuracy: 0.099
+[10_0,   784/994] loss: 3.155 accuracy: 0.100
+[10_0,   788/994] loss: 3.134 accuracy: 0.100
+[10_0,   792/994] loss: 3.060 accuracy: 0.100
+[10_0,   796/994] loss: 3.185 accuracy: 0.099
+[10_0,   800/994] loss: 3.131 accuracy: 0.100
+[10_0,   804/994] loss: 2.883 accuracy: 0.100
+[10_0,   808/994] loss: 3.208 accuracy: 0.100
+[10_0,   812/994] loss: 3.303 accuracy: 0.100
+[10_0,   816/994] loss: 3.064 accuracy: 0.100
+[10_0,   820/994] loss: 3.142 accuracy: 0.100
+[10_0,   824/994] loss: 3.142 accuracy: 0.100
+[10_0,   828/994] loss: 3.136 accuracy: 0.100
+[10_0,   832/994] loss: 3.097 accuracy: 0.100
+[10_0,   836/994] loss: 3.049 accuracy: 0.100
+[10_0,   840/994] loss: 3.353 accuracy: 0.100
+[10_0,   844/994] loss: 3.102 accuracy: 0.100
+[10_0,   848/994] loss: 3.021 accuracy: 0.100
+[10_0,   852/994] loss: 3.189 accuracy: 0.100
+[10_0,   856/994] loss: 3.177 accuracy: 0.100
+[10_0,   860/994] loss: 3.189 accuracy: 0.100
+[10_0,   864/994] loss: 3.115 accuracy: 0.100
+[10_0,   868/994] loss: 3.327 accuracy: 0.100
+[10_0,   872/994] loss: 3.188 accuracy: 0.100
+[10_0,   876/994] loss: 3.107 accuracy: 0.100
+[10_0,   880/994] loss: 3.178 accuracy: 0.100
+[10_0,   884/994] loss: 3.159 accuracy: 0.100
+[10_0,   888/994] loss: 2.978 accuracy: 0.100
+[10_0,   892/994] loss: 3.147 accuracy: 0.100
+[10_0,   896/994] loss: 3.229 accuracy: 0.100
+[10_0,   900/994] loss: 3.106 accuracy: 0.100
+[10_0,   904/994] loss: 3.009 accuracy: 0.100
+[10_0,   908/994] loss: 2.988 accuracy: 0.100
+[10_0,   912/994] loss: 3.014 accuracy: 0.100
+[10_0,   916/994] loss: 2.977 accuracy: 0.100
+[10_0,   920/994] loss: 3.064 accuracy: 0.101
+[10_0,   924/994] loss: 3.102 accuracy: 0.101
+[10_0,   928/994] loss: 3.065 accuracy: 0.101
+[10_0,   932/994] loss: 3.289 accuracy: 0.101
+[10_0,   936/994] loss: 3.317 accuracy: 0.101
+[10_0,   940/994] loss: 3.382 accuracy: 0.101
+[10_0,   944/994] loss: 3.134 accuracy: 0.100
+[10_0,   948/994] loss: 3.210 accuracy: 0.100
+[10_0,   952/994] loss: 3.184 accuracy: 0.100
+[10_0,   956/994] loss: 3.176 accuracy: 0.100
+[10_0,   960/994] loss: 3.239 accuracy: 0.100
+[10_0,   964/994] loss: 3.097 accuracy: 0.100
+[10_0,   968/994] loss: 3.259 accuracy: 0.100
+[10_0,   972/994] loss: 3.229 accuracy: 0.100
+[10_0,   976/994] loss: 2.942 accuracy: 0.101
+[10_0,   980/994] loss: 3.150 accuracy: 0.100
+[10_0,   984/994] loss: 3.148 accuracy: 0.101
+[10_0,   988/994] loss: 2.973 accuracy: 0.101
+[10_0,   992/994] loss: 3.033 accuracy: 0.100
+Epoch:  10
+Training Loss: 778.6327, Val Loss: 3.1344, Test Loss: 3.1360
+Training accuracy:0.1005, Training F1:0.0064, Validation accuracy:0.1265, Validation F1:0.0081, Test accuracy:0.1207, Test F1:0.0064
+German F1: 0.0029, English F1: 0.0016, Spanish F1: 0.0084, French F1: 0.0052, Turkish F1: 0.0067
