@@ -77,7 +77,7 @@ class fusion_adapter(nn.Module):
     def __init__(self, args):
         super(fusion_adapter, self).__init__()
         # load pretrained MLLM
-        self.MLLM = AutoModel.from_pretrained(args.model_dir, return_dict=True, output_hidden_states=True)
+        self.MLLM = AutoModel.from_pretrained(args.model_dir)
         hidden_num = self.MLLM.get_input_embeddings().embedding_dim
         self.training = True
         self.lm_mask_token_id = args.lm_mask_token_id
@@ -100,8 +100,8 @@ class fusion_adapter(nn.Module):
     def forward(self, **inputs):
         # self.checking()
         # get MLLM output
-        outputs_MLLM = self.MLLM(**inputs).hidden_states
-        outputs_MLLM = outputs_MLLM[-1]
+        # outputs_MLLM = self.MLLM(**inputs)['last_hidden_state']
+        # outputs_MLLM = outputs_MLLM[-1]
         # add adversarial noise
         '''
         if self.training:
@@ -118,7 +118,7 @@ class fusion_adapter(nn.Module):
             outputs_MLLM = self.Mts(outputs_MLLM)
         '''
 
-        return outputs_MLLM
+        return self.MLLM(**inputs)['last_hidden_state']
 
     def checking(self):
         print(self.stage)
@@ -177,7 +177,7 @@ def loss_triple(args, outputs, lossfcn, input_ids=None, el2=True):
         return loss_dp
 
 
-def loss_wocontext(args, outputs, input_ids=None, lm_emb=None, el2=True):
+def loss_wocontext(args, outputs_query, outputs_pos, input_ids=None, lm_emb=None, el2=True):
     # lossfcn = InfoNCE(negative_mode='unpaired')
     lossfcn = InfoNCE()
     # lossfcn_el2 = nn.MSELoss()
@@ -185,8 +185,8 @@ def loss_wocontext(args, outputs, input_ids=None, lm_emb=None, el2=True):
     # outputs_query = outputs[:int(outputs.shape[0]/3)]
     # outputs_pos = outputs[int(outputs.shape[0]/3):int(outputs.shape[0]/3*2)]
     # outputs_neg = outputs[int(outputs.shape[0]/3*2):]
-    outputs_query = outputs[:int(outputs.shape[0]/2)]
-    outputs_pos = outputs[int(outputs.shape[0]/2):]
+    # outputs_query = outputs[:int(outputs.shape[0]/2)]
+    # outputs_pos = outputs[int(outputs.shape[0]/2):]
     # remove mask token
     if input_ids is not None:
         outputs_query = get_mask(outputs_query, input_ids[:int(input_ids.shape[0]/3)], args.lm_mask_token_id)

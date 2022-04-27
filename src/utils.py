@@ -287,12 +287,14 @@ class WOCLoader(Data.Dataset):
         # entity
         # inputs_neg = self.negative_sampler(len(e1_list))
         # input_e = self.tokenizer(e1_list+e2_list+inputs_neg, padding=True, truncation=True, max_length=128, return_tensors="pt")
-        input_e = self.tokenizer(e1_list+e2_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
+        input_e1 = self.tokenizer(e1_list, padding=True, truncation=True, max_length=32, return_tensors="pt")
+        input_e2 = self.tokenizer(e2_list, padding=True, truncation=True, max_length=32, return_tensors="pt")
         # triple
         # inputs_neg = self.negative_sampler(len(c_list))
         # input_t = self.tokenizer(c_list+o_list+inputs_neg, padding=True, truncation=True, max_length=128, return_tensors="pt")
-        input_t = self.tokenizer(c_list+o_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
-        return input_e, input_t
+        input_t1 = self.tokenizer(c_list, padding=True, truncation=True, max_length=32, return_tensors="pt")
+        input_t2 = self.tokenizer(o_list, padding=True, truncation=True, max_length=32, return_tensors="pt")
+        return input_e1, input_e2, input_t1, input_t2
 
 
 class WCLoader(Data.Dataset):
@@ -328,7 +330,7 @@ class WCLoader(Data.Dataset):
                 if len(tmp_data): num_triple += 1
         self.num_triple = num_triple
         self.fopen = open(os.path.join(args.data_dir, "triple_en_des.json"), "r")
-        self.triple_batch = int(args.batch_num/8)
+        self.triple_batch = int(args.batch_num/4)
         self.relation_dict = relation_dict
         self.entity_dict = entity_dict
         self.des_dict = des_dict
@@ -359,8 +361,11 @@ class WCLoader(Data.Dataset):
             # get entity data
             tmp_lang = random.choice([k for k,v in self.des_dict[s]["descriptions"].items()])
             tmp_label = self.des_dict[s]["labels"][tmp_lang]
+            '''
             tmp_sent = self.des_dict[s]["descriptions"][tmp_lang].replace(tmp_label, \
                                                                     self.lm_mask_token+" "+tmp_label+" "+self.lm_mask_token)
+            '''
+            tmp_sent = self.des_dict[s]["descriptions"][tmp_lang]
             c_list.append(tmp_sent)
             e_list.append(random.choice(self.entity_dict[s]))
         return self.cleaning(c_list, e_list, st_list, o_list)
@@ -370,38 +375,49 @@ class WCLoader(Data.Dataset):
         return [random.choice(self.entity_dict[qid]) for qid in qids]
 
     def cleaning(self, c_list, e_list, st_list, o_list):
+        '''
         # entity
         # inputs_neg = self.negative_sampler(len(c_list))
         # input_e = self.tokenizer(c_list+e_list+inputs_neg, padding=True, truncation=True, max_length=256, return_tensors="pt")
-        input_e = self.tokenizer(c_list+e_list, padding=True, truncation=True, max_length=256, return_tensors="pt")
+        input_e = self.tokenizer(c_list+e_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
         tmp_attn_mask = torch.where(input_e["input_ids"]==self.lm_mask_token_id, 0, input_e["attention_mask"])
         input_e["attention_mask"] = tmp_attn_mask
         # triple
         # inputs_neg = self.negative_sampler(len(st_list))
         # input_t = self.tokenizer(st_list+o_list+inputs_neg, padding=True, truncation=True, max_length=256, return_tensors="pt")
-        input_t = self.tokenizer(st_list+o_list, padding=True, truncation=True, max_length=256, return_tensors="pt")
+        input_t = self.tokenizer(st_list+o_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
         # set separation token [MASK] <mask> attention mask as 0
         tmp_attn_mask = torch.where(input_t["input_ids"]==self.lm_mask_token_id, 0, input_t["attention_mask"])
         input_t["attention_mask"] = tmp_attn_mask
         return input_e, input_t
+        '''
+        input_e1 = self.tokenizer(c_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
+        input_e2 = self.tokenizer(e_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
+        # triple
+        # inputs_neg = self.negative_sampler(len(c_list))
+        # input_t = self.tokenizer(c_list+o_list+inputs_neg, padding=True, truncation=True, max_length=128, return_tensors="pt")
+        input_t1 = self.tokenizer(st_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
+        input_t2 = self.tokenizer(o_list, padding=True, truncation=True, max_length=128, return_tensors="pt")
+        return input_e1, input_e2, input_t1, input_t2
 
 
 def grad_parameters(model, stage, fuse, free=True):
     # freeze all parameters
-    for name, param in model.named_parameters(): param.requires_grad = False
+    # for name, param in model.named_parameters(): param.requires_grad = False
     # set adapter parameters
     if fuse: 
         model.module.MLLM.train_adapter_fusion(model.module.MLLM.active_adapters)
     else:
         model.module.MLLM.train_adapter(stage)
     return
+    '''
     # set linear mapping
     for name, param in model.named_parameters():
         if "M"+model.module.stage in name:
             param.requires_grad = True
     return
-
+    '''
 
 def grad_universal(model, free=True):
     for name, param in model.named_parameters():
@@ -431,10 +447,11 @@ def save_model(model, accelerator, path, fusion=False):
     # accelerator.save(model.state_dict(), path)
     return
 
-def load_model(model, path):
+def load_model(model, path, fusion=False):
     model.MLLM.load_adapter(os.path.join(path, "ep"))
     model.MLLM.load_adapter(os.path.join(path, "tp"))
     model.MLLM.load_adapter(os.path.join(path, "es"))
     model.MLLM.load_adapter(os.path.join(path, "ts"))
-    model.MLLM.load_adapter_fusion(path, "ep,tp,es,ts")
+    if fusion:
+        model.MLLM.load_adapter_fusion(path, "ep,tp,es,ts")
     return

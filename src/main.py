@@ -28,11 +28,11 @@ if __name__ == "__main__":
                         help="number of training epochs.")
     parser.add_argument("--entity_epoch", type=int, default=1,
                         help="number of training epochs.")
-    parser.add_argument("--triple_epoch", type=int, default=8,
+    parser.add_argument("--triple_epoch", type=int, default=10,
                         help="number of training epochs.")
     parser.add_argument("--patience", type=int, default=10,
                         help="used for early stop")
-    parser.add_argument("--batch_num", type=int, default=80,
+    parser.add_argument("--batch_num", type=int, default=128,
                         help="number of triple samples per 1 batch")
     parser.add_argument("--neg_num", type=int, default=8,
                         help="number of negative samples")
