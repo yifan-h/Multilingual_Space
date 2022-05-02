@@ -2,6 +2,7 @@ import os
 import json
 import random
 import torch
+import torch.nn.functional as F
 from tqdm import tqdm
 
 seed = 123
@@ -116,3 +117,6 @@ def save_model(model, accelerator, path):
 def load_model(model, path):
     model.load_state_dict(torch.load(path, map_location='cpu'), strict=False)
     return
+
+def normalize(x):
+    return F.normalize(x, dim=-1)

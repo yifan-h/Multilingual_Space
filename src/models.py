@@ -91,33 +91,8 @@ class fusion_adapter(nn.Module):
             self.MLLM.add_adapter("ts")
             self.MLLM.add_adapter_fusion(["ep", "tp", "es", "ts"])
             self.MLLM.active_adapters = ac.Fuse("ep", "tp", "es", "ts")
-            # linear mapping
-            #self.Mep = nn.Linear(hidden_num, hidden_num, bias=False)
-            #self.Mtp = nn.Linear(hidden_num, hidden_num, bias=False)
-            #self.Mes = nn.Linear(hidden_num, hidden_num, bias=False)
-            #self.Mts = nn.Linear(hidden_num, hidden_num, bias=False)
 
     def forward(self, **inputs):
-        # self.checking()
-        # get MLLM output
-        # outputs_MLLM = self.MLLM(**inputs)['last_hidden_state']
-        # outputs_MLLM = outputs_MLLM[-1]
-        # add adversarial noise
-        '''
-        if self.training:
-            outputs_MLLM = outputs_MLLM + 0.05*torch.abs(outputs_MLLM).mean()*torch.randn_like(outputs_MLLM)
-
-        # output
-        if self.stage == "ep":
-            outputs_MLLM = self.Mep(outputs_MLLM)
-        elif self.stage == "tp":
-            outputs_MLLM = self.Mtp(outputs_MLLM)
-        elif self.stage == "es":
-            outputs_MLLM = self.Mes(outputs_MLLM)
-        elif self.stage == "ts":
-            outputs_MLLM = self.Mts(outputs_MLLM)
-        '''
-
         return self.MLLM(**inputs)['last_hidden_state']
 
     def checking(self):

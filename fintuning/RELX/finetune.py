@@ -20,10 +20,10 @@ import transformers.adapters.composition as ac
 
 
 use_adapter = True
-pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
-adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/mbert_adapter"
-#pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
-#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlm_adapter"
+#pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
+#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/mbert_adapter"
+pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
+adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlm_adapter"
 #pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large"
 #adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlmr_adapter"
 
@@ -37,7 +37,7 @@ elif base_model == "mtmb":
     tokenizer = AutoTokenizer.from_pretrained("akoksal/MTMB")
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device("cuda:4")
+device = torch.device("cuda:7")
 print(device)
 print(torch.cuda.device_count())
 print(torch.cuda.is_available())

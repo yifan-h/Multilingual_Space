@@ -4,6 +4,7 @@ import torch
 import random
 import torch.nn as nn
 import torch.nn.functional as F
+import transformers.adapters.composition as ac
 from transformers import AutoModel, Conv1D
 from info_nce import InfoNCE
 
@@ -80,39 +81,44 @@ class KGLM(nn.Module):
         # load pretrained MLLM
         self.model_name = args.model_name
         if args.model_name[-2:] == "KG":
-            self.base_model = MLKGLM(args)
-            load_model(self.base_model, args.modelkg_dir)
+            self.base_model = AutoModel.from_pretrained(args.model_dir)
+            self.base_model.add_adapter("ep")
+            self.base_model.add_adapter("tp")
+            self.base_model.add_adapter("es")
+            self.base_model.add_adapter("ts")
+            self.base_model.add_adapter_fusion(["ep", "tp", "es", "ts"])
+            self.base_model.active_adapters = ac.Fuse("ep", "tp", "es", "ts")
+            self.base_model.load_adapter(os.path.join(args.modelkg_dir, "ep"))
+            self.base_model.load_adapter(os.path.join(args.modelkg_dir, "tp"))
+            self.base_model.load_adapter(os.path.join(args.modelkg_dir, "es"))
+            self.base_model.load_adapter(os.path.join(args.modelkg_dir, "ts"))
+            self.base_model.load_adapter_fusion(args.modelkg_dir, "ep,tp,es,ts")
         else:
-            self.base_model = AutoModel.from_pretrained(args.model_dir, 
-                                                        return_dict=True,
-                                                        output_hidden_states=True)
-        # 64 for EA
-        # self.new_all_aggregator = nn.Sequential(nn.Linear(768, 128), nn.Dropout(0.2))
+            self.base_model = AutoModel.from_pretrained(args.model_dir)
 
     def forward(self, **inputs):
         if self.model_name[-2:] == "KG":
-            outputs = self.base_model(**inputs)
+            outputs = self.base_model(**inputs)['last_hidden_state']
         else:
-            outputs = self.base_model(**inputs).hidden_states[-1]
+            outputs = self.base_model(**inputs)['last_hidden_state']
         # outputs = torch.tanh(self.new_all_aggregator(outputs))
         outputs = torch.mean(outputs, dim=1)
         return outputs
 
 
-def lossfcn(output_src, output_dst, output_neg):
-    lossfcn = InfoNCE(negative_mode='unpaired')
-    lossfcn_el2 = nn.MSELoss()
-    lossfcn_re = nn.MSELoss()
-    outputs_query = output_src
-    outputs_pos = output_dst
-    outputs_neg = output_neg
-    # print(outputs_query.shape, outputs_pos.shape, outputs_neg.shape)
-    # average
-    # outputs_query = torch.mean(outputs_query, dim=1)
-    # outputs_pos = torch.mean(outputs_pos, dim=1)
-    # outputs_neg = torch.mean(outputs_neg, dim=1)
-    # cosine loss
-    loss_dp = lossfcn(outputs_query, outputs_pos, outputs_neg)
-    # l2-norm loss
-    loss_el2 = lossfcn_el2(outputs_query, outputs_pos) / (lossfcn_el2(outputs_query, outputs_pos) + lossfcn_el2(outputs_query, outputs_neg))
-    return loss_dp + loss_el2
+def lossfcn(outputs_query, outputs_pos, outputs_neg=None):
+    if outputs_neg is not None:
+        lossfcn = InfoNCE(negative_mode='unpaired')
+        #lossfcn_el2 = nn.MSELoss()
+        #lossfcn_re = nn.MSELoss()
+        # print(outputs_query.shape, outputs_pos.shape, outputs_neg.shape)
+        # average
+        # outputs_query = torch.mean(outputs_query, dim=1)
+        # outputs_pos = torch.mean(outputs_pos, dim=1)
+        # outputs_neg = torch.mean(outputs_neg, dim=1)
+        # cosine loss
+        loss_dp = lossfcn(outputs_query, outputs_pos, outputs_neg)
+    else:
+        lossfcn = InfoNCE()
+        loss_dp = lossfcn(outputs_query, outputs_pos)
+    return loss_dp

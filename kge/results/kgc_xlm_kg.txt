@@ -1,0 +1,227 @@
+Namespace(adam_epsilon=1e-06, batch_num=16, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=7, epoch=10, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', model_name='XLM-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlm_adapter', neg_num=1, patience=2, task_name='kgc', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+...testing...
+KGC: [ el ] | test hit@1:  0.07763 hit@10:  0.25139 MRR:  0.1069
+KGC: [ en ] | test hit@1:  0.0879 hit@10:  0.19118 MRR:  0.10696
+KGC: [ es ] | test hit@1:  0.0873 hit@10:  0.19654 MRR:  0.10682
+KGC: [ fr ] | test hit@1:  0.08138 hit@10:  0.18733 MRR:  0.10296
+KGC: [ ja ] | test hit@1:  0.04204 hit@10:  0.13351 MRR:  0.0612
+KGC: [ ast ] | test hit@1:  0.09458 hit@10:  0.22954 MRR:  0.11831
+KGC: [ ca ] | test hit@1:  0.10713 hit@10:  0.23184 MRR:  0.12669
+KGC: [ da ] | test hit@1:  0.10561 hit@10:  0.22837 MRR:  0.12489
+KGC: [ de ] | test hit@1:  0.09411 hit@10:  0.1966 MRR:  0.11158
+KGC: [ fa ] | test hit@1:  0.05453 hit@10:  0.16831 MRR:  0.07795
+KGC: [ fi ] | test hit@1:  0.07242 hit@10:  0.19287 MRR:  0.09649
+KGC: [ hu ] | test hit@1:  0.10516 hit@10:  0.23886 MRR:  0.12865
+KGC: [ it ] | test hit@1:  0.09823 hit@10:  0.20863 MRR:  0.11975
+KGC: [ nb ] | test hit@1:  0.11005 hit@10:  0.23482 MRR:  0.13189
+KGC: [ nl ] | test hit@1:  0.08364 hit@10:  0.19439 MRR:  0.10494
+KGC: [ pl ] | test hit@1:  0.09006 hit@10:  0.22081 MRR:  0.11398
+KGC: [ pt ] | test hit@1:  0.11055 hit@10:  0.22582 MRR:  0.12737
+KGC: [ ru ] | test hit@1:  0.04815 hit@10:  0.15552 MRR:  0.06771
+KGC: [ sv ] | test hit@1:  0.10925 hit@10:  0.22653 MRR:  0.13208
+KGC: [ zh ] | test hit@1:  0.04786 hit@10:  0.16364 MRR:  0.07064
+...testing...
+KGC: [ el ] | test hit@1:  0.07671 hit@10:  0.23475 MRR:  0.11
+KGC: [ en ] | test hit@1:  0.08539 hit@10:  0.21123 MRR:  0.10752
+KGC: [ es ] | test hit@1:  0.08608 hit@10:  0.21092 MRR:  0.10957
+KGC: [ fr ] | test hit@1:  0.08003 hit@10:  0.18823 MRR:  0.10187
+KGC: [ ja ] | test hit@1:  0.04204 hit@10:  0.13896 MRR:  0.06307
+KGC: [ ast ] | test hit@1:  0.09068 hit@10:  0.24584 MRR:  0.11882
+KGC: [ ca ] | test hit@1:  0.09125 hit@10:  0.24197 MRR:  0.12125
+KGC: [ da ] | test hit@1:  0.09431 hit@10:  0.24708 MRR:  0.12297
+KGC: [ de ] | test hit@1:  0.08647 hit@10:  0.22814 MRR:  0.11292
+KGC: [ fa ] | test hit@1:  0.05152 hit@10:  0.19794 MRR:  0.07967
+KGC: [ fi ] | test hit@1:  0.07552 hit@10:  0.21882 MRR:  0.10267
+KGC: [ hu ] | test hit@1:  0.09421 hit@10:  0.23456 MRR:  0.12262
+KGC: [ it ] | test hit@1:  0.09325 hit@10:  0.21998 MRR:  0.11648
+KGC: [ nb ] | test hit@1:  0.10416 hit@10:  0.2477 MRR:  0.12839
+KGC: [ nl ] | test hit@1:  0.0892 hit@10:  0.231 MRR:  0.11083
+KGC: [ pl ] | test hit@1:  0.08005 hit@10:  0.23516 MRR:  0.1084
+KGC: [ pt ] | test hit@1:  0.08543 hit@10:  0.21859 MRR:  0.11081
+KGC: [ ru ] | test hit@1:  0.06997 hit@10:  0.19224 MRR:  0.09314
+KGC: [ sv ] | test hit@1:  0.1009 hit@10:  0.23254 MRR:  0.12763
+KGC: [ zh ] | test hit@1:  0.05056 hit@10:  0.16557 MRR:  0.07017
+...testing...
+KGC: [ el ] | test hit@1:  0.06377 hit@10:  0.23198 MRR:  0.09922
+KGC: [ en ] | test hit@1:  0.09676 hit@10:  0.23747 MRR:  0.11895
+KGC: [ es ] | test hit@1:  0.09047 hit@10:  0.21897 MRR:  0.11689
+KGC: [ fr ] | test hit@1:  0.08769 hit@10:  0.21371 MRR:  0.11044
+KGC: [ ja ] | test hit@1:  0.0397 hit@10:  0.1448 MRR:  0.06323
+KGC: [ ast ] | test hit@1:  0.10202 hit@10:  0.25576 MRR:  0.12969
+KGC: [ ca ] | test hit@1:  0.09936 hit@10:  0.25482 MRR:  0.12771
+KGC: [ da ] | test hit@1:  0.10756 hit@10:  0.26189 MRR:  0.13467
+KGC: [ de ] | test hit@1:  0.10002 hit@10:  0.2577 MRR:  0.12459
+KGC: [ fa ] | test hit@1:  0.05324 hit@10:  0.13869 MRR:  0.07092
+KGC: [ fi ] | test hit@1:  0.0763 hit@10:  0.21611 MRR:  0.10137
+KGC: [ hu ] | test hit@1:  0.10164 hit@10:  0.24433 MRR:  0.12858
+KGC: [ it ] | test hit@1:  0.10072 hit@10:  0.24211 MRR:  0.12485
+KGC: [ nb ] | test hit@1:  0.1141 hit@10:  0.26021 MRR:  0.13729
+KGC: [ nl ] | test hit@1:  0.11006 hit@10:  0.25139 MRR:  0.12753
+KGC: [ pl ] | test hit@1:  0.08672 hit@10:  0.26284 MRR:  0.11644
+KGC: [ pt ] | test hit@1:  0.09077 hit@10:  0.23147 MRR:  0.11769
+KGC: [ ru ] | test hit@1:  0.0814 hit@10:  0.20125 MRR:  0.10079
+KGC: [ sv ] | test hit@1:  0.10825 hit@10:  0.25426 MRR:  0.13531
+KGC: [ zh ] | test hit@1:  0.04709 hit@10:  0.15014 MRR:  0.06777
+...testing...
+KGC: [ el ] | test hit@1:  0.07116 hit@10:  0.23105 MRR:  0.09962
+KGC: [ en ] | test hit@1:  0.09709 hit@10:  0.24098 MRR:  0.11738
+KGC: [ es ] | test hit@1:  0.09168 hit@10:  0.22165 MRR:  0.11574
+KGC: [ fr ] | test hit@1:  0.09085 hit@10:  0.21934 MRR:  0.11109
+KGC: [ ja ] | test hit@1:  0.04087 hit@10:  0.14831 MRR:  0.06326
+KGC: [ ast ] | test hit@1:  0.10273 hit@10:  0.25646 MRR:  0.1308
+KGC: [ ca ] | test hit@1:  0.0997 hit@10:  0.25786 MRR:  0.12964
+KGC: [ da ] | test hit@1:  0.10795 hit@10:  0.26306 MRR:  0.13637
+KGC: [ de ] | test hit@1:  0.10076 hit@10:  0.25721 MRR:  0.12728
+KGC: [ fa ] | test hit@1:  0.05281 hit@10:  0.13482 MRR:  0.07137
+KGC: [ fi ] | test hit@1:  0.07165 hit@10:  0.2165 MRR:  0.1012
+KGC: [ hu ] | test hit@1:  0.0993 hit@10:  0.24902 MRR:  0.12701
+KGC: [ it ] | test hit@1:  0.10127 hit@10:  0.24294 MRR:  0.12577
+KGC: [ nb ] | test hit@1:  0.11262 hit@10:  0.2661 MRR:  0.14126
+KGC: [ nl ] | test hit@1:  0.0994 hit@10:  0.2551 MRR:  0.12375
+KGC: [ pl ] | test hit@1:  0.09039 hit@10:  0.26351 MRR:  0.11474
+KGC: [ pt ] | test hit@1:  0.09328 hit@10:  0.23712 MRR:  0.11874
+KGC: [ ru ] | test hit@1:  0.06858 hit@10:  0.20506 MRR:  0.09234
+KGC: [ sv ] | test hit@1:  0.1146 hit@10:  0.25092 MRR:  0.13769
+KGC: [ zh ] | test hit@1:  0.04284 hit@10:  0.14628 MRR:  0.0649
+...testing...
+KGC: [ el ] | test hit@1:  0.07394 hit@10:  0.22366 MRR:  0.1011
+KGC: [ en ] | test hit@1:  0.09492 hit@10:  0.2373 MRR:  0.11668
+KGC: [ es ] | test hit@1:  0.09144 hit@10:  0.21434 MRR:  0.11391
+KGC: [ fr ] | test hit@1:  0.0895 hit@10:  0.21957 MRR:  0.11219
+KGC: [ ja ] | test hit@1:  0.03698 hit@10:  0.13896 MRR:  0.05983
+KGC: [ ast ] | test hit@1:  0.10556 hit@10:  0.25859 MRR:  0.12861
+KGC: [ ca ] | test hit@1:  0.10172 hit@10:  0.24806 MRR:  0.12893
+KGC: [ da ] | test hit@1:  0.11146 hit@10:  0.25682 MRR:  0.13578
+KGC: [ de ] | test hit@1:  0.09879 hit@10:  0.25622 MRR:  0.12486
+KGC: [ fa ] | test hit@1:  0.0541 hit@10:  0.13654 MRR:  0.0723
+KGC: [ fi ] | test hit@1:  0.07746 hit@10:  0.21418 MRR:  0.1012
+KGC: [ hu ] | test hit@1:  0.09656 hit@10:  0.24159 MRR:  0.12288
+KGC: [ it ] | test hit@1:  0.09878 hit@10:  0.23575 MRR:  0.12192
+KGC: [ nb ] | test hit@1:  0.11851 hit@10:  0.26316 MRR:  0.14319
+KGC: [ nl ] | test hit@1:  0.09407 hit@10:  0.24861 MRR:  0.11851
+KGC: [ pl ] | test hit@1:  0.09039 hit@10:  0.23049 MRR:  0.11221
+KGC: [ pt ] | test hit@1:  0.09705 hit@10:  0.22959 MRR:  0.12133
+KGC: [ ru ] | test hit@1:  0.05404 hit@10:  0.20679 MRR:  0.08203
+KGC: [ sv ] | test hit@1:  0.11794 hit@10:  0.24958 MRR:  0.13966
+KGC: [ zh ] | test hit@1:  0.04902 hit@10:  0.15361 MRR:  0.06621
+...testing...
+KGC: [ el ] | test hit@1:  0.07116 hit@10:  0.22643 MRR:  0.10375
+KGC: [ en ] | test hit@1:  0.09475 hit@10:  0.2485 MRR:  0.11845
+KGC: [ es ] | test hit@1:  0.08754 hit@10:  0.21873 MRR:  0.11305
+KGC: [ fr ] | test hit@1:  0.0922 hit@10:  0.22498 MRR:  0.11583
+KGC: [ ja ] | test hit@1:  0.03542 hit@10:  0.13235 MRR:  0.05693
+KGC: [ ast ] | test hit@1:  0.09848 hit@10:  0.26178 MRR:  0.12683
+KGC: [ ca ] | test hit@1:  0.10071 hit@10:  0.24975 MRR:  0.12674
+KGC: [ da ] | test hit@1:  0.11068 hit@10:  0.25955 MRR:  0.13787
+KGC: [ de ] | test hit@1:  0.09756 hit@10:  0.25942 MRR:  0.12416
+KGC: [ fa ] | test hit@1:  0.0614 hit@10:  0.14942 MRR:  0.07653
+KGC: [ fi ] | test hit@1:  0.07707 hit@10:  0.21727 MRR:  0.10365
+KGC: [ hu ] | test hit@1:  0.09226 hit@10:  0.23612 MRR:  0.12
+KGC: [ it ] | test hit@1:  0.09878 hit@10:  0.23547 MRR:  0.12263
+KGC: [ nb ] | test hit@1:  0.11999 hit@10:  0.26242 MRR:  0.14637
+KGC: [ nl ] | test hit@1:  0.09175 hit@10:  0.2551 MRR:  0.11887
+KGC: [ pl ] | test hit@1:  0.08506 hit@10:  0.21614 MRR:  0.10973
+KGC: [ pt ] | test hit@1:  0.09768 hit@10:  0.23053 MRR:  0.12261
+KGC: [ ru ] | test hit@1:  0.05369 hit@10:  0.19363 MRR:  0.07752
+KGC: [ sv ] | test hit@1:  0.1156 hit@10:  0.25326 MRR:  0.1409
+KGC: [ zh ] | test hit@1:  0.04438 hit@10:  0.14821 MRR:  0.06513
+...testing...
+KGC: [ el ] | test hit@1:  0.07579 hit@10:  0.23013 MRR:  0.11161
+KGC: [ en ] | test hit@1:  0.1016 hit@10:  0.24916 MRR:  0.12565
+KGC: [ es ] | test hit@1:  0.09217 hit@10:  0.22336 MRR:  0.11818
+KGC: [ fr ] | test hit@1:  0.09739 hit@10:  0.23242 MRR:  0.11904
+KGC: [ ja ] | test hit@1:  0.03036 hit@10:  0.13157 MRR:  0.05375
+KGC: [ ast ] | test hit@1:  0.10379 hit@10:  0.26709 MRR:  0.13156
+KGC: [ ca ] | test hit@1:  0.10105 hit@10:  0.25617 MRR:  0.12693
+KGC: [ da ] | test hit@1:  0.1138 hit@10:  0.26578 MRR:  0.13991
+KGC: [ de ] | test hit@1:  0.10002 hit@10:  0.26312 MRR:  0.12726
+KGC: [ fa ] | test hit@1:  0.06526 hit@10:  0.1447 MRR:  0.07877
+KGC: [ fi ] | test hit@1:  0.07591 hit@10:  0.22463 MRR:  0.10642
+KGC: [ hu ] | test hit@1:  0.0903 hit@10:  0.23612 MRR:  0.11934
+KGC: [ it ] | test hit@1:  0.09989 hit@10:  0.24433 MRR:  0.12472
+KGC: [ nb ] | test hit@1:  0.12146 hit@10:  0.26868 MRR:  0.14673
+KGC: [ nl ] | test hit@1:  0.09337 hit@10:  0.25857 MRR:  0.12202
+KGC: [ pl ] | test hit@1:  0.08973 hit@10:  0.22181 MRR:  0.11006
+KGC: [ pt ] | test hit@1:  0.09799 hit@10:  0.23712 MRR:  0.1231
+KGC: [ ru ] | test hit@1:  0.0523 hit@10:  0.17354 MRR:  0.07456
+KGC: [ sv ] | test hit@1:  0.11661 hit@10:  0.26061 MRR:  0.14188
+KGC: [ zh ] | test hit@1:  0.04361 hit@10:  0.14087 MRR:  0.06263
+...testing...
+KGC: [ el ] | test hit@1:  0.08318 hit@10:  0.22458 MRR:  0.11506
+KGC: [ en ] | test hit@1:  0.10445 hit@10:  0.25184 MRR:  0.12794
+KGC: [ es ] | test hit@1:  0.09071 hit@10:  0.23019 MRR:  0.11835
+KGC: [ fr ] | test hit@1:  0.09716 hit@10:  0.23354 MRR:  0.11838
+KGC: [ ja ] | test hit@1:  0.03153 hit@10:  0.12106 MRR:  0.05251
+KGC: [ ast ] | test hit@1:  0.10875 hit@10:  0.27063 MRR:  0.13601
+KGC: [ ca ] | test hit@1:  0.10037 hit@10:  0.2582 MRR:  0.12532
+KGC: [ da ] | test hit@1:  0.11341 hit@10:  0.27202 MRR:  0.13963
+KGC: [ de ] | test hit@1:  0.10126 hit@10:  0.26657 MRR:  0.12812
+KGC: [ fa ] | test hit@1:  0.06312 hit@10:  0.14126 MRR:  0.07682
+KGC: [ fi ] | test hit@1:  0.07785 hit@10:  0.22463 MRR:  0.10671
+KGC: [ hu ] | test hit@1:  0.08679 hit@10:  0.2412 MRR:  0.116
+KGC: [ it ] | test hit@1:  0.10183 hit@10:  0.25097 MRR:  0.1264
+KGC: [ nb ] | test hit@1:  0.11667 hit@10:  0.27273 MRR:  0.14296
+KGC: [ nl ] | test hit@1:  0.09824 hit@10:  0.25996 MRR:  0.12654
+KGC: [ pl ] | test hit@1:  0.08572 hit@10:  0.21948 MRR:  0.11061
+KGC: [ pt ] | test hit@1:  0.09516 hit@10:  0.23964 MRR:  0.12133
+KGC: [ ru ] | test hit@1:  0.04884 hit@10:  0.15275 MRR:  0.07252
+KGC: [ sv ] | test hit@1:  0.1156 hit@10:  0.26395 MRR:  0.13904
+KGC: [ zh ] | test hit@1:  0.03937 hit@10:  0.12505 MRR:  0.05844
+...testing...
+KGC: [ el ] | test hit@1:  0.0841 hit@10:  0.21627 MRR:  0.1115
+KGC: [ en ] | test hit@1:  0.11029 hit@10:  0.25284 MRR:  0.13101
+KGC: [ es ] | test hit@1:  0.09656 hit@10:  0.23653 MRR:  0.12045
+KGC: [ fr ] | test hit@1:  0.09896 hit@10:  0.24031 MRR:  0.1211
+KGC: [ ja ] | test hit@1:  0.03192 hit@10:  0.11989 MRR:  0.05163
+KGC: [ ast ] | test hit@1:  0.11052 hit@10:  0.27559 MRR:  0.13672
+KGC: [ ca ] | test hit@1:  0.10375 hit@10:  0.26495 MRR:  0.12818
+KGC: [ da ] | test hit@1:  0.11107 hit@10:  0.27864 MRR:  0.13874
+KGC: [ de ] | test hit@1:  0.10618 hit@10:  0.26632 MRR:  0.13145
+KGC: [ fa ] | test hit@1:  0.05968 hit@10:  0.13912 MRR:  0.07516
+KGC: [ fi ] | test hit@1:  0.07978 hit@10:  0.23005 MRR:  0.10647
+KGC: [ hu ] | test hit@1:  0.086 hit@10:  0.2412 MRR:  0.11605
+KGC: [ it ] | test hit@1:  0.10874 hit@10:  0.2554 MRR:  0.12972
+KGC: [ nb ] | test hit@1:  0.11962 hit@10:  0.2753 MRR:  0.14531
+KGC: [ nl ] | test hit@1:  0.10797 hit@10:  0.26251 MRR:  0.13163
+KGC: [ pl ] | test hit@1:  0.08773 hit@10:  0.22915 MRR:  0.11208
+KGC: [ pt ] | test hit@1:  0.09422 hit@10:  0.23681 MRR:  0.12168
+KGC: [ ru ] | test hit@1:  0.04607 hit@10:  0.14236 MRR:  0.06947
+KGC: [ sv ] | test hit@1:  0.11594 hit@10:  0.27598 MRR:  0.14268
+KGC: [ zh ] | test hit@1:  0.03551 hit@10:  0.1181 MRR:  0.05614
+...testing...
+KGC: [ el ] | test hit@1:  0.08133 hit@10:  0.21349 MRR:  0.10747
+KGC: [ en ] | test hit@1:  0.11096 hit@10:  0.25568 MRR:  0.13319
+KGC: [ es ] | test hit@1:  0.09607 hit@10:  0.23921 MRR:  0.12167
+KGC: [ fr ] | test hit@1:  0.10054 hit@10:  0.24572 MRR:  0.12388
+KGC: [ ja ] | test hit@1:  0.03114 hit@10:  0.11872 MRR:  0.05161
+KGC: [ ast ] | test hit@1:  0.10981 hit@10:  0.28162 MRR:  0.13943
+KGC: [ ca ] | test hit@1:  0.11186 hit@10:  0.27374 MRR:  0.13349
+KGC: [ da ] | test hit@1:  0.11146 hit@10:  0.28215 MRR:  0.14255
+KGC: [ de ] | test hit@1:  0.10815 hit@10:  0.26509 MRR:  0.13108
+KGC: [ fa ] | test hit@1:  0.05496 hit@10:  0.13568 MRR:  0.07111
+KGC: [ fi ] | test hit@1:  0.07746 hit@10:  0.23393 MRR:  0.10693
+KGC: [ hu ] | test hit@1:  0.08757 hit@10:  0.23612 MRR:  0.1177
+KGC: [ it ] | test hit@1:  0.11234 hit@10:  0.25844 MRR:  0.1337
+KGC: [ nb ] | test hit@1:  0.1244 hit@10:  0.28119 MRR:  0.14927
+KGC: [ nl ] | test hit@1:  0.10357 hit@10:  0.26761 MRR:  0.13143
+KGC: [ pl ] | test hit@1:  0.09073 hit@10:  0.23082 MRR:  0.1134
+KGC: [ pt ] | test hit@1:  0.09925 hit@10:  0.24623 MRR:  0.12447
+KGC: [ ru ] | test hit@1:  0.04641 hit@10:  0.13751 MRR:  0.06735
+KGC: [ sv ] | test hit@1:  0.11928 hit@10:  0.27898 MRR:  0.14453
+KGC: [ zh ] | test hit@1:  0.03474 hit@10:  0.11386 MRR:  0.05685

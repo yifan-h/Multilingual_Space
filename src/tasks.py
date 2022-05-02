@@ -560,10 +560,10 @@ def train_fuse_phrase(args, model_mlkg):
     # training: adapter, non-context
     count_save = 0
     time_start = time.time()
-    loss_list1, loss_list2 = [], []
+    loss_list1, loss_list2 = [0.1], [0.1]
     for e in range(args.triple_epoch):
         for encoded_inputs in wocontext_data:
-            if random.random() > 0.4: continue
+            if random.random() > 0.1: continue
             input_e1, input_e2, input_t1, input_t2 = encoded_inputs
             input_e1 = {k:torch.squeeze(v) for k, v in input_e1.items()}
             input_e2 = {k:torch.squeeze(v) for k, v in input_e2.items()}
@@ -601,7 +601,7 @@ def train_fuse_phrase(args, model_mlkg):
                 # loss
                 loss_avg1 = round(sum(loss_list1) / len(loss_list1), 4)
                 loss_avg2 = round(sum(loss_list2) / len(loss_list2), 4)
-                loss_list1, loss_list2 = [], []
+                loss_list1, loss_list2 = [0.1], [0.1]
                 print("progress (w/o context) -- fusion: ", count_save, "/", len(wocontext_data)*args.triple_epoch, " |time: ", time_length, "s |loss (u, t): ",loss_avg1, " ", loss_avg2)
         # load data
         wocontext_dataset = WOCLoader(args)
@@ -628,10 +628,10 @@ def train_fuse_sentence(args, model_mlkg):
     # training: adapter: context
     count_save = 0
     time_start = time.time()
-    loss_list1, loss_list2 = [], []
+    loss_list1, loss_list2 = [0.1], [0.1]
     for e in range(args.triple_epoch):
         for encoded_inputs in wcontext_data:
-            if random.random() > 0.4: continue
+            if random.random() > 0.2: continue
             input_e1, input_e2, input_t1, input_t2 = encoded_inputs
             input_e1 = {k:torch.squeeze(v) for k, v in input_e1.items()}
             input_e2 = {k:torch.squeeze(v) for k, v in input_e2.items()}
@@ -669,7 +669,7 @@ def train_fuse_sentence(args, model_mlkg):
                 # loss
                 loss_avg1 = round(sum(loss_list1) / len(loss_list1), 4)
                 loss_avg2 = round(sum(loss_list2) / len(loss_list2), 4)
-                loss_list1, loss_list2 = [], []
+                loss_list1, loss_list2 = [0.1], [0.1]
                 print("progress (w context) -- fusion: ", count_save, "/", len(wcontext_data)*args.triple_epoch, " |time: ", time_length, "s |loss (u, t): ",loss_avg1, " ", loss_avg2)
         # load data
         wcontext_dataset = WCLoader(args)
@@ -732,10 +732,10 @@ def ki_mlkg(args):
     # train fusion
     args.batch_num = int(args.batch_num/2)
     args.triple_epoch = 1
-    for i in range(10):
+    for i in range(16):
         print("====> Fusion: phrase <====")
         model_mlkg = fusion_adapter(args)
-        load_model(model_mlkg, args.tmp_dir)
+        load_model(model_mlkg, args.tmp_dir, True)
         train_fuse_phrase(args, model_mlkg)
         print("====> Fusion: sentence <====")
         model_mlkg = fusion_adapter(args)

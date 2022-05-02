@@ -1,0 +1,24 @@
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Namespace(adam_epsilon=1e-06, batch_num=16, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=7, epoch=10, lr=1e-06, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', model_name='mBERT', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_adapter', neg_num=1, patience=2, task_name='ea', tmp_dir='./tmp/checkpoints', weight_decay=0.01)
+KGC: [ en_nb ] | hit@1:  0.51089 hit@5:  0.55485 mrr:  0.50805
+KGC: [ en_da ] | hit@1:  0.50878 hit@5:  0.55387 mrr:  0.50788
+KGC: [ en_zh ] | hit@1:  0.08956 hit@5:  0.13077 mrr:  0.09756
+KGC: [ en_fr ] | hit@1:  0.81121 hit@5:  0.84268 mrr:  0.80695
+KGC: [ en_es ] | hit@1:  0.50866 hit@5:  0.55186 mrr:  0.50366
+KGC: [ en_it ] | hit@1:  0.49316 hit@5:  0.5381 mrr:  0.49017
+KGC: [ en_pl ] | hit@1:  0.4938 hit@5:  0.53847 mrr:  0.49181
+KGC: [ en_fa ] | hit@1:  0.20292 hit@5:  0.27934 mrr:  0.2108
+KGC: [ en_ru ] | hit@1:  0.30532 hit@5:  0.37035 mrr:  0.30788
+KGC: [ en_sv ] | hit@1:  0.5074 hit@5:  0.55168 mrr:  0.50534
+KGC: [ en_cs ] | hit@1:  0.48582 hit@5:  0.52993 mrr:  0.48566
+KGC: [ en_ast ] | hit@1:  0.52289 hit@5:  0.5666 mrr:  0.52219
+KGC: [ en_pt ] | hit@1:  0.51141 hit@5:  0.55467 mrr:  0.50773
+KGC: [ en_de ] | hit@1:  0.78753 hit@5:  0.80877 mrr:  0.78301
+KGC: [ en_hu ] | hit@1:  0.48026 hit@5:  0.52403 mrr:  0.47796
+KGC: [ en_ar ] | hit@1:  0.18052 hit@5:  0.25615 mrr:  0.19044
+KGC: [ en_ja ] | hit@1:  0.13493 hit@5:  0.20062 mrr:  0.14684
+KGC: [ en_fi ] | hit@1:  0.50116 hit@5:  0.54479 mrr:  0.50012
+KGC: [ en_nl ] | hit@1:  0.52795 hit@5:  0.57295 mrr:  0.52236
+KGC: [ en_ca ] | hit@1:  0.48801 hit@5:  0.53397 mrr:  0.4862
