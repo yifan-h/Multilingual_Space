@@ -2,17 +2,48 @@ import os
 import copy
 import torch
 import random
+import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
 from transformers import AutoModel, Conv1D
 import transformers.adapters.composition as ac
 
+
+# seed
 seed = 123
+# random
 random.seed(seed)
+# numpy
+np.random.seed(seed)
+# torch
 torch.manual_seed(seed)
 torch.cuda.manual_seed(seed)
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
+
+# adapterhub link: https://docs.adapterhub.ml/installation.html
+
+# load adapter code
+'''
+adapter_path = "adapter folder path"
+def load_adapter(adapter_path, model):
+    import transformers.adapters.composition as ac
+    model.add_adapter("ep")
+    model.add_adapter("tp")
+    model.add_adapter("es")
+    model.add_adapter("ts")
+    model.add_adapter_fusion(["ep", "tp", "es", "ts"])
+    model.active_adapters = ac.Fuse("ep", "tp", "es", "ts")
+    model.load_adapter(os.path.join(adapter_path, "ep"))
+    model.load_adapter(os.path.join(adapter_path, "tp"))
+    model.load_adapter(os.path.join(adapter_path, "es"))
+    model.load_adapter(os.path.join(adapter_path, "ts"))
+    model.load_adapter_fusion(adapter_path, "ep,tp,es,ts")
+    return model
+'''
+
+# adapter path: /cluster/scratch/yifhou/Multilingual_Space/tmp/adapter.tar.gz
+
 
 class MLKGLM(nn.Module):
     """docstring for ClassName"""
