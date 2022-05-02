@@ -42,7 +42,7 @@ def load_adapter(adapter_path, model):
     return model
 '''
 
-# adapter path: /cluster/scratch/yifhou/Multilingual_Space/tmp/adapter.tar.gz
+# adapter path: /cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/adapter_old.tar.gz
 
 
 class MLKGLM(nn.Module):
