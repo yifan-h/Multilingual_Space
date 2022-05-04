@@ -212,8 +212,6 @@ def extend_kgdataset(args):
                         t = "\t".join([entity_dict_wiki[s_text][k], r_text, entity_dict_wiki[o_text][k]])
                         tmp_triple.append(t)
             triple_dict[k] = tmp_triple
-
-        lang_set = {"eo": 19474, "vo": 8719}
         for k, v in triple_dict.items():
             if k in lang_set:
                 data_path_test = os.path.join(args.kg_dir, "extended", k+"-test.tsv")
