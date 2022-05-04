@@ -275,3 +275,1708 @@ progress (w context) -- adapter:  48000 / 50450  |time:  1046.5414 s |loss (u, t
 progress (w context) -- adapter:  49000 / 50450  |time:  1044.6444 s |loss (u, t):  0.0803   0.2461
 progress (w context) -- adapter:  50000 / 50450  |time:  1047.4099 s |loss (u, t):  0.0775   0.2391
 
+Namespace(adam_epsilon=1e-08, batch_num=96, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_mask_token_id=-1, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', neg_num=8, patience=10, tmp_dir='./tmp/xlmr_adapter', triple_epoch=10, warmup_steps=10000.0)
+Namespace(adam_epsilon=1e-08, batch_num=96, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_mask_token_id=-1, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', neg_num=8, patience=10, tmp_dir='./tmp/xlmr_adapter', triple_epoch=10, warmup_steps=10000.0)====> Fusion: phrase <====
+
+====> Fusion: phrase <====
+Namespace(adam_epsilon=1e-08, batch_num=96, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_mask_token_id=-1, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', neg_num=8, patience=10, tmp_dir='./tmp/xlmr_adapter', triple_epoch=10, warmup_steps=10000.0)
+====> Fusion: phrase <====
+Namespace(adam_epsilon=1e-08, batch_num=96, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_mask_token_id=-1, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', neg_num=8, patience=10, tmp_dir='./tmp/xlmr_adapter', triple_epoch=10, warmup_steps=10000.0)
+====> Fusion: phrase <====
+Namespace(adam_epsilon=1e-08, batch_num=96, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_mask_token_id=-1, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', neg_num=8, patience=10, tmp_dir='./tmp/xlmr_adapter', triple_epoch=10, warmup_steps=10000.0)
+====> Fusion: phrase <====
+Namespace(adam_epsilon=1e-08, batch_num=96, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_mask_token_id=-1, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', neg_num=8, patience=10, tmp_dir='./tmp/xlmr_adapter', triple_epoch=10, warmup_steps=10000.0)
+====> Fusion: phrase <====
+Namespace(adam_epsilon=1e-08, batch_num=96, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_mask_token_id=-1, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', neg_num=8, patience=10, tmp_dir='./tmp/xlmr_adapter', triple_epoch=10, warmup_steps=10000.0)
+====> Fusion: phrase <====
+Namespace(adam_epsilon=1e-08, batch_num=96, data_dir='/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10', device=-1, entity_epoch=1, lm_mask_token_id=-1, lr=0.0001, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', neg_num=8, patience=10, tmp_dir='./tmp/xlmr_adapter', triple_epoch=10, warmup_steps=10000.0)
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2266.3944 s |loss (u, t):  0.4441   0.8722
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2242.8034 s |loss (u, t):  0.4091   0.7179
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1638.2881 s |loss (u, t):  0.2502   0.5789
+progress (w context) -- fusion:  2000 / 10090  |time:  1624.6431 s |loss (u, t):  0.2038   0.2894
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2302.9924 s |loss (u, t):  0.7392   1.8199
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2312.3647 s |loss (u, t):  0.4762   0.8568
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+====> Fusion: sentence <====
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1642.0692 s |loss (u, t):  0.2019   0.484
+progress (w context) -- fusion:  2000 / 10090  |time:  1633.337 s |loss (u, t):  0.1412   0.2817
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2317.8427 s |loss (u, t):  0.5917   1.3292
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2328.3349 s |loss (u, t):  0.4542   0.8291
+====> Fusion: sentence <========> Fusion: sentence <====
+
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1631.9685 s |loss (u, t):  0.1731   0.493
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2327.0477 s |loss (u, t):  0.5101   1.0822
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2322.9787 s |loss (u, t):  0.4231   0.7874
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1632.4385 s |loss (u, t):  0.1638   0.4848
+progress (w context) -- fusion:  2000 / 10090  |time:  1627.9299 s |loss (u, t):  0.1126   0.2494
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2293.7237 s |loss (u, t):  0.513   1.1289
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2278.3732 s |loss (u, t):  0.4136   0.7856
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1642.3787 s |loss (u, t):  0.1675   0.4462
+progress (w context) -- fusion:  2000 / 10090  |time:  1647.0545 s |loss (u, t):  0.1218   0.2484
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+====> Fusion: phrase <====
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2302.4099 s |loss (u, t):  0.5626   1.2075
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2281.7491 s |loss (u, t):  0.4321   0.7948
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+====> Fusion: sentence <====
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1628.4095 s |loss (u, t):  0.1469   0.4209
+progress (w context) -- fusion:  2000 / 10090  |time:  1620.6091 s |loss (u, t):  0.108   0.269
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2341.7329 s |loss (u, t):  0.5106   1.0538
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2308.169 s |loss (u, t):  0.4194   0.7898
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1641.0793 s |loss (u, t):  0.1328   0.3955
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2311.4275 s |loss (u, t):  0.4735   0.9562
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2284.0473 s |loss (u, t):  0.4171   0.7936
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1622.5837 s |loss (u, t):  0.1324   0.4086
+progress (w context) -- fusion:  2000 / 10090  |time:  1627.6307 s |loss (u, t):  0.1063   0.2453
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2318.177 s |loss (u, t):  0.4448   0.9151
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2285.274 s |loss (u, t):  0.4053   0.7846
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1628.8251 s |loss (u, t):  0.1269   0.3619
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2308.6252 s |loss (u, t):  0.4681   0.9453
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2309.2494 s |loss (u, t):  0.4188   0.7967
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+====> Fusion: sentence <====
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1640.6481 s |loss (u, t):  0.1335   0.3614
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2321.4508 s |loss (u, t):  0.4691   0.9542
+progress (w/o context) -- fusion:  2000 / 24531  |time:  2282.9646 s |loss (u, t):  0.4168   0.7914
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+====> Fusion: sentence <====
+====> Fusion: sentence <====
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w context) -- fusion:  1000 / 10090  |time:  1631.1222 s |loss (u, t):  0.1265   0.372
+progress (w context) -- fusion:  2000 / 10090  |time:  1639.4362 s |loss (u, t):  0.1061   0.248
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+====> Fusion: phrase <====
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.bias', 'lm_head.dense.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+progress (w/o context) -- fusion:  1000 / 24531  |time:  2356.0451 s |loss (u, t):  0.4936   1.0774

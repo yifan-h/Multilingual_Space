@@ -1,9 +1,10 @@
 import argparse
 
-from tasks import ki_mlkg
+from tasks import ki_mlkg, ki_mlkg_baseline
 
 def main_func(args):
-    ki_mlkg(args)  # MLKG integration (pretraining)
+    # ki_mlkg(args)
+    ki_mlkg_baseline(args)
 
 
 if __name__ == "__main__":

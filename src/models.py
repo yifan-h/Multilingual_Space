@@ -7,6 +7,7 @@ import torch.nn.functional as F
 from transformers import AutoModel
 import transformers.adapters.composition as ac
 from info_nce import InfoNCE
+from transformers import AdapterConfig
 
 seed = 123
 random.seed(seed)
@@ -97,6 +98,34 @@ class fusion_adapter(nn.Module):
 
     def checking(self):
         print(self.stage)
+
+'''
+ORG, FA, SA
+mBERT: 177853440, 202683648, 206201856
+XLM: 278043648, 302873856, 306392064
+XLMR: 559890432, 648124416, 660652032
+'''
+class simple_adapter(nn.Module):
+    """docstring for ClassName"""
+    def __init__(self, args):
+        super(simple_adapter, self).__init__()
+        # load pretrained MLLM
+        self.MLLM = AutoModel.from_pretrained(args.model_dir)
+        hidden_num = self.MLLM.get_input_embeddings().embedding_dim
+        self.training = True
+        self.lm_mask_token_id = args.lm_mask_token_id
+        self.stage = "none"
+        self.fuse = False
+        if self.training:
+            # adapters
+            config = AdapterConfig(mh_adapter=True, output_adapter=True, reduction_factor=1, non_linearity="relu", 
+                                    original_ln_before=False, original_ln_after=False, 
+                                    ln_before=False, ln_after=False, 
+                                    residual_before_ln=False, adapter_residual_before_ln=False)
+            self.MLLM.add_adapter("baseline", config=config)
+
+    def forward(self, **inputs):
+        return self.MLLM(**inputs)['last_hidden_state']
 
 
 def loss_universal(args, outputs, lossfcn, input_ids=None, el2=True):

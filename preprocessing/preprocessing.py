@@ -70,12 +70,12 @@ def extend_kgdataset(args):
                                 entity_count_test[k] = entity_count_test[k]+1
         print("The statistics of entity label (test) language is: ", entity_count_train, "\n", entity_count_test)
         # start to get alignment data
-        lang_set = {'el': 11334, 'lt': 10744, 'sk': 11659, 'uk': 16295, 'es': 26697, 'ga': 12556, 'oc': 11648, \
-                    'zh': 19979, 'nl': 27907, 'ast': 18061, 'sl': 15401, 'ms': 11434, 'ro': 14583, 'da': 19085, \
-                    'ca': 22375, 'ar': 16733, 'pt': 22427, 'ru': 20926, 'hy': 10519, 'eo': 14016, 'et': 11556, \
-                    'nn': 15796, 'gl': 12487, 'cy': 13311, 'fi': 19377, 'id': 14916, 'vi': 13141, 'nb': 20400, \
-                    'sv': 22315, 'bg': 11029, 'eu': 16161, 'it': 25146, 'he': 14961, 'sh': 10143, 'hu': 19604, \
-                    'tr': 15953, 'fa': 16898, 'pl': 21628, 'sq': 13511, 'arz': 11722, 'cs': 17457, 'hr': 11081, \
+        lang_set = {'el': 11334, 'lt': 10744, 'sk': 11659, 'uk': 16295, 'es': 26697, 'ga': 12556, 'oc': 11648, 
+                    'zh': 19979, 'nl': 27907, 'ast': 18061, 'sl': 15401, 'ms': 11434, 'ro': 14583, 'da': 19085, 
+                    'ca': 22375, 'ar': 16733, 'pt': 22427, 'ru': 20926, 'hy': 10519, 'eo': 14016, 'et': 11556, 
+                    'nn': 15796, 'gl': 12487, 'cy': 13311, 'fi': 19377, 'id': 14916, 'vi': 13141, 'nb': 20400, 
+                    'sv': 22315, 'bg': 11029, 'eu': 16161, 'it': 25146, 'he': 14961, 'sh': 10143, 'hu': 19604, 
+                    'tr': 15953, 'fa': 16898, 'pl': 21628, 'sq': 13511, 'arz': 11722, 'cs': 17457, 'hr': 11081, 
                     'ja': 19409, 'ko': 14009, 'sr': 11396}  # 45 languages (>10000)
         # construct alignment dataset
         for k, _ in lang_set.items():
@@ -171,10 +171,12 @@ def extend_kgdataset(args):
         '''
         print(len(entity_align_en_test))
         # 0-5984 test + 5985-25238 val
+        '''
         with open(os.path.join(args.kg_dir, "extended/en-test.tsv"), "w") as f:
             for t in en_test_triple:
                 f.write(t)
                 f.write("\n")
+        '''
         # other languages
         lang_set = {}
         with open(data_path, "r") as f:
@@ -187,6 +189,7 @@ def extend_kgdataset(args):
                                 lang_set[k] = 1
                             else:
                                 lang_set[k] += 1
+        print(lang_set)
         # en: 25238, only keep when # num > 10000 (19 languages)
         entity_dict_wiki = {}
         with open(data_path, "r") as f:
@@ -209,6 +212,17 @@ def extend_kgdataset(args):
                         t = "\t".join([entity_dict_wiki[s_text][k], r_text, entity_dict_wiki[o_text][k]])
                         tmp_triple.append(t)
             triple_dict[k] = tmp_triple
+
+        lang_set = {"eo": 19474, "vo": 8719}
+        for k, v in triple_dict.items():
+            if k in lang_set:
+                data_path_test = os.path.join(args.kg_dir, "extended", k+"-test.tsv")
+                with open(data_path_test, "w") as f_test:
+                    for t in v:
+                        f_test.write(t)
+                        f_test.write("\n")
+        return
+
         for k, v in triple_dict.items():
             if len(v) > 1000:
                 data_path_test = os.path.join(args.kg_dir, "extended", k+"-test.tsv")
