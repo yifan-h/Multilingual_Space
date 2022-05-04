@@ -27,6 +27,8 @@ if __name__ == "__main__":
                         help="Adam epsilon")
     parser.add_argument("--warmup_steps", type=int, default=1e4,
                         help="number of training epochs.")
+    parser.add_argument("--weight_decay", type=float, default=1e-4,
+                        help="weight decay value")
     parser.add_argument("--entity_epoch", type=int, default=1,
                         help="number of training epochs.")
     parser.add_argument("--triple_epoch", type=int, default=10,

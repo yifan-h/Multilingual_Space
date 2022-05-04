@@ -447,11 +447,14 @@ def save_model(model, accelerator, path, fusion=False):
     # accelerator.save(model.state_dict(), path)
     return
 
-def load_model(model, path, fusion=False):
-    model.MLLM.load_adapter(os.path.join(path, "ep"))
-    model.MLLM.load_adapter(os.path.join(path, "tp"))
-    model.MLLM.load_adapter(os.path.join(path, "es"))
-    model.MLLM.load_adapter(os.path.join(path, "ts"))
+def load_model(model, path, fusion=False, simple=False):
+    if simple:
+        model.MLLM.load_adapter(os.path.join(path, "baseline"))
+    else:
+        model.MLLM.load_adapter(os.path.join(path, "ep"))
+        model.MLLM.load_adapter(os.path.join(path, "tp"))
+        model.MLLM.load_adapter(os.path.join(path, "es"))
+        model.MLLM.load_adapter(os.path.join(path, "ts"))
     if fusion:
         model.MLLM.load_adapter_fusion(path, "ep,tp,es,ts")
     return

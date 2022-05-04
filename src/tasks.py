@@ -26,7 +26,7 @@ def train_adapter_phrase(args, model_mlkg, simple=False):
     wocontext_data = Data.DataLoader(dataset=wocontext_dataset, batch_size=1, num_workers=1)
     args.lm_mask_token_id = wocontext_dataset.lm_mask_token_id
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
-    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=1e-4)
+    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=args.weight_decay)
     scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=5,
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*len(wocontext_data)*2)
@@ -95,7 +95,7 @@ def train_adapter_sentence(args, model_mlkg,):
     wcontext_data = Data.DataLoader(dataset=wcontext_dataset, batch_size=1, num_workers=1)
     args.lm_mask_token_id = wcontext_dataset.lm_mask_token_id
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
-    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=1e-4)
+    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=args.weight_decay)
     scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=5,
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*len(wcontext_data)*2)
@@ -163,7 +163,7 @@ def train_fuse_phrase(args, model_mlkg):
     wocontext_data = Data.DataLoader(dataset=wocontext_dataset, batch_size=1, num_workers=1)
     args.lm_mask_token_id = wocontext_dataset.lm_mask_token_id
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
-    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=1e-4)
+    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=args.weight_decay)
     scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=5,
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*len(wocontext_data)*2)
@@ -231,7 +231,7 @@ def train_fuse_sentence(args, model_mlkg):
     wcontext_data = Data.DataLoader(dataset=wcontext_dataset, batch_size=1, num_workers=1)
     args.lm_mask_token_id = wcontext_dataset.lm_mask_token_id
     accelerator = Accelerator(kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True)])
-    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=1e-4)
+    optimizer = AdamW(model_mlkg.parameters(), lr=args.lr, eps=args.adam_epsilon, weight_decay=args.weight_decay)
     scheduler = get_cosine_with_hard_restarts_schedule_with_warmup(optimizer, num_cycles=5,
                                                 num_warmup_steps=args.warmup_steps,
                                                 num_training_steps=args.triple_epoch*len(wcontext_data)*2)
@@ -330,5 +330,5 @@ def ki_mlkg_baseline(args):
     train_adapter_phrase(args, model_mlkg, simple=True)
     print("====> Adapter: sentence <====")
     model_mlkg = simple_adapter(args)
-    load_model(model_mlkg, args.tmp_dir)
+    load_model(model_mlkg, args.tmp_dir, simple=True)
     train_adapter_sentence(args, model_mlkg, simple=True)
