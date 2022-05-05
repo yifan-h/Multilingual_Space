@@ -21,6 +21,8 @@ torch.backends.cudnn.benchmark = False
 
 
 def train_adapter_phrase(args, model_mlkg, simple=False):
+    if simple:
+        model_mlkg.MLLM.train_adapter("baseline")
     # load data, set model and optimizer
     wocontext_dataset = WOCLoader(args)
     wocontext_data = Data.DataLoader(dataset=wocontext_dataset, batch_size=1, num_workers=1)
@@ -35,8 +37,6 @@ def train_adapter_phrase(args, model_mlkg, simple=False):
     count_save = 0
     time_start = time.time()
     loss_list1, loss_list2 = [], []
-    if simple:
-        model_mlkg.module.MLLM.train_adapter("baseline")
     for e in range(args.triple_epoch):
         for encoded_inputs in wocontext_data:
             input_e1, input_e2, input_t1, input_t2 = encoded_inputs
@@ -71,7 +71,7 @@ def train_adapter_phrase(args, model_mlkg, simple=False):
             scheduler.step()
             # save model
             count_save += 1
-            if count_save % 1e3 == 0 and accelerator.state.local_process_index == 0:
+            if count_save % 1e2 == 0 and accelerator.state.local_process_index == 0:
                 # time
                 time_length = round(time.time() - time_start, 4)
                 time_start = time.time()
@@ -89,7 +89,9 @@ def train_adapter_phrase(args, model_mlkg, simple=False):
     del model_mlkg
     return
 
-def train_adapter_sentence(args, model_mlkg,):
+def train_adapter_sentence(args, model_mlkg, simple=False):
+    if simple:
+        model_mlkg.MLLM.train_adapter("baseline")
     # load data, set model and optimizer
     wcontext_dataset = WCLoader(args)
     wcontext_data = Data.DataLoader(dataset=wcontext_dataset, batch_size=1, num_workers=1)
@@ -138,7 +140,7 @@ def train_adapter_sentence(args, model_mlkg,):
             scheduler.step()
             # save model
             count_save += 1
-            if count_save % 1e3 == 0 and accelerator.state.local_process_index == 0:
+            if count_save % 1e2 == 0 and accelerator.state.local_process_index == 0:
                 # time
                 time_length = round(time.time() - time_start, 4)
                 time_start = time.time()
@@ -205,7 +207,7 @@ def train_fuse_phrase(args, model_mlkg):
             scheduler.step()
             # save model
             count_save += 1
-            if count_save % 1e3 == 0 and accelerator.state.local_process_index == 0:
+            if count_save % 1e2 == 0 and accelerator.state.local_process_index == 0:
                 # time
                 time_length = round(time.time() - time_start, 4)
                 time_start = time.time()
@@ -273,7 +275,7 @@ def train_fuse_sentence(args, model_mlkg):
             scheduler.step()
             # save model
             count_save += 1
-            if count_save % 1e3 == 0 and accelerator.state.local_process_index == 0:
+            if count_save % 1e2 == 0 and accelerator.state.local_process_index == 0:
                 # time
                 time_length = round(time.time() - time_start, 4)
                 time_start = time.time()

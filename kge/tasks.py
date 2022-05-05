@@ -78,40 +78,40 @@ def test_dbp5l(args):
             # backward
             loss.backward()
             optimizer.step()
-        # testing
-        grad_parameters(model, False)
-        print("...testing...")
-        for k, v in kgs.items():
-            test_list = v["test"]
-            obj_pool_test = set()
-            for t in test_list:
-                obj_pool_test.add(t.split("\t")[-1])
-            # print("The number of objects [", k, "] is: ", len(obj_pool_test))
-            obj_list_test = list(obj_pool_test)
-            rank_list = []
-            obj_emb = torch.Tensor()
-            for i in range(0, len(obj_list_test), args.batch_num*10):
-                inputs = tokenizer(obj_list_test[i:i+args.batch_num*10], padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
-                obj_emb = torch.cat((obj_emb, model(**inputs).cpu()), dim=0)
-            obj_emb = normalize(obj_emb)
-            for i in range(0, len(test_list), args.batch_num*10):
-                e_src = [t.split("\t")[0] + " " + t.split("\t")[1] for t in test_list[i:i+args.batch_num*10]]
-                e_dst = [t.split("\t")[-1] for t in test_list[i:i+args.batch_num*10]]
-                input_src = tokenizer(e_src, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
-                output_src = model(**input_src).cpu()
-                for j in range(output_src.shape[0]):
-                    tmp_output = torch.unsqueeze(output_src[j], 0)
-                    tmp_output = normalize(tmp_output)
-                    score = torch.squeeze(torch.mm(tmp_output, torch.t(obj_emb))).numpy()  # normalize + dotproduct = cosine
-                    ranks = np.argsort(np.argsort(-score))
-                    rank = round(ranks[obj_list_test.index(e_dst[j])], 5)
-                    rank_list.append(rank)
-            count_1, count_10, mrr = 0, 0, 0 
-            for r in rank_list:
-                if r <= 1: count_1 += 1
-                if r <= 10: count_10 += 1
-                mrr += 1/(r+1)
-            print("KGC: [", k, "] | test hit@1: ", round(count_1/len(test_list), 5), "hit@10: ", round(count_10/len(test_list), 5), "MRR: ", round(mrr/len(test_list), 5))
+    # testing
+    grad_parameters(model, False)
+    print("...testing...")
+    for k, v in kgs.items():
+        test_list = v["test"]
+        obj_pool_test = set()
+        for t in test_list:
+            obj_pool_test.add(t.split("\t")[-1])
+        # print("The number of objects [", k, "] is: ", len(obj_pool_test))
+        obj_list_test = list(obj_pool_test)
+        rank_list = []
+        obj_emb = torch.Tensor()
+        for i in range(0, len(obj_list_test), args.batch_num*10):
+            inputs = tokenizer(obj_list_test[i:i+args.batch_num*10], padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+            obj_emb = torch.cat((obj_emb, model(**inputs).cpu()), dim=0)
+        obj_emb = normalize(obj_emb)
+        for i in range(0, len(test_list), args.batch_num*10):
+            e_src = [t.split("\t")[0] + " " + t.split("\t")[1] for t in test_list[i:i+args.batch_num*10]]
+            e_dst = [t.split("\t")[-1] for t in test_list[i:i+args.batch_num*10]]
+            input_src = tokenizer(e_src, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+            output_src = model(**input_src).cpu()
+            for j in range(output_src.shape[0]):
+                tmp_output = torch.unsqueeze(output_src[j], 0)
+                tmp_output = normalize(tmp_output)
+                score = torch.squeeze(torch.mm(tmp_output, torch.t(obj_emb))).numpy()  # normalize + dotproduct = cosine
+                ranks = np.argsort(np.argsort(-score))
+                rank = round(ranks[obj_list_test.index(e_dst[j])], 5)
+                rank_list.append(rank)
+        count_1, count_10, mrr = 0, 0, 0 
+        for r in rank_list:
+            if r <= 1: count_1 += 1
+            if r <= 10: count_10 += 1
+            mrr += 1/(r+1)
+        print("KGC: [", k, "] | test hit@1: ", round(count_1/len(test_list), 5), "hit@10: ", round(count_10/len(test_list), 5), "MRR: ", round(mrr/len(test_list), 5))
     # print("The performance (hit@1, hit@10) of language [", k, "] is: ", max(results))
     # print("The performance (hit@1, hit@10) of language [", k, "] is: ", round(count_1/len(rank_list), 4), round(count_10/len(rank_list), 4))
     return

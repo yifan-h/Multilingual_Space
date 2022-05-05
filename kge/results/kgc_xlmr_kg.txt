@@ -1,0 +1,17 @@
+Namespace(adam_epsilon=1e-06, batch_num=16, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=5, epoch=10, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', model_name='XLMR-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlmr_adapter', neg_num=1, patience=2, task_name='kgc', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'

@@ -27,3 +27,14 @@ KGC: [ en_ja ] | hit@1:  0.27599 hit@5:  0.38892 mrr:  0.28691
 KGC: [ en_fi ] | hit@1:  0.55872 hit@5:  0.63965 mrr:  0.55921
 KGC: [ en_nl ] | hit@1:  0.57805 hit@5:  0.66461 mrr:  0.57562
 KGC: [ en_ca ] | hit@1:  0.55289 hit@5:  0.64027 mrr:  0.55374
+Namespace(adam_epsilon=1e-06, batch_num=8, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=3, epoch=10, lr=1e-06, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', model_name='mBERT-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_adapter', neg_num=1, patience=2, task_name='ea', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+Overwriting existing adapter fusion module 'ep,tp,es,ts'
+KGC: [ en_vo ] | hit@1:  0.54232 hit@5:  0.63033 mrr:  0.54631
+KGC: [ en_eo ] | hit@1:  0.38034 hit@5:  0.45529 mrr:  0.3855

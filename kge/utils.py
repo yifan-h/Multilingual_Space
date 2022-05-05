@@ -40,7 +40,8 @@ def load_data(args, data_name):
             entities[l] = tmp_edict
         # load KG
         kgs_path = os.path.join(data_path, "extended")
-        langs = ["el", "en", "es", "fr", "ja", "ast", "ca", "da", "de", "fa", "fi", "hu", "it", "nb", "nl", "pl", "pt", "ru", "sv", "zh"]
+        langs = ["el", "en", "es", "fr", "ja", "ast", "ca", "da", "de", "fa", "fi", "hu", "it", "nb", "nl", "pl", "pt", "ru", "sv", "zh", "eo", "vo"]
+        # langs = ["el", "en", "es", "fr", "ja", "eo", "vo"]
         kgs = {}
         for l in langs:
             tmp_kgdict = {}

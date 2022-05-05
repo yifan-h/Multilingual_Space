@@ -22,3 +22,9 @@ KGC: [ en_ja ] | hit@1:  0.03562 hit@5:  0.05742 mrr:  0.04331
 KGC: [ en_fi ] | hit@1:  0.44313 hit@5:  0.51519 mrr:  0.44555
 KGC: [ en_nl ] | hit@1:  0.45946 hit@5:  0.53064 mrr:  0.45995
 KGC: [ en_ca ] | hit@1:  0.41663 hit@5:  0.49094 mrr:  0.42222
+Namespace(adam_epsilon=1e-06, batch_num=8, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=4, epoch=10, lr=1e-06, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', model_name='XLM', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlm_adapter', neg_num=1, patience=2, task_name='ea', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+KGC: [ en_vo ] | hit@1:  0.49729 hit@5:  0.56669 mrr:  0.50155
+KGC: [ en_eo ] | hit@1:  0.30966 hit@5:  0.37193 mrr:  0.31825

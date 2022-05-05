@@ -22,10 +22,10 @@ import transformers.adapters.composition as ac
 use_adapter = True
 #pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
 #adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/mbert_adapter"
-pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
-adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlm_adapter"
-#pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large"
-#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlmr_adapter"
+#pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
+#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlm_adapter"
+pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large"
+adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlmr_adapter"
 
 dataset_training = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/kbp37"
 dataset_relxt = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/RELX"
@@ -78,6 +78,7 @@ class Model(nn.Module):
         if pre_trained == "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large":
             last_layer = 24
             hidden_size = 1024
+            self.has_layer_norm = True
         else:
             last_layer = 12
             hidden_size = 768

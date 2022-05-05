@@ -119,7 +119,7 @@ class simple_adapter(nn.Module):
         if self.training:
             # adapters
             config = AdapterConfig(mh_adapter=True, output_adapter=True, reduction_factor=1, non_linearity="relu", 
-                                    original_ln_before=False, original_ln_after=False, 
+                                    original_ln_before=False, original_ln_after=True, 
                                     ln_before=False, ln_after=False, 
                                     residual_before_ln=False, adapter_residual_before_ln=False)
             self.MLLM.add_adapter("baseline", config=config)
