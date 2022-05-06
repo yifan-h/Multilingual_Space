@@ -1,5 +1,5 @@
 Namespace(adam_epsilon=1e-06, batch_num=16, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=5, epoch=10, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large', model_name='XLMR-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlmr_adapter', neg_num=1, patience=2, task_name='kgc', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight']
 - This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
 Overwriting existing adapter 'ep'.
@@ -7,7 +7,7 @@ Overwriting existing adapter 'tp'.
 Overwriting existing adapter 'es'.
 Overwriting existing adapter 'ts'.
 Overwriting existing adapter fusion module 'ep,tp,es,ts'
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight']
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large were not used when initializing XLMRobertaModel: ['lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight']
 - This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
 Overwriting existing adapter 'ep'.
@@ -15,3 +15,27 @@ Overwriting existing adapter 'tp'.
 Overwriting existing adapter 'es'.
 Overwriting existing adapter 'ts'.
 Overwriting existing adapter fusion module 'ep,tp,es,ts'
+...testing...
+KGC: [ el ] | test hit@1:  0.08965 hit@10:  0.26895 MRR:  0.12309
+KGC: [ en ] | test hit@1:  0.13987 hit@10:  0.30331 MRR:  0.16327
+KGC: [ es ] | test hit@1:  0.12899 hit@10:  0.32626 MRR:  0.15791
+KGC: [ fr ] | test hit@1:  0.12444 hit@10:  0.29373 MRR:  0.15335
+KGC: [ ja ] | test hit@1:  0.04671 hit@10:  0.16427 MRR:  0.0699
+KGC: [ ast ] | test hit@1:  0.14453 hit@10:  0.339 MRR:  0.17231
+KGC: [ ca ] | test hit@1:  0.15478 hit@10:  0.33322 MRR:  0.17793
+KGC: [ da ] | test hit@1:  0.15355 hit@10:  0.34489 MRR:  0.18353
+KGC: [ de ] | test hit@1:  0.13501 hit@10:  0.29983 MRR:  0.16183
+KGC: [ fa ] | test hit@1:  0.06054 hit@10:  0.17304 MRR:  0.08157
+KGC: [ fi ] | test hit@1:  0.11619 hit@10:  0.30713 MRR:  0.14488
+KGC: [ hu ] | test hit@1:  0.13292 hit@10:  0.31431 MRR:  0.16201
+KGC: [ it ] | test hit@1:  0.14056 hit@10:  0.31738 MRR:  0.16174
+KGC: [ nb ] | test hit@1:  0.15311 hit@10:  0.34707 MRR:  0.1828
+KGC: [ nl ] | test hit@1:  0.13137 hit@10:  0.30746 MRR:  0.15868
+KGC: [ pl ] | test hit@1:  0.12542 hit@10:  0.31988 MRR:  0.16088
+KGC: [ pt ] | test hit@1:  0.14667 hit@10:  0.34516 MRR:  0.17509
+KGC: [ ru ] | test hit@1:  0.0762 hit@10:  0.22861 MRR:  0.09983
+KGC: [ sv ] | test hit@1:  0.14901 hit@10:  0.33578 MRR:  0.17938
+KGC: [ zh ] | test hit@1:  0.04863 hit@10:  0.16287 MRR:  0.07156
+
+KGC: [ eo ] | test hit@1:  0.21391 hit@10:  0.5109 MRR:  0.24918
+KGC: [ vo ] | test hit@1:  0.35976 hit@10:  0.71951 MRR:  0.40728

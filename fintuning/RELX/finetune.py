@@ -37,11 +37,11 @@ elif base_model == "mtmb":
     tokenizer = AutoTokenizer.from_pretrained("akoksal/MTMB")
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device("cuda:7")
+device = torch.device("cuda:3")
 print(device)
 print(torch.cuda.device_count())
 print(torch.cuda.is_available())
-
+wd=0.1
 
 
 
@@ -78,7 +78,6 @@ class Model(nn.Module):
         if pre_trained == "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large":
             last_layer = 24
             hidden_size = 1024
-            self.has_layer_norm = True
         else:
             last_layer = 12
             hidden_size = 768
@@ -95,12 +94,12 @@ class Model(nn.Module):
                 param.requires_grad = True
         '''
         for name, param in self.net_bert.named_parameters():
-            if "triple" in name:
+            if "adapters" in name:
                 print("[FREE]: %s" % name)
                 param.requires_grad = True
             else:
-                print("[FREE]: %s" % name)
-                param.requires_grad = True
+                print("[FROZE]: %s" % name)
+                param.requires_grad = False
         '''
         if self.has_layer_norm:
             self.fc1 = nn.LayerNorm(hidden_size)
@@ -248,9 +247,10 @@ for i in range(1, 37, 2):
 weights = torch.Tensor(weights).to(device)
 
 lr = 0.00003
-wd = 0.1
+#wd = 0.1
 criterion = nn.CrossEntropyLoss(weight=weights)
 no_decay = ["bias", "LayerNorm.weight"]
+'''
 optimizer_grouped_parameters = [
     {
         "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
@@ -258,9 +258,9 @@ optimizer_grouped_parameters = [
     },
     {"params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)], "weight_decay": 0.0},
 ]
-
 optimizer = AdamW(optimizer_grouped_parameters, lr=lr, weight_decay=wd)
-
+'''
+optimizer = AdamW(model.parameters(), lr=lr, weight_decay=wd)
 ### Training & Saving the best model
 
 batch_size = 16

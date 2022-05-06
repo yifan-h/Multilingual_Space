@@ -1,8 +1,8 @@
 Namespace(adam_epsilon=1e-06, batch_num=8, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=0, epoch=10, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', model_name='mBERT', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_adapter', neg_num=1, patience=2, task_name='kgc', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias']
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight']
 - This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias']
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight']
 - This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
 ...testing...
@@ -27,24 +27,5 @@ KGC: [ ru ] | test hit@1:  0.07413 hit@10:  0.23935 MRR:  0.10178
 KGC: [ sv ] | test hit@1:  0.15737 hit@10:  0.36318 MRR:  0.19372
 KGC: [ zh ] | test hit@1:  0.05519 hit@10:  0.16635 MRR:  0.0756
 
-Namespace(adam_epsilon=1e-06, batch_num=8, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=0, epoch=10, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', model_name='mBERT', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_adapter', neg_num=1, patience=2, task_name='kgc', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight']
-- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight']
-- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-...testing...
-KGC: [ el ] | test hit@1:  0.07671 hit@10:  0.22736 MRR:  0.10018
-KGC: [ en ] | test hit@1:  0.15458 hit@10:  0.35612 MRR:  0.17875
-KGC: [ es ] | test hit@1:  0.15313 hit@10:  0.33577 MRR:  0.1784
-KGC: [ fr ] | test hit@1:  0.14292 hit@10:  0.32913 MRR:  0.16729
-KGC: [ ja ] | test hit@1:  0.04982 hit@10:  0.15298 MRR:  0.0709
-Traceback (most recent call last):
-  File "kge/main.py", line 49, in <module>
-    main_func(args)
-  File "kge/main.py", line 7, in main_func
-    test_dbp5l(args)
-  File "/cluster/scratch/yifhou/Multilingual_Space/kge/tasks.py", line 85, in test_dbp5l
-    test_list = v["test"]
-KeyError: 'test'
+KGC: [ eo ] | test hit@1:  0.1973 hit@10:  0.49117 MRR:  0.2349
+KGC: [ vo ] | test hit@1:  0.48171 hit@10:  0.79268 MRR:  0.49129

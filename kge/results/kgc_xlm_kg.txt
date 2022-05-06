@@ -36,3 +36,6 @@ KGC: [ pt ] | test hit@1:  0.09925 hit@10:  0.24623 MRR:  0.12447
 KGC: [ ru ] | test hit@1:  0.04641 hit@10:  0.13751 MRR:  0.06735
 KGC: [ sv ] | test hit@1:  0.11928 hit@10:  0.27898 MRR:  0.14453
 KGC: [ zh ] | test hit@1:  0.03474 hit@10:  0.11386 MRR:  0.05685
+
+KGC: [ eo ] | test hit@1:  0.16511 hit@10:  0.41433 MRR:  0.19801
+KGC: [ vo ] | test hit@1:  0.35366 hit@10:  0.67683 MRR:  0.36444

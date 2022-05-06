@@ -1,0 +1,32 @@
+Namespace(adam_epsilon=1e-06, batch_num=8, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=0, epoch=10, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', model_name='mBERT-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_adapter', neg_num=1, patience=2, task_name='kgc', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'baseline'.
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'baseline'.
+...testing...
+KGC: [ el ] | test hit@1:  0.07763 hit@10:  0.22921 MRR:  0.10481
+KGC: [ en ] | test hit@1:  0.16728 hit@10:  0.35478 MRR:  0.19319
+KGC: [ es ] | test hit@1:  0.1563 hit@10:  0.34504 MRR:  0.18427
+KGC: [ fr ] | test hit@1:  0.15239 hit@10:  0.33859 MRR:  0.18119
+KGC: [ ja ] | test hit@1:  0.03425 hit@10:  0.13157 MRR:  0.05553
+KGC: [ ast ] | test hit@1:  0.17464 hit@10:  0.39107 MRR:  0.20139
+KGC: [ ca ] | test hit@1:  0.17405 hit@10:  0.38763 MRR:  0.20347
+KGC: [ da ] | test hit@1:  0.18277 hit@10:  0.39751 MRR:  0.21341
+KGC: [ de ] | test hit@1:  0.16014 hit@10:  0.35871 MRR:  0.1893
+KGC: [ fa ] | test hit@1:  0.05496 hit@10:  0.14556 MRR:  0.07373
+KGC: [ fi ] | test hit@1:  0.13362 hit@10:  0.34276 MRR:  0.16723
+KGC: [ hu ] | test hit@1:  0.15442 hit@10:  0.35809 MRR:  0.1884
+KGC: [ it ] | test hit@1:  0.15551 hit@10:  0.35556 MRR:  0.18514
+KGC: [ nb ] | test hit@1:  0.18366 hit@10:  0.39603 MRR:  0.21694
+KGC: [ nl ] | test hit@1:  0.16844 hit@10:  0.36376 MRR:  0.19601
+KGC: [ pl ] | test hit@1:  0.17178 hit@10:  0.38492 MRR:  0.20087
+KGC: [ pt ] | test hit@1:  0.15704 hit@10:  0.35459 MRR:  0.19131
+KGC: [ ru ] | test hit@1:  0.0911 hit@10:  0.21753 MRR:  0.11085
+KGC: [ sv ] | test hit@1:  0.17474 hit@10:  0.3839 MRR:  0.20505
+KGC: [ zh ] | test hit@1:  0.04477 hit@10:  0.12852 MRR:  0.06312
+KGC: [ eo ] | test hit@1:  0.21599 hit@10:  0.50779 MRR:  0.25284
+KGC: [ vo ] | test hit@1:  0.42683 hit@10:  0.80488 MRR:  0.47637
