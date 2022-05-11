@@ -334,3 +334,15 @@ def ki_mlkg_baseline(args):
     model_mlkg = simple_adapter(args)
     load_model(model_mlkg, args.tmp_dir, simple=True)
     train_adapter_sentence(args, model_mlkg, simple=True)
+    # train fusion
+    args.batch_num = int(args.batch_num/2)
+    args.triple_epoch = 1
+    for i in range(16):
+        print("====> Fusion: phrase <====")
+        model_mlkg = fusion_adapter(args)
+        load_model(model_mlkg, args.tmp_dir, True)
+        train_fuse_phrase(args, model_mlkg)
+        print("====> Fusion: sentence <====")
+        model_mlkg = fusion_adapter(args)
+        load_model(model_mlkg, args.tmp_dir, True)
+        train_fuse_sentence(args, model_mlkg)
