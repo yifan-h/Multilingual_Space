@@ -104,9 +104,9 @@ def grad_parameters(model, free=True):
         param.requires_grad = free
     return
 
-def grad_aggregator(model, free=True):
+def grad_fusion(model, free=True):
     for name, param in model.named_parameters():
-        if "aggregator" in name:
+        if "fusion" in name:
             param.requires_grad = free
     return
 

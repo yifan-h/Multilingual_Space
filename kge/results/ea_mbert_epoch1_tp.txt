@@ -1,0 +1,29 @@
+Namespace(adam_epsilon=1e-06, batch_num=8, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=3, epoch=1, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', model_name='mBERT-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_adapter', neg_num=1, patience=2, task_name='ea', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+KGC: [ en_nb ] | hit@1:  0.22354 hit@5:  0.28803 mrr:  0.23003
+KGC: [ en_da ] | hit@1:  0.22286 hit@5:  0.28507 mrr:  0.22964
+KGC: [ en_zh ] | hit@1:  0.13566 hit@5:  0.19597 mrr:  0.14384
+KGC: [ en_mg ] | hit@1:  0.31114 hit@5:  0.40028 mrr:  0.31851
+KGC: [ en_fr ] | hit@1:  0.81635 hit@5:  0.84827 mrr:  0.81501
+KGC: [ en_es ] | hit@1:  0.23215 hit@5:  0.30366 mrr:  0.24071
+KGC: [ en_it ] | hit@1:  0.2315 hit@5:  0.30144 mrr:  0.23877
+KGC: [ en_pl ] | hit@1:  0.23274 hit@5:  0.3003 mrr:  0.23902
+KGC: [ en_fa ] | hit@1:  0.14448 hit@5:  0.21303 mrr:  0.15573
+KGC: [ en_ru ] | hit@1:  0.16995 hit@5:  0.23543 mrr:  0.17831
+KGC: [ en_vo ] | hit@1:  0.39032 hit@5:  0.49391 mrr:  0.39589
+KGC: [ en_sv ] | hit@1:  0.22314 hit@5:  0.29183 mrr:  0.23182
+KGC: [ en_eo ] | hit@1:  0.25199 hit@5:  0.33064 mrr:  0.26279
+KGC: [ en_io ] | hit@1:  0.30821 hit@5:  0.40023 mrr:  0.31908
+KGC: [ en_cs ] | hit@1:  0.24647 hit@5:  0.32052 mrr:  0.25488
+KGC: [ en_ast ] | hit@1:  0.22224 hit@5:  0.2953 mrr:  0.23113
+KGC: [ en_pt ] | hit@1:  0.2456 hit@5:  0.31673 mrr:  0.25275
+KGC: [ en_de ] | hit@1:  0.75321 hit@5:  0.77983 mrr:  0.75336
+KGC: [ en_hu ] | hit@1:  0.20819 hit@5:  0.2736 mrr:  0.2157
+KGC: [ en_ar ] | hit@1:  0.13593 hit@5:  0.20722 mrr:  0.14627
+KGC: [ en_ja ] | hit@1:  0.13711 hit@5:  0.20044 mrr:  0.14746
+KGC: [ en_fi ] | hit@1:  0.21569 hit@5:  0.28028 mrr:  0.22341
+KGC: [ en_nl ] | hit@1:  0.24021 hit@5:  0.30802 mrr:  0.24663
+KGC: [ en_yo ] | hit@1:  0.19866 hit@5:  0.28692 mrr:  0.21515
+KGC: [ en_ca ] | hit@1:  0.22396 hit@5:  0.28865 mrr:  0.23016

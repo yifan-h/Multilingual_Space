@@ -6,7 +6,7 @@ from transformers import AutoTokenizer
 import random
 import numpy as np
 
-from utils import load_data, grad_parameters, grad_aggregator, normalize
+from utils import load_data, grad_parameters, grad_fusion, normalize
 from models import MLKGLM, KGLM, lossfcn
 
 seed = 123
@@ -53,7 +53,35 @@ def test_dbp5l(args):
                 obj_list_train.append(entities[k][o])
     obj_list_train = list(set(obj_list_train))
     results = []
-    # epoch loop
+    # fusion
+    grad_parameters(model, False)
+    grad_fusion(model, True)
+    for e in range(args.epoch):
+        # training
+        random.shuffle(train_list_text)
+        grad_parameters(model, True)
+        loss_list = []
+        for i in range(0, len(train_list_text), args.batch_num):
+            # get text
+            e_src = [" ".join(a.split("\t")[:2]) for a in train_list_text[i:i+args.batch_num]]
+            e_dst = [a.split("\t")[-1] for a in train_list_text[i:i+args.batch_num]]
+            # e_neg = random.sample(obj_list_train, int(len(e_dst)*args.neg_num))
+            # get tokens
+            input_src = tokenizer(e_src, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+            input_dst = tokenizer(e_dst, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+            # input_neg = tokenizer(e_neg, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+            # get outputs
+            output_src = model(**input_src)
+            output_dst = model(**input_dst)
+            # output_neg = model(**input_neg)
+            # get loss
+            loss = lossfcn(output_src, output_dst)
+            loss_list.append(float(loss.data))
+            # backward
+            loss.backward()
+            optimizer.step()
+    # all model
+    grad_parameters(model, True)
     for e in range(args.epoch):
         # training
         random.shuffle(train_list_text)
@@ -134,45 +162,87 @@ def test_wk3l60(args):
     tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
     # get parameter set
     model = KGLM(args).to(args.device)
-    # training and testing KG for all languages
+    # fusion
+    grad_parameters(model, False)
+    grad_fusion(model, True)
+    for e in range(args.epoch):
+        for k, v in aligns.items():
+            if "train" not in v: continue
+            # set model and optimizer
+            # optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=args.lm_lr, weight_decay=args.weight_decay)
+            optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr*10, weight_decay=args.weight_decay)
+            # dataset
+            train_list, test_list = v["train"], v["test"]
+            # get object pool
+            entity_pool = set()
+            for e in train_list:
+                entity_pool.add(e.split("@@@")[0])
+                entity_pool.add(e.split("@@@")[1])
+            # training, validation, testing
+            results = []
+            # training： 1 epoch
+            random.shuffle(train_list)
+            loss_list = []
+            for i in range(0, len(train_list), args.batch_num):
+                # get text
+                e_src = [e.split("@@@")[0] for e in train_list[i: i+args.batch_num]]
+                e_dst = [e.split("@@@")[1] for e in train_list[i: i+args.batch_num]]
+                e_neg = random.sample(entity_pool, int(len(e_dst)*args.neg_num))
+                # e_neg = random.sample(obj_pool, args.neg_num)
+                # get tokens
+                input_src = tokenizer(e_src, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+                input_dst = tokenizer(e_dst, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+                input_neg = tokenizer(e_neg, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+                # get outputs
+                output_src = model(**input_src)
+                output_dst = model(**input_dst)
+                output_neg = model(**input_neg)
+                # get loss
+                loss = lossfcn(output_src, output_dst, output_neg)
+                loss_list.append(float(loss.data))
+                # backward
+                loss.backward()
+                optimizer.step()
+    # all model
     grad_parameters(model, True)
-    for k, v in aligns.items():
-        if "train" not in v: continue
-        # set model and optimizer
-        # optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=args.lm_lr, weight_decay=args.weight_decay)
-        optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-        # dataset
-        train_list, test_list = v["train"], v["test"]
-        # get object pool
-        entity_pool = set()
-        for e in train_list:
-            entity_pool.add(e.split("@@@")[0])
-            entity_pool.add(e.split("@@@")[1])
-        # training, validation, testing
-        results = []
-        # training： 1 epoch
-        random.shuffle(train_list)
-        loss_list = []
-        for i in range(0, len(train_list), args.batch_num):
-            # get text
-            e_src = [e.split("@@@")[0] for e in train_list[i: i+args.batch_num]]
-            e_dst = [e.split("@@@")[1] for e in train_list[i: i+args.batch_num]]
-            e_neg = random.sample(entity_pool, int(len(e_dst)*args.neg_num))
-            # e_neg = random.sample(obj_pool, args.neg_num)
-            # get tokens
-            input_src = tokenizer(e_src, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
-            input_dst = tokenizer(e_dst, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
-            input_neg = tokenizer(e_neg, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
-            # get outputs
-            output_src = model(**input_src)
-            output_dst = model(**input_dst)
-            output_neg = model(**input_neg)
-            # get loss
-            loss = lossfcn(output_src, output_dst, output_neg)
-            loss_list.append(float(loss.data))
-            # backward
-            loss.backward()
-            optimizer.step()
+    for e in range(args.epoch):
+        for k, v in aligns.items():
+            if "train" not in v: continue
+            # set model and optimizer
+            # optimizer = torch.optim.AdamW([{'params': base_params}, {'params': aggregator_params, 'lr': args.lr}], lr=args.lm_lr, weight_decay=args.weight_decay)
+            optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+            # dataset
+            train_list, test_list = v["train"], v["test"]
+            # get object pool
+            entity_pool = set()
+            for e in train_list:
+                entity_pool.add(e.split("@@@")[0])
+                entity_pool.add(e.split("@@@")[1])
+            # training, validation, testing
+            results = []
+            # training： 1 epoch
+            random.shuffle(train_list)
+            loss_list = []
+            for i in range(0, len(train_list), args.batch_num):
+                # get text
+                e_src = [e.split("@@@")[0] for e in train_list[i: i+args.batch_num]]
+                e_dst = [e.split("@@@")[1] for e in train_list[i: i+args.batch_num]]
+                e_neg = random.sample(entity_pool, int(len(e_dst)*args.neg_num))
+                # e_neg = random.sample(obj_pool, args.neg_num)
+                # get tokens
+                input_src = tokenizer(e_src, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+                input_dst = tokenizer(e_dst, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+                input_neg = tokenizer(e_neg, padding=True, truncation=True, max_length=32, return_tensors="pt").to(args.device)
+                # get outputs
+                output_src = model(**input_src)
+                output_dst = model(**input_dst)
+                output_neg = model(**input_neg)
+                # get loss
+                loss = lossfcn(output_src, output_dst, output_neg)
+                loss_list.append(float(loss.data))
+                # backward
+                loss.backward()
+                optimizer.step()
     # testing
     grad_parameters(model, False)
     for k, v in aligns.items():

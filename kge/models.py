@@ -82,7 +82,7 @@ class KGLM(nn.Module):
         self.model_name = args.model_name
         if args.model_name[-2:] == "KG":
             self.base_model = AutoModel.from_pretrained(args.model_dir)
-            '''
+
             self.base_model.add_adapter("ep")
             self.base_model.add_adapter("tp")
             self.base_model.add_adapter("es")
@@ -93,7 +93,7 @@ class KGLM(nn.Module):
             self.base_model.load_adapter(os.path.join(args.modelkg_dir, "tp"))
             self.base_model.load_adapter(os.path.join(args.modelkg_dir, "es"))
             self.base_model.load_adapter(os.path.join(args.modelkg_dir, "ts"))
-            self.base_model.load_adapter_fusion(args.modelkg_dir, "ep,tp,es,ts")
+            # self.base_model.load_adapter_fusion(args.modelkg_dir, "ep,tp,es,ts")
             '''
             from transformers import AdapterConfig
             config = AdapterConfig(mh_adapter=True, output_adapter=True, reduction_factor=1, non_linearity="relu", 
@@ -102,6 +102,7 @@ class KGLM(nn.Module):
                                     residual_before_ln=False, adapter_residual_before_ln=False)
             self.base_model.add_adapter("baseline", config=config)
             self.base_model.load_adapter(os.path.join(args.modelkg_dir, "baseline"))
+            '''
         else:
             self.base_model = AutoModel.from_pretrained(args.model_dir)
 

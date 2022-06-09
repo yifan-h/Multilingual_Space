@@ -18,6 +18,13 @@ import copy
 from transformers import AutoModel, Conv1D
 import transformers.adapters.composition as ac
 
+seed = 42  # same as X-TREME
+random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+
 
 use_adapter = True
 #pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
@@ -37,7 +44,7 @@ elif base_model == "mtmb":
     tokenizer = AutoTokenizer.from_pretrained("akoksal/MTMB")
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device("cuda:3")
+device = torch.device("cuda:5")
 print(device)
 print(torch.cuda.device_count())
 print(torch.cuda.is_available())
@@ -53,6 +60,7 @@ class Model(nn.Module):
             self.net_bert = AutoModel.from_pretrained(pre_trained)
             if use_adapter:
                 # adapters
+                #'''
                 self.net_bert.add_adapter("ep")
                 self.net_bert.add_adapter("tp")
                 self.net_bert.add_adapter("es")
@@ -63,7 +71,11 @@ class Model(nn.Module):
                 self.net_bert.load_adapter(os.path.join(adapter_path, "tp"))
                 self.net_bert.load_adapter(os.path.join(adapter_path, "es"))
                 self.net_bert.load_adapter(os.path.join(adapter_path, "ts"))
-                self.net_bert.load_adapter_fusion(adapter_path, "ep,tp,es,ts")
+                # self.net_bert.load_adapter_fusion(adapter_path, "ep,tp,es,ts")
+                '''
+                self.net_bert.load_adapter(os.path.join(adapter_path, "tp"))
+                self.net_bert.active_adapters = "tp"
+                '''
             #self.net_bert = MLKGLM(pre_trained)
             #self.net_bert.load_state_dict(torch.load(adapter_path, map_location='cpu'), strict=False)
         elif base_model == "mtmb":
@@ -263,9 +275,49 @@ optimizer = AdamW(optimizer_grouped_parameters, lr=lr, weight_decay=wd)
 optimizer = AdamW(model.parameters(), lr=lr, weight_decay=wd)
 ### Training & Saving the best model
 
+
+
+
+def grad_parameters(model, free=True):
+    for name, param in model.named_parameters():
+        param.requires_grad = free
+    return
+
+def grad_fusion(model, free=True):
+    for name, param in model.named_parameters():
+        if "fusion" in name:
+            param.requires_grad = free
+    return
+
+
+
 batch_size = 16
 best_val_f1 = 0
 accumulation_steps = 4
+# fusion
+grad_parameters(model, False)
+grad_fusion(model, True)
+for epoch in range(10):
+    running_loss = 0.0
+    total_loss = 0.0
+    total = 0
+    correct = 0
+    indices = np.arange(len(X_train_feat))
+    np.random.shuffle(indices)
+    train_outputs = torch.LongTensor([]).to(device)
+    for idx in range(math.ceil(len(X_train_feat)/batch_size)):
+        inputs_0 = X_train_feat[indices[idx*batch_size:min(len(X_train_feat), (idx+1)*batch_size)]].to(device)
+        input_attention = X_train_attention[indices[idx*batch_size:min(len(X_train_attention), (idx+1)*batch_size)]].to(device)
+        labels = y_train[indices[idx*batch_size:min(len(y_train), (idx+1)*batch_size)]].to(device)
+        # print("typeof inputs: {}".format(type(inputs_0)))
+        #outputs = model(np.asarray(inputs_0), input_attention)
+        outputs = model(inputs_0, input_attention)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        optimizer.zero_grad()
+# all model
+grad_parameters(model, True)
 for epoch in range(10):
     running_loss = 0.0
     total_loss = 0.0

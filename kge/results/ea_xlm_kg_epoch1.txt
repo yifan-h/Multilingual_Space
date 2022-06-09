@@ -1,0 +1,33 @@
+Namespace(adam_epsilon=1e-06, batch_num=8, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=4, epoch=1, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base', model_name='XLM-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/xlm_adapter', neg_num=1, patience=2, task_name='ea', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base were not used when initializing XLMRobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.bias']
+- This IS expected if you are initializing XLMRobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing XLMRobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Overwriting existing adapter 'ep'.
+Overwriting existing adapter 'tp'.
+Overwriting existing adapter 'es'.
+Overwriting existing adapter 'ts'.
+KGC: [ en_nb ] | hit@1:  0.91763 hit@5:  0.94819 mrr:  0.90398
+KGC: [ en_da ] | hit@1:  0.91679 hit@5:  0.946 mrr:  0.90502
+KGC: [ en_zh ] | hit@1:  0.49801 hit@5:  0.60734 mrr:  0.49498
+KGC: [ en_mg ] | hit@1:  0.9481 hit@5:  0.97348 mrr:  0.93992
+KGC: [ en_fr ] | hit@1:  0.92052 hit@5:  0.93894 mrr:  0.9135
+KGC: [ en_es ] | hit@1:  0.90116 hit@5:  0.93948 mrr:  0.88559
+KGC: [ en_it ] | hit@1:  0.88372 hit@5:  0.91933 mrr:  0.86938
+KGC: [ en_pl ] | hit@1:  0.87583 hit@5:  0.91855 mrr:  0.86295
+KGC: [ en_fa ] | hit@1:  0.67599 hit@5:  0.775 mrr:  0.66862
+KGC: [ en_ru ] | hit@1:  0.77953 hit@5:  0.85153 mrr:  0.76166
+KGC: [ en_vo ] | hit@1:  0.95768 hit@5:  0.97766 mrr:  0.94131
+KGC: [ en_sv ] | hit@1:  0.90555 hit@5:  0.93896 mrr:  0.89191
+KGC: [ en_eo ] | hit@1:  0.85381 hit@5:  0.90138 mrr:  0.84302
+KGC: [ en_io ] | hit@1:  0.96218 hit@5:  0.98024 mrr:  0.95096
+KGC: [ en_cs ] | hit@1:  0.89795 hit@5:  0.93337 mrr:  0.8864
+KGC: [ en_ast ] | hit@1:  0.93647 hit@5:  0.96395 mrr:  0.9264
+KGC: [ en_pt ] | hit@1:  0.90596 hit@5:  0.94157 mrr:  0.8921
+KGC: [ en_de ] | hit@1:  0.85128 hit@5:  0.86947 mrr:  0.84563
+KGC: [ en_hu ] | hit@1:  0.8922 hit@5:  0.92602 mrr:  0.88023
+KGC: [ en_ar ] | hit@1:  0.63438 hit@5:  0.74028 mrr:  0.6245
+KGC: [ en_ja ] | hit@1:  0.60926 hit@5:  0.71261 mrr:  0.60071
+KGC: [ en_fi ] | hit@1:  0.90004 hit@5:  0.93197 mrr:  0.88825
+KGC: [ en_nl ] | hit@1:  0.90833 hit@5:  0.94448 mrr:  0.8904
+KGC: [ en_yo ] | hit@1:  0.94878 hit@5:  0.96668 mrr:  0.94372
+KGC: [ en_ca ] | hit@1:  0.90189 hit@5:  0.93712 mrr:  0.88819

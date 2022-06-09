@@ -1,41 +1,38 @@
 Namespace(adam_epsilon=1e-06, batch_num=16, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=5, epoch=10, lr=1e-08, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', model_name='mBERT-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_adapter', neg_num=1, patience=2, task_name='kgc', tmp_dir='./tmp/checkpoints', weight_decay=0.0001)
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight']
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias']
 - This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
 Overwriting existing adapter 'ep'.
 Overwriting existing adapter 'tp'.
 Overwriting existing adapter 'es'.
 Overwriting existing adapter 'ts'.
-Overwriting existing adapter fusion module 'ep,tp,es,ts'
-Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight']
+Some weights of the model checkpoint at /cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias']
 - This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
 Overwriting existing adapter 'ep'.
 Overwriting existing adapter 'tp'.
 Overwriting existing adapter 'es'.
 Overwriting existing adapter 'ts'.
-Overwriting existing adapter fusion module 'ep,tp,es,ts'
 ...testing...
-KGC: [ el ] | test hit@1:  0.06654 hit@10:  0.21627 MRR:  0.09405
-KGC: [ en ] | test hit@1:  0.1763 hit@10:  0.36213 MRR:  0.20134
-KGC: [ es ] | test hit@1:  0.16094 hit@10:  0.35625 MRR:  0.1874
-KGC: [ fr ] | test hit@1:  0.16344 hit@10:  0.34581 MRR:  0.1904
-KGC: [ ja ] | test hit@1:  0.03581 hit@10:  0.13313 MRR:  0.05702
-KGC: [ ast ] | test hit@1:  0.17109 hit@10:  0.38009 MRR:  0.20085
-KGC: [ ca ] | test hit@1:  0.17438 hit@10:  0.37276 MRR:  0.20507
-KGC: [ da ] | test hit@1:  0.18589 hit@10:  0.38153 MRR:  0.21189
-KGC: [ de ] | test hit@1:  0.16778 hit@10:  0.35206 MRR:  0.19328
-KGC: [ fa ] | test hit@1:  0.07943 hit@10:  0.20352 MRR:  0.09858
-KGC: [ fi ] | test hit@1:  0.13981 hit@10:  0.33734 MRR:  0.16891
-KGC: [ hu ] | test hit@1:  0.16341 hit@10:  0.3534 MRR:  0.19163
-KGC: [ it ] | test hit@1:  0.16851 hit@10:  0.35141 MRR:  0.1934
-KGC: [ nb ] | test hit@1:  0.18697 hit@10:  0.39455 MRR:  0.21496
-KGC: [ nl ] | test hit@1:  0.17238 hit@10:  0.36631 MRR:  0.19667
-KGC: [ pl ] | test hit@1:  0.16544 hit@10:  0.38259 MRR:  0.19589
-KGC: [ pt ] | test hit@1:  0.1674 hit@10:  0.35019 MRR:  0.19408
-KGC: [ ru ] | test hit@1:  0.07378 hit@10:  0.23034 MRR:  0.1016
-KGC: [ sv ] | test hit@1:  0.16973 hit@10:  0.37454 MRR:  0.1993
-KGC: [ zh ] | test hit@1:  0.04516 hit@10:  0.15014 MRR:  0.07015
-
-KGC: [ eo ] | test hit@1:  0.20872 hit@10:  0.52129 MRR:  0.24877
-KGC: [ vo ] | test hit@1:  0.5 hit@10:  0.80488 MRR:  0.49171
+KGC: [ el ] | test hit@1:  0.08503 hit@10:  0.24399 MRR:  0.1115
+KGC: [ en ] | test hit@1:  0.18549 hit@10:  0.39706 MRR:  0.21266
+KGC: [ es ] | test hit@1:  0.17654 hit@10:  0.40746 MRR:  0.2048
+KGC: [ fr ] | test hit@1:  0.17448 hit@10:  0.37714 MRR:  0.19948
+KGC: [ ja ] | test hit@1:  0.03581 hit@10:  0.1269 MRR:  0.05833
+KGC: [ ast ] | test hit@1:  0.19058 hit@10:  0.42437 MRR:  0.21771
+KGC: [ ca ] | test hit@1:  0.1906 hit@10:  0.41501 MRR:  0.21477
+KGC: [ da ] | test hit@1:  0.19875 hit@10:  0.42245 MRR:  0.23012
+KGC: [ de ] | test hit@1:  0.17393 hit@10:  0.39517 MRR:  0.2036
+KGC: [ fa ] | test hit@1:  0.05281 hit@10:  0.14427 MRR:  0.06916
+KGC: [ fi ] | test hit@1:  0.16073 hit@10:  0.38381 MRR:  0.19138
+KGC: [ hu ] | test hit@1:  0.18374 hit@10:  0.39328 MRR:  0.21366
+KGC: [ it ] | test hit@1:  0.17266 hit@10:  0.38821 MRR:  0.19767
+KGC: [ nb ] | test hit@1:  0.19544 hit@10:  0.43062 MRR:  0.23286
+KGC: [ nl ] | test hit@1:  0.19138 hit@10:  0.40848 MRR:  0.2169
+KGC: [ pl ] | test hit@1:  0.18612 hit@10:  0.41027 MRR:  0.21764
+KGC: [ pt ] | test hit@1:  0.17933 hit@10:  0.38662 MRR:  0.20581
+KGC: [ ru ] | test hit@1:  0.10322 hit@10:  0.23762 MRR:  0.12087
+KGC: [ sv ] | test hit@1:  0.18677 hit@10:  0.40595 MRR:  0.21996
+KGC: [ zh ] | test hit@1:  0.0413 hit@10:  0.15399 MRR:  0.06366
+KGC: [ eo ] | test hit@1:  0.24195 hit@10:  0.51713 MRR:  0.26929
+KGC: [ vo ] | test hit@1:  0.51829 hit@10:  0.79878 MRR:  0.52371
