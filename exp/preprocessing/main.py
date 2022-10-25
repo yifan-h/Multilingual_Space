@@ -19,13 +19,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multilingual Space")
 
     # data
-    parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/sub_clean",
+    parser.add_argument("--data_dir", type=str, default="./data/wikidata/sub_clean",
                         help="the input data directory.")
-    parser.add_argument("--kg_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/downstream/dbp5l",
+    parser.add_argument("--kg_dir", type=str, default="./data/wikidata/downstream/dbp5l",
                         help="the KG data directory.")
     parser.add_argument("--file_idx", type=str, default="000",
                         help="the idx of the entity file in parallel.")
-    parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/",
+    parser.add_argument("--model_dir", type=str, default="./models/",
                         help="The stored model directory.")
     parser.add_argument("--simulate_model", type=str, default="xlm-roberta-base",
                         help="multilingual LMs to analyze")

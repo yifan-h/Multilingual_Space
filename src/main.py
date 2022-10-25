@@ -11,11 +11,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multilingual Space")
 
     # data
-    parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/sub_clean_rich10",
+    parser.add_argument("--data_dir", type=str, default="./data",
                         help="the input data directory.")
-    parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased",
+    parser.add_argument("--model_dir", type=str, default="./model",
                         help="The stored model directory.")
-    parser.add_argument("--tmp_dir", type=str, default="./tmp/mbert_adapter",
+    parser.add_argument("--tmp_dir", type=str, default="./adapters/mlki_mbert",
                         help="The stored model directory.")
 
     # model

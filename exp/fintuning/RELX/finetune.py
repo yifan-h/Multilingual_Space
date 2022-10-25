@@ -27,15 +27,13 @@ torch.backends.cudnn.benchmark = False
 
 
 use_adapter = True
-#pre_trained = '/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased'
-#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/mbert_adapter"
-#pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-base"
-#adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlm_adapter"
-pre_trained = "/cluster/work/sachan/yifan/huggingface_models/xlm-roberta-large"
-adapter_path = "/cluster/scratch/yifhou/Multilingual_Space/tmp/xlmr_adapter"
 
-dataset_training = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/kbp37"
-dataset_relxt = "/cluster/work/sachan/yifan/data/wikidata/downstream/relx/data/RELX"
+pre_trained = "./models/xlm-roberta-large"
+adapter_path = "./adapters/xlmr_adapter"
+
+dataset_training = "./dataset/relx/data/kbp37"
+dataset_relxt = "./dataset/relx/data/RELX"
+
 max_seq_length = 256
 base_model = "mbert" # You can also set to mbert
 if base_model == "mbert":

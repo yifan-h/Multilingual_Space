@@ -15,11 +15,11 @@ if __name__ == "__main__":
     # data
     parser.add_argument("--task_name", type=str, default="kgc",
                         help="task to do: kgc or ea")
-    parser.add_argument("--data_dir", type=str, default="/cluster/work/sachan/yifan/data/wikidata/downstream",
+    parser.add_argument("--data_dir", type=str, default="./data/wikidata/downstream",
                         help="the input data directory.")
-    parser.add_argument("--model_dir", type=str, default="/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased",
+    parser.add_argument("--model_dir", type=str, default="./models/bert-base-multilingual-cased",
                         help="The stored model directory.")
-    parser.add_argument("--modelkg_dir", type=str, default="/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_adapter",
+    parser.add_argument("--modelkg_dir", type=str, default="./adapters/mbert_adapter",
                         help="The stored model directory.")
     parser.add_argument("--model_name", type=str, default="mBERT",
                         help="The model to test: [mBERT, XLM, mBERT-KG, XLM-KG].")
