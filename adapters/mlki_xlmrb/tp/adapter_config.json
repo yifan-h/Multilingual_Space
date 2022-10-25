@@ -1,0 +1,24 @@
+{
+  "config": {
+    "adapter_residual_before_ln": false,
+    "cross_adapter": false,
+    "inv_adapter": null,
+    "inv_adapter_reduction_factor": null,
+    "leave_out": [],
+    "ln_after": false,
+    "ln_before": false,
+    "mh_adapter": false,
+    "non_linearity": "relu",
+    "original_ln_after": true,
+    "original_ln_before": true,
+    "output_adapter": true,
+    "reduction_factor": 16,
+    "residual_before_ln": true
+  },
+  "config_id": "9076f36a74755ac4",
+  "hidden_size": 768,
+  "model_class": "XLMRobertaModel",
+  "model_name": null,
+  "model_type": "xlm-roberta",
+  "name": "tp"
+}

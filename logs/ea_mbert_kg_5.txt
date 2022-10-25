@@ -1,7 +1,0 @@
-Namespace(adam_epsilon=1e-06, batch_num=128, data_dir='/cluster/work/sachan/yifan/data/wikidata/downstream', device=1, epoch=50, lm_lr=1e-06, lr=1e-06, model_dir='/cluster/work/sachan/yifan/huggingface_models/bert-base-multilingual-cased', model_name='mBERT-KG', modelkg_dir='/cluster/project/sachan/yifan/projects/Multilingual_Space/tmp/mbert_80/final_v3.pt', neg_num=1, patience=2, tmp_dir='./tmp/checkpoints', weight_decay=0.001)
-The number of objects [ en_de ] is:  33557
-KGC: [ en_de ] | hit@1:  0.6824 hit@5:  0.7612 mrr:  0.7188
-The performance (hit@1, hit@10) of language [ en_de ] is:  [0.6824, 0.7612, 0.7188]
-The number of objects [ en_fr ] is:  36210
-KGC: [ en_fr ] | hit@1:  0.7288 hit@5:  0.8253 mrr:  0.7735
-The performance (hit@1, hit@10) of language [ en_fr ] is:  [0.7288, 0.8253, 0.7735]
