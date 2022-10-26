@@ -31,8 +31,8 @@ use_adapter = True
 pre_trained = "./models/xlm-roberta-large"
 adapter_path = "./adapters/xlmr_adapter"
 
-dataset_training = "./dataset/relx/data/kbp37"
-dataset_relxt = "./dataset/relx/data/RELX"
+dataset_training = "./data/relx/data/kbp37"
+dataset_relxt = "./data/relx/data/RELX"
 
 max_seq_length = 256
 base_model = "mbert" # You can also set to mbert
