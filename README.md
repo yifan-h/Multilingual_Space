@@ -7,9 +7,9 @@
 
 Source code for "[Adapters for Enhanced Modeling of Multilingual Knowledge and Text](https://arxiv.org/abs/2210.13617)"
 
-Below is a figure to describe **functions of our adapters in the knowledge adapter set**. 
-
 We provide pretrained knowledge adapter sets for mBERT, XLMR-base and XLMR-large. Users could find them via [AdapterHub](https://adapterhub.ml/explore/) and [HuggingFace](https://huggingface.co/yyyyifan/mlkiadapter/tree/main).
+
+Below is a figure to describe **functions of our adapters in the knowledge adapter set**. 
 
 ![image](./data/adapter_set.png)
 
@@ -53,6 +53,11 @@ If you want to use the adapter set with a fusion mechanism, for example using `A
 
 After these adapters are loaded, the language model becomes an enhanced one and can be used as usual.
 
+---
+
+### Train your own Knowledge Adapter Set
+
+We provide the source code for adapter training in `./src`. We also provide the processed datasets (Wikidata, Wikipedia, and T-REx), users can easily get them [here (kicorpus.tar.gz)](https://polybox.ethz.ch/index.php/s/bBAMdz5mE3xRNzT). Besides, in [that folder]((https://polybox.ethz.ch/index.php/s/bBAMdz5mE3xRNzT)) users can find our extended multilingual knowledge graph completion dataset (entity alignment and knowledge graph completion) across 22 languages.
 
 ---
 
