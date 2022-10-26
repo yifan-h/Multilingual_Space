@@ -37,19 +37,15 @@ files:
   url: https://github.com/yifan-h/Multilingual_Space/tree/main/adapters/xlm-roberta-base_mlki_ep_pfeiffer.zip
   sha1: 6407e5c0723f63b9982f8d6e7592f2aa7c9e788b
   sha256: 948628b6268fb4e656ba9f302baa919bff105e0182d6acc9e820cc18456cb4ec
-citation: ''
-
-# (optional) A list of adapters this adapter is dependent on.
-dependencies:
-    # The key (username/filename_without_ext) of the adapter dependency.
-    # Example: example-org/text_task-sst-bert
-- key: ''
-    # (optional) A short description how this adapter is dependent.
-  description: ''
-#   - ...
+citation: '@article{hou2022adapters,
+  title={Adapters for Enhanced Modeling of Multilingual Knowledge and Text},
+  author={Hou, Yifan and Jiao, Wenxiang and Liu, Meizhen and Allen, Carl and Tu, Zhaopeng and Sachan, Mrinmaya},
+  journal={arXiv preprint arXiv:2210.13617},
+  year={2022}
+}'
 
 # (optional) A short description of this adapter.
-description: ''
+description: 'Knowledge adapter set for multilingual knowledge graph integration. This adapter is for cross-lingual entity alignment enhancement (phrase-level). We trained it with alignments from Wikidata across 84 languages.'
 
 # (optional) A contact email of the author(s).
 email: yifan.hou@inf.ethz.ch
