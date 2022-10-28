@@ -1,13 +1,13 @@
 ## Knowledge Adapter Set for Multilingual Language Model Enhancement
 
 [![arxiv](https://img.shields.io/badge/arXiv-2210.13617-b31b1b)](https://arxiv.org/abs/2210.13617)
-[![Adapter Online](https://img.shields.io/badge/AdapterHub-Adapters-orange)](https://adapterhub.ml/explore/)
+[![Adapter Online](https://img.shields.io/badge/AdapterHub-Adapters-orange)](https://adapterhub.ml/explore/#:~:text=Multilingual%20Knowledge%20Integration)
 [![Adapter Download](https://img.shields.io/badge/Download-Adapters-yellow)](https://huggingface.co/yyyyifan/mlkiadapter/tree/main)
 [![Dataset Download](https://img.shields.io/badge/Download-Datasets-green)](https://polybox.ethz.ch/index.php/s/bBAMdz5mE3xRNzT)
 
 Source code for "[Adapters for Enhanced Modeling of Multilingual Knowledge and Text](https://arxiv.org/abs/2210.13617)"
 
-We provide pretrained knowledge adapter sets for mBERT, XLMR-base and XLMR-large. Users could find them via [AdapterHub](https://adapterhub.ml/explore/) and [HuggingFace](https://huggingface.co/yyyyifan/mlkiadapter/tree/main).
+We provide pretrained knowledge adapter sets for mBERT, XLMR-base and XLMR-large. Users could find them via [AdapterHub](https://adapterhub.ml/explore/#:~:text=Multilingual%20Knowledge%20Integration) and [HuggingFace](https://huggingface.co/yyyyifan/mlkiadapter/tree/main).
 
 Below is a figure to describe **functions of our adapters in the knowledge adapter set**. 
 
